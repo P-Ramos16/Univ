@@ -1,0 +1,31 @@
+html, body {
+    background-color: rgb(61, 61, 61)!important;
+    color: #ffffff!important;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+.img0 {
+    position: relative;
+    width: 40vw;
+    left: 30vw;
+}
+
+.btn0 {
+    top: 0vh;
+    position: relative;
+}
+
+.block {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    display: block;
+    width: 5vw;
+    height: 5vh;
+    background-color: blueviolet;
+    margin: 5vw;
+}

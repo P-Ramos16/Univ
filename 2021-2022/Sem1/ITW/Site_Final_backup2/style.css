@@ -1,0 +1,462 @@
+:root { /* Isto é apenas para criar variaveis, a cor é irrelevante pois muda com o js */
+    --main_color: #000000;
+    --sec_color: #000000;
+    --trd_color: #000000;
+    --bg_color: #000000;
+  }
+ 
+html {
+    background-color: var(--bg_color);
+}
+
+body {
+    color: var(--main_color);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    padding-bottom: 5vh;
+    min-height: 100vh;
+}
+
+main {
+    background-color: var(--bg_color);
+    color: var(--main_color);
+    width: 80%;
+    left: 10%;
+    position: relative;
+    padding-bottom: 5vh;
+}
+
+.topnav {  
+    border: 2px solid var(--bg_color);
+    margin-top: 1vh;
+    border-radius: 15px;
+    margin-bottom: 5vh;
+    position: fixed;
+    top: 0;
+    left: 10vw;
+    width: 79vw;
+    z-index: 1000;
+    background-color: #000000aa;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: right;
+}
+
+.topnav a.active {
+    background-color: var(--sec_color);
+    color: white;
+}
+  
+.topnav .icon {
+    display: none;
+} 
+
+.right-nav {
+    float: right;
+    left: -5vw;
+    position: relative;
+}
+
+.left-nav {
+    float: left!important;
+    left: 5vw;
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+    
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  } 
+
+  .button1 {
+    text-decoration: none;
+	color: var(--bg_color);
+    border: 2px solid var(--bg_color);
+    background-color: #00000088;
+	height: 4vh;
+	width: auto;
+	border-radius: 4px;
+	text-align: middle;
+	vertical-align: middle;
+	transition: all 0.5s;
+	cursor: pointer;
+    font-size: 1.5em;
+	margin: 5px;
+    overflow: visible;
+    padding: 1.35vh 1vw 0vw 1vw;
+}
+
+.button1 span {
+	color: var(--bg_color);
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.75s;
+    overflow: visible;
+}
+.button1 span:after {
+	color: var(--bg_color);
+	content: ' \276F\276F';
+	position: absolute;
+    font-size: 0.6em;
+    letter-spacing: -3px;
+    top: 0.8vh;
+	opacity: 0;
+	right: -1.5vw;
+	transition: 1s;
+}
+.button1:hover span {
+	color: var(--sec_color);
+	padding-right: 1vw;
+}
+.button1:hover span:after {
+	color: var(--sec_color);
+	opacity: 1;
+	right: 0;
+}
+.button1:focus {
+	background-color: var(--bg_color)!important;
+	color: var(--sec_color);
+	opacity: 1;
+}
+.button1:focus span {
+	color: var(--sec_color);
+}
+.button1:hover {
+	background-color: var(--bg_color)!important;
+	color: var(--main_color);
+}
+
+.button1:active {
+	background-color: var(--bg_color)!important;
+	color: var(--main_color);
+}
+@media screen and (max-width: 600px) {
+	.button1:hover{background-color: var(--main_color)!important;color: var(--main_color);}
+}
+
+
+
+
+.button2 {
+    text-decoration: none;
+	color: var(--main_color);
+    border: 2px solid var(--bg_color);
+    background-color: #00000088;
+	height: 4vh;
+	width: auto;
+	border-radius: 4px;
+	text-align: middle;
+	vertical-align: middle;
+	transition: all 0.5s;
+	cursor: pointer;
+    font-size: 1.5em;
+	margin: 5px;
+    overflow: visible;
+    padding: 1.35vh 1vw 0vw 1vw;
+}
+
+.button2 span {
+	color: var(--main_color);
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.75s;
+    overflow: visible;
+}
+
+.button2:focus {
+	background-color: var(--bg_color)!important;
+	color: var(--sec_color);
+	opacity: 1;
+}
+.button2:focus span {
+	color: var(--sec_color);
+}
+.button2:hover {
+	background-color: var(--bg_color)!important;
+	color: var(--main_color);
+}
+
+.button2:active {
+	background-color: var(--bg_color)!important;
+	color: var(--main_color);
+}
+@media screen and (max-width: 600px) {
+	.button1:hover{background-color: var(--main_color)!important;color: var(--main_color);}
+}
+
+.themeBubbles {
+    float: left;
+    top: 2vh;
+    margin-left: 16vw;
+    position: fixed;
+}
+
+.bubbleButton {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    background:#212531;
+    padding: 0%;
+    border: 0px;
+    margin-right: 0.5vw;
+}
+
+.carousel {
+    position: relative;
+    width: 100vw;
+    height: 75vh;
+}
+
+.carousel-image {
+    background-attachment: fixed;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100% 75vh;
+    width: 100%;
+    height: 75vh;
+}
+
+.main-text {
+    padding-top: 2vh;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 1.75em;
+}
+
+.mainBody {
+    margin-top: 10vh;
+    position: relative;
+}
+
+.row {
+    margin-top: 3vh;
+}
+
+.cards-row {
+    width: 90%;
+    left: 5%;
+    position: relative;
+}
+
+.col {
+    margin-top: 4vh;
+}
+
+.search {
+    width: 50%;
+}
+
+
+.card {
+    border: 2px solid var(--bg_color);
+    border-width: 2px 2px 0px 0px;
+    border-radius: 15px;
+
+    color: var(--sec_color);
+    background-color: transparent;
+}
+
+.card-body {
+    font-size: 1em;
+    text-align:justify
+}
+
+.card-img {
+    position: relative;
+    left: 5%;
+    width: 90%;
+}
+
+.card-title {
+    color: var(--bg_color);
+}
+
+.card-button {
+    color: var(--sec_color);
+    background-color: transparent;
+    border: 1px solid var(--bg_color);
+}
+
+.card-button:hover {
+    color: var(--sec_color);
+    background-color: var(--bg_color);
+    border: 1px solid var(--bg_color);
+}
+
+.top-drivers {
+    background-image: url("images/ferrari.png");
+    background-attachment: fixed;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100% 30vh;
+    text-align: center;
+    padding-top: 12.5vh;
+    color: var(--bg_color);;
+    width: 100%;
+    height: 30vh;
+}
+
+.main-top {
+    width: 80%;
+    left: 10%;
+    margin: auto;
+}
+
+.main-table {
+    background-color: #00000044;
+	color: whitesmoke;
+}
+
+.table-details {
+	color: whitesmoke;
+}
+
+.table-details  .row {
+    background-color: #00000044;
+}
+
+.img-details-drivers {
+    margin-top: 2.5vh;
+    width: 100%;
+    border: 5px solid var(--bg_color);
+}
+
+.img-details-constructors {
+    height: 100%;
+    max-height: 17.5vh;
+    top: -2vh;
+    position: relative;
+    border: 5px solid var(--bg_color);
+    border-width: 0px 0px 5px 0px;
+}
+
+.listedInfo {
+    width: 30%;
+    margin-right: 2.5%;
+    margin-bottom: 1%;
+    color: var(--main_color)!important;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.listedInfo > a {
+    margin-left: 2.5%;
+    color: var(--sec_color)!important;
+}
+
+.raceResults {
+    width: 30%;
+    margin-right: 3%;
+    margin-bottom: 2%;
+    color: var(--main_color)!important;
+    text-align: center;
+    border: 1px solid var(--sec_color);
+
+}
+
+.raceResults > a {
+    margin-left: 2.5%;
+    color: var(--sec_color)!important;
+}
+
+.top-driverDetails {
+    background-image: url("images/pilots.jpg");
+    background-attachment: fixed;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100% 40vh;
+    text-align: center;
+    color: var(--bg_color);;
+    width: 100%;
+    height: 30vh;
+}
+
+.top-constructors {
+    background-image: url("images/cons_banner.jpeg");
+    background-attachment: fixed;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100% 30vh;
+    text-align: center;
+    padding-top: 12.5vh;
+    color: var(--bg_color);;
+    width: 100%;
+    height: 30vh;
+}
+
+
+
+.selectRow {
+    width: 95%;
+    margin: auto;
+}
+
+.selectCol {
+    border: 5px solid var(--sec_color);
+    border-radius:  5px;
+    padding-bottom: 2.5vh;
+}
+
+.selectCol > h2 {
+    color: var(--bg_color);
+    margin-bottom: 5vh;
+}
+
+.selectCol > h4 {
+    color: var(--sec_color);
+    margin-bottom: 5vh;
+}
+
+.winnersCol > h3 {
+    margin-top: 1vh;
+}
+
+.firstPlace {
+    color: black;
+    background-image: linear-gradient(135deg, gold, rgb(187, 159, 0));
+    text-align: center;
+    padding-bottom: 5vh;
+}
+
+.secondPlace {
+    color: black;
+    background-image: linear-gradient(135deg, rgb(187, 187, 187), rgb(112, 112, 112));
+    text-align: center;
+    margin-top: 10vh;
+    padding-bottom: 5vh;
+}
+
+.thirdPlace {
+    color: black;
+    background-image: linear-gradient(135deg, #f89175, #9b5846);
+    text-align: center;
+    margin-top: 15vh;
+    padding-bottom: 5vh;
+}
+
+
+
+
+
+

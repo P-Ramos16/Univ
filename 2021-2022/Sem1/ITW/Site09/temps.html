@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Weather Test</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href=" https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <select id="citySelector" class="form-select">
+            <option value="">Select a city name</option>
+            <option value="Aveiro, PT">Aveiro</option>
+            <option value="Porto, PT">Porto</option>
+            <option value="Paris, FR">Paris</option>
+            <option value="London, UK">Londres</option>
+            <option value="New York, USA">Nova Iorque</option>
+        </select>
+        <table class="table table-striped d-none">
+            <tr><td class="col-xs-2">City Name:</td><td class="col-xs-10" id="cityName"></td></tr>
+            <tr><td class="col-xs-2">Coordinates:</td><td class="col-xs-10" id="coordinates"></td></tr>
+            <tr><td class="col-xs-2">weather:</td><td class="col-xs-10" id="weather"></td></tr>
+            <tr><td class="col-xs-2">temp:</td><td class="col-xs-10" id="temp"></td></tr>
+            <tr><td class="col-xs-2">pressure:</td><td class="col-xs-10" id="pressure"></td></tr>
+            <tr><td class="col-xs-2">Dados recolhidos</td><td class="col-xs-10" ><pre id="allData"></pre></td></tr>
+        </table>
+    </div> 
+    <script>
+        $(document).ready(function () {
+            $("#citySelector").change(function () {
+                $.ajax({
+                    url: "http://api.openweathermap.org/data/2.5/weather",
+                    data: {
+                        q: $("#citySelector").val(),
+                        APPID: 'b2b1df463182c3cca5276e9d3267cc95'
+                        },
+                        success: function (data) {
+                            if (data.name){
+                                $('table').removeClass('d-none');
+                                $("#cityName").html(data.name + ' / ' + data.sys.country);
+                                $("#coordinates").html('Lon (º): ' + data.coord.lon + ' / Lat (º):' + data.coord.lat);
+                                $("#weather").html(data.weather[0].description);
+                                $("#temp").html(data.main.temp.toString() + 'ºK / ' + (data.main.temp - 273.15).toString() + 'ºC');
+                                $("#pressure").html(data.main.pressure);
+                                $("#allData").html(JSON.stringify(data, null, 4).replace(/\n/g, "<br>"));
+                            }
+                            else {
+                                $('table').addClass('d-none');
+                                alert(data.message);
+                            }
+                        },
+                        
+                        error: function () {
+                        $('table').addClass('d-none');
+                        alert('Erro!');
+                    }
+                });
+            });
+        }); 
+    </script>
+    <script src="script.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

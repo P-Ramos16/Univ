@@ -1,0 +1,19 @@
+html {
+    background-color: rgb(255, 255, 255);
+}
+
+.dicio {
+    width: 20vw;
+    margin: 3vw;
+    position: relative;
+    background-color: #585858;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 2.5vw;
+    float: left;
+}
+
+.roman_list {
+    list-style: upper-roman;
+}

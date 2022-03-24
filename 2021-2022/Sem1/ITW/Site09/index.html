@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+<title>jQuery Weather Test</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href=" https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <input class="inputTxt" id="name" name="name" placeholder="Insira o seu nome">
+            <div class="d-none text-danger col-form-label" name="nomeError" id="nomeError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 10 letras, Max: 100 letras).</div>
+            
+            <input class="inputTxt" id="morada" name="morada" placeholder="Insira a sua morada">
+            <div class="d-none text-danger col-form-label" name="moradaError" id="moradaError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 20 letras, Max: 200 letras).</div>
+            
+            <input class="inputTxt" id="email"  name="email"type="email" placeholder="Insira o seu email">
+            <div class="d-none text-danger col-form-label" name ="emailError" id="emailError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 10 letras, Max: 100 letras).</div>
+            <fieldset>
+                <legend>Localidade de preferencia (selecionar 2)</legend>
+                <input type="checkbox" class="locais" id="local" name="local1" value="frente">
+                <label for="local1"> Relva Frente - 100€</label><br>
+                <input type="checkbox" class="locais" id="local" name="local2" value="tras">
+                <label for="local2"> Relva Trás - 80€</label><br>
+                <input type="checkbox" class="locais" id="local" name="local3" value="lado">
+                <label for="local3"> Bancada Lateral - 50€</label> <br>
+                <input type="checkbox" class="locais" id="local" name="local4" value="centro">
+                <label for="local4"> Bancada Central - 65€</label>
+            </fieldset>
+            <input value="0€" name="preco" id="preco" class="precoClass"> <br>
+            <button type="Submit" id="submitBtn" class="btn btn-primary" onclick="return">Submeter</button>
+        </form>
+
+        
+    </div> 
+    <script src="script.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

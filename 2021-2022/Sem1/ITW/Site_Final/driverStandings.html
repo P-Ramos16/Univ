@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>F1 Pódio Drivers 2020</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body onload="divtest();">
+
+    <div class="topnav" id="myTopnav">
+        <a class="button1 left-nav" href="index.html" class="active" style="float: left;"><span style="top:-1.5vh;">Início</span></a>
+        <img src="" class="nav-image">
+
+        <div class="themeBubbles">
+            <button value ="1" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #03bfb5 50%, #004146 50%);"></button>
+            <button value ="3" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #B2B9D1 50%, #FF0026 50%);"></button>
+            <button value ="0" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #F7d31d 50%, #F60000 50%);"></button>
+            <button value ="2" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #005fd8 50%, #FF9700 50%);"></button>
+        </div>
+
+        <a class="button1 right-nav" href="about.html"><span style="top:-1.5vh;">About</span></a>
+        <a class="button1 right-nav" href="seasons.html"><span style="top:-1.5vh;">Seasons</span></a>
+        <a class="button1 right-nav" href="circuits.html"><span style="top:-1.5vh;">Circuits</span></a>
+        <a class="button1 right-nav" href="constructors.html"><span style="top:-1.5vh;">Constructors</span></a>
+        <a class="button1 right-nav" href="drivers.html"><span style="top:-1.5vh;">Drivers</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="top-driversPodium">
+        <h1>Driver Standings</h1>
+    </div>
+
+    <main class="mainBody">
+        <div class="row selectRow">
+            <div class="col winnersCol secondPlace">
+                <h1>2º Place</h1>
+                <img src="drivers/images/bottas.jpg" style="width:70%;">
+                <h3>Valteri Bottas</h3>
+                <h5 style="color:#000000;"><hr> Team Mercedes <hr> Finland <hr> 223 Points</h5>
+                <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=822"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+            </div>
+
+            <div class="col col-1"></div>   
+
+            <div class="col winnersCol firstPlace">
+                <h1>1º Place</h1>
+                <img src="drivers/images/lewis.jpg" style="width:70%;">
+                <h3>Lewis Hamilton</h3>
+                <h5 style="color:#000000;"><hr> Team Mercedes <hr> Great Brittan <hr> 347 Points</h5>
+                <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=1"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+            </div>
+
+            <div class="col col-1"></div>   
+
+            <div class="col winnersCol thirdPlace">
+                <h1>3º Place</h1>
+                <img src="drivers/images/max.jpg" style="width:70%;">
+                <h3>Max Verstappen</h3>
+                <h5 style="color:#000000;"><hr>Team Red Bull Racing Honda <hr> Belgium <hr> 214 Points</h5>
+                <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=830"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+            </div>
+        </div>
+        <br>
+        <table class="table main-table" style="width:90%;left:5%;position: relative;">
+            <thead class="bg-dark text-light">
+                <tr>
+                    <th scope="col col-1">Position</th>
+                    <th scope="col col-4">Name</th>
+                    <th scope="col col-2">Nationality</th>
+                    <th scope="col col-3">Team</th>
+                    <th scope="col col-2">Points</th>
+                    <th scope="col" class="text-right"></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: records">
+                <tr>
+                    <td class="align-middle">4</td>
+                    <td class="align-middle">Sergio Perez</td>
+                    <td class="align-middle">Mexico</td>
+                    <td class="align-middle">Racing Point BWT Mercedes</td>
+                    <td class="align-middle">125</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=815"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">5</td>
+                    <td class="align-middle">Daniel Ricciardo</td>
+                    <td class="align-middle">Australia</td>
+                    <td class="align-middle">Renault</td>
+                    <td class="align-middle">119</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=817"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">6</td>
+                    <td class="align-middle">Carlos Sainz</td>
+                    <td class="align-middle">Spanish</td>
+                    <td class="align-middle">McLaren Renault</td>
+                    <td class="align-middle">105</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=832"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">7</td>
+                    <td class="align-middle">Alexander Albon</td>
+                    <td class="align-middle">Thai</td>
+                    <td class="align-middle">Red Bull Racing Honda</td>
+                    <td class="align-middle">105</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=848"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">8</td>
+                    <td class="align-middle">Charles Leclerc</td>
+                    <td class="align-middle">Monacan</td>
+                    <td class="align-middle">Ferrari</td>
+                    <td class="align-middle">98</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=844"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">9</td>
+                    <td class="align-middle">Lando Norris</td>
+                    <td class="align-middle">Great Brittan</td>
+                    <td class="align-middle">McLaren Renault</td>
+                    <td class="align-middle">97</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=846"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">10</td>
+                    <td class="align-middle">Pierre Gasly</td>
+                    <td class="align-middle">France</td>
+                    <td class="align-middle">Alphatauri Honda</td>
+                    <td class="align-middle">75</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=842"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">11</td>
+                    <td class="align-middle">Lance Stroll</td>
+                    <td class="align-middle">Canada</td>
+                    <td class="align-middle">Racing Point BWT Mercedes</td>
+                    <td class="align-middle">75</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=840"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">12</td>
+                    <td class="align-middle">Esteban Ocon</td>
+                    <td class="align-middle">France</td>
+                    <td class="align-middle">Renault</td>
+                    <td class="align-middle">62</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=839"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">13</td>
+                    <td class="align-middle">Sebastian Vettel</td>
+                    <td class="align-middle">Germany</td>
+                    <td class="align-middle">Ferrari</td>
+                    <td class="align-middle">33</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=20"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">14</td>
+                    <td class="align-middle">Daniil Kvyat</td>
+                    <td class="align-middle">Russia</td>
+                    <td class="align-middle">Alphatauri Honda</td>
+                    <td class="align-middle">32</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=826"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">15</td>
+                    <td class="align-middle">Nico Hülkenberg</td>
+                    <td class="align-middle">Germany</td>
+                    <td class="align-middle">Racing Point BWT Mercedes</td>
+                    <td class="align-middle">10</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=807"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">16</td>
+                    <td class="align-middle">Kimi Räikkönen</td>
+                    <td class="align-middle">Finland</td>
+                    <td class="align-middle">Alfa Romeu Racing Ferrari</td>
+                    <td class="align-middle">4</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=8"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">17</td>
+                    <td class="align-middle">Antonio Giovinazzi</td>
+                    <td class="align-middle">Italy</td>
+                    <td class="align-middle">Alfa Romeu Racing Ferrari</td>
+                    <td class="align-middle">4</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=841"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">18</td>
+                    <td class="align-middle">George Russell</td>
+                    <td class="align-middle">Great Brittan</td>
+                    <td class="align-middle">Williams Mercedes</td>
+                    <td class="align-middle">3</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=847"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">19</td>
+                    <td class="align-middle">Romain Grosjean</td>
+                    <td class="align-middle">France</td>
+                    <td class="align-middle">Haas Ferrari</td>
+                    <td class="align-middle">2</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=154"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">20</td>
+                    <td class="align-middle">Kevin Magnussen</td>
+                    <td class="align-middle">Denmark</td>
+                    <td class="align-middle">Haas Ferrari</td>
+                    <td class="align-middle">1</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=825"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">21</td>
+                    <td class="align-middle">Nicholas Latifi</td>
+                    <td class="align-middle">Canada</td>
+                    <td class="align-middle">Williams Mercedes</td>
+                    <td class="align-middle">0</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=849"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">22</td>
+                    <td class="align-middle">Jack Aitken</td>
+                    <td class="align-middle">Great Brittan</td>
+                    <td class="align-middle">Williams Mercedes</td>
+                    <td class="align-middle">0</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=851"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">23</td>
+                    <td class="align-middle">Pietro Fittipaldi</td>
+                    <td class="align-middle">Brasil</td>
+                    <td class="align-middle">Haas Ferrari</td>
+                    <td class="align-middle">0</td>
+                    <td class="text-end">
+                        <a class="btn btn-default btn-light btn-sm" href="driverDetails.html?id=850"><i class="fa fa-eye" title="Selecione para ver detalhes"></i></a>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>    
+    </main>
+
+        <!--Footer-->
+        <div class="container-fluid mt-5">
+            <div class="card mx-5 footer">
+                <div class="row mb-4 ">
+                    <div class="col-md-4 col-sm-11 col-xs-11">
+                        <div class="footer-text pull-left">
+                            <div class="d-flex"> 
+                                <h1 style="color: snow">Pedro Ramos e Vasco Vouzela</h1>
+                            </div>
+                            <p class="card-text">Caso encontre algum problema no WebSite por favor contacte-nos! Lembramos que o F1 FanHub não é um WebSite oficial da Fórmula 1</p>
+                            <div class="social mt-2 mb-3"> <i class="fa fa-facebook-official fa-lg"></i> <i class="fa fa-instagram fa-lg"></i> <i class="fa fa-twitter fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-facebook"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
+                    <div class="col-md-2 col-sm-4 col-xs-4">
+                        <h5 class="heading">Este Website disponibiliza</h5>
+                        <ul>
+                            <li>Informações sobre drivers</li>
+                            <li>Informações sobre constructors</li>
+                            <li>Informações sobre circuitos</li>
+                            <li>Páginas Interativas</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-4">
+                        <h5 class="heading">Contacte-nos</h5>
+                        <ul class="card-text">
+                            <li>p.ramos@ua.pt</li>
+                            <li>vascovouzela@ua.pt</li>
+                            <li>Universidade de Aveiro - DETI</li>
+                            <li>+351 924348506</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-4">
+                        <h5 class="heading">Para informações oficiais de F1</h5>
+                        <ul class="card-text">
+                            <li>www.formula1.com</li>
+                            <li>www.instagram.com/f1/</li>
+                            <li>twitter.com/f1</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" style="font-size:10px;">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="pull-left">
+                            <p><i class="fa fa-copyright"></i> Trabalho final de ITW 2021/22</p>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

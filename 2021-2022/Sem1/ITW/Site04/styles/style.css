@@ -1,0 +1,128 @@
+html {
+    background-color: rgb(0, 0, 0);
+    overflow:hidden;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    left: 5vw;
+    width: 90vw;
+    position: relative;
+    padding-top:1vh;
+    margin: 0;
+    border: 0; 
+    outline: 0;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    margin: auto;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #00fff5;
+}
+
+header {
+    margin-top: 0;
+    width: 100%;
+    height: 25vh;
+    margin: auto;
+    border: 1px solid #00fff5;
+    border-top: 0px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("/home/frostywolf/Documents/Univ/ITW/Site04/images/wallpaper.jpg");
+}
+
+main {
+    float: left;
+    width: 75%;
+    height: 54vh;
+    padding: 1vw;
+    color: #00fff5;
+    border-left: 0.1vw solid #00fff5;
+    background-color: rgb(0, 0, 0);
+}
+
+aside {
+    float: right;
+    width: 22%;
+    height: 60vh;
+    left:2px;
+    position: relative;
+    border: 0.1vw solid #00fff5;
+    background-color: #00fff5;
+}
+
+footer {
+    clear: left;
+    width: 100%;
+    height: 4vh;
+    position: relative;
+    border: 1px solid #00fff5;
+    background-color: #000000; 
+    color: #00fff5; 
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+.btn0 {
+    float: left;
+    width: 7.5vw;
+    height: 4vh;
+    top:2.5vh;
+    margin-left: 2vw;
+    position: relative;
+    text-align: center;
+    font-size: 1.25em;
+    border-radius: 10px;
+    border: 1px solid #00fff5;
+    background-color: #000000;
+    text-decoration: none;
+    color: #00fff5;
+    transition: 0.5s;
+}
+
+.btn0:hover, .active {
+    border: 1px solid #00fff5;
+    background-color: #00fff5;
+    color: #000000;
+}
+
+.padd {
+    width: 100%;
+    height: 100%;
+    padding:1vw;
+
+}
+
+.top {
+    top:-3vh;
+    left: 40%;
+    width: 20%;
+    text-align: center;
+    position: relative;
+}
+
+body {
+    -webkit-animation: rainbow 10s steps(36) infinite;
+  }
+  
+  @-webkit-keyframes rainbow {
+     from { -webkit-filter:hue-rotate(10deg); }
+       to { -webkit-filter:hue-rotate(360deg); }
+  }
+  
+  @keyframes rainbow {
+   from {
+      -webkit-filter:hue-rotate(10deg);
+              filter:hue-rotate(10deg);
+      }
+    to {
+      -webkit-filter:hue-rotate(360deg);
+              filter:hue-rotate(360deg);
+      }
+  }

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>F1 FanHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body onload="divtest();">
+
+    <div class="topnav" id="myTopnav">
+        <a class="button1 left-nav" href="index.html" class="active" style="float: left;"><span style="top:-1.5vh;">Início</span></a>
+        <img src="" class="nav-image">
+
+        <div class="themeBubbles">
+            <button value ="1" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #03bfb5 50%, #004146 50%);"></button>
+            <button value ="3" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #B2B9D1 50%, #FF0026 50%);"></button>
+            <button value ="0" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #F7d31d 50%, #F60000 50%);"></button>
+            <button value ="2" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #005fd8 50%, #FF9700 50%);"></button>
+        </div>
+
+        <a class="button1 right-nav" href="about.html"><span style="top:-1.5vh;">About</span></a>
+        <a class="button1 right-nav" href="seasons.html"><span style="top:-1.5vh;">Seasons</span></a>
+        <a class="button1 right-nav" href="circuits.html"><span style="top:-1.5vh;">Circuits</span></a>
+        <a class="button1 right-nav" href="constructors.html"><span style="top:-1.5vh;">Constructors</span></a>
+        <a class="button1 right-nav" href="drivers.html"><span style="top:-1.5vh;">Drivers</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+
+      
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img style="background-image:url('images/index0.gif');" class="d-block carousel-image"> <!-- A imagem tem de ser posta como background e  não com o atributo src="" para o efeito paralax funcionar -->
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Ferrari</h1>
+                    <p style="font-size:20px">"É ingenuo pensar que será fácil alcançar Red Bull e Mercedes"</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img  style="background-image:url('images/index1.gif');" class="d-block carousel-image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Helmut Marko</h1>
+                    <p style="font-size:20px">"Verstappen já é melhor que Vettel na Red Bull"</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img  style="background-image:url('images/bg.jpg');" class="d-block carousel-image" >
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Mercedes</h1>
+                    <p style="font-size:20px">Vai abandonar a pintura preta em 2022 e retornar com as "flechas de prata"</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <main class="mainBody">
+        <div class="main-text">
+            <h1 style="color:#fff;"> Conheça as equipas de 2020 </h1>
+        </div>
+
+        <div class="row cards-row">
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/mercedes.png" class="card-img" alt="..">
+                <div class="card-body">
+                    <h1 class="card-title">Mercedes</h1>
+                    <p class="card-text">Mercedes continua pelo quarto ano seguido a concorrer com o fantástico duo de Valtteri Bottas e seis vezes campeão mundial Lewis Hamilton.</p><br>
+                    <a href="constructorsDetails.html?id=131" style="float:left;" class="btn card-button">Confira</a>
+                    <button style="float:right;" value ="1" onclick="changeColour()" class="btn card-button">Experimente o tema</button>
+                </div>
+            </div>
+            </div>
+
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/redbull.png" class="card-img" alt="..">
+                    <div class="card-body">
+                        <h1 class="card-title">Red Bull</h1>
+                        <p class="card-text">Com Max Verstappen e Alex Albon, a Reb Bull Racing Honda conta com uma estrela nova aliada de um dos melhores condutores de sempre.</p>
+                        <a href="constructorsDetails.html?id=9" style="float:left;" class="btn card-button">Confira</a>
+                        <button style="float:right;" value ="3" onclick="changeColour()" class="btn card-button">Experimente o tema</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/ferrari.png" class="card-img" alt="..">
+                <div class="card-body">
+                    <h1 class="card-title">Ferrari</h1>
+                    <p class="card-text">Este a ano a Ferrari trás de volta Charles Leclerc, que não corria desde 2008, mas desta vez aliado com o lendário Sebastian Vettel.</p><br>
+                    <a href="constructorsDetails.html?id=6" style="float:left;" class="btn card-button">Confira</a>
+                    <button style="float:right;" value ="0" onclick="changeColour()" class="btn card-button">Experimente o tema</button>
+                </div>
+            </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/mclaren.png" class="card-img" alt="..">
+                    <div class="card-body">
+                        <h1 class="card-title">McLaren</h1>
+                        <p class="card-text">Depois da sua impressionante reviravolta em 2019, a McLaren confia nas suas estrelas com Lando Norris e Carlos Sainz.</p><br><br>
+                        <a href="constructorsDetails.html?id=1" style="float:left;" class="btn card-button">Confira</a>
+                        <button style="float:right;" value ="2" onclick="changeColour()" class="btn card-button">Experimente o tema</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/alpine.png" class="card-img" alt="..">
+                <div class="card-body">
+                    <h1 class="card-title">Renault <br> (Alpine)</h1>
+                    <p class="card-text">Com o novo nome, mas a mesma ambição, a alpine (formalmente Renault Racing), conta com Esteban Ocon e Daniel Ricciardo.</p>
+                    <a href="constructorsDetails.html?id=214" style="float:left;" class="btn card-button">Confira</a>
+                </div>
+            </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/alphatauri.png" class="card-img" alt="..">
+                <div class="card-body">
+                    <h1 class="card-title">Toro Rosso <br> (AlphaTauri)</h1>
+                    <p class="card-text">Apesar do novo nome, a AlphaTauri continua a acreditar em Daniil Kvyat e Pierre Gasly para lhes alcançar a vitória.</p>
+                    <a href="constructorsDetails.html?id=213" style="float:left;" class="btn card-button">Confira</a>
+                </div>
+            </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/astonmartin.png" class="card-img" alt="..">
+                    <div class="card-body">
+                        <h1 class="card-title">Racing Point <br> (Aston Martin)</h1>
+                        <p class="card-text">Como sempre, novo nome, mesmas estrelas. A Racing Point (agora Aston Martin) conta com Sergio Perez e Lance Stroll para conquistar estes mundiais.</p>
+                        <a href="constructorsDetails.html?id=117" style="float:left;" class="btn card-button">Confira</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/williams.png" class="card-img" alt="..">
+                    <div class="card-body">
+                        <h1 class="card-title">Williams</h1>
+                        <p class="card-text">Williams é a equipa que nunca desiste, e esperam continuar assim em 2020 com George Russell e Nicholas Latifi.</p><br><br><br>
+                        <a href="constructorsDetails.html?id=3" style="float:left;" class="btn card-button">Confira</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/alfaromeu.png" class="card-img" alt="..">
+                <div class="card-body">
+                    <h1 class="card-title">Alfa Romeu</h1>
+                    <p class="card-text">Com um antigo campeão Kimi Raikkonen e a nova ingenuidade de Antonio Giovinazzi, a Alfa Romeu procura impressionar.</p><br><br><br>
+                    <a href="constructorsDetails.html?id=51" style="float:left;" class="btn card-button">Confira</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4"></div>
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="images/haas.png" class="card-img" alt="..">
+                <div class="card-body">
+                    <h1 class="card-title">Haas F1 Team</h1>
+                    <p class="card-text">Consistencia não falta à equipa Haas, com Romain Grosjean e Kevin Magnussen de volta pelo quarto ano seguido.</p>
+                    <a href="constructorsDetails.html?id=210" style="float:left;" class="btn card-button">Confira</a>
+                    
+                </div>
+            </div>
+            </div>
+            </div>
+    </main>
+
+    <!--Footer-->
+    <div class="container-fluid mt-5">
+        <div class="card mx-5 footer">
+            <div class="row mb-4 ">
+                <div class="col-md-4 col-sm-11 col-xs-11">
+                    <div class="footer-text pull-left">
+                        <div class="d-flex"> 
+                            <h1 style="color: snow">Pedro Ramos e Vasco Vouzela</h1>
+                        </div>
+                        <p class="card-text">Caso encontre algum problema no WebSite por favor contacte-nos! Lembramos que o F1 FanHub não é um WebSite oficial da Fórmula 1</p>
+                        <div class="social mt-2 mb-3"> <i class="fa fa-facebook-official fa-lg"></i> <i class="fa fa-instagram fa-lg"></i> <i class="fa fa-twitter fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-facebook"></i> </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                    <h5 class="heading">Este Website disponibiliza</h5>
+                    <ul>
+                        <li>Informações sobre drivers</li>
+                        <li>Informações sobre constructors</li>
+                        <li>Informações sobre circuitos</li>
+                        <li>Páginas Interativas</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                    <h5 class="heading">Contacte-nos</h5>
+                    <ul class="card-text">
+                        <li>p.ramos@ua.pt</li>
+                        <li>vascovouzela@ua.pt</li>
+                        <li>Universidade de Aveiro - DETI</li>
+                        <li>+351 924348506</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                    <h5 class="heading">Para informações oficiais de F1</h5>
+                    <ul class="card-text">
+                        <li>www.formula1.com</li>
+                        <li>www.instagram.com/f1/</li>
+                        <li>twitter.com/f1</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="font-size:10px;">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="pull-left">
+                        <p><i class="fa fa-copyright"></i> Trabalho final de ITW 2021/22</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="constructorsScripts.js"></script>
+</body>
+</html>
+
+
+
+

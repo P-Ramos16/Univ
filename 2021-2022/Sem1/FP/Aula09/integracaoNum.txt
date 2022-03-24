@@ -1,0 +1,25 @@
+https://codecheck.io/private/resume/22011216128pbc8h2493h0tj1nz0c7sgps1/axeq-ibow-ityg-abep/CSWH1B5ZY0L5PBTBWMXZREQ4H
+
+
+import math
+
+def integrate(f, a, b, n):
+   """The integral of f(x) for x between a and b.
+   Aproximated using the trapezoidal rule with n uniform subintervals."""
+   interval = (a + b) / (n)
+   
+   res = 0
+   
+   for i in range(n):
+      res += ((( f(a + interval * i) + f(a + interval * (i + 1)) ) / 2 ) * interval)
+      
+      
+   assert n >= 1
+   return res
+
+def example(n):
+   f = lambda x: (x - 2) / (x + 3)
+   a = integrate(f, 0, 1, n)
+   return a
+   
+# You may define auxiliary functions here.

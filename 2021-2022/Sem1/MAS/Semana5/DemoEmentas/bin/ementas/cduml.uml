@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="281.5">ementas.Legume</node>
+    <node x="308.0" y="182.0">ementas.Prato</node>
+    <node x="154.0" y="281.5">ementas.Peixe</node>
+    <node x="154.0" y="0.0">ementas.Alimento</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ementas.Legume" target="ementas.Alimento">
+      <point x="33.5" y="-39.0" />
+      <point x="100.5" y="152.0" />
+      <point x="187.5" y="152.0" />
+      <point x="-33.5" y="61.0" />
+    </edge>
+    <edge source="ementas.Peixe" target="ementas.Alimento">
+      <point x="33.5" y="-39.0" />
+      <point x="254.5" y="162.0" />
+      <point x="232.16666666666663" y="162.0" />
+      <point x="11.166666666666629" y="61.0" />
+    </edge>
+    <edge source="ementas.Prato" target="ementas.Alimento">
+      <point x="58.0" y="-138.5" />
+      <point x="482.0" y="142.0" />
+      <point x="276.8333333333333" y="142.0" />
+      <point x="55.833333333333314" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1" x="201.0" y="221.7272727272727" />
+  <SelectedNodes>
+    <node>ementas.Alimento</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

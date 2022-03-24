@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Teste 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body onload="divtest();">
+
+    <div class="topnav" id="myTopnav">
+        <a class="button1 left-nav" href="index.html" class="active" style="float: left;"><span style="top:-1.5vh;">Início</span></a>
+        <img src="" class="nav-image">
+        <a class="button1 right-nav" href="#about"><span style="top:-1.5vh;">About</span></a>
+        <a class="button1 right-nav" href="circuits.html"><span style="top:-1.5vh;">Circuits</span></a>
+        <a class="button1 right-nav" href="constructors.html"><span style="top:-1.5vh;">Constructors</span></a>
+        <a class="button1 right-nav" href="drivers.html"><span style="top:-1.5vh;">Drivers</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+        <div class="top-driverDetails">
+            <h1 data-bind="text:displayName"></h1>
+        </div>
+        <main class="mainBody" style="padding:2vh 3vw 2vh 3vw; margin-top: 3vh;">
+            
+            <div class="container">
+                <div class="py-2 mb-3">
+                    <h2 data-bind="text:Name() +' ['+DriverId()+']'"></h2>
+                </div>
+                <!-- ko if:Name().length > 0 -->
+                <table class="table table-details">
+                    <tr class="row">
+                        <th class="col-md-2">Driver Id</th>
+                        <td class="col-md-10" data-bind="text: DriverId"></td>
+                    </tr>
+                    <tr class="row">
+                        <th class="col-md-2">Nickname</th>
+                        <td class="col-md-10" data-bind="text: DriverRef"></td>
+                    </tr>
+                    <tr class="row" data-bind="visible: ImageUrl() != '' && ImageUrl() != null">
+                        <th class="col-md-2">Image</th>
+                        <td class="col-md-10"><img class="img-thumbnail col-2" data-bind="attr:{src: ImageUrl}"><br />[<span data-bind="text: ImageUrl"></span>]</td>
+                    </tr>
+                    <tr class="row">
+                        <th class="col-md-2">Name</th>
+                        <td class="col-md-10" data-bind="text: Name"></td>
+                    </tr>
+                    <tr class="row">
+                        <th class="col-md-2">Nationality</th>
+                        <td class="col-md-10" data-bind="text: Nationality"></td>
+                    </tr>
+                    <tr class="row" data-bind="visible: Number() != '' && Number() != null">
+                        <th class="col-md-2">Number</th>
+                        <td class="col-md-10" data-bind="text: Number"></td>
+                    </tr>
+                    <tr class="row">
+                        <th class="col-md-2">Url</th>
+                        <td class="col-md-10"><a class="text-muted text-decoration-none" data-bind="attr: {href: Url, target:'blank'}"><i class="fa fa-external-link"></i> [<span class="" data-bind="text: Url"></span>]</a></td>
+                    </tr>
+                    <tr class="row">
+                        <th colspan="2">Races [<span data-bind="text: Races().length"></span>]</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="small" data-bind="foreach: Races">
+                            <div class="border rounded d-inline-block mr-2 mb-1 p-1"><i class=" fa fa-dot-circle-o"></i> <a class="text-muted text-decoration-none" data-bind="text: Name + ' ('+Year+')', attr: { href: './raceDetails.html?id=' + RaceId }"></a> (<span data-bind="text: RaceId"></span>)</div>
+                        </td>
+                    </tr>
+                </table>
+                <!-- /ko -->
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark text-light">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                <img src="images/F1_logo.png" height="30" /> Loading data...
+                            </h5>
+                        </div>
+                        <div class="modal-body text-center">
+                            <i class="fa fa-spin fa-3x fa-refresh"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="drivers/driverDetailsScripts.js"></script>
+</body>
+</html>
+
+
+
+<main class="mainBody" style="padding:2vh 3vw 2vh 3vw; margin-top: 3vh;">
+            
+    <div class="container">
+        <div class="py-2 mb-3">
+            <h2 data-bind="text:Name() +' ['+RaceId()+']'"></h2>
+        </div>
+        <!-- ko if:Name().length > 0 -->
+        <table class="table table-details">
+            <tr class="row">
+                <th class="col-md-2">Race Id</th>
+                <td class="col-md-10" data-bind="text: RaceId"></td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-2">Circuit</th>
+                <td class="col-md-10" data-bind="text: Circuit"></td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-2">Year</th>
+                <td class="col-md-10" data-bind="text: Year"></td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-2">Round</th>
+                <td class="col-md-10" data-bind="text: Round"></td>
+            </tr>
+            <tr class="row" data-bind="visible: Number() != '' && Number() != null">
+                <th class="col-md-2">Name</th>
+                <td class="col-md-10" data-bind="text: Name"></td>
+            </tr>
+            <tr class="row" data-bind="visible: Number() != '' && Number() != null">
+                <th class="col-md-2">Date</th>
+                <td class="col-md-10" data-bind="text: Date"></td>
+            </tr>
+            <tr class="row" data-bind="visible: Number() != '' && Number() != null">
+                <th class="col-md-2">Time</th>
+                <td class="col-md-10" data-bind="text: Time"></td>
+            </tr>
+            <tr class="row">
+                <th class="col-md-2">Url</th>
+                <td class="col-md-10"><a class="text-muted text-decoration-none" data-bind="attr: {href: Url, target:'blank'}"><i class="fa fa-external-link"></i> [<span class="" data-bind="text: Url"></span>]</a></td>
+            </tr>
+            <tr class="row">
+                <th colspan="2">Results [<span data-bind="text: Results().length"></span>]</th>
+            </tr>
+            <tr>
+                <td colspan="2" class="small" data-bind="foreach: Results">
+                    <div class="border rounded d-block mr-2 mb-1 p-1">
+                        <h1 data-bind="text: Position"></h1>
+                        <a class="text-muted text-decoration-none" data-bind="text: DriverName + ' ('+ConstructorName+')', attr: { href: './driverDetails.html?id=' + DriverId }"></a> 
+                        (<span data-bind="text: DriverId"></span>)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- /ko -->
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <img src="images/F1_logo.png" height="30" /> Loading data...
+                    </h5>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fa fa-spin fa-3x fa-refresh"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

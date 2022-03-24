@@ -1,0 +1,4 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+body { font-family: 'Open Sans', sans-serif; font-size:14px; }
+.carousel-item {background: transparent; background-position: center center;
+    background-repeat: no-repeat; background-size: cover; height: 500px; margin:0px; margin-bottom: 20px; padding:0px;}

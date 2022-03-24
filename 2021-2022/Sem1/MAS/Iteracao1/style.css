@@ -1,0 +1,165 @@
+body {
+    background-color: whitesmoke!important;
+}
+
+.indexMain {
+    width: 74vw;
+    height: 100vh;
+    float: right;
+    background-image: url("images/bg.jpg");
+    background-size: 75vw 100vh;
+    background-repeat: no-repeat;
+    background-color: whitesmoke;
+}
+
+.indexAside {
+    padding-top: 15vh;
+    color: #373483;
+    width: 25vw;
+    height: 100vh;
+    float: left;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.indexInput {
+    width: 70%;
+    height: 5vh;
+    position: relative;
+    background-color: #e6e6e6;
+    border: 0px;
+    margin-top: 1vh;
+    color: rgb(104, 104, 104);
+    border-radius: 7px;
+    padding-left: 1vw;
+}
+
+.indexBtn {
+    border: 2px solid #373483;
+    width: 60%;
+    height: 4vh;
+    position: relative;
+    background-color: #373483;
+    font-size: 1.4em;
+    margin-top: 1vh;
+    padding-right: 1vw;
+    padding-left: 1vw;
+    color: whitesmoke;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.indexBtn > a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.indexBtn:hover {
+    background-color: whitesmoke;
+    color: #373483;
+}
+
+
+.indexH5 {
+    color: rgb(104, 104, 104);
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.mapBody {
+    height: 145vw;
+    background-image: url("map.png");
+    background-size: 100vw auto;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+
+.d-none {
+    display: none;
+}
+
+.mainHolder {
+    width: 20vw;
+    height: 97vh;
+    position: fixed;
+    margin: 1vh;
+}
+
+.searchBar {
+    background-color: whitesmoke;
+    border-radius: 3px;
+    position: relative;
+    width: 19.75vw;
+    height: 3vh;
+    border: 1px #f1f1f1 solid;
+}
+
+.mainImg {
+    border-radius: 8px;
+    margin-top: 1vh;
+    background-image: url("lisboa.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 25vh;
+}
+
+.mainTxt {
+    font-size: small;
+    border-radius: 8px;
+    margin-top: 1vh;
+    color: #373483;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 30vh;
+    text-align: center;
+    padding-top: 1vh;
+}
+
+.glyphicon {
+    font-size: 1.75em;
+    margin-right: 1vw;
+    color: #373483;
+    top: 1vh!important;
+    position: relative;
+}
+
+h4 {
+    color: #494949!important;
+    text-align: left;
+    margin-left: 2vw;
+    margin-right: 1vw;
+}
+
+.selectButton {
+    width: 60%;
+    left: 20%;
+    margin-top: 5vh;
+    position: relative;
+    border-radius: 20px;
+    height: 7vh;
+    border: 2px solid #373483;
+    font-size: 1.5em;
+    white-space: normal;
+    background-color: #373483;
+    color: whitesmoke;
+    transition: 0.5s;
+}
+
+.selectButton:hover {
+    background-color: whitesmoke;
+    color: #373483;
+}
+
+.marker {
+    width: 2.5vw;
+    position: absolute;
+}
+.marker > h5 {
+    position: relative;
+    color: #373483;
+    font-size: 1em;
+    text-align: center;
+    top: 6vh;
+}

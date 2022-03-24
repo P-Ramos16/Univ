@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>F1 Race Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body onload="divtest();">
+
+    <div class="topnav" id="myTopnav">
+        <a class="button1 left-nav" href="index.html" class="active" style="float: left;"><span style="top:-1.5vh;">Início</span></a>
+        <img src="" class="nav-image">
+
+        <div class="themeBubbles">
+            <button value ="1" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #03bfb5 50%, #004146 50%);"></button>
+            <button value ="3" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #B2B9D1 50%, #FF0026 50%);"></button>
+            <button value ="0" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #F7d31d 50%, #F60000 50%);"></button>
+            <button value ="2" onclick="changeColour()" class="bubbleButton" style="background: linear-gradient(to right bottom, #005fd8 50%, #FF9700 50%);"></button>
+        </div>
+
+        <a class="button1 right-nav" href="about.html"><span style="top:-1.5vh;">About</span></a>
+        <a class="button1 right-nav" href="seasons.html"><span style="top:-1.5vh;">Seasons</span></a>
+        <a class="button1 right-nav" href="circuits.html"><span style="top:-1.5vh;">Circuits</span></a>
+        <a class="button1 right-nav" href="constructors.html"><span style="top:-1.5vh;">Constructors</span></a>
+        <a class="button1 right-nav" href="drivers.html"><span style="top:-1.5vh;">Drivers</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+        <div class="top-races">
+            <h1 data-bind="text:displayName"></h1>
+        </div>
+        <main class="mainBody" style="padding:2vh 3vw 2vh 3vw; margin-top: 3vh;">
+            
+            <div class="container">
+                <div class="py-2 mb-3">
+                    <h2 data-bind="text:Name()"></h2>
+                </div>
+                <!-- ko if:Name().length > 0 -->
+                <div class="row" style="top:-5vh;position: relative;">
+                    <div class="col-md-12">
+                        <table class="table table-details">
+                            <tr class="row detailsTable">
+                                <th class="col-md-3">Race Id</th>
+                                <td class="col-md-9" data-bind="text: RaceId"></td>
+
+                                <th class="col-md-3">Circuit</th>
+                                <td class="col-md-9" data-bind="text: Circuit"></td>
+
+                                <th class="col-md-3">Year</th>
+                                <td class="col-md-9" data-bind="text: Year"></td>
+
+                                <th class="col-md-3">Rounds</th>
+                                <td class="col-md-9" data-bind="text: Round"></td>
+                
+                                <th class="col-md-3" data-bind="visible: Number() != '' && Number() != null">Name</th>
+                                <td class="col-md-9" data-bind="text: Name, visible: Number() != '' && Number() != null"></td>
+
+                                <th class="col-md-3" data-bind="visible: Number() != '' && Number() != null">Date</th>
+                                <td class="col-md-9" data-bind="text: Date, visible: Number() != '' && Number() != null"></td>
+
+                                <th class="col-md-3" data-bind="visible: Number() != '' && Number() != null">Time</th>
+                                <td class="col-md-9" data-bind="text: Time, visible: Number() != '' && Number() != null"></td>
+
+                                <th class="col-md-3">Url</th>
+                                <td class="col-md-9"><a class="text-muted text-decoration-none" data-bind="attr: {href: Url, target:'blank'}"><i class="fa fa-external-link"></i> [<span class="" data-bind="text: Url"></span>]</a></td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+
+                <table class="table table-details" style="top:-5vh;position: relative;">
+                    <tr class="row">
+                        <th colspan="2">Results [<span data-bind="text: Results().length"></span>]</th>
+
+                        
+                        <td colspan="2" class="small" data-bind="foreach: Results">
+
+                            <div class="raceResults d-inline-block">
+                                <h1 data-bind="text: Position"></h1>
+                                Driver:
+                                <a class="text-muted text-decoration-none" data-bind="text: DriverName, attr: { href: './driverDetails.html?id=' + DriverId }"></a> 
+                                <br>
+                                Constructor:
+                                <a class="text-muted text-decoration-none" data-bind="text: ConstructorName, attr: { href: './constructorsDetails.html?id=' + ConstructorId }"></a> 
+                                <br>
+                                Grid Position: <span style="color: var(--sec_color)" data-bind="text: Grid"></span>
+                                <br>
+                                Status: <span style="color: var(--sec_color)" data-bind="text: Status"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <!-- /ko -->
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark text-light">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                <img src="images/F1_logo.png" height="30" /> Loading data...
+                            </h5>
+                        </div>
+                        <div class="modal-body text-center">
+                            <i class="fa fa-spin fa-3x fa-refresh"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </main>
+
+            <!--Footer-->
+            <div class="container-fluid mt-5">
+                <div class="card mx-5 footer">
+                    <div class="row mb-4 ">
+                        <div class="col-md-4 col-sm-11 col-xs-11">
+                            <div class="footer-text pull-left">
+                                <div class="d-flex"> 
+                                    <h1 style="color: snow">Pedro Ramos e Vasco Vouzela</h1>
+                                </div>
+                                <p class="card-text">Caso encontre algum problema no WebSite por favor contacte-nos! Lembramos que o F1 FanHub não é um WebSite oficial da Fórmula 1</p>
+                                <div class="social mt-2 mb-3"> <i class="fa fa-facebook-official fa-lg"></i> <i class="fa fa-instagram fa-lg"></i> <i class="fa fa-twitter fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-facebook"></i> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            <h5 class="heading">Este Website disponibiliza</h5>
+                            <ul>
+                                <li>Informações sobre drivers</li>
+                                <li>Informações sobre constructors</li>
+                                <li>Informações sobre circuitos</li>
+                                <li>Páginas Interativas</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            <h5 class="heading">Contacte-nos</h5>
+                            <ul class="card-text">
+                                <li>p.ramos@ua.pt</li>
+                                <li>vascovouzela@ua.pt</li>
+                                <li>Universidade de Aveiro - DETI</li>
+                                <li>+351 924348506</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            <h5 class="heading">Para informações oficiais de F1</h5>
+                            <ul class="card-text">
+                                <li>www.formula1.com</li>
+                                <li>www.instagram.com/f1/</li>
+                                <li>twitter.com/f1</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="font-size:10px;">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="pull-left">
+                                <p><i class="fa fa-copyright"></i> Trabalho final de ITW 2021/22</p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="circuits/raceDetailsScripts.js"></script>
+</body>
+</html>

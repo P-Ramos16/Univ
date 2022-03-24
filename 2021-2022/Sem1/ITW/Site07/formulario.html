@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript form validation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="border-bottom py-2 mb-2">Ficha de inscrição</h1>
+        <form action="http://192.168.160.36/FormEcho.aspx" name="FichaInscricao">
+            <div class="row mb-1">
+                <label for="Nome" class="col-md-2 col-form-label">Nome</label>
+                <div class="col-md-10">
+                    <input type="text" name="Nome" id="Nome" class="form-control" />
+                    <div class="d-none text-danger col-form-label" id="NomeError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 letras).</div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="Morada" class="col-md-2 col-form-label">Morada</label>
+                <div class="col-md-10">
+                    <textarea name="Morada" id="Morada" class="form-control" rows="4"></textarea>
+                    <div class="d-none text-danger col-form-label" id="MoradaError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 palavras).</div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="Curso" class="col-md-2 col-form-label">Curso</label>
+                <div class="col-md-10">
+                    <select name="Curso" id="Curso" class="form-control">
+                        <option value="">--- Selecione um Curso ---</option>
+                        <option value="1">Licenciatura em Engenharia Informática</option>
+                        <option value="2">Mestrado Integrado em Engenharia de Computadores e Telemática</option>
+                        <option value="3">Mestrado Integrado em Engenharia Eletrónica e Telecomunicações</option>
+                        <option value="9">Outro</option>
+                    </select>
+                    <div class="d-none text-danger col-form-label" id="CursoError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Escolha um curso).</div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-md-2">Meios de transporte</div>
+                <div class="col-md-4 ">
+                    <div class="form-check">
+                        <input type="checkbox" name="vehicle" class="form-check-input" value="Bicicleta" id="bicicleta"><label class="form-check-label" for="bicicleta">Bicicleta</label><br />
+                        <input type="checkbox" name="vehicle" class="form-check-input" value="Carro" id="carro"><label class="form-check-label" for="carro">Carro</label><br />
+                        <input type="checkbox" name="vehicle" class="form-check-input" value="Comboio" id="comboio"><label class="form-check-label" for="comboio">Comboio</label>
+                    </div>
+                    <div class="d-none text-danger col-form-label" id="VehicleError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Escolha, pelo menos, dois meios de transporte).</div>
+                </div>
+                <div class="col-md-2">Cor</div>
+                <div class="col-md-4 ">
+                    <div class="form-check">
+                        <input type="radio" name="cor" class="form-check-input" value="Vermelho" id="vermelho"><label class="form-check-label" for="vermelho">Vermelho</label><br />
+                        <input type="radio" name="cor" class="form-check-input" value="Verde" id="verde"><label class="form-check-label" for="verde">Verde</label><br />
+                        <input type="radio" name="cor" class="form-check-input" value="Azul" id="azul"><label class="form-check-label" for="azul">Azul</label>
+                    </div>
+                    <div class="d-none text-danger col-form-label" id="CorError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Escolha uma cor).</div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-md-10 offset-md-2">
+                    <input type="Submit" name="submitBtn" value="Enviar" class="btn btn-primary" onclick="return validate()" />
+                    <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* Função de validação  */
+        function validate() {
+            var retVal = true; /* Vamos partir do princípio de que o formulário está válido ... */
+            var _nome = document.getElementById("Nome");
+            var _nomeError = document.getElementById("NomeError");
+            if (_nome.value.trim().length < 3) {
+                console.log("Passei aqui!");
+                retVal = false;
+                _nomeError.classList.add("d-block")
+                _nomeError.classList.remove("d-none");
+            }
+            else {
+                _nomeError.classList.remove("d-block")
+                _nomeError.classList.add("d-none");
+            }
+            var _morada = document.getElementById("Morada");
+            var _moradaError = document.getElementById("MoradaError");
+            var palavrasArray = _morada.value.split(' '); /* Partir a Morada em palavras */
+            if (palavrasArray.length < 3) { /* Contar o número de palavras */
+                retVal = false;
+                _moradaError.classList.add("d-block")
+                _moradaError.classList.remove("d-none");
+            }
+            else {
+                _moradaError.classList.remove("d-block")
+                _moradaError.classList.add("d-none");
+            }
+            var _cursoSelecionado = document.getElementById("Curso").selectedIndex;
+            var cursosArray = document.getElementById("Curso").options;
+            var _cursoError = document.getElementById("CursoError")
+            if (cursosArray[_cursoSelecionado].value == "") {
+                retVal = false;
+                _cursoError.classList.add("d-block")
+                _cursoError.classList.remove("d-none");
+            }
+            else {
+                _cursoError.classList.remove("d-block")
+                _cursoError.classList.add("d-none");
+            }
+            var _transportesSelecionados = document.querySelectorAll('input[name="vehicle"]:checked').length;
+            var _vehicleError = document.getElementById("VehicleError")
+            if (_transportesSelecionados < 2) {
+                retVal = false;
+                _vehicleError.classList.add("d-block")
+                _vehicleError.classList.remove("d-none");
+            }
+            else {
+                _vehicleError.classList.remove("d-block")
+                _vehicleError.classList.add("d-none");
+            }
+            /* Recolher todos os input[type="radio"] que estejam checked */
+            var _cores = document.querySelectorAll('input[name="cor"]:checked').length;
+            var _coresError = document.getElementById("CorError")
+            if (_cores == 0) {
+                retVal = false;
+                _coresError.classList.add("d-block")
+                _coresError.classList.remove("d-none");
+            }
+            else {
+                _coresError.classList.remove("d-block")
+                _coresError.classList.add("d-none");
+            }
+            return retVal;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+html {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Comfortaa', cursive;
+}
+
+.lbl0 {
+    width: 10vw;
+    float: left;
+}
+
+.field0 input, .field0 select {
+    width: 80vw;
+}
+
+.box_trans {
+    width: 47%;
+    float: left;
+}
+
+.box_cl {
+    width: 47%;
+    float: right;
+}
+
+.submit_btn {
+    width: 15vw;
+    top: 10vh;
+    left: 42.5vw;
+    position: relative;
+}
+
+.btn0 {
+    width: 5vw;
+    height: 4vh;
+    background-color: #aaaaaa;
+    border: 1px solid #555555;
+}

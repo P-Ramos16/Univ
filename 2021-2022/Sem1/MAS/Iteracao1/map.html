@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+    <title>MAS-It1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+
+  <body class="mapBody">
+    <div class="mainHolder">
+      <input type="text" class="searchBar" placeholder="Search"/>
+      <div id="infoImg" class="mainImg d-none"></div>
+      <div id="mainTxt" class="mainTxt d-none">
+        <h3><b id="infoName">Aeroporto Humberto Delgado</b></h3>
+        <h4><span class="glyphicon glyphicon-map-marker"></span> <span id="infoLoc">Alameda das Comunidades Pt</span></h4>
+        <h4><span class="glyphicon glyphicon-earphone"></span> <span id="infoTel"> +351 999 888 777 </span></h4>
+        <h4><span class="glyphicon glyphicon-home"></span> <span id="infoOc"> Ocupação: 73% </span></h4>
+        <h4><span class="glyphicon glyphicon-list"></span> <a id="infoSite" href="">Mais informações</a></h4>
+      </div>
+      <input id="mainBtn" type="button" class="selectButton d-none" value="Selecionar localização para recolha">
+    </div>
+    
+    <div class="marker" style="left:53vw;top:34vh;">
+      <input type="image" class="marker"  value="aeBraga" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeroporto Braga</h5>
+    </div>
+    <div class="marker" style="left:44vw;top:53.65vh;">
+      <input type="image" class="marker"  value="aePorto" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeroporto Porto</h5>
+    </div>
+    <div class="marker" style="left:59vw;top:69.5vh;">
+      <input type="image" class="marker"  value="aeViseu" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeródromo Viseu</h5>
+    </div>
+    <div class="marker" style="left:42vw;top:111vh;">
+      <input type="image" class="marker"  value="aePombal" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeródromo Municipal Pombal</h5>
+    </div>
+    <div class="marker" style="left:48vw;top:133vh;">
+      <input type="image" class="marker"  value="aeFatima" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeródromo Fátima</h5>
+    </div>
+    <div class="marker" style="left:30vw;top:193vh;">
+      <input type="image" class="marker"  value="aeLisboa" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeroporto Lisboa</h5>
+    </div>
+    <div class="marker" style="left:42vw;top:236vh;">
+      <input type="image" class="marker"  value="aeSetubal" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeroporto Setubal</h5>
+    </div>
+    <div class="marker" style="left:63vw;top:250vh;">
+      <input type="image" class="marker"  value="aeBeja" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeroporto Beja</h5>
+    </div>
+    <div class="marker" style="left:58vw;top:290vh;">
+      <input type="image" class="marker"  value="aeFaro" src="marker.png" onclick="updateData(this.value)"/>
+      <h5>Aeroporto Faro</h5>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

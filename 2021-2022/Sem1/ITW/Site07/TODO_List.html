@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lista de tarefas</title>
+    <link href="TODO_List.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h3 class="border-bottom pb-2 mb-2">Lista de tarefas</h3>
+        <div class="input-group">
+            <input type="text" class="form-control" id="newtaskId" placeholder="Tarefa a realizar...">
+            <button id="push" class="btn btn-primary input-group-text" onclick="addTask()">Adicionar</button>
+        </div>
+        <p>&nbsp;</p>
+        <div id="tasks"></div>
+    </div>
+    <script>
+        function addTask() {
+            if (document.querySelector('#newtaskId').value.length == 0) {
+                alert("Por favor, indique uma tarefa.")
+            }
+
+            else {
+                document.querySelector('#tasks').innerHTML += '<div class="input-group mb-1"><span id="taskname" class="form-control">' + document.querySelector("#newtaskId").value + '</span><button class="btn btn-danger input-group-text"><i class="fa fa-trash-o"></i></button></div>';
+
+                var current_tasks = document.querySelectorAll(".btn-danger");
+                for (var i = 0; i < current_tasks.length; i++) {
+                    current_tasks[i].onclick = function () {
+                        this.parentNode.remove();
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

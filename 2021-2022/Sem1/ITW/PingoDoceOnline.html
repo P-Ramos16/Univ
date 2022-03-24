@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><i class="fa fa-shopping-bag"></i> Comprar Pingo Doce Online - Mercadão</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="PingoDoceOnline.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="banner1.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="banner2.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="banner3.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="banner4.jpg">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+    <div class="container mt-2">
+        <form action="http://192.168.160.36/FormEcho.aspx">
+            <div class="row form-group">
+                <div class="col-md-1 offset-6 text-right"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></div>
+                <div class="col-md-1 text-right"><span class="form-control" id="quantidades" title="Quantidade total de produtos">0</span></div>
+                <div class="col-md-2 text-right"><span class="form-control" id="total" title="Preço total da compra">0.00</span></div>
+                <div class="col-md-2 text-right">
+                    <button type="submit" class="btn btn-primary" onclick="return validar()" title="Enviar pedido"><i class="fa fa-send"></i></button>
+                    <button type="button" class="btn btn-secondary" onclick="limpar()" title="Limpar compra"><i class="fa fa-trash-o"></i></button>
+                </div>
+            </div>
+            <hr />
+            <h1 class="border-bottom my-3 py-3">Produtos Sugeridos</h1>
+            <div class="row ">
+                <div class=" col-md-3 ">
+                    <img src="PingoDoceOnline/918645001_1.jpg" class="card-img-top" />
+                    <h5>Iogurte Banana Açaí Wonderfruits Yaos Nestlé</h5>
+                    <small>4x110 g | 4,43 €/Kg</small>
+                    <h6><span class="text-danger">1,95</span> <span class="small"><s>€2,99 €</s></span></h6>
+                    <input type="hidden" name="precoproduto1" id="precoproduto1" value="1.95" />
+                    <input type="hidden" name="produto1" id="produto1" value="0" />
+                    <hr />
+                    <button type="button" class="btn btn-primary btn-block" onclick="comprar(1)"><i class="fa fa-shopping-bag"></i> Comprar</button>
+                </div>
+                <div class="col-md-3 ">
+                    <img src="PingoDoceOnline/31812_1.jpg" class="card-img-top " />
+                    <h5>Dióspiro Persimmon Rijo</h5>
+                    <small>1 UN ~ 450g | 2,49 €/Kg</small>
+                    <h6><span class="text-danger">2,49 €</span></h6>
+                    <input type="hidden" name="precoproduto2" id="precoproduto2" value="2.49" />
+                    <input type="hidden" name="produto2" id="produto2" value="0" />
+                    <hr />
+                    <button type="button" class="btn btn-primary btn-block" onclick="comprar(2)"><i class="fa fa-shopping-bag"></i> Comprar</button>
+                </div>
+                <div class="col-md-3 ">
+                    <img src="PingoDoceOnline/34666_1.jpg" class="card-img-top" />
+                    <h5>Castanha Cal. 60/80</h5>
+                    <small>1 UN ~ 500g | 2,99 €/Kg</small>
+                    <h6><span class="text-danger">2,99 €</span> <span class="small"><s>€3,99 €</s></span></h6>
+                    <input type="hidden" name="precoproduto3" id="precoproduto3" value="2.49" />
+                    <input type="hidden" name="produto3" id="produto3" value="0" />
+                    <hr />
+                    <button type="button" class="btn btn-primary btn-block" onclick="comprar(3)"><i class="fa fa-shopping-bag"></i> Comprar</button>
+                </div>
+                <div class="col-md-3 ">
+                    <img src="PingoDoceOnline/43218_1.jpg" class="card-img-top" />
+                    <h5>Banana Importada</h5>
+                    <small>1 UN ~ 200g | 0,99 €/Kg</small>
+                    <h6><span class="text-danger">0,99 €</span></h6>
+                    <input type="hidden" name="precoproduto4" id="precoproduto4" value="0.99" />
+                    <input type="hidden" name="produto4" id="produto4" value="0" />
+                    <hr />
+                    <button type="button" class="btn btn-primary btn-block" onclick="comprar(4)"><i class="fa fa-shopping-bag"></i> Comprar</button>
+                </div>
+            </div>
+        </form>
+        <hr />
+        <p class="footer">Esta página possui informação retirada de <a href="https://mercadao.pt/store/pingo-doce" target="_blank">https://mercadao.pt/store/pingo-doce</a>. Não pode ser confundido com o site original e serve apenas de exemplo para este teste prático.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="PingoDoceOnline.js"></script>
+</body>
+</html>

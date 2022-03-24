@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>ITW-02</title>
+        <link rel="stylesheet" href="styles/style01.css">
+        <meta name="Author" content="Pedro Ramos">
+        <meta name="Keywords" content="formulário;fonte externa;CSS">
+        <meta name="Description" content="Formulário com utilização de fonte externa e estilos CSS">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <h1>Informação Pessoal</h1>
+        <form name="PersonData" action="http://192.168.160.36/FormEcho.aspx" method="post">
+            <input type="hidden" name="FormName" value="UserForm" />
+                <fieldset class="field0">
+                    <legend>Informação pessoal</legend>
+                    <div class="lbl0"><label for="Curso">Curso:</label></div>
+                    <select type="text" id="Curso" name="Curso" placeholder="Curso" />
+                    <option value="lei">Licenciatura em Engenharia Informática</option>
+                    <option value="ct">Mestrado Integrado em Engenharia de Computadores e Telemática</option>
+                    <option value="et">Mestrado Integrado em Engenharia Eletrónica e Telecomunicações</option>
+                    <option value="outro">Outro</option>
+                    </select>
+                    <br>
+                    <div class="lbl0"><label class="lbl0" for="FirstName">Nome:</label></div>
+                    <input type="text" id="FirstName" name="FirstName" placeholder="Nome" />
+                    <br>
+                    <div class="lbl0"><label class="lbl0" for="LastName">Sobrenome:</label></div>
+                    <input type="text" id="LastName" name="LastName" placeholder="Sobrenome" />
+                    <br>
+                    <div class="lbl0"><label class="lbl0" for="Password">Password:</label></div>
+                    <input type="password" id="Password" name="Password" placeholder="Digite a palavra passe" />
+                </fieldset>
+                <fieldset>
+                    <legend>Comentários</legend>
+                <dd>
+                    <textarea name="Comments" rows="4" cols="80" placeholder="Insira os seus comentários"></textarea>
+                </dd>
+            </fieldset>
+
+            <fieldset class="box_trans">
+                <legend>Meios de transporte</legend>
+                <input type="checkbox" id="bicicleta" name="bicicleta">
+                <label for="bicicleta">Bicicleta</label>
+
+                <br>
+                <input type="checkbox" id="carro" name="carro">
+                <label for="carro">Carro</label>
+
+                <br>
+                <input type="checkbox" id="comboio" name="comboio">
+                <label for="comboio">Comboio</label>
+            </fieldset>
+
+            <fieldset class="box_cl">
+                <legend>Cor preferida</legend>
+
+                <input type="checkbox" id="verde" name="cor" value="Verde">
+                <label for="verde">Verde</label>
+                <br>
+                <input type="checkbox" id="azul" name="cor" value="Azul">
+                <label for="azul">Azul</label>
+                <br>
+                <input type="checkbox" id="vermelho" name="cor" value="Vermelho">
+                <label for="vermelho">Vermelho</label>
+                <br>
+                <input type="checkbox" id="outra" name="cor" value="Outra">
+                <label for="outra">Outra</label>
+            </fieldset>
+
+            <div class="submit_btn">
+                <input class="btn0" name="Button" type="Submit" value="Enviar"/>
+                <input class="btn0" type="reset" name="resetBtn" value="Limpar" />
+            </div>
+
+        </form>
+    </body>
+</html>

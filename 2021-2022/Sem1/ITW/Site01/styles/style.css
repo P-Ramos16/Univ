@@ -1,0 +1,97 @@
+html {
+    background-color: black;
+}
+
+td {
+    padding: 5px;
+    border-style: solid;
+    border-color: rgb(173, 173, 173);
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+
+.table01 {
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(0, 0, 0);
+    border-width: 2px;
+    background-color: #555555;
+    width: 800px;
+    height: 600px;
+}
+
+.menLat {
+    vertical-align: top;
+    width: 160px;
+    text-align: center;
+}
+
+.row0 {
+    height: 80px;
+}
+
+.row1 {
+    height: 20px;
+    text-align: center;
+}
+
+.row2 {
+    height: 40px;
+}
+
+.img0 {
+    max-height: 78px;
+    margin: 1px;
+    float: left;
+}
+
+.text0 {
+    text-decoration: underline;
+    position: relative;
+    right: 25%;
+    float: right;
+}
+
+.text1 {
+    text-align: center;
+}
+
+.main0 {
+    vertical-align: top;
+    margin-top: 0px;
+    text-align: justify;
+    padding: 1vh;
+}
+
+ul {  
+    width: 100%;
+    position: relative;
+    right: 25%;
+    list-style: none;
+    list-style-type: none;
+}
+
+li {
+    margin-top: 20px;
+}
+
+.btn0 {
+    color: white;
+    text-decoration: none;
+    width: 50px;
+    height: 25px;
+    padding: 5px;
+    border: solid 2px #b3b3b3;
+    background-color: rgb(105, 105, 105);
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.btn0:hover {
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    border: solid 2px rgb(105, 105, 105);
+    background-color: #b3b3b3;
+}
