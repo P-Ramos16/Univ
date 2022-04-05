@@ -2,17 +2,20 @@ package Aula05;
 
 import java.util.*;
 
-public class Ex02 {
+public class Ex03 {
     public static void main(String[] args) {
 
-        Calender currCal = new Calender(1, 1970);
+        Circle currCir = new Circle(0);
+        Rect currRect = new Rect(0, 0);
+        Triang currTriang = new Triang(1, 2, 4);
+
 
         while (true) {
 
             Scanner sc = new Scanner(System.in);
 
-            System.out.println("Date operations:");
-            System.out.println("1 - create new calendar");
+            System.out.println("Geo operations:");
+            System.out.println("1 - create new figure");
             System.out.println("2 - print calender month");
             System.out.println("3 - print calender");
             System.out.println("0 - exit");
@@ -31,21 +34,30 @@ public class Ex02 {
                     break;
                 
                 case(1):
-                    System.out.println(" __CREATE_NEW_CALENDER__ ");
+                    System.out.println(" __CREATE_NEW_FIGURE__ ");
 
-                    System.out.println(" Insert Year:");
-                    System.out.print("      > ");
-                    int year = sc.nextInt();
-
-                    System.out.println(" Insert First WeekDay of Year:");
-                    System.out.print("      > ");
-                    int weekDay = sc.nextInt();
-
-
-                    currCal.set(weekDay, year);
-
+                    System.out.println("Which Figure?:");
+                    System.out.println("1 - Circle");
+                    System.out.println("2 - Rectangle");
+                    System.out.println("3 - Triangle");
+                    System.out.println("0 - exit");
+                    System.out.print("     > ");
+                    option = sc.nextInt();
                     System.out.println("");
                     System.out.println("");
+
+                    switch(option) {
+                        case(0):
+                            System.out.println(" Insert Radius:");
+                            System.out.print("      > ");
+                            int radius = sc.nextInt();
+                            Circle.set(radius);        
+                            System.out.println("");
+                            System.out.println("");
+                            break;
+
+
+
                     break;
 
                 

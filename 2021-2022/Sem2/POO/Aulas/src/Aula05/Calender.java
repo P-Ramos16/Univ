@@ -47,19 +47,31 @@ public class Calender {
 
     public void firstWeekdayOfMonth(int month) {
         currDate.set(1, month, year);
-        weekDayMonth = 1;
-        System.out.println(" First WeekDay of month>" + weekDayMonth);
+
+        int daysSinceBeggining = 0;
+        for (int i = 1; i < month; i++ ){
+            daysSinceBeggining+= currDate.monthDays(i, year);
+        }
+        System.out.println(daysSinceBeggining);
+        weekDayMonth = ((daysSinceBeggining + weekDay))  % 7; 
+
+
+        if (weekDayMonth == 7) {
+            weekDayMonth = 0;
+        }
+
+        System.out.println(" First WeekDay of month>" + this.weekDayMonth);
+
         return;
     }
 
     public void printMonth(int month, int year) {
         int monthDays = currDate.monthDays(month, year);
+        firstWeekdayOfMonth(month);
+        weekDayMonth = this.weekDayMonth;
         String[] diasArr = new String[40];
         String mesStr = "Erro";
 
-        if (weekDayMonth == 7) {
-            weekDayMonth = 0;
-        }
 
         for (int i = 0; i < weekDayMonth; i++) {
             diasArr[i] = "  ";
@@ -132,4 +144,13 @@ public class Calender {
         System.out.println("|______________________|");
 
     }
+
+    public String toString() {
+        System.out.println(" Year   >" + year);
+        for (int i = 1; i <= 12; i++) {
+            printMonth(i, year);
+        }
+        return "Fim";
+    }
+
 }
