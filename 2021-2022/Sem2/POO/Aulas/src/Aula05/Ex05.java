@@ -2,21 +2,24 @@ package Aula05;
 
 import java.util.*;
 
-public class Ex03 {
+public class Ex05 {
     public static void main(String[] args) {
 
-        ArrayList<Circle> circleList = new ArrayList<Circle>();
-        ArrayList<Rect>     rectList = new ArrayList<Rect>();
-        ArrayList<Triang> triangList = new ArrayList<Triang>();
+        Livro catalogo[] = new Livro[10];
+        ArrayList<Utilizador> alunos = new ArrayList<>();
 
         while (true) {
 
             Scanner sc = new Scanner(System.in);
 
-            System.out.println("Geo operations:");
-            System.out.println("1 - create new figure");
-            System.out.println("2 - print current figures (area/perimeter/etc)");
-            System.out.println("3 - compare current figures of a type");
+            System.out.println("Library operations:");
+            System.out.println("1 - increver utilizador");
+            System.out.println("2 - remover utilizador");
+            System.out.println("3 - imprimir lista de utilizadores");
+            System.out.println("4 - registar novo livro");
+            System.out.println("5 - imprimir lista de livros");
+            System.out.println("6 - emprestar");
+            System.out.println("6 - devolver");
             System.out.println("0 - exit");
             System.out.print("     > ");
             int option = sc.nextInt();

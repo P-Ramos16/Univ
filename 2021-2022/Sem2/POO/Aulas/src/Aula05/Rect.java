@@ -1,7 +1,7 @@
 package Aula05;
 
 public class Rect {
-    private int[] comp_alt;
+    private int[] comp_alt = new int[2];
 
     public Rect(int c, int h) {
         this.comp_alt[0] = c;
@@ -23,12 +23,18 @@ public class Rect {
     }
 
     public String toString() {
+        System.out.println("_____________");
         System.out.print("Tipo      > ");
         System.out.println("Rectangle");
+        System.out.print("Length    > ");
+        System.out.println(this.comp_alt[0]);
+        System.out.print("Heigth    > ");
+        System.out.println(this.comp_alt[1]);
         System.out.print("Área      > ");
         System.out.println(area());
         System.out.print("Perimetro > ");
         System.out.println(perimeter());
+        System.out.println("_____________");
         return "Circle";
     }
 

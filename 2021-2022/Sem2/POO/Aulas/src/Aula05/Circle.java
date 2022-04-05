@@ -14,6 +14,7 @@ public class Circle {
         else {
             System.out.println("Raio iválido!!");
         }
+        return;
     }
 
     public String get() {
@@ -21,21 +22,26 @@ public class Circle {
     }
 
     public String toString() {
+        System.out.println("_____________");
         System.out.print("Tipo      > ");
         System.out.println("Circle");
+        System.out.print("Raio      > ");
+        System.out.println(this.r);
         System.out.print("Área      > ");
         System.out.println(area());
         System.out.print("Perimetro > ");
         System.out.println(perimeter());
+        System.out.println("_____________");
         return "Circle";
     }
 
     public double area() {
-        return (this.r ^ 2) * Math.PI;
+        return Math.pow(this.r, 2) * Math.PI;
     }
 
     public double perimeter() {
         return this.r * 2 * Math.PI;
     }
+
 
 }

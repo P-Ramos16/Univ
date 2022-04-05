@@ -32,7 +32,7 @@ public class Date {
         }
 
         else {
-            System.out.println("Ivalid Date!!!");
+            System.out.println("Invalid Date!!!");
         }
 
         return;

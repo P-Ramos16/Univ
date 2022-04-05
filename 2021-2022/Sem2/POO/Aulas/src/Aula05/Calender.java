@@ -52,7 +52,6 @@ public class Calender {
         for (int i = 1; i < month; i++ ){
             daysSinceBeggining+= currDate.monthDays(i, year);
         }
-        System.out.println(daysSinceBeggining);
         weekDayMonth = ((daysSinceBeggining + weekDay))  % 7; 
 
 
