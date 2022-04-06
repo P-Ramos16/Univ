@@ -5,13 +5,15 @@ import java.util.*;
 public class Ex05 {
     public static void main(String[] args) {
 
-        Livro catalogo[] = new Livro[10];
-        ArrayList<Utilizador> alunos = new ArrayList<>();
+        ArrayList<Livro> livros = new ArrayList<>(100);
+        ArrayList<Utilizador> alunos = new ArrayList<>(100);
+
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
 
-            Scanner sc = new Scanner(System.in);
 
+            System.out.println("");
             System.out.println("Library operations:");
             System.out.println("1 - increver utilizador");
             System.out.println("2 - remover utilizador");
@@ -19,7 +21,7 @@ public class Ex05 {
             System.out.println("4 - registar novo livro");
             System.out.println("5 - imprimir lista de livros");
             System.out.println("6 - emprestar");
-            System.out.println("6 - devolver");
+            System.out.println("7 - devolver");
             System.out.println("0 - exit");
             System.out.print("     > ");
             int option = sc.nextInt();
@@ -36,114 +38,124 @@ public class Ex05 {
                     break;
                 
                 case(1):
-                    System.out.println(" __CREATE_NEW_FIGURE__ ");
-
-                    System.out.println("Which Figure?:");
-                    System.out.println("1 - Circle");
-                    System.out.println("2 - Rectangle");
-                    System.out.println("3 - Triangle");
-                    System.out.println("0 - exit");
-                    System.out.print("     > ");
-                    option = sc.nextInt();
+                    System.out.println(" __INSCREVER_USER__ ");
+                    System.out.println(" Inserir o nome:");
+                    System.out.print("      > ");
+                    sc.nextLine();
+                    String userName = sc.nextLine();
+                    System.out.println("");
+                    System.out.println(" Inserir o nMec:");
+                    System.out.print("      > ");
+                    int nMec = sc.nextInt();
+                    System.out.println(" Inserir o curso");
+                    System.out.print("      > ");
+                    sc.nextLine();
+                    String cursoName = sc.nextLine();
                     System.out.println("");
                     System.out.println("");
-
-                    if (option == 1) {
-                        Circle currCir = new Circle(0);
-                        System.out.println(" Insert Radius:");
-                        System.out.print("      > ");
-                        int radius = sc.nextInt();
-                        currCir.set(radius);
-                        System.out.println("");
-                        System.out.println("");
-                        circleList.add(currCir);
-                    }
-
-                    else if (option == 2) {
-                        Rect currRect = new Rect(0, 0);
-                        System.out.println(" Insert Length:");
-                        System.out.print("      > ");
-                        int l = sc.nextInt();
-                        System.out.println(" Insert Height:");
-                        System.out.print("      > ");
-                        int h = sc.nextInt();
-                        currRect.set(l, h);
-                        System.out.println("");
-                        System.out.println("");
-                        rectList.add(currRect);
-                    }
-
-                    else if (option == 3) {
-                        Triang currTriang = new Triang(0, 0, 0); 
-                        System.out.println(" Insert Length 1:");
-                        System.out.print("      > ");
-                        int l1 = sc.nextInt();
-                        System.out.println(" Insert Length 2:");
-                        System.out.print("      > ");
-                        int l2 = sc.nextInt();
-                        System.out.println(" Insert Length 3:");
-                        System.out.print("      > ");
-                        int l3 = sc.nextInt();
-                        currTriang.set(l1, l2, l3);
-                        System.out.println("");
-                        System.out.println("");
-                        triangList.add(currTriang);
-                    }
+                    alunos.add(new Utilizador(userName, nMec, cursoName));
                     
                     break;
 
-                
                 case(2):
-                    System.out.println(" __PRINT_CURRENT_FIGURES__ ");
+                    System.out.println(" __REMOVER_USER__ ");
+                    System.out.println(" Inserir o nMec");
+                    System.out.print("      > ");
+                    nMec = sc.nextInt();
                     System.out.println("");
                     System.out.println("");
-                    System.out.println(circleList);
-                    System.out.println(rectList);
-                    System.out.println(triangList);
-                    System.out.println("");
-                    System.out.println("");
-                    
+                    for (Utilizador u : alunos) {
+                        if (u.getnMec() == nMec) {
+                            alunos.remove(u);
+                        }
+                    }
+                        
                     break;
+
                 
                 case(3):
-
-                System.out.println(" __COMPARE_FIGURES_OF_A_TYPE__ ");
-
-                System.out.println("Which Figure Type?:");
-                System.out.println("1 - Circle");
-                System.out.println("2 - Rectangle");
-                System.out.println("3 - Triangle");
-                System.out.println("0 - exit");
-                System.out.print("     > ");
-                option = sc.nextInt();
-                System.out.println("");
-                System.out.println("");
-                System.out.println("Which figure (ids)?");
-                System.out.print("     > ");
-                int x = sc.nextInt();
-                System.out.print("     > ");
-                int y = sc.nextInt();
-                System.out.println("");
-                System.out.println("");
-
-                if (option == 1) {
-                    System.out.print("Are the objects the same? >" );
-                    System.out.println(circleList.get(x).get().equals(circleList.get(y).get()));
+                    System.out.println(" __PRINT_LISTA_USERS__ ");
                     System.out.println("");
-                }
-
-                else if (option == 2) {
-                    System.out.print("Are the objects the same? > ");
-                    System.out.println(rectList.get(x).get().equals(rectList.get(y).get()));
                     System.out.println("");
-                }
-
-                else if (option == 3) {
-                    System.out.print("Are the objects the same? > ");
-                    System.out.println(triangList.get(x).get().equals(triangList.get(y).get()));
+                    for (Utilizador u : alunos) {
+                        System.out.println(u);
+                    }
                     System.out.println("");
-                }
-                break;
+                    System.out.println("");
+                    
+                    break;
+                
+                case(4):
+                    System.out.println(" __REGISTAR_LIVRO__ ");
+                    System.out.println(" Inserir o titulo:");
+                    System.out.print("      > ");
+                    sc.nextLine();
+                    String titulo = sc.nextLine();
+                    System.out.println("");
+                    System.out.println(" Inserir o tipo de emprestimo:");
+                    System.out.print("      > ");
+                    String emprestimo = sc.nextLine();
+                    System.out.println("");
+                    System.out.println("");
+                    livros.add(new Livro(titulo, emprestimo));
+                    break;
+
+                case(5):
+                    System.out.println(" __PRINT_LISTA_LIVROS__ ");
+                    for (Livro l : livros) {
+                        System.out.println(l);
+                    }
+                    break;
+
+                case(6):
+                    System.out.println(" __EMPRESTAR_LIVROS__ ");
+                    System.out.println(" Inserir o id:");
+                    System.out.print("      > ");
+                    int id = sc.nextInt();
+                    System.out.println(" Inserir o nMec");
+                    System.out.print("      > ");
+                    nMec = sc.nextInt();
+
+                    for (Utilizador u : alunos) {
+                        if (u.getnMec() == nMec) {
+                            u.requestB(id);
+                        }
+                    }
+
+                    for (Livro l : livros) {
+                        if (l.getId() == id) {
+                            if (l.getTipoEmprestimo()) {
+                                l.emprestar("EMPRESTADO", nMec);
+                            }
+                            else {
+                                System.out.println("Esse livro não pode ser emprestado!");
+                            }
+                        }
+                    }
+                    break;
+
+                case(7):
+                    System.out.println(" __DEVOLVER_LIVROS__ ");
+                    System.out.println(" Inserir o id:");
+                    System.out.print("      > ");
+                    id = sc.nextInt();
+                    nMec = 0;
+
+                    for (Livro l : livros) {
+                        if (l.getId() == id) {
+                            nMec = l.getNmec();
+                            l.emprestar("", 0);
+
+                        }
+                    }
+
+                    for (Utilizador u : alunos) {
+                        if (u.getnMec() == nMec) {
+                            u.removeB(id);
+                        }
+                    }
+
+                    break;
             }
 
         }
