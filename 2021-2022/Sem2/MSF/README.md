@@ -1,5 +1,5 @@
 # Resumo dos ficheiros de MSF
-### 06/04/2022 
+### 08/04/2022 
 
 Aula01 >
 
@@ -59,3 +59,14 @@ Teste_Treino >
     -Ex01_b_log >   Representar gráficos de dados exprimentais Log - Log;
     -Ex01_c_dec >   Calcular declive, ordenada na origem, coeficiente de determinação e r²;
     -Ex01_a_Eul >   Gráfico de x(t) com o método de Euler usando v[i + 1] e x[i + 1];
+
+TODOS_CENÁRIOS >
+
+    -GRAPH_DADOS_EXP        > Gráfico dados exprimentais dados
+    -MOVIMENTOS             > Gráfico de posição/velocidade com método de Euler
+    -PHY_T_VARIAVEL         > Gráfico do desvio com o aumento de dt
+    -POLYFIT_ENCONTRAR_RETA > Gráfico da reta do polifit1d, ordenada na origem e declive(?)
+    -POS_VEL_ACE            > Gráficos da x, v, a, de uma queda com resistencia (Mét. Euler)
+    -RETA_EXPERIMENTAL      > Gráfico da reta experimental (Mét. Minimos Quadráticos)
+    -SOMATÓRIOS_DECLIVE_OO_CODET_R2 > Prints dos valores de método minímos quadráticos
+    -TRAJETÓRIA             > Gráfico da trajetória de um objeto
