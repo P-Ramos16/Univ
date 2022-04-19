@@ -130,6 +130,7 @@ public class Ex04 {
         int diasMes = calcDiasMes(mes, ano);
 
         printCalen(mes, ano, diaSemana, diasMes);
+        sc.close();
 
 
 

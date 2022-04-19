@@ -18,6 +18,7 @@ public class Ex03 {
         }
 
         System.out.println("Acrónimo > " + sb);
+        sc.close();
 
     }
 }
