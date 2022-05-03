@@ -1,0 +1,537 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPNet</H1>
+<P>This is a static, top-level object used to create connections to HTTP (World Wide Web) and FTP servers and to perform various related tasks. The SPNet object always exists and is never explicitly created or destroyed. Since it is a top-level object, methods in this object do not have to be preceded with "Net.".</P>
+<DIR>
+<LI><A HREF="#getDirectoryFromURL">
+getDirectoryFromURL</a>
+ - Returns the whole URL except for the file name and any terminating anchor.</LI>
+<LI><A HREF="#getFileFromURL">
+getFileFromURL</a>
+ - Returns the file name portion of a URL. If no file name is specified, this returns an empty string. It does not attempt to substitute a name such as "index.html" as this is server dependent.</LI>
+<LI><A HREF="#getFileURLFromURL">
+getFileURLFromURL</a>
+ - Returns the whole URL except for any terminating anchor and arguments.</LI>
+<LI><A HREF="#getHostFromURL">
+getHostFromURL</a>
+ - Returns the host portion of a URL.</LI>
+<LI><A HREF="#getImagesFromHTML">
+getImagesFromHTML</a>
+ - Extracts a list of all image references found in the given HTML text.</LI>
+<LI><A HREF="#getLinksFromHTML">
+getLinksFromHTML</a>
+ - Extracts a list of all links found in the given HTML text.</LI>
+<LI><A HREF="#getPathFromURL">
+getPathFromURL</a>
+ - Returns the path portion of a URL, i.e. the string of directory names between the host name and the file name. This can be empty.</LI>
+<LI><A HREF="#getProtoFromURL">
+getProtoFromURL</a>
+ - Returns the protocol portion of a URL.</LI>
+<LI><A HREF="#getRefFromURL">
+getRefFromURL</a>
+ - Returns the anchor reference from a URL, i.e. the portion after a "#" hash mark, if any.</LI>
+<LI><A HREF="#getTextFromHTML">
+getTextFromHTML</a>
+ - Extracts the visible text from an HTML file, that is, it removes all HTML commands and other browser data and leaves only the text that would be visible to a user on the page. This is intended to allow searches for text data in the user-visible area of a Web page.</LI>
+<LI><A HREF="#getURLBinary">
+getURLBinary</a>
+ - Loads binary data from the given URL and returns it as a string value. Only HTTP URLs are supported in this version, i.e. the URL must start with "http://".</LI>
+<LI><A HREF="#getURLText">
+getURLText</a>
+ - Loads text from the given URL and returns it as a string value. Only HTTP URLs are supported in this version, i.e. the URL must start with "http://".</LI>
+<LI><A HREF="#rawTextToHTML">
+rawTextToHTML</a>
+ - Generates the HTML code necessary to display the given raw text as is.</LI>
+<LI><A HREF="#SPFTP">
+SPFTP</a>
+ - Creates a new SPFTP object, used for send and receiving data to/from servers using the FTP protocol.</LI>
+<LI><A HREF="#SPInternet">
+SPInternet</a>
+ - Creates a new SPInternet object, used for retrieving data from World Wide Web sites. NOTE: This version supports only the HTTP protocol, i.e. URLs starting with "http://"..</LI>
+</DIR>
+<a name="getDirectoryFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getDirectoryFromURL</B></FONT></P>
+<P>Version added: 1.1</P>
+<P>Returns the whole URL except for the file name and any terminating anchor.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getDirectoryFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<H3>Remarks:</H3><P>
+Note that this only works if a complete URL ending in a file name is given. A url like "http://www.flyingobject.com/images" is ambiguous in that "images" could be a file or directory and only the server knows for sure! This method will assume the last item is a file name and remove it.
+</P>
+<a name="getFileFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFileFromURL</B></FONT></P>
+<P>Returns the file name portion of a URL. If no file name is specified, this returns an empty string. It does not attempt to substitute a name such as "index.html" as this is server dependent.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getFileFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getFileURLFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFileURLFromURL</B></FONT></P>
+<P>Version added: 1.1</P>
+<P>Returns the whole URL except for any terminating anchor and arguments.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getFileURLFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getHostFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getHostFromURL</B></FONT></P>
+<P>Returns the host portion of a URL.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getHostFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getImagesFromHTML"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getImagesFromHTML</B></FONT></P>
+<P>Extracts a list of all image references found in the given HTML text.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>getImagesFromHTML</B>(htmlString);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>getImagesFromHTML</B>(htmlString, rootURL);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>htmlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A block of text containing HTML commands</td>
+  </tr>
+  <tr>
+    <td>rootURL</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL from which the HTML text was downloaded. This is needed to resolve relative path names on the page. If this is not provided, relative paths will be omitted.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>An array of strings representing the URLs of images found on the page.</P>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getLinksFromHTML"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getLinksFromHTML</B></FONT></P>
+<P>Extracts a list of all links found in the given HTML text.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>getLinksFromHTML</B>(htmlString);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>getLinksFromHTML</B>(htmlString, rootURL);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>htmlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A block of text containing HTML commands</td>
+  </tr>
+  <tr>
+    <td>rootURL</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL from which the HTML text was downloaded. This is needed to resolve relative path names on the page. If this is not provided, relative links will be omitted.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>An array of strings representing the fully-qualified links found on the page.</P>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<H3>Remarks:</H3><P>
+For the purposes of this method, all HREF references and all frame references are counted as links.
+</P>
+<a name="getPathFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getPathFromURL</B></FONT></P>
+<P>Returns the path portion of a URL, i.e. the string of directory names between the host name and the file name. This can be empty.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getPathFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getProtoFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getProtoFromURL</B></FONT></P>
+<P>Returns the protocol portion of a URL.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getProtoFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getRefFromURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getRefFromURL</B></FONT></P>
+<P>Returns the anchor reference from a URL, i.e. the portion after a "#" hash mark, if any.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getRefFromURL</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<a name="getTextFromHTML"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getTextFromHTML</B></FONT></P>
+<P>Extracts the visible text from an HTML file, that is, it removes all HTML commands and other browser data and leaves only the text that would be visible to a user on the page. This is intended to allow searches for text data in the user-visible area of a Web page.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getTextFromHTML</B>(htmlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>htmlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A block of text containing HTML commands</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>String - The text extracted from the HTML.</P>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<H3>Example:</H3><P><PRE>
+// This downloads an HTML page and puts up an alert box if it
+// finds the word "NetPad" in it.
+
+if (getTextFromHTML(getURLText("www.disney.com")).indexOf("NetPad") &gt;= 0)
+{
+    alert("Found a reference to NetPad!");
+}
+</PRE></P>
+<a name="getURLBinary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getURLBinary</B></FONT></P>
+<P>Loads binary data from the given URL and returns it as a string value. Only HTTP URLs are supported in this version, i.e. the URL must start with "http://".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getURLBinary</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL to load from, must begin with "http://"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>SPArray - A byte array containting the data loaded from the given URL.</P>
+<H3>Errors:</H3><P>An exception is generated on any error.</P>
+<H3>Remarks:</H3><P>
+This method provides a quick way of loading binary data (e.g. images) from a Web resource for cases where no error recovery, progress reporting or other options are needed. For more complete features, use the SPInternet object.
+</P>
+<a name="getURLText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getURLText</B></FONT></P>
+<P>Loads text from the given URL and returns it as a string value. Only HTTP URLs are supported in this version, i.e. the URL must start with "http://".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getURLText</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL to load from, must begin with "http://"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>String - The text loaded from the given URL.</P>
+<H3>Errors:</H3><P>An exception is generated on any error.</P>
+<H3>Remarks:</H3><P>
+This method provides a quick way of loading text from a text Web resource for cases where no error recovery, progress reporting or other options are needed. For more complete features, use the SPInternet object.
+</P>
+<H3>Example:</H3><P><PRE>
+mickeysLinks = getLinksFromHTML(getURLText("www.disney.com"));
+writeFile("c:/disney links.txt", "" + mickeysLinks;
+</PRE></P>
+<a name="rawTextToHTML"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>rawTextToHTML</B></FONT></P>
+<P>Version added: 1.1</P>
+<P>Generates the HTML code necessary to display the given raw text as is.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>rawTextToHTML</B>(rawString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>rawString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A block of text to convert to HTML</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>String - The text converted to HTML.</P>
+<H3>Errors:</H3><P>No errors are reported.</P>
+<H3>Remarks:</H3><P>
+If the input string contains no characters that are special in HTML, no changes are made and the same string is returned. If the input string contains any characters that could be intepreted as special by an HTML interpreter, they will be to the appropriate &xxx; HTML metachar.
+</P>
+<H3>Example:</H3><P><PRE>
+// This displays a sample of HTML code on an HTML page, i.e. escaping the
+// HTML tags so they won't be intepreted by the browser.
+
+text = rawTextToHTML("&lt;TITLE&gt;The Page Title&lt;/TITLE&gt;");
+file = "c:/Script Pilot Samples/html example.html";
+writeFile(file, "&lt;html&gt;" + text + "&lt;/html&gt;");
+run(file);
+</PRE></P>
+<a name="SPFTP"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPFTP</B></FONT></P>
+<P>Creates a new SPFTP object, used for send and receiving data to/from servers using the FTP protocol.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPFTP">SPFTP</A></td>
+</I> <B>SPFTP</B>(serverName, userName, password);
+</P>
+</FONT>
+<P>Creates an unnamed SPFTP object connected to the given server.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPFTP">SPFTP</A></td>
+</I> <B>SPFTP</B>(objectName, serverName, userName, password);
+</P>
+</FONT>
+<P>Create a named SPFTP object. The given name can be used to connect to events generated by object in the process of interacting with servers.</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>serverName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The server name, e.g. "ftp.company.com"</td>
+  </tr>
+  <tr>
+    <td>objectName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A name for this connection object. This is used to respond to events generated during the progress of FTP transactions. The name of an event handler will be objectName_eventName.</td>
+  </tr>
+  <tr>
+    <td>password</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The password required to connect to the server. If the server supports anonymous connections, this can be your email address.</td>
+  </tr>
+  <tr>
+    <td>userName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The user name required to connect to the server. If the server supports anonymous connections, this can be "anonymous".</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spftp.html">SPFTP</A></LI>
+</DIR>
+<a name="SPInternet"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPInternet</B></FONT></P>
+<P>Creates a new SPInternet object, used for retrieving data from World Wide Web sites. NOTE: This version supports only the HTTP protocol, i.e. URLs starting with "http://"..</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPInternet">SPInternet</A></td>
+</I> <B>SPInternet</B>();
+</P>
+</FONT>
+<P>Creates an unnamed SPInternet object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPInternet">SPInternet</A></td>
+</I> <B>SPInternet</B>(name);
+</P>
+</FONT>
+<P>Create a named SPInternet object. The given name can be used to connect to events generated by object in the process of interacting with servers.</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the object that will be used to identify event handlers for this object.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Example:</H3><P><PRE>
+h = SPInternet("Web");
+h.getURL("http://www.disney.com");
+
+function Web_Done()
+{
+    writeln("We got it!");
+}
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spinternet.html">SPInternet</A></LI>
+</DIR>
+</BODY>
+</HTML>

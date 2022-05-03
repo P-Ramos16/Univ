@@ -1,0 +1,320 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWType</H1>
+<P>The DWType object represents a device type definition and be obtained from a DWLibrary object or from a device instance (DWDevice) in a circuit.</P>
+<DIR>
+<LI><A HREF="#attributeList">
+attributeList</a>
+ - Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</LI>
+<LI><A HREF="#copyProtectionData">
+copyProtectionData</a>
+ - Copies the type protection password info from another type</LI>
+<LI><A HREF="#getAttribute">
+getAttribute</a>
+ - Gets an attribute value from this object</LI>
+<LI><A HREF="#getAttributeVis">
+getAttributeVis</a>
+ - Gets the visibility of an attribute on this object</LI>
+<LI><A HREF="#library">
+library</a>
+ - Gets the library object that this type was read from, if any</LI>
+<LI><A HREF="#name">
+name</a>
+ - Gets or sets the name of the type</LI>
+<LI><A HREF="#numPins">
+numPins</a>
+ - Gets or sets the number of pins on this device type.</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWType".</LI>
+<LI><A HREF="#pic">
+pic</a>
+ - Gets or sets the picture (symbol) of the type</LI>
+<LI><A HREF="#pinInterface">
+pinInterface</a>
+ - Gets a string representing the pin interface on this device. Read only.</LI>
+<LI><A HREF="#pins">
+pins</a>
+ - Returns an array of DWTypePin objects representing all the pins connected to this type</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if this type has been instantiated in a circuit. No changes can be made to type definitions that are in use in a circuit.</LI>
+<LI><A HREF="#setAttribute">
+setAttribute</a>
+ - Sets an attribute value in this object</LI>
+<LI><A HREF="#setAttributeVis">
+setAttributeVis</a>
+ - Sets the visibility of an attribute value in this object</LI>
+<LI><A HREF="#subCircuit">
+subCircuit</a>
+ - Gets a DWCircuit object representing the subcircuit of the type.</LI>
+</DIR>
+<a name="attributeList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>attributeList</B></FONT></P>
+<P>Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>attributeList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>attributeList</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns or accepts an SPArray of DWAttribute objects</P>
+<H3>Remarks:</H3><P>
+You can always get this property, but you cannot set it on a type that is already instantiated in a circuit, or was loaded from a library. This can only be set for a DWType object that was created within the script.
+</P>
+<a name="copyProtectionData"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>copyProtectionData</B></FONT></P>
+<P>Copies the type protection password info from another type</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>copyProtectionData</B>(srcType);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>srcType</td>
+    <td><A HREF = "index.html#DWType">DWType</A></td>
+    <td>The type whose data will be copied to this type. The source is not modified.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+Types that are already instantiated in a circuit cannot be modified.
+</P>
+<a name="getAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttribute</B></FONT></P>
+<P>Gets an attribute value from this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getAttribute</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string representing the value of the specified attribute field. This string will be empty (zero length) if the field does not exist.</P>
+<a name="getAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttributeVis</B></FONT></P>
+<P>Gets the visibility of an attribute on this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getAttributeVis</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the field is displayed on the schematic, false otherwise</P>
+<a name="library"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>library</B></FONT></P>
+<P>Gets the library object that this type was read from, if any</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> <B>library</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+The library cannot be set. May return NULL if this type was constructed internally and is not associated with a library.
+</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Gets or sets the name of the type</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>name</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>name</B> = <I><A HREF = "index.html#String">String</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+No changes can be made to a type that is instantiated in a circuit.
+</P>
+<a name="numPins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>numPins</B></FONT></P>
+<P>Gets or sets the number of pins on this device type.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>numPins</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>numPins</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+You can always get this property, but you cannot set it on a type that is already instantiated in a circuit, or was loaded from a library. This can only be set for a DWType object that was created within the script.
+</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWType".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="pic"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>pic</B></FONT></P>
+<P>Gets or sets the picture (symbol) of the type</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWPic">DWPic</A></td>
+</I> <B>pic</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>pic</B> = <I><A HREF = "index.html#DWPic">DWPic</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+No changes can be made to a type that is instantiated in a circuit.
+</P>
+<a name="pinInterface"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>pinInterface</B></FONT></P>
+<P>Gets a string representing the pin interface on this device. Read only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>pinInterface</B></P>
+</FONT>
+<a name="pins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>pins</B></FONT></P>
+<P>Returns an array of DWTypePin objects representing all the pins connected to this type</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>pins</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns an SPArray object containing a <A HREF"DWTypePin.html">DWTypePin</A> object for each pin attached to this type</P>
+<H3>Remarks:</H3><P>
+WARNING: This array becomes invalid if any subsequent script commands causes elements to be added or destroyed. Not much checking is done for this and bad things could happen if you aren't careful!
+</P>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if this type has been instantiated in a circuit. No changes can be made to type definitions that are in use in a circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="setAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttribute</B></FONT></P>
+<P>Sets an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>How to set visibility of resulting attribute text. 0 (false) = hide, 1 (true) = show, 2 = use default setting in design's attribute table, -1 = leave current visibility. If this parameter is not supplied, 2 is assumed.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value for the specified field</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Null.</P>
+<a name="setAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttributeVis</B></FONT></P>
+<P>Sets the visibility of an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttributeVis</B>(fieldName, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to make the attribute visible, false to hide it</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="subCircuit"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>subCircuit</B></FONT></P>
+<P>Gets a DWCircuit object representing the subcircuit of the type.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> <B>subCircuit</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWCircuit object or null if the type has no subcircuit. The returned object represents the actual circuit in use in the design and should be modified with care.</P>
+</BODY>
+</HTML>

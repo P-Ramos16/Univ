@@ -1,0 +1,252 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPDatabase</H1>
+<P>This object represents a database created by Microsoft Access or a similar database product and allows access to records within the database. New SPDatabase objects are created using the <a href="spscript.html#SPDatabase">SPDatabase</a> top-level method.</P>
+<DIR>
+<LI><A HREF="#addRecord">
+addRecord</a>
+ - Adds a new record and sets the field values. Any number of name/value pairs can be specified.</LI>
+<LI><A HREF="#eof">
+eof</a>
+ - Indicates if the record set is positioned at end-of-file</LI>
+<LI><A HREF="#findRecords">
+findRecords</a>
+ - Finds records in the current table based on field name/value pairs. Any number of name/value pairs can be specified.</LI>
+<LI><A HREF="#getFieldValue">
+getFieldValue</a>
+ - Gets the value of a single field in the current record</LI>
+<LI><A HREF="#moveFirst">
+moveFirst</a>
+ - Moves to the first record in the set of currently selected records.</LI>
+<LI><A HREF="#moveNext">
+moveNext</a>
+ - Moves to the next record in the set of currently selected records.</LI>
+<LI><A HREF="#moveNextPrev">
+moveNextPrev</a>
+ - Moves to the previous record in the set of currently selected records.</LI>
+<LI><A HREF="#openSelect">
+openSelect</a>
+ - Opens a database table using a SQL SELECT statement provided as an argument. This allows section of records from the database using any facilities of the SELECT statement. To select records using simple field value comparisons, using the <a href="#findRecords">findRecords</a> method is easier.</LI>
+<LI><A HREF="#openTable">
+openTable</a>
+ - Opens a database table and selects all records in the table.</LI>
+<LI><A HREF="#recordCount">
+recordCount</a>
+ - Returns the number of currently selected records</LI>
+<LI><A HREF="#setFieldValue">
+setFieldValue</a>
+ - Sets one or more field values in the current record. This method takes any number of name/value pairs as arguments</LI>
+</DIR>
+<a name="addRecord"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addRecord</B></FONT></P>
+<P>Adds a new record and sets the field values. Any number of name/value pairs can be specified.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>addRecord</B>(name1, value1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to add</td>
+  </tr>
+  <tr>
+    <td>value1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value for this field. All values are converted to strings</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>None</P>
+<H3>Remarks:</H3><P>
+<b>NOTE:</b> The data type of the value must match the type of the database field, e.g. a text database field must have a string value, an integer field must have an integer value, etc.
+</P>
+<a name="eof"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>eof</B></FONT></P>
+<P>Indicates if the record set is positioned at end-of-file</P>
+<a name="findRecords"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>findRecords</B></FONT></P>
+<P>Finds records in the current table based on field name/value pairs. Any number of name/value pairs can be specified.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>findRecords</B>(name1, value1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to compare</td>
+  </tr>
+  <tr>
+    <td>value1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value for this field. All values are converted to strings</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the number of records that were selected.</P>
+<H3>Remarks:</H3><P>
+<b>NOTE:</b> The data type of the value must match the type of the database field, e.g. a text database field must have a string value, an integer field must have an integer value, etc.
+</P>
+<a name="getFieldValue"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFieldValue</B></FONT></P>
+<P>Gets the value of a single field in the current record</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>getFieldValue</B>(fieldName);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>getFieldValue</B>(fieldName, defaultValue);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  <tr>
+    <td>defaultValue</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value to return if the field is not found or the value is empty</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="moveFirst"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>moveFirst</B></FONT></P>
+<P>Moves to the first record in the set of currently selected records.</P>
+<H3>Returns:</H3><P>Returns true if a new record is selected, false if the set was empty</P>
+<a name="moveNext"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>moveNext</B></FONT></P>
+<P>Moves to the next record in the set of currently selected records.</P>
+<H3>Returns:</H3><P>Returns true if a new record is selected, false if the set is now positioned at the end of the list.</P>
+<a name="moveNextPrev"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>moveNextPrev</B></FONT></P>
+<P>Moves to the previous record in the set of currently selected records.</P>
+<H3>Returns:</H3><P>Returns true if a new record is selected, false if the set was empty</P>
+<a name="openSelect"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>openSelect</B></FONT></P>
+<P>Opens a database table using a SQL SELECT statement provided as an argument. This allows section of records from the database using any facilities of the SELECT statement. To select records using simple field value comparisons, using the <a href="#findRecords">findRecords</a> method is easier.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>openSelect</B>(selectStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>selectStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A valid SELECT statement, including the SELECT keyword itself. This is passed directly to the database engine without any checking.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the select was accepted. This does not indicate whether any records were found or not.</P>
+<H3>Remarks:</H3><P>
+After this statement, <a href="#recordCount">recordCount</a> can be used to determine if any records were found, <a href="#moveFirst">moveFirst</a>, <a href="#moveNext">moveNext</a> and <a href="#movePrev">movePrev</a> to iterate through the found records, and <a href="#getFieldValue">getFieldValue</a> can be used to extract values.
+</P>
+<a name="openTable"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>openTable</B></FONT></P>
+<P>Opens a database table and selects all records in the table.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>openTable</B>(tableName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>tableName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the database table to open</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the table opened OK. This does not indicate whether any records were found or not.</P>
+<H3>Remarks:</H3><P>
+This method is equivalent to using <a href="#openSelect">openSelect</a> with the argument "SELECT * FROM tableName"
+</P>
+<a name="recordCount"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>recordCount</B></FONT></P>
+<P>Returns the number of currently selected records</P>
+<a name="setFieldValue"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setFieldValue</B></FONT></P>
+<P>Sets one or more field values in the current record. This method takes any number of name/value pairs as arguments</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setFieldValue</B>(name1, value1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>value1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value for this field. All values are converted to strings</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>None</P>
+<H3>Remarks:</H3><P>
+<b>NOTE:</b> The data type of the value must match the type of the database field, e.g. a text database field must have a string value, an integer field must have an integer value, etc.
+</P>
+</BODY>
+</HTML>

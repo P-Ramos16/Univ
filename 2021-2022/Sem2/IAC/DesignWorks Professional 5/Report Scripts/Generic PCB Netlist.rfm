@@ -1,0 +1,50 @@
+{
+  Format file for simple netlist.
+  C. Dewhurst 8/10/92
+  Copyright 1992 Capilano Computing Systems Ltd.
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$CREATEREPORT($DESIGNNAME.net) $PROMPT
+$NOTES
+This format generates a simple netlist file.  This is a sample format only and is not intended to be compatible with any particular PCB layout system.
+
+Design Hierarchy Mode: Flat
+
+Standard attribute fields used:
+
+Name
+Package
+Part
+Value
+Ground
+Power
+
+Non-standard attribute fields required:
+
+SigSources
+
+$END
+*TITLE $DESIGNNAME generated on $DATE
+$ROWS(32000)
+$COLUMNS(80)
+$COMBDEVSON
+$SORT $DEVICES &Part &Package &Value
+*PARTS
+
+$DEVICES&Part &Package &Value $DEVNAME
+
+*NETS
+
+$BUSNAMEON(_)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$FIND $SIGNALS $NUMPINS(2)
+$ASSIGNNAMES $SIGNALS
+$ASSIGNNAMES $DEVICES
+$SORT $DEVICES $DEVNAME
+$SORT $SIGNALS $SIGNAME
+$BLANKREPLACE(_)
+$CONTSTART( )
+$SIGNALS$SIGNAME$COL(15)$PINS

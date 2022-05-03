@@ -1,0 +1,274 @@
+{
+    DesignWorks Report Form for Xilinx 4000
+    Copyright 1990-1995 Capilano Computing Systems
+
+    Modifications:
+
+    July 18, 1995   C. Dewhurst     Created
+    May 31, 1996    C. Dewhurst     Omit unused pins, e.g. for CLB
+    June 21, 1996   C. Dewhurst     Assign names to unnamed signals
+    June 26, 1996   D. Gamble       Included ports so they would be counted as net connections.
+    July 29, 1996   C. Dewhurst     Use DWVERSION for program version
+}
+$NOTES
+This report form produces a XNF netlist for a Xilinx
+4000 design.
+
+Limitations:
+
+  This report form must be run using the Report
+  (Smash/Xilinx) tool.
+
+
+Attribute    Where    Description
+
+  see the Xilinx Design Kit documentation for a complete
+  list of the attributes required.
+
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+{
+   The following block is here to catch any attempt to use an old
+   Report generator.  This is ignored by XReport and Scripter.
+}
+$DEFINEBLOCK(OldReport)
+$CHECK(This report format requires the XReport tool or DesignWorks 4.0) $PURE $PHYSICAL $FLAT
+$END
+{
+  The following table defines the type names of i/o pads
+  and their corresponding pin type for use in EXT records.
+}
+$DEFINEBLOCK(PadTrans)
+ipad	I
+opad	O
+iopad	B
+upad	U
+$END
+{
+  The following table defines the type names of devices
+  that should NOT be listed in SYM records.  This includes
+  I/O pads and various special symbols.
+  7/29/96 CD Removed XC4*.  Now done by checking for X_PART.
+}
+$DEFINEBLOCK(NoSYMList)
+ipad
+opad
+iopad
+upad
+TIMESPEC
+TIMEGRP
+$END
+{
+  Define the output formats for pin parameters.
+  The first item on each line is the field name,
+  the second item is the match value, the last item
+  is the report string to interpret if the given field
+  matches the given value.
+
+  Note that table items are delimited by tabs, so the column
+  alignment may not be what it seems, depending on the editor
+  you use to look at it!
+}
+$DEFINEBLOCK(PINParams)
+&Invert.Pin	,INV
+&X_PIN_PARAM	,&X_PIN_PARAM
+&X_PIN_TNM	,TNM=&X_PIN_TNM
+&X_PIN_TS	,&X_PIN_TS
+$END
+{
+  Note regarding bus names: We want to insert the name of
+  the enclosing bus in front of any signal name, but some of
+  our libraries had busses named things like "A[0:15]", so
+  we have to do the following weirdness with regular expressions
+  to extract the reasonable characters from the bus name.
+}
+$DEFINEBLOCK(BussedSigName)
+$BUSNAME	$IF($REGEXP(([A-Za-z0-9_$\-]+).*, $BUSNAME))&1$END<$SIGNAME>	$SIGNAME
+$END
+{
+  Define parameters for a SYM line.  See the format notes above.
+  For now, all pad, CLB and regular symbol attributes have been
+  lumped together.  We can do more error checking if we split
+  them out.
+}
+$DEFINEBLOCK(SYMParams)
+&X_LIBVER	,LIBVER=&X_LIBVER
+&X_INIT	,INIT=&X_INIT
+&Depth	,FILE=$TYPENAME.xnf
+&X_SYM_PARAM	,&X_SYM_PARAM
+&X_BLKNM	,BLKNM=&X_BLKNM
+&X_HBLKNM	,HBLKNM=&X_HBLKNM
+&X_LOC	,LOC=&X_LOC
+&X_LOC_NOT	,LOC<>&X_LOC_NOT
+&X_TNM	,TNM=&X_TNM
+&X_CYMODE	,CYMODE=&X_CYMODE
+&X_DEF	,DEF=&X_DEF
+&X_DIVIDE1	,DIVIDE1=&X_DIVIDE1
+&X_DIVIDE2	,DIVIDE2=&X_DIVIDE2
+&X_EQN	,EQN=&X_EQN
+&X_MAP	,MAP=&X_MAP
+&X_TS	,&X_TS
+&X_HU_SET	,HU_SET=&X_HU_SET
+&X_RLOC	,RLOC=&X_RLOC
+&X_RLOC_ORIGIN	,RLOC_ORIGIN=&X_RLOC_ORIGIN
+&X_RLOC_RANGE	,RLOC_RANGE=&X_RLOC_RANGE
+&X_U_SET	,U_SET=&X_U_SET
+&X_USE_RLOC	,USE_RLOC=&X_USE_RLOC
+&X_BASE	$NEWLINE\CFG,BASE &X_BASE
+&X_CONFIG	$NEWLINE\CFG,CONFIG &X_CONFIG
+&X_EQUATE_F	$NEWLINE\CFG,EQUATE F = &X_EQUATE_F
+&X_EQUATE_G	$NEWLINE\CFG,EQUATE G = &X_EQUATE_G
+$END
+{
+  The following block defines a complete XNF file.  It is used
+  once to write the top circuit and once for the internal circuits.
+}
+$DEFINEBLOCK(XNFBody)
+{
+  Check for any non-XC4000 symbols
+}
+$FIND $DEVICES $NOT &X_FAMILY(XC4000) &X_FAMILY(XC*)
+$CHECK(Warning: Design contains non-XC4000 symbols.  This report form is intended for XC4000 designs only!) $DEVICES
+{
+  Check for duplicate LOC parameters
+}
+$FIND $DEVICES &X_LOC
+$SORT $DEVICES &X_LOC
+$COMBDEVSON
+$FIND $NOCLEAR $DEVICES $COUNT(2)
+$CHECK(Warning: Duplicate LOC parameters in devices!) $DEVICES
+$COMBDEVSOFF
+{
+  Define the 4 billion names of Power and Ground
+}
+PWR,1,VCC,Vcc,Plus5V,Power,POWER
+PWR,0,GND,Gnd,Ground,GROUND
+$DEFINEBLOCK(PowerSignals)
+VCC
+Vcc
+Plus5V
+Power
+POWER
+GND
+Gnd
+Ground
+GROUND
+$END
+{
+  List any signals with parameters specified.  See the comments above about
+  inserting the bus name in front of the signal name.
+}
+$FIND $SIGNALS &X_SIG_PARAM
+$SIGNALS\SIG,$TABLE(BussedSigName),&X_SIG_PARAM
+{
+  Locate and list regular devices.
+  5/31/96 CD - Note the funny order here.  We want to exclude things that have only one pin connection
+  so that we filter out unused pins.  However, we have to include I/O ports in the count,
+  even though they are not listed as devices in this listing.  Therefore, we have to find
+  all devices, find signals based on the pin count, then find only the devices we want to list.
+  6/26/96 DJG - Included ports they would be counted as net connections.  Then excluded them
+  so that they didn't netlist.
+}
+$INCLUDEPORTSON{ 6/26/96 DJG }
+$FIND $DEVICES
+$FIND $SIGNALS $OR($NUMPINS(2),$VERIFY(PowerSignals, $SIGNAME)) { Exclude unused pins so optional items don't appear, e.g. CLB }
+$INCLUDEPORTSOFF{ 6/26/96 DJG }
+{ List TIMESPEC and TIMEGRP devices separately because the format is a bit different }
+$FIND $DEVICES $OR($EQ(TIMESPEC, $TYPENAME),$EQ(TIMEGRP, $TYPENAME))
+$DEVICES\SYM,$DEVNAME,$TYPENAME,LIBVER=2.0.0$IF(&X_TS_DEFINE),&X_TS_DEFINE$END$IF(&X_SYM_PARAM),&X_SYM_PARAM$END$NEWLINE\END
+{ 7/29/96 CD Exclude anything with an X_PART attribute }
+$FIND $DEVICES $NOT($OR($VERIFY(NoSYMList, $TYPENAME),&X_PART))
+$UNSELECTEDPINS $OFF $NOWARN
+$ASSIGNNAMES $SIGNALS $FORMAT(S00000) $REASSIGN		{ 6/21/96 CD }
+$MAXITEMSPERLINE(1)
+$CONTSTART()
+$PINTYPEFORMAT I O $WARN T $NOWARN B $WARN ? ? ? ? $NOWARN { HIGH/LOW } O O $WARN ? ? ? ? ? ? ?
+$DEVPINFORMAT PIN,$PINNAME,$PINTYPE,$TABLE(BussedSigName)$TABLE(PINParams,\,)
+$PROGRESS $PERCENTON
+$DEVICES\SYM,$DEVNAME,$IF(&X_TYPE)&X_TYPE$ELSE$TYPENAME$END,SCHNM=$TYPENAME$TABLE(SYMParams)$NEWLINE$PINS$NEWLINE\END
+$PROGRESS $PERCENTOFF
+{
+  Find and put out I/O Pads
+}
+$FIND $DEVICES $VERIFY(PadTrans, $TYPENAME)
+$FIND $SIGNALS { Make sure we get them all }
+$DEVPINFORMAT $TABLE(BussedSigName)
+$DEVICES\EXT,$PINS,$MAP(PadTrans, $TYPENAME),,=DW_NAME=$DEVHIERNAME$IF(&X_LOC),LOC=&X_LOC$END$IF(&X_TNM),TNM=&X_TNM$END$IF(&X_SYM_PARAM),&X_SYM_PARAM$END
+{
+  End of the XNF definition
+}
+$END
+{
+  Define what we do for an internal circuit
+}
+$DEFINEBLOCK(InternalCct)
+$CREATEREPORT($TYPENAME.XNF) $CREATOR(ttxt)
+$LINETERMINATOR $DOS
+$PROGRESS(Creating $TYPENAME.XNF) $PERCENTOFF
+LCANET, 5
+PROG, DesignWorks, $DWVERSION, "Created at $TIME on $DATE from design $FILENAME"
+{
+  Write out the port interface
+}
+$INCLUDEPORTSON
+$FIND $DEVICES $ISPORT
+$SORT $DEVICES $DEVNAME
+$DEVPINFORMAT SIG, $TABLE(BussedSigName), PIN=$PORTNAME
+$MAXITEMSPERLINE(1)
+$CONTSTART()
+$DEVICES$PINS
+$INCLUDEPORTSOFF
+{
+  Write out the main XNF for the internal circuit
+}
+$INCLUDE $BLOCK(XNFBody)
+EOF
+$CLOSEREPORT
+$END
+{
+  Now we actually do something!
+  First, write out the internal circuits to their respective files.
+}
+$NULL($ALERT1(Output is being generated in directory $DESIGNNAME_))
+$CREATEDIRECTORY($DESIGNNAME)
+$PROGRESS $PERCENTOFF
+$HIERARCHY $PURE
+$FIND $DEVICES &Depth
+$SORT $DEVICES $TYPENAME
+$COMBDEVSON
+{
+  Turn off the line terminator for the listing of the internal circuits,
+  because it tries to put one at the end of each device line, but the
+  output report for the internal circuit has been closed and it will
+  try and create a new file for it.
+}
+$LINETERMINATOR $NONE
+$DEVICES$SINGLE$INTERNAL(InternalCct)
+$LINETERMINATOR $DOS
+$COMBDEVSOFF
+{
+  Create and write out the main XNF file
+}
+$PROGRESS(Creating $DESIGNNAME.XNF) $PERCENTOFF
+$CREATEREPORT($DESIGNNAME.XNF) $CREATOR(ttxt)
+$LINETERMINATOR $DOS
+$HIERARCHY $TOPCIRCUIT
+LCANET, 5
+{ 7/29/96 CD Use DWVERSION }
+PROG, DesignWorks, $DWVERSION, "Created at $TIME on $DATE from design $FILENAME"
+{
+  Find a PART symbol
+}
+$FIND $DEVICES &X_PART
+$DEVICES\PART,&X_PART
+{
+  Do the main top-level XNF file
+}
+$INCLUDE $BLOCK(XNFBody)
+EOF

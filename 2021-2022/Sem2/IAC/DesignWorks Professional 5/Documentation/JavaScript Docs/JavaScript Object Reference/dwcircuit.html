@@ -1,0 +1,1155 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWCircuit</H1>
+<P>A DWCircuit object represents a circuit in a DesignWorks design. In a typical, flat circuit (i.e. non-hierarchical), there will just be one circuit object which will contain all other elements (devices, signals, etc.). In hierarchical designs, there is a topmost circuit, sometimes referred to as the "design", even though it is the same type of object. This topmost circuit may contain device instances which themselves contain subcircuits, which can also be represented by this type of object. The DWCircuit object is usually the starting point for getting access to other entities in a design, such as devices and signals.</P>
+<DIR>
+<LI><A HREF="#addDevice">
+addDevice</a>
+ - Adds a device to the circuit (i.e. places it on the diagram)</LI>
+<LI><A HREF="#addPage">
+addPage</a>
+ - Adds one more page to the circuit</LI>
+<LI><A HREF="#addSignal">
+addSignal</a>
+ - Adds a signal to the circuit.</LI>
+<LI><A HREF="#attributeList">
+attributeList</a>
+ - Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</LI>
+<LI><A HREF="#changed">
+changed</a>
+ - Gets or sets the "changed" status of the circuit. If the circuit is marked as changed, a close by the user will prompt for a save, otherwise it will just close immediately.</LI>
+<LI><A HREF="#close">
+close</a>
+ - Closes the design associated with this circuit with or without prompting the user.</LI>
+<LI><A HREF="#copy">
+copy</a>
+ - Copies the selected objects in the circuit to the system clipboard or to a given circuit.</LI>
+<LI><A HREF="#cut">
+cut</a>
+ - Copies the selected objects in the circuit to the system clipboard or to a given circuit, then deletes the selected objects from the source circuit.</LI>
+<LI><A HREF="#design">
+design</a>
+ - Gets the design containing this circuit, may be itself if this is a top-level circuit. Read-only</LI>
+<LI><A HREF="#devices">
+devices</a>
+ - Retrieves an array of device objects for the circuit with various filtering options.</LI>
+<LI><A HREF="#fileDir">
+fileDir</a>
+ - The directory path of the file associated with this circuit, i.e. the name of the directory containing the file. Read only.</LI>
+<LI><A HREF="#fileName">
+fileName</a>
+ - The name of the file associated with this circuit, i.e. the file name without any directory path. Read only.</LI>
+<LI><A HREF="#filePath">
+filePath</a>
+ - The full directory path and file name of the file associated with this circuit. Read only.</LI>
+<LI><A HREF="#findByLocator">
+findByLocator</a>
+ - Searches the design containing this circuit for an object (circuit, device, signal or pin) that matches the given locator string.</LI>
+<LI><A HREF="#findObjectByName">
+findObjectByName</a>
+ - Searches given circuit for an ActiveX object with the given name. This gives direct access to the objects properties and methods.</LI>
+<LI><A HREF="#getAttribute">
+getAttribute</a>
+ - Gets an attribute value from this object</LI>
+<LI><A HREF="#getAttributeVis">
+getAttributeVis</a>
+ - Gets the visibility of an attribute on this object</LI>
+<LI><A HREF="#isOpen">
+isOpen</a>
+ - Returns true if any window is open on this circuit</LI>
+<LI><A HREF="#locator">
+locator</a>
+ - Gets the locator string of the circuit</LI>
+<LI><A HREF="#name">
+name</a>
+ - Gets the name of the circuit, i.e. the name of the file it is saved in.</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWCircuit".</LI>
+<LI><A HREF="#open">
+open</a>
+ - Opens a window on the circuit, or just brings an existing window to the front if it is already open.</LI>
+<LI><A HREF="#pages">
+pages</a>
+ - Retrieves an array of page objects for the circuit</LI>
+<LI><A HREF="#parentDevice">
+parentDevice</a>
+ - Gets the parent device of this circuit, if it is a subcircuit, or null if this is a top-level circuit. Read-only.</LI>
+<LI><A HREF="#parentType">
+parentType</a>
+ - Gets the parent device type of this circuit, if it is a subcircuit, or null if this is a top-level circuit. Read-only.</LI>
+<LI><A HREF="#paste">
+paste</a>
+ - Copies the contents of the system clipboard a given source circuit to this circuit.</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the circuit is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</LI>
+<LI><A HREF="#save">
+save</a>
+ - Saves the design associated with this circuit, as if the user had selected the Save command.</LI>
+<LI><A HREF="#saveAs">
+saveAs</a>
+ - Saves the design associated with this circuit to a file. The file can be specified directly or by prompting the user.</LI>
+<LI><A HREF="#saved">
+saved</a>
+ - Gets the "saved" status of the design, i.e. if the design was read from or has been saved to a file. Read only.</LI>
+<LI><A HREF="#select">
+select</a>
+ - Makes this circuit current by bringing one of its windows to the front</LI>
+<LI><A HREF="#setAttribute">
+setAttribute</a>
+ - Sets an attribute value in this object</LI>
+<LI><A HREF="#signals">
+signals</a>
+ - Retrieves an array of signal (<A HREF"DWSignal.html">DWSignal</A>) objects for the circuit with various filtering options.</LI>
+<LI><A HREF="#simGetValueByName">
+simGetValueByName</a>
+ - Get the value of a simulation item</LI>
+<LI><A HREF="#simPause">
+simPause</a>
+ - Pause the simulator. A subsequent simStart will continue from the current time step.</LI>
+<LI><A HREF="#simRequestNotification">
+simRequestNotification</a>
+ - Requests that a method in the current script be called when a specified simulation event occurs on this design</LI>
+<LI><A HREF="#simStart">
+simStart</a>
+ - Start the simulator</LI>
+<LI><A HREF="#simStep">
+simStep</a>
+ - Single-step the simulator</LI>
+<LI><A HREF="#simStop">
+simStop</a>
+ - Stop the simulator. All simulation functions are reset. A subsequent simStart will cause the simulation to reinitialize</LI>
+<LI><A HREF="#simTime">
+simTime</a>
+ - Return the current simulation time as a 64-bit integer in femtoseconds</LI>
+<LI><A HREF="#simTimeText">
+simTimeText</a>
+ - Return the current simulation time as a string with a unit specifier</LI>
+<LI><A HREF="#simUnrequestNotification">
+simUnrequestNotification</a>
+ - Requests that a previously-requested notification be removed</LI>
+</DIR>
+<a name="addDevice"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addDevice</B></FONT></P>
+<P>Adds a device to the circuit (i.e. places it on the diagram)</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>addDevice</B>(type);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>addDevice</B>(type, posX, posY);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>addDevice</B>(type, posX, posY, orient);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>addDevice</B>(type, posX, posY, orient, page);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>addDevice</B>(type, posX, posY, orient, page, hitTest);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>page</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>The destination page for the device in the range 1..#pages, defaults to 1</td>
+  </tr>
+  <tr>
+    <td>orient</td>
+    <td><A HREF = "index.html#char">char</A></td>
+    <td>A character specifying the orientation of the device, see below, defaults to E</td>
+  </tr>
+  <tr>
+    <td>posX</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>The X position of the top left corner of the device, in 1/1000", defaults to 0. If this circuit is to be viewed and edited later, then this value should be a multiple of the grid spacing of 70 units.</td>
+  </tr>
+  <tr>
+    <td>posY</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>The Y position of the top left corner of the device, in 1/1000", defaults to 0. If this circuit is to be viewed and edited later, then this value should be a multiple of the grid spacing of 70 units.</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td><A HREF = "index.html#DWType">DWType</A></td>
+    <td>A <A HREF"DWType.html">DWType</A> object representing the part type to be instantiated</td>
+  </tr>
+  <tr>
+    <td>hitTest</td>
+    <td><A HREF = "index.html#boolean">boolean</A></td>
+    <td>Specifies whether the pin connection points on the device should be checked for connection to existing signals in the circuit, defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWDevice object representing the new device</P>
+<H3>Remarks:</H3><P>
+The first style of call is intended for making invisible circuits and will place the device in the center of the page in standard orientation. The other parameters allow the position and orientation of the device to be specified. <p>The orientation parameter can be one of the following: E=East, e=East-flipped, W=West, w=West-flipped, N=North, n=North-flipped, S=South, s=South-flipped. </p> <p>It is the caller's responsibility to ensure that the X and Y coordinates provided adhere to the grid requirements of the circuit. This normally means that they must be a multiple of 70.</p>
+</P>
+<a name="addPage"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addPage</B></FONT></P>
+<P>Adds one more page to the circuit</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWPage">DWPage</A></td>
+</I> <B>addPage</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWPage">DWPage</A></td>
+</I> <B>addPage</B>(visible);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>visible</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Specifies whether the new page should be opened (made visible). Defaults to false if not specified</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>DWPage object representing the new page</P>
+<a name="addSignal"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addSignal</B></FONT></P>
+<P>Adds a signal to the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> <B>addSignal</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> <B>addSignal</B>(page);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>page</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>The destination page for the signal in the range 1..#pages, defaults to 1</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWSignal object representing the new signal</P>
+<H3>Remarks:</H3><P>
+The signal will initially be invisible until pin connections and lines are attached to it. <p>It is not normally necessary to use this call to create a signal. Every time a device is added, signals are already created for each pin, so simply connecting pins together will result in signal structures existing as needed. This method can be used if a signal with no connections is needed or if data order makes it simpler to create and name signals before connecting devices to them.</p>
+</P>
+<a name="attributeList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>attributeList</B></FONT></P>
+<P>Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>attributeList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>attributeList</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns or accepts an SPArray of DWAttribute objects</P>
+<a name="changed"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>changed</B></FONT></P>
+<P>Gets or sets the "changed" status of the circuit. If the circuit is marked as changed, a close by the user will prompt for a save, otherwise it will just close immediately.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>changed</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>changed</B> = <I><A HREF = "index.html#bool">bool</A></td>
+</I></P>
+</FONT>
+<a name="close"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>close</B></FONT></P>
+<P>Closes the design associated with this circuit with or without prompting the user.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>close</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>close</B>(force);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>force</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to close the design without saving or prompting the user.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+If this method is called with no argument or with force=false, this is equivalent to selecting the Close Design command. With force=true, the design is closed immediately with no prompt and no save.
+</P>
+<a name="copy"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>copy</B></FONT></P>
+<P>Copies the selected objects in the circuit to the system clipboard or to a given circuit.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>copy</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>copy</B>(destCct);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>destCct</td>
+    <td><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+    <td>The destination circuit for the copy. The circuit is cleared (i.e. all existing objects deleted) before the copy. If this argument is provided, the system clipboard is not affected by this operation. If the argument is not given, this method is equivalent to the Copy menu command.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="cut"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>cut</B></FONT></P>
+<P>Copies the selected objects in the circuit to the system clipboard or to a given circuit, then deletes the selected objects from the source circuit.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>cut</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>cut</B>(destCct);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>destCct</td>
+    <td><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+    <td>The destination circuit for the copy. The circuit is cleared (i.e. all existing objects deleted) before the copy. If this argument is provided, the system clipboard is not affected by this operation. If the argument is not given, this method is equivalent to the Cut menu command.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="design"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>design</B></FONT></P>
+<P>Gets the design containing this circuit, may be itself if this is a top-level circuit. Read-only</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> <B>design</B>();
+</P>
+</FONT>
+<a name="devices"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>devices</B></FONT></P>
+<P>Retrieves an array of device objects for the circuit with various filtering options.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, restrict, fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, restrict, fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, restrict, scope, fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, restrict, scope, fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, restrict);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>devices</B>(options, restrict, scope);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of an attribute field. The following parameter can be a string value, which must be exactly equal for the device to be included, or can be a regular expression. Any number of fieldName/value or fieldName/regExp pairs can be specified.</td>
+  </tr>
+  <tr>
+    <td>restrict</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>This selects a bit in the Restrict attribute field that will be used to exclude certain devices. This can be exactly one of the following: <UL> <LI>-1 RESTRICT_NONE <LI>0 RESTRICT_REPORT <LI>1 RESTRICT_PACKAGE <LI>2 RESTRICT_OPEN. </UL> If this parameter is not included, the Restrict attribute is ignored.</td>
+  </tr>
+  <tr>
+    <td>options</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>This is a set of flags that allows you to filter the list to include/exclude various categories of devices. This argument can be any OR of the following values: <UL> <LI>1 OPTION_SELECTED_ONLY <LI>2 OPTION_INCL_PSEUDO_DEVS <LI>4 OPTION_INCL_DEFS <LI>8 OPTION_EXCL_INSTANCES <LI>128 OPTION_INCL_PARENT_DEV <LI>512 OPTION_IGNORE_MODE </UL> If this parameter is not given, you will get all non-pseudo-devices in the given circuit.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value of the preceding attribute field that must be matched exactly for the device to be included in the list.</td>
+  </tr>
+  <tr>
+    <td>regExp</td>
+    <td><A HREF = "index.html#RegExp">RegExp</A></td>
+    <td>A regular expression that will be applied to the preceding attribute field. If the expression matches, the device is included in the list.</td>
+  </tr>
+  <tr>
+    <td>scope</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>This is used in hierarchical designs to determine how much of the hierarchy is extracted. This can be exactly one of the following values: <UL> <LI>3 HIER_SCOPE_DESIGN <LI>4 HIER_SCOPE_CIRCUIT <LI>5 HIER_SCOPE_HEREDOWN <LI>6 HIER_SCOPE_TOPCIRCUIT <LI>7 HIER_SCOPE_OPEN. </UL> If this parameter is not specified, the specified circuit level is scanned.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns an SPArray object containing a list of all devices(<A HREF"DWDevice.html">DWDevice</A>) specified by the option parameters.</P>
+<H3>Remarks:</H3><P>
+Returns an array with one element for each device requested. All devices on all pages of this circuit are included. If you only want a specific page, use DWPage.devices. <P>If no parameters are specified, you will get a list of all the devices on all pages of the given circuit, excluding pseudo-devices such as bus breakouts and page connectors.</P> <P>A variety of different combinations of parameters can be passed, and the meaning of each is determined by the data type of the parameter. If the first one, two or three parameters are integers, then they are interpreted as the options, restrict and scope parameters, respectively. Once any non-integer (normally a string) parameter is encountered, this is assumed to be an attribute value filter, as follows</P> <P>Any remaining parameters are taken as attribute field name/value or field name/regular expression pairs. Any devices matching the given values or patterns will be included in the list.</P> <P>Note that this array is not updated automatically. If you perform other operations that add or delete devices, this array will be invalid and should be retrieved again. <B>This can cause the program to bomb if misused!</B></P>
+</P>
+<H3>Example:</H3><P><PRE>
+cct = currentCircuit();
+devs = cct.devices();     // All the non-pseudo-devices in the circuit
+devs = cct.devices("Part", "RES", "Name", /R1.+/);   // All devices with Part field equal to "RES" and Name matching the given expression
+devs = cct.devices(1);        // All selected devices in the circuit
+</PRE></P>
+<a name="fileDir"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>fileDir</B></FONT></P>
+<P>The directory path of the file associated with this circuit, i.e. the name of the directory containing the file. Read only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>fileDir</B>();
+</P>
+</FONT>
+<a name="fileName"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>fileName</B></FONT></P>
+<P>The name of the file associated with this circuit, i.e. the file name without any directory path. Read only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>fileName</B>();
+</P>
+</FONT>
+<a name="filePath"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>filePath</B></FONT></P>
+<P>The full directory path and file name of the file associated with this circuit. Read only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>filePath</B>();
+</P>
+</FONT>
+<a name="findByLocator"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>findByLocator</B></FONT></P>
+<P>Searches the design containing this circuit for an object (circuit, device, signal or pin) that matches the given locator string.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#object">object</A></td>
+</I> <B>findByLocator</B>(loc);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>loc</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The locator string</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWDevice, DWSignal, DWCircuit or DWPin object representing the object found or null if no match.</P>
+<H3>Remarks:</H3><P>
+A locator string has encoded in it the type of object it specifies, so this method will return that type of object. You can use the "objType" method to determine what type of object you have received.
+</P>
+<a name="findObjectByName"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>findObjectByName</B></FONT></P>
+<P>Searches given circuit for an ActiveX object with the given name. This gives direct access to the objects properties and methods.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#object">object</A></td>
+</I> <B>findObjectByName</B>(name);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the object</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a direct interface to the object or null if no match.</P>
+<H3>Remarks:</H3><P>
+If there are multiple objects with the same name, the first one found will be returned.
+</P>
+<a name="getAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttribute</B></FONT></P>
+<P>Gets an attribute value from this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getAttribute</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string representing the value of the specified attribute field. This string will be empty (zero length) if the field does not exist.</P>
+<a name="getAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttributeVis</B></FONT></P>
+<P>Gets the visibility of an attribute on this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getAttributeVis</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the field is displayed on the schematic, false otherwise</P>
+<a name="isOpen"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isOpen</B></FONT></P>
+<P>Returns true if any window is open on this circuit</P>
+<a name="locator"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>locator</B></FONT></P>
+<P>Gets the locator string of the circuit</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>locator</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+The locator string identifies an object within a hierarchical circuit structure and provides a unique way of identifying this object despite duplicate or non-existant names.
+</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Gets the name of the circuit, i.e. the name of the file it is saved in.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>name</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+This is a read-only property.
+</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWCircuit".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="open"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>open</B></FONT></P>
+<P>Opens a window on the circuit, or just brings an existing window to the front if it is already open.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>open</B>();
+</P>
+</FONT>
+<a name="pages"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>pages</B></FONT></P>
+<P>Retrieves an array of page objects for the circuit</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>pages</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an SPArray object containing a list of all pages in this circuit</P>
+<H3>Remarks:</H3><P>
+Returns an array with one element for each page in this circuit, whether or not the pages are open. Note that this array is not updated automatically. If you perform other operations that add or delete pages, this array will be invalid and should be retrieved again.
+</P>
+<a name="parentDevice"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>parentDevice</B></FONT></P>
+<P>Gets the parent device of this circuit, if it is a subcircuit, or null if this is a top-level circuit. Read-only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>parentDevice</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>DWDevice object representing the parent device of this subcircuit</P>
+<H3>Remarks:</H3><P>
+The value of this property will depend on the hierarchy mode of the design and may depend on whether the subcircuit is open for editing. If the design is in physical hierarchy mode and the current circuit is a physical instance circuit (i.e. not a definition circuit), this will be the parent device of the given physical subcircuit instance. In pure mode designs, this property has no conceptual meaning (since a given subcircuit may have many parents), but is set to a specific value to track the order in which the user has opened subcircuits.
+</P>
+<a name="parentType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>parentType</B></FONT></P>
+<P>Gets the parent device type of this circuit, if it is a subcircuit, or null if this is a top-level circuit. Read-only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWType">DWType</A></td>
+</I> <B>parentType</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>DWType object representing the parent type of this subcircuit</P>
+<a name="paste"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>paste</B></FONT></P>
+<P>Copies the contents of the system clipboard a given source circuit to this circuit.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>(srcCct);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>(srcCct, dstPage);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>(srcCct, dstPage, posX, posY);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>(srcCct, dstPage, posX, posY, orientation);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>(srcCct, dstPage, posX, posY, orientation, hitTest);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>paste</B>(srcCct, dstPage, posX, posY, orientation, hitTest, replace);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>dstPage</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The destination page for the paste. If this is <= 0, the current page is used.</td>
+  </tr>
+  <tr>
+    <td>srcCct</td>
+    <td><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+    <td>The source circuit for the paste. If the argument is not given or is null, this method is equivalent to the Paste menu command and all other arguments are ignored.</td>
+  </tr>
+  <tr>
+    <td>posX</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The horizontal position for the paste, in circuit coordinates. If these are not specified, the objects are pasted at 0,0, the center of the page.</td>
+  </tr>
+  <tr>
+    <td>posY</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The horizontal position for the paste, in circuit coordinates</td>
+  </tr>
+  <tr>
+    <td>replace</td>
+    <td><A HREF = "index.html#boolean">boolean</A></td>
+    <td>When true, indicates that the pasted objects are replacing objects that were just removed from the same circuit, e.g. for a move or rotate operation. In this case, the replaced objects retain their original token numbers, making Undo operations more consistent. If this is false, all objects are assigned new token numbers. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>orientation</td>
+    <td><A HREF = "index.html#char">char</A></td>
+    <td>A character specifying the orientation of the paste, one of the following: E=East, e=East-flipped, W=West, w=West-flipped, N=North, n=North-flipped, S=South, s=South-flipped., defaults to E</td>
+  </tr>
+  <tr>
+    <td>hitTest</td>
+    <td><A HREF = "index.html#boolean">boolean</A></td>
+    <td>Specifies whether the loose connection points on the pasted circuit should be checked for connection to existing signals in the destination circuit, defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="readOnly"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the circuit is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="save"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>save</B></FONT></P>
+<P>Saves the design associated with this circuit, as if the user had selected the Save command.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>save</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns a boolean value true if the save succeeded, false if it failed or was cancelled by the user in response to a prompt.</P>
+<a name="saveAs"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>saveAs</B></FONT></P>
+<P>Saves the design associated with this circuit to a file. The file can be specified directly or by prompting the user.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>saveAs</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>saveAs</B>(filePath);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The directory path and file name of the desired destination file. An absolute path should be provided since there are no guarantees what the current directory will be at the time of the save.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a boolean value true if the save succeeded, false if it failed or was cancelled by the user in response to a prompt.</P>
+<H3>Remarks:</H3><P>
+When called with no argument, this method is equivalent to the user selecting the "Save As" file menu item. When called with a file path, the design is saved to the given path as if the user had done as Save As to that location.
+</P>
+<a name="saved"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>saved</B></FONT></P>
+<P>Gets the "saved" status of the design, i.e. if the design was read from or has been saved to a file. Read only.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>saved</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property says only whether the design has ever been saved to a file, it doesn't tell you whether the design has been modified since it was last saved. See <a href="#changed">changed</a>
+</P>
+<a name="select"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>select</B></FONT></P>
+<P>Makes this circuit current by bringing one of its windows to the front</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>();
+</P>
+</FONT>
+<a name="setAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttribute</B></FONT></P>
+<P>Sets an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>How to set visibility of resulting attribute text. 0 (false) = hide, 1 (true) = show, 2 = use default setting in design's attribute table, -1 = leave current visibility If this parameter is not supplied, 2 is assumed.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value for the specified field</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Null.</P>
+<H3>Remarks:</H3><P>
+If the given field name is not defined in the design's attribute table, it is added automatically. It is preferable to ensure that any fields used are already defined in the target design to make sure the settings are appropriate.
+</P>
+<a name="signals"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>signals</B></FONT></P>
+<P>Retrieves an array of signal (<A HREF"DWSignal.html">DWSignal</A>) objects for the circuit with various filtering options.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(options, fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(options, fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(options, scope, fieldName, value, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(options, scope, fieldName, regExp, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(options);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signals</B>(options, scope);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of an attribute field. The following parameter can be a string value, which must be exactly equal for the signal to be included, or can be a regular expression. Any number of fieldName/value or fieldName/regExp pairs can be specified.</td>
+  </tr>
+  <tr>
+    <td>options</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>This is a set of flags that allows you to filter the list to include/exclude various categories of signals. This argument can be any OR of the following values: <UL> <LI>1 OPTION_SELECTED_ONLY <LI>512 OPTION_IGNORE_MODE <LI>2048 OPTION_INCLUDE_BUSSES </UL> If this parameter is not given, you will get all non-pseudo-signals in the given circuit.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value of the preceding attribute field that must be matched exactly for the signal to be included in the list.</td>
+  </tr>
+  <tr>
+    <td>regExp</td>
+    <td><A HREF = "index.html#RegExp">RegExp</A></td>
+    <td>A regular expression that will be applied to the preceding attribute field. If the expression matches, the signal is included in the list.</td>
+  </tr>
+  <tr>
+    <td>scope</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>This is used in hierarchical designs to determine how much of the hierarchy is extracted. This can be exactly one of the following values: <UL> <LI>3 HIER_SCOPE_DESIGN <LI>4 HIER_SCOPE_CIRCUIT <LI>5 HIER_SCOPE_HEREDOWN <LI>6 HIER_SCOPE_TOPCIRCUIT <LI>7 HIER_SCOPE_OPEN. </UL> If this parameter is not specified, the specified circuit level is scanned.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns an SPArray object containing a list of all signals(<A HREF"DWSignal.html">DWSignal</A>) specified by the option parameters.</P>
+<H3>Remarks:</H3><P>
+Returns an array with one element for each signal requested. All signals on all pages of this circuit are included. <P>If no parameters are specified, you will get a list of all the signals on all pages of the given circuit.</P> <P>A variety of different combinations of parameters can be passed, and the meaning of each is determined by the data type of the parameter. If the first one or two parameters are integers, then they are interpreted as the options and scope parameters, respectively. Once any non-integer (normally a string) parameter is encountered, this is assumed to be an attribute value filter, as follows</P> <P>Any remaining parameters are taken as attribute field name/value or field name/regular expression pairs. Any signals matching the given values or patterns will be included in the list.</P> <P>Note that this array is not updated automatically. If you perform other operations that add or delete signals, this array will be invalid and should be retrieved again. <B>This can cause the program to bomb if misused!</B></P>
+</P>
+<H3>Example:</H3><P><PRE>
+cct = currentCircuit();
+sigs = cct.signals();     // All the non-pseudo-signals in the circuit
+sigs = cct.signals("Voltage", "120", "Name", /V1.+/);    // All signals with Voltage field equal to "120" and Name matching the given expression
+sigs = cct.signals(1);        // All selected signals in the circuit
+</PRE></P>
+<a name="simGetValueByName"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simGetValueByName</B></FONT></P>
+<P>Get the value of a simulation item</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>simGetValueByName</B>(name);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the item whose value is desired. This can be a hierarchical name if the actual item is nested inside other blocks, e.g. "CTRL_CLK/data_en"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simPause"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simPause</B></FONT></P>
+<P>Pause the simulator. A subsequent simStart will continue from the current time step.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simPause</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simRequestNotification"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simRequestNotification</B></FONT></P>
+<P>Requests that a method in the current script be called when a specified simulation event occurs on this design</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simRequestNotification</B>(scriptObject, name1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>scriptObject</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An object containing the script methods to call. In practice, this is usually the top level "document" object in an HTML page</td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the notification desired. The script must contain a method with exactly this name. This method will be called with a single argument, the DWCircuit object for this design. See below for possible notification names.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<p>NOTE: Only available if DesignWorks Digital Simulator Option is installed</p> <p>Only one notification is implemented at this time.</p> <table border=1> <tr><td>onEndOfTimeStep</td><td>Invoked after each simulator time step has been processed</td></tr> <tr><td>onTrigger</td><td>Invoked when any trigger that has the "notify script" action is fired</td></tr> </table>
+</P>
+<a name="simStart"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simStart</B></FONT></P>
+<P>Start the simulator</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simStart</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simStep"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simStep</B></FONT></P>
+<P>Single-step the simulator</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simStep</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simStop"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simStop</B></FONT></P>
+<P>Stop the simulator. All simulation functions are reset. A subsequent simStart will cause the simulation to reinitialize</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simStop</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simTime"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simTime</B></FONT></P>
+<P>Return the current simulation time as a 64-bit integer in femtoseconds</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int64">int64</A></td>
+</I> <B>simTime</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simTimeText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simTimeText</B></FONT></P>
+<P>Return the current simulation time as a string with a unit specifier</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>simTimeText</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+NOTE: Only available if DesignWorks Digital Simulator Option is installed
+</P>
+<a name="simUnrequestNotification"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simUnrequestNotification</B></FONT></P>
+<P>Requests that a previously-requested notification be removed</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simUnrequestNotification</B>(scriptObject, name1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>scriptObject</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An object containing the script methods to call. In practice, this is usually the top level "document" object in an HTML page</td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the notification desired. The script must contain a method with exactly this name. This method will be called with a single argument, the CRCircuit object for this design. See below for possible notification names.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<p>NOTE: Only available if DesignWorks Digital Simulator Option is installed</p> <p>The arguments must be exactly the same as for simRequestNotification</p>
+</P>
+</BODY>
+</HTML>

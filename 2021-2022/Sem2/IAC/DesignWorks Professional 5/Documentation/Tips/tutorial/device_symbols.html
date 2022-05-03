@@ -1,0 +1,267 @@
+<script language="JavaScript" src="../assets/tipscripts.js"></script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Device Symbols</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META NAME="Generator" CONTENT="NetObjects Fusion 8 for Windows">
+<META CONTENT="Microsoft FrontPage 3.0" NAME="GENERATOR">
+<META CONTENT="none, default" NAME="Microsoft Theme">
+<META CONTENT="b" NAME="Microsoft Border">
+
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../html/style.css">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../html/site.css">
+</HEAD>
+<BODY onload="on_tip_load();" STYLE="margin: 0px;">
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="172">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD HEIGHT="73" WIDTH="172"><!-- msnavigation -->
+<IMG ID="Picture95" HEIGHT="73" WIDTH="172" SRC="../assets/images/dwp_logo_172.jpg" BORDER="0" ALT="dwl3_logo_wide.gif (5892 bytes)" TITLE="dwl3_logo_wide.gif (5892 bytes)"></TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD HEIGHT="2"></TD>
+        </TR>
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD WIDTH="670" CLASS="TextNavBar" STYLE="text-align: left;">[<A HREF="../index.html">Home</A>] [<A HREF="../html/tips_of_the_day.html">Tips&nbsp;of&nbsp;the&nbsp;Day</A>] [<A HREF="../html/products.html">Products</A>] [<A HREF="../html/tutorial.html">Tutorial</A>] [<A HREF="../tutorial/5_min_schematic.html">5&nbsp;Min.&nbsp;Schematic</A>] [<A HREF="../tutorial/advanced_editing.html">Advanced&nbsp;Editing</A>] [Device&nbsp;Symbols] [<A HREF="../html/contact.html">Contact</A>]</TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="734">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD WIDTH="5"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT=""></TD>
+            <TD WIDTH="729" CLASS="TextObject"><!-- msnavigation -->
+
+                <P><!-- msnavigation -->
+
+                    <TABLE ID="Table38" BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="99%">
+                        <COLGROUP>
+                        <COL STYLE="width:728px">
+                        </COLGROUP>
+                        <TR>
+                            <!-- msnavigation -->
+
+                            <TD VALIGN="TOP" WIDTH="728">
+                                <H2></H2>
+                                <H2>Creating Device Symbols and Libraries</H2>
+                                <P>This tutorial gives you a closer look at some of the <B>DesignWorks Lite</B> features for creating your own device symbols. Topics covered on this page include:</P>
+                                <UL>
+                                    <LI CLASS="List1"><A HREF="#CreatingLib">Creating a New Library</A></LI>
+                                    <LI CLASS="List1"><A HREF="#CreatingSymbol">Creating a Device Symbol</A></LI>
+                                    <LI CLASS="List1"><A HREF="#SettingAttr">Setting Default Part Attributes</A></LI>
+                                    <LI CLASS="List1"><A HREF="#EnteringNames">Entering Pin Names and Numbers</A></LI>
+                                    <LI CLASS="List1"><A HREF="#Saving">Saving and Using the Part</A></LI>
+                                    <LI CLASS="List1"><A HREF="#AutoCreating">Auto-Creating a Symbol</A></LI>
+                                </UL>
+                                <P STYLE="list-style-type: none;">&nbsp;</P>
+                                <P>
+                                    <TABLE ID="Table39" BORDER="1" CELLSPACING="2" CELLPADDING="5" WIDTH="600">
+                                        <COLGROUP>
+                                        <COL STYLE="width:387px">
+                                        <COL STYLE="width:180px">
+                                        </COLGROUP>
+                                        <TR>
+                                            <TD VALIGN="TOP" WIDTH="387">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture79" HEIGHT="70" WIDTH="75" SRC="../tutorial/Images/device6.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpeB.jpg (2535 bytes)" TITLE="wpeB.jpg (2535 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP" WIDTH="180">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">Starting the Program</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· If it is not already running, double-click on the DesignWorks icon to start the program.</SPAN></B></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture83" HEIGHT="241" WIDTH="138" SRC="../tutorial/Images/device7.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpeE.jpg (9028 bytes)" TITLE="wpeE.jpg (9028 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;"><A NAME="CreatingLib"></A>Creating a New Library</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Right-click on the Parts palette&#39;s parts list and select the &quot;New&nbsp; Lib&quot; command from the pop-up menu.</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Create a new library called &quot;MyLib.clf&quot; in the Libs directory.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;">Device library files hold collections of part symbols along with associated pin function information, default attribute values and external circuit references. A single library can contain from one to thousands of part definitions, to suit your needs.</P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture87" HEIGHT="309" WIDTH="339" SRC="../tutorial/Images/device8.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe11.jpg (13752 bytes)" TITLE="wpe11.jpg (13752 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;"><A NAME="CreatingSymbol"></A>Creating a Device Symbol</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Select New from the File menu.&nbsp; </SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· In the &quot;New&quot; dialog select &quot;Device Symbol&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: x-small;">The DevEditor window contains a drawing area for your symbol, a tool palette and a pin list. The tool palette includes standard drawing tools plus special items for normal, inverted and bus pin placement.</SPAN></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture91" HEIGHT="309" WIDTH="339" SRC="../tutorial/Images/device9.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe12.jpg (14148 bytes)" TITLE="wpe12.jpg (14148 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">Creating a Device Symbol (cont&#39;d)</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Click on the polygon (<IMG ID="Picture94" HEIGHT="14" WIDTH="14" SRC="../tutorial/Images/Image65.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="">) tool in the tool palette.</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Draw a symbol similar to the one shown (Note: double click on the last point to terminate polygon drawing).</B></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture97" HEIGHT="106" WIDTH="117" SRC="../tutorial/Images/Image66.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">Creating a Device Symbol (cont&#39;d)</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Select the (<IMG ID="Picture100" HEIGHT="14" WIDTH="15" SRC="../tutorial/Images/Image67.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="">) pin tool.</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Place input pins on the symbol by clicking at the positions shown.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select the (<IMG ID="Picture102" HEIGHT="15" WIDTH="14" SRC="../tutorial/Images/Image68.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="">) pin tool.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Place an output pin as shown.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>Note</B>: The crossbar portion of the T pin tool only appears during placement and dragging for alignment purposes.</P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture105" HEIGHT="335" WIDTH="293" SRC="../tutorial/Images/device10.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe13.jpg (16574 bytes)" TITLE="wpe13.jpg (16574 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;"><A NAME="SettingAttr"></A>Setting Default Part Attributes</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Return to the pointer (<IMG ID="Picture108" HEIGHT="24" WIDTH="24" SRC="../tutorial/Images/Image70.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="">) tool.</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select the Part Attributes command from the Options menu. (Note: there will be no attributes in the list if there is no active design).</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select the Part field in the list.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Enter the value &quot;LM741&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select the Package field in the list.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Enter the value &quot;NAT8DPN&quot; or other package code.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Click the Done button.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;">These attribute values will appear as the defaults when this part is used on a schematic. If desired, these values can be overridden for each individual device.</P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture111" HEIGHT="322" WIDTH="379" SRC="../tutorial/Images/device11.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe14.jpg (16268 bytes)" TITLE="wpe14.jpg (16268 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;"><A NAME="EnteringNames"></A>Entering Pin Names and Numbers</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Double Click on the PIN1 item in the pin list and then type in the name &quot;INA&quot;.</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Click in the &quot;Pin Number&quot; text box and enter 2</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Double Click on the PIN2 item in the pin list and then type in the name &quot;INB&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Click in the &quot;Pin Number&quot; text box and enter 3</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Double Click on the PIN3 item in the pin list and then type in the name &quot;OUT&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Click in the &quot;Pin Number&quot; text box and enter 6</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select &quot;Output&quot; in the Pin Function drop-down menu.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: x-small;">We have now entered default values for the pin numbers. These can be edited on the schematic for individual pins, if desired.</SPAN></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture115" HEIGHT="293" WIDTH="285" SRC="../tutorial/Images/device12.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe15.jpg (14042 bytes)" TITLE="wpe15.jpg (14042 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;"><A NAME="Saving"></A>Saving and Using the Part</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">· Select the Save As command from the File menu.</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Enter the part name &quot;LM741&quot; or any other desired name.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Click on the &quot;MyLib.clf&quot; library in the list to select a destination and press &quot;Save&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Close the DevEditor.</B></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture119" HEIGHT="134" WIDTH="168" SRC="../tutorial/Images/device13.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe17.jpg (2835 bytes)" TITLE="wpe17.jpg (2835 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">Saving and Using the Part (cont&#39;d)</SPAN></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: x-small;">· If it is not already selected, select the &quot;MyLib.clf&quot; library in the drop-down library list in the Parts palette.</SPAN></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: x-small;">· Double-click on the newly-created part and place one in the schematic.</SPAN></B></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture123" HEIGHT="286" WIDTH="381" SRC="../tutorial/Images/device14.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe18.jpg (10563 bytes)" TITLE="wpe18.jpg (10563 bytes)"></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;"><A NAME="AutoCreating"></A>Auto-Creating a Symbol</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: x-small;">For standard types of rectangular symbols, the Auto Create feature will generate a symbol for you in seconds.</SPAN></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>&nbsp;</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select New from the File menu.&nbsp; </B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· In the &quot;New&quot; dialog select &quot;Device Symbol&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select the &quot;Auto Create Symbol&quot; command from the Options menu.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· In the Name box, enter &quot;ALS374&quot;, or any other desired symbol name.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· In the &quot;Left Pins&quot; box, enter the text &quot;D7..0(9..2),,,CLK(1)&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;">&quot;D7..0&quot; will generate a set of 8 pins named D7, D6, etc. &quot;(9..2)&quot; are the corresponding pin numbers. The three commas indicate that we want extra space between these pins. &quot;CLK(1)&quot; creates a single pin called CLK with pin number 1. The pin numbers can be omitted, if desired.</P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· In the &quot;Right Pins&quot; box, enter the text &quot;Q7..0(12..19)&quot;.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Click on the Generate button.</B></P>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture127" HEIGHT="209" WIDTH="81" SRC="../tutorial/Images/Image78.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                            </TD>
+                                            <TD VALIGN="TOP">
+                                                <P STYLE="list-style-type: none; text-align: center;"><B><SPAN STYLE="font-size: x-small;">Auto-Creating a Symbol (cont&#39;d)</SPAN></B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: x-small;">The auto-generated symbol should now display the pins and pin numbers entered above. These items can be edited using the drawing tools and Pin Info dialog, if desired.</SPAN></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Select the Save Part As item in the file menu and save the new part to the &quot;MyLib.clf&quot; library.</B></P>
+                                                <P STYLE="list-style-type: none; text-align: center;"><B>· Close the DevEditor window.</B></P>
+                                            </TD>
+                                        </TR>
+                                    </TABLE>
+                                </P>
+                                <P STYLE="list-style-type: none; text-align: center;"><SPAN STYLE="font-size: medium;">&nbsp;</SPAN></P>
+                                <P STYLE="list-style-type: none; text-align: center;">This completes the tutorial section &quot;Device Symbol Editing&quot;.</P>
+                                <P STYLE="list-style-type: none; text-align: center;"><A HREF="../html/tutorial.html">Back to Tutorial Home Page</A></P>
+                                <P>&nbsp;&nbsp;</P>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                    <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+                        <TR>
+                            <TD ALIGN="CENTER"><!-- msnavigation -->
+<!-- msnavigation -->
+
+                                <TABLE ID="Table40" BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="99%">
+                                    <COLGROUP>
+                                    <COL STYLE="width:728px">
+                                    </COLGROUP>
+                                    <TR>
+                                        <TD WIDTH="728"></TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                </P>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="479">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD>
+                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="69">
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD WIDTH="5" HEIGHT="32"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT=""></TD>
+                        <TD WIDTH="64"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="64" HEIGHT="1" BORDER="0" ALT=""></TD>
+                    </TR>
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD></TD>
+                        <TD WIDTH="64" CLASS="TextObject">
+                            <P><A HREF="../index.html"><IMG ID="Picture28" HEIGHT="66" WIDTH="49" SRC="../assets/images/home.gif" VSPACE="0" HSPACE="0" ALIGN="TOP" BORDER="0" ALT="home" TITLE="home"></A></P>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+            <TD>
+                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="410">
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD WIDTH="40" HEIGHT="32"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="40" HEIGHT="1" BORDER="0" ALT=""></TD>
+                        <TD WIDTH="370"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="370" HEIGHT="1" BORDER="0" ALT=""></TD>
+                    </TR>
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD></TD>
+                        <TD WIDTH="370" CLASS="TextObject">
+                            <FORM NAME="DontShowForm" ACTION="" method="POST">
+                                <P STYLE="text-align: center;"><SPAN STYLE="font-size: xx-small;"><TABLE STYLE="font-size: xx-small;" ID="DontTable" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+<TR><TD>                                                                                                                                             <INPUT ID="DontShow" TYPE=CHECKBOX NAME="DontShow" VALUE="DontShow" onclick="set_dont_show_state(DontShow.checked);">                                                                                      </TD><TD>
+<DIV ID="DontText">Don't show this window at startup</DIV></TD>                                                      </TR><TR><TD COLSPAN=2><DIV ID="DaysText">&nbsp</DIV></TD></TR></TABLE><BR>Copyright 2006-2007 by Capilano Computing Systems Ltd. All rights reserved.<BR><A HREF="http://www.capilano.com" TARGET="_blank">Click here for the Capilano Computing Web Site</A><BR><A HREF="../index.html" TARGET="_blank">Click here to open this window in a separate browser</A></SPAN></P>
+                            </FORM>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+</BODY>
+</HTML>
+ 

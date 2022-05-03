@@ -1,0 +1,61 @@
+{
+  Netlist script for PCAD.
+  Copyright 1993 by Capilano Computing Systems Ltd.
+  All rights reserved.
+}
+$NOTES
+Attribute fields required:
+
+In circuit:
+
+	PCBFILENAME	Name of PCB file that PDIFIN will associate with
+			this netlist.  This PCAD file must exist with at
+			least the board outline before reading the netlist.
+
+In each type definition or device instance:
+
+	UNUSED		A list of the unused pins (i.e. not appearing in
+			the schematic) for this device.  This is
+			required so that the list of pins put in the netlist
+			matches the pin list in the PCAD parts database.
+			The format is "2,3,12,14".  Unused pins will appear
+			as "?" in the netlist.
+			IMPORTANT: This version of DesignWorks does not
+			check for the same pin being specified in multiple
+			places.  If one section of a part uses pin "x" and
+			pin "x" is also specified as unused, then it will
+			appear twice in the list.
+	PCAD		This is the part name to be used in the PCAD system.
+			This must match a "partName.PRT" part definition
+			file which PDIFIN uses.
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$ROWS(60)
+$COLUMNS(80)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$NULLSIGSON
+$AUTONUMBER(3)
+$CREATEREPORT($CIRCUITNAME.PDF) $PROMPT $CREATOR(EDIT)
+$LINETERMINATOR $DOS
+$COMBDEVSON
+$CONTSTART()
+$ASSIGNNAMES $DEVICES $FORMAT(U1)
+$ASSIGNNAMES $SIGNALS $FORMAT(SIG1)
+$SORT $DEVICES $DEVNAME
+$SORT $SIGNALS $SIGNAME
+$DEVPINFORMAT $PINNUM $SIGNAME
+$BUSNAMEON(_)
+$BLANKREPLACE(_)
+% Project $DESIGNNAME $DATE
+\{COMPONENT $CIRCUITNAME\.PCB \{ENVIRONMENT &PCBFILENAME\.PCB\} \{DETAIL \{SUBCOMP
+$DEVICES\{I &PCAD $DEVNAME$NEWLINE\{CN $PINS$NEWLINE\}$NEWLINE\}
+\}\}\}

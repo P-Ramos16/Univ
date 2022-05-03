@@ -1,0 +1,67 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script removes the custom menu that is included
+// with the release of DesignWorks Professional for Windows.
+// It does this by reading in the initialization file
+// dw.ini that is located in the DesignWorks program folder,
+// locating the "MENU" lines in the [Export] section of
+// the file and inserting // comment delimiters in those
+// lines.  To reinstate these menu items, simply use
+// a text editor to remove the // comment prefix.
+
+
+if (!confirm("This script will remove the sample Custom Menu that is provided "
+			+ "to illustrate the usage of the scripting features.  The change will "
+			+ "only take effect the next time the program is started.  See the "
+			+ "comments in this script for more details.")) halt;
+
+f = SPFile();		// Use a file object to locate the application folder
+f.setAppPath("dw.ini");
+
+// Read the contents of the file and make an array of lines
+
+a = SPArray(f.readText());
+
+num = a.length;
+if (num == 0) halt;		// In case something went wrong, don't mess up
+
+
+// Locate the lines in the [Export] section
+
+inExport = false;
+i = 0;
+while (i < num)
+{
+	s = a[i];
+	if (s.indexOf("[Export]") == 0)
+	{
+		inExport = true;
+	}
+	else if (s.indexOf("[") == 0)
+	{
+		if (inExport) break;
+		inExport = false;
+	}
+	
+	if (inExport)
+	{	// If the line refers to "Custom Menu", comment it out by inserting //
+		
+		if ((s.indexOf("\"Custom Menu\"") > 0)
+			&& (s.indexOf("//") != 0))
+		{
+			a[i] = "// " + s;		// Replace the line in the array
+		}
+	}
+	
+	i++;
+}
+
+// Rewrite the entire file
+
+f.close();			// Close the file and re-open for writing
+f.writeText(a);

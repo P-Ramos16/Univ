@@ -1,0 +1,52 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script makes a backup ZIP file of the current
+// design with the original filename plus the date appended
+
+
+cct = currentCircuit;
+if (cct == null)
+{
+	alert("There's no current circuit!");
+	halt;
+}
+
+// If the file hasn't been saved, we can't get the file path
+
+if (!cct.saved)
+{
+	alert("This design has not been saved.  Please save it first"
+			+ " so that the file location has been set");
+	halt;
+}
+
+
+// Use a file object to make the file name for the ZIP file
+
+f = SPFile(cct.filePath);
+
+f.extension = "";
+
+t = new Date();		// Today's date
+f.name = sprintf("%s_%4d_%02d_%02d.zip", f.name, t.getYear(), (t.getMonth()+1), t.getDate());
+
+// Confirm the operation
+
+if (!confirm("This will create a backup zip file of the current design "
+			+ "and save it as " + f))
+{
+	halt;
+}
+
+
+deleteFile(f);		// Delete any old ZIP file with same name
+
+z = SPZip(f);
+z.add(cct.filePath);
+
+alert("Design has been backed up to " + f);

@@ -1,0 +1,144 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPZip</H1>
+<P>This object lets you create, add to, and extract from standard Zip archive files. An object of this class is created by calling the top-level function SPZip.</P>
+<DIR>
+<LI><A HREF="#add">
+add</a>
+ - Adds files to the Zip archive.</LI>
+<LI><A HREF="#addRecursive">
+addRecursive</a>
+ - Adds files recursively to the Zip archive.</LI>
+<LI><A HREF="#extract">
+extract</a>
+ - Extracts files from the zip archive.</LI>
+<LI><A HREF="#getFileList">
+getFileList</a>
+ - Gets a list of the files contained in the Zip archive.</LI>
+</DIR>
+<a name="add"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>add</B></FONT></P>
+<P>Adds files to the Zip archive.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>add</B>(list);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>add</B>(list, rootDir);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>rootDir</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The root directory. If this is specified, the file specifications in "list" are relative to this directory and the path stored in the archive will be relative to this directory.</td>
+  </tr>
+  <tr>
+    <td>list</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>List of files to add. See below.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+If the archive already exists, this method adds the specified files, replacing any existing files with the same name. If the archive doesn't exist, it is created. If you wish to create a completely new archive, replacing any existing one with the same name, you must use the Script.deleteFile function first. <H4>Specifying File Names</H4> Filenames should be specified with absolute paths, i.e. starting with the disk or server name. Relative paths will be accepted, but they depend on the system's notion of "current directory", which may change unpredictably. Wildcards are allowed, see below. If absolute paths are supplied, the entire path, except for the drive letter and : character, will be stored in the Zip file. <H4>Adding Multiple Files</H4> <P>Multiple files can be specified by separating them with commas or line terminators. To include commas in the name, or for clarity, names can be enclosed in single or double quotes. Arrays of file names returned by functions like <B>getFileList</B> can be passed to <B>add</B> since they are automatically separated by line terminators when converted to strings.</P> <H4>Including and Excluding Files</H4> <P>Files can be explicitly excluded or included from the files in the list. To use this feature, first specify all the files and wildcards you want to process, then specify files to include or exclude among the files to process already specified. To exclude certain files, place a < symbol before the filename or wildcard expression to exclude, and add it to the list. To include only certain files, place a > symbol before the filename or wildcard expression. The include or exclude feature may only be used if the list contains at least one filename or wildcard expression without the < or > symbols. The include feature applies primarily when using <A HREF="addRecursive">addRecursive</A>, since it allows you to specify all directories, but filter out only a specific file type within those directories.</P> <H4>Wildcards</H4> The add method supports the * and ? wildcard characters. The * character matches a sequence of 0 or more characters. The ? character matches exactly one character. Using * will match all the files and subdirectories encountered. Using *.* will only match files and directories that contain a . in them. The <B>add</B> method is <I>not</I> recursive, that is, it zips only the contents of the specified directory, not any subdirectories it may contain. Use the addRecursive method to add files recursively.
+</P>
+<H3>Example:</H3><P><PRE>
+z = SPZip("c:/backups/project.zip");          // Specify the zip file
+
+// "d:/project/*" says add everything inside folder "project".
+// "&lt;*.obj" says exclude all files matching *.obj.
+// "&lt;*.pch" says exclude all files matching *.pch.
+
+z.add("d:/project/*,&lt;*.obj,&lt;*.pch");
+</PRE></P>
+<a name="addRecursive"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addRecursive</B></FONT></P>
+<P>Adds files recursively to the Zip archive.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>addRecursive</B>(list);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>list</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td></td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This method is identical to <B>add</B> except that it adds files in all subdirectories encountered recursively. This only applies when wildcards are specified in the file list. See the comments on file list format under <A HREF="#add">add</A>.
+</P>
+<H3>Example:</H3><P><PRE>
+z = SPZip("c:/backups/text.zip");         // Specify the zip file
+
+// "d:/documents/*" says add everything inside folder "documents".
+// "&gt;*.txt,&gt;*.rtf" says include only files matching *.txt and *.rtf.
+
+z.addRecursive("d:/documents/*,&gt;*.txt,&gt;*.rtf");
+</PRE></P>
+<a name="extract"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>extract</B></FONT></P>
+<P>Extracts files from the zip archive.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>extract</B>(destDir);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>extract</B>(destDir, names);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>names</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The names of the files to be extracted. The same rules for syntax and wildcard usage apply here as for <B>add</B>, except that the exclude feature is not allowed. If this is not specified, all files are extracted.</td>
+  </tr>
+  <tr>
+    <td>destDir</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path name of the destination directory for the files extracted. Note that any path name stored in the archive will be used starting at this location.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="getFileList"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFileList</B></FONT></P>
+<P>Gets a list of the files contained in the Zip archive.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getFileList</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns an array of SPFile objects representing the files in the archive.</P>
+<H3>Remarks:</H3><P>
+IMPORTANT: In this version, the SPFile objects returned can only be used for extracting name and status information regarding the files in the archive. No operations (e.g. read, write, delete) are allowed on these objects. This may be added in a future version.
+</P>
+</BODY>
+</HTML>

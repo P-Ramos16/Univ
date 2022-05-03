@@ -1,0 +1,15 @@
+$NOTES
+Find by Device and Pin Number
+
+This search locates a device symbol given the device name and pin number.
+Enter the item you want in the text box in the form DevName-PinNum
+(e.g. U23-12) and click Search.  All device symbols having a matching
+pin number will be located.
+$ENDNOTES
+$TEMPPATH\find.output
+$CREATEREPORT($TEMPPATH\find.output)
+$DEVPINFORMAT $EQ(&ARG1, $DEVNAME-$PINNUM)
+$FIND $DEVICES $NONBLANK($PINS)
+$TITLE Found $DEVCOUNT devices with pins matching &ARG1
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME
+$CLOSEREPORT

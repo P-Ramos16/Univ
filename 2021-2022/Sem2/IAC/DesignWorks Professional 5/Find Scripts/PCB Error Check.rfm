@@ -1,0 +1,148 @@
+{
+  Error checking script for Generic PCB Design Kit
+  C. Dewhurst, May 13, 1996
+  ©1996-2000 Capilano Computing Systems Ltd.
+
+  Error bit usage
+
+	0	Bad name
+	1	Duplicate signal names
+	2	Unconnected signals
+	8	No package code
+	9	Multiple package codes
+	10	Duplicate pin numbers
+	11	Invalid pin numbers
+	12	No Part or Value
+}
+$NOTES
+PCB Error Check
+
+This search script performs general checks for:
+
+  - devices with no package code
+  - multiple package codes in same package
+  - duplicate pin numbers
+  - invalid pin numbers
+  - bad device names (non-alphanumeric)
+  - bad signal names (non-alphanumeric)
+  - duplicate signal names
+  - unconnected signals
+
+These checks are not specific to any one PCB system and may not be appropriate
+for the design system you are using.
+
+You can use Mark as OK to mark items so that they are not flagged in future.
+
+Search text box: Not used
+
+$ENDNOTES
+$PROGRESS $OFF
+{
+  Listing defaults
+}
+$CREATEREPORT($TEMPPATH$DESIGNNAME Errors)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+$SETVAR(_AnyErrors, 0)
+{
+  Issue a warning if any devices have no package code
+}
+$FIND $DEVICES $AND($ERRORBITOFF(8),$NOT(&Package))
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME - no Package attribute$NEWLINE\$ERRBIT 8$NEWLINE\$MESSAGE\Device $DEVNAME on page $PAGE has no Package attribute.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+{
+  Check for multiple package codes in same package
+}
+$FIND $DEVICES
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$FIND $NOCLEAR $DEVICES $GT($COUNTVALUES(&Package), 1) $ERRORBITOFF(9)
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME - inconsistent package codes$NEWLINE\$ERRBIT 9$NEWLINE\$MESSAGE Device $DEVNAME on page $PAGE has inconsistent package codes.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+{
+  Check for duplicate pin numbers
+}
+$FIND $DEVICES
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVPINFORMAT $GT($SAMEPINCOUNT, 1)
+$FIND $SIGNALS
+$FIND $NOCLEAR $DEVICES $NONBLANK($MERGE$PINS) $ERRORBITOFF(10)
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME - duplicate pin #$NEWLINE\$ERRBIT 10$NEWLINE\$MESSAGE Device $DEVNAME on page $PAGE has duplicate pin numbers.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+{
+  Check for invalid pin numbers
+}
+$DEVPINFORMAT $REGEXP(\W?|.*\W.*, $PINNUM)
+$FIND $DEVICES $NONBLANK($PINS) $ERRORBITOFF(11)
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME - invalid pin #$NEWLINE\$ERRBIT 11$NEWLINE\$MESSAGE Device $DEVNAME on page $PAGE has invalid pin numbers.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+{
+  Check for invalid Part or Value
+}
+$FIND $DEVICES $AND($NOT($NONBLANK(&Value)), $NOT($NONBLANK(&Part))) $ERRORBITOFF(12)
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME - no Part or Value$NEWLINE\$ERRBIT 12$NEWLINE\$MESSAGE Device $DEVNAME on page $PAGE has neither Part or Value attributes specified.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+{
+  Check for bad device names
+}
+$FIND $DEVICES $NOT($REGEXP(\w+, $DEVNAME)) $ERRORBITOFF(0)
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME - invalid name$NEWLINE\$ERRBIT 0$NEWLINE\$MESSAGE Device $DEVNAME on page $PAGE has an invalid name.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+{
+  Check for bad signal names
+}
+$UNNAMEDSIGS(????)
+$FIND $SIGNALS $NOT($REGEXP(\w+, $SIGNAME)) $ERRORBITOFF(0)
+$SORT $SIGNALS $SIGNAME
+$FIND $DEVICES
+$SIGNALS\$OBJECT $SIGLOC$NEWLINE\$OBJTITLE $SIGNAME - invalid name$NEWLINE\$ERRBIT 0$NEWLINE\$MESSAGE Signal $SIGNAME on page(s) $PAGE has an invalid name.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+{
+  Check for duplicate signal names
+}
+$FIND $SIGNALS
+$COMBSIGSON
+$SORT $SIGNALS $SIGNAME
+$FIND $NOCLEAR $SIGNALS $COUNT(2) $ERRORBITOFF(1)
+$SORT $SIGNALS $SIGNAME
+$SIGNALS\$OBJECT $SIGLOC$NEWLINE\$OBJTITLE $SIGNAME - duplicate name$NEWLINE\$ERRBIT 1$NEWLINE\$MESSAGE Signals $SIGNAME on page(s) $PAGE have duplicate names.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+{
+  Check for unconnected signals
+}
+$FIND $DEVICES
+$FIND $SIGNALS $NUMPINS(1) $NOT($NUMPINS(2)) $ERRORBITOFF(2)
+$COMBSIGSOFF
+$SORT $SIGNALS $SIGNAME
+$SIGNALS\$OBJECT $SIGLOC$NEWLINE\$OBJTITLE $SIGNAME - unconnected$NEWLINE\$ERRBIT 2$NEWLINE\$MESSAGE Signals $SIGNAME on page(s) $PAGE has only one pin connection.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+{
+  Write out $TITLE line for ErrorScript window
+}
+\$TITLE
+&_AnyErrors errors found!  Error file is $TEMPPATH$DESIGNNAME Errors.
+{
+  Close the report output to the text file.
+  All subsequent output will go to ErrorScript as the file name.
+}
+$CLOSEREPORT
+{
+  Return report file name for ErrorScript
+}
+$TEMPPATH$DESIGNNAME Errors

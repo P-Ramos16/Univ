@@ -1,0 +1,117 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Updating Library Attributes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Generator" content="NetObjects Fusion 10 for Windows">
+<script type="text/javascript">
+<!--
+function F_loadRollover(){} function F_roll(){}
+//-->
+</script>
+<SCRIPT TYPE="text/javascript" SRC="./assets/rollover.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="stylesheet" type="text/css" href="./site.css">
+</head>
+<body style="margin: 0px;">
+ <table cellpadding="0" cellspacing="0" border="0" width="768">
+  <tr valign="top" align="left">
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="142">
+     <tr valign="top" align="left">
+      <td width="12" height="65"><img src="./assets/images/autogen/clearpixel.gif" width="12" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="120"></td>
+      <td width="130">
+       <table id="NavigationBar1" border="0" cellspacing="0" cellpadding="0" width="130">
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./index.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton1','',0);F_roll('NavigationButton1',1)" onMouseOut="F_roll('NavigationButton1',0)"><img id="NavigationButton1" name="NavigationButton1" height="24" width="130" src="./assets/images/autogen/JavaScript_Home_Np1_1.gif" onmouseover="F_loadRollover(this,'JavaScript_Home_NRp2_1.gif',0)" border="0" alt="JavaScript Home" title="JavaScript Home"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./report_device_attributes.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton2','',0);F_roll('NavigationButton2',1)" onMouseOut="F_roll('NavigationButton2',0)"><img id="NavigationButton2" name="NavigationButton2" height="24" width="130" src="./assets/images/autogen/Report_Device_Attributes_Np1.gif" onmouseover="F_loadRollover(this,'Report_Device_Attributes_NRp2.gif',0)" border="0" alt="Report Device Attributes" title="Report Device Attributes"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./updating_library_attributes.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton3','',0);F_roll('NavigationButton3',1)" onMouseOut="F_roll('NavigationButton3',0)"><img id="NavigationButton3" name="NavigationButton3" height="24" width="130" src="./assets/images/autogen/Updating_Library_Attributes_Hp3_1.gif" onmouseover="F_loadRollover(this,'Updating_Library_Attributes_HRp4_1.gif',0)" border="0" alt="Updating Library Attributes" title="Updating Library Attributes"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./create_device_symbol.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton4','',0);F_roll('NavigationButton4',1)" onMouseOut="F_roll('NavigationButton4',0)"><img id="NavigationButton4" name="NavigationButton4" height="24" width="130" src="./assets/images/autogen/Create_Device_Symbol_Np1.gif" onmouseover="F_loadRollover(this,'Create_Device_Symbol_NRp2.gif',0)" border="0" alt="Create Device Symbol" title="Create Device Symbol"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./create_a_circuit.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton5','',0);F_roll('NavigationButton5',1)" onMouseOut="F_roll('NavigationButton5',0)"><img id="NavigationButton5" name="NavigationButton5" height="24" width="130" src="./assets/images/autogen/Create_a_Circuit_Np1.gif" onmouseover="F_loadRollover(this,'Create_a_Circuit_NRp2.gif',0)" border="0" alt="Create a Circuit" title="Create a Circuit"></a></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+    </table>
+   </td>
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="568">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="45"></td>
+      <td width="560"><img id="Banner1" height="45" width="560" src="./assets/images/autogen/Updating_Library_Attributes_NnBanner.gif" border="0" alt="Updating Library Attributes" title="Updating Library Attributes"></td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" width="626">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td width="618"><img src="./assets/images/autogen/clearpixel.gif" width="618" height="1" border="0" alt=""></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="618" class="TextObject">
+       <h2>Script Example - Updating Library Attributes</h2>
+       <p>Here, we&#8217;ll look at a simple example of a standalone script that will run through all the symbols in a library and replace a specified old attribute value with a new one.&nbsp;This will illustrate a number of useful concepts:</p>
+       <ul>
+        <li>Prompting the user to select a library</li>
+        <li>Prompting the user for simple text values</li>
+        <li>Enumerating the symbols in a library</li>
+        <li>Reading and writing library symbols</li>
+        <li>Gettting and updating attributes</li>
+       </ul>
+       <p>Here is the code for our script (this script is also provided in the file <b>Change Library Attributes.dwj</b> inside the folder <b><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 12px;">Documentation\JavaScript Docs\Sample Scripts</span></b> with the DesignWorks program.</p>
+       <pre style="font-size: 12px;">// This script runs through a selected library and updates any part<br>// replacing a specified value with a new value in a specified<br>// attribute field.<br><br>// Prompt the user for which library to work on and confirm they<br>// really mean it!!!<br><br>lib = selectLibrary(true);<br>if (lib == null) halt;<br><br>if (!confirm(&quot;This will modify library &quot; + lib + &quot;.&nbsp;Is that OK?&quot;)) halt;<br><br>// Prompt for the name of the field and the old and new values<br><br>answers = prompt(SPArray(&quot;Field Name&quot;, &quot;Old Value&quot;, &quot;New Value&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPArray(&quot;&quot;,&quot;&quot;,&quot;&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;Change Library Attributes&quot;);<br>if (answers == null) halt;<br><br>fieldName = answers[0];<br>oldValue = answers[1];<br>newValue = answers[2];<br><br>if ((fieldName == &quot;&quot;) || (oldValue == newValue))<br>{<br>&nbsp;&nbsp;alert(&quot;Nothing to do!&quot;);<br>&nbsp;&nbsp;halt;<br>}<br><br>// Run through the types in the selected library<br>// and look for any matching fields, updating<br>// and resaving them if found<br><br>types = lib.typeList;<br>num = types.length;<br>found = &quot;&quot;;<br>for (i = 0; i &lt; num; i++)<br>{<br>&nbsp;&nbsp;t = types[i];<br>&nbsp;&nbsp;s = t.getAttribute(fieldName);<br>&nbsp;&nbsp;if (s == oldValue)<br>&nbsp;&nbsp;{&nbsp; // The old value matches, so change it<br><br>&nbsp;&nbsp;&nbsp;&nbsp;t.setAttribute(fieldName, newValue);<br>&nbsp;&nbsp;&nbsp;&nbsp;lib.saveType(t);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;// Track changes so we can announce later<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if (found == &quot;&quot;) found = &quot;&quot; + t;<br>&nbsp;&nbsp;&nbsp;&nbsp;else found = &quot;, &quot; + t;<br>&nbsp;&nbsp;}<br>}<br><br><br>// Announce the results<br><br>if (found != &quot;&quot;) alert(&quot;Updated library element(s): &quot; + found + &quot;!&quot;);<br>else alert(&quot;No library elements were updated!&quot;);</pre>
+       <p>Now we&#8217;ll go through the script one stage at a time to look at the finer points.</p>
+       <h3>Prompting the User to Select a Library</h3>
+       <pre style="font-size: 12px;">lib = selectLibrary(true);<br>if (lib == null) halt;<br><br>if (!confirm(&quot;This will modify library &quot; + lib + &quot;.&nbsp;Is that OK?&quot;)) halt;</pre>
+       <p>The <a href="../JavaScript Object Reference/dwstatic.html#selectLibrary"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 12px;">selectLibrary</span></a> method displays a box showing all the symbol libraries currently open (i.e. showing in the Parts palette) and allows the user to pick one.&nbsp;The argument <span class="CodeReferenceBold">true</span> specifies that we only want libraries that are enabled for writing.&nbsp;In this case, because we are going to update symbols and rewrite them to the library, read-only libraries are not much good to us.&nbsp;The <a href="../JavaScript Object Reference/spscript.html#confirm"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">confirm</span></a> step is not strictly necessary, but&nbsp;because we are going to make major changes to this library, we should make sure we&#8217;re serious!</p>
+       <h3>Prompting the User for Text Data</h3>
+       <pre style="font-size: 12px;">answers = prompt(SPArray(&quot;Field Name&quot;, &quot;Old Value&quot;, &quot;New Value&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPArray(&quot;&quot;,&quot;&quot;,&quot;&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;Change Library Attributes&quot;);<br>if (answers == null) halt;<br>fieldName = answers[0];<br>oldValue = answers[1];<br>newValue = answers[2];</pre>
+       <p>The <a href="../JavaScript Object Reference/spscript.html#prompt"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">prompt</span></a> method displays a simple dialog box that lets you request text input from the user.&nbsp;It allows you to specify multiple items so you can request any number of strings in one operation.&nbsp;In this case we want to know a field name, an old value and a new value, so we create an array of strings with the labels, one for each box.&nbsp;The second argument to <span class="CodeReferenceBold"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">prompt</span></span> is the default values for the boxes, which must be an array that matches the box labels in number.&nbsp;The return value from <span class="CodeReferenceBold"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">prompt</span></span> will be a similar array with one element for the text that the user typed in each box.&nbsp;If it returns <span class="CodeReferenceBold">null</span>, the user hit the Cancel button.</p>
+       <h3>Scanning Through the Symbols in a Library</h3>
+       <pre style="font-size: 12px;">types = lib.typeList;<br>num = types.length;<br>for (i = 0; i &lt; num; i++)<br>{<br>&nbsp;&nbsp;t = types[i];<br>&nbsp;&nbsp;// Do something to &#8220;t&#8221;<br>}</pre>
+       <p>The method <a href="../JavaScript Object Reference/dwlibrary.html#typeList"><span class="CodeReference">typeList</span></a> of object <a href="../JavaScript Object Reference/dwlibrary.html"><span class="CodeReference">DWLibrary</span></a> gives you a list of all the symbols (&#8220;device types&#8221;) in the library in the form of an array of <a href="../JavaScript Object Reference/dwtype.html"><span class="CodeReference">DWType</span></a> objects.&nbsp;The <span class="CodeReferenceBold">DWType</span> object represents a single type definition (i.e. the device symbol and associated attributes, pin information, etc.).</p>
+       <h3>Loading, Updating and Storing the Device Symbol</h3>
+       <pre style="font-size: 12px;">s = t.getAttribute(fieldName);<br>if (s == oldValue)<br>{&nbsp; // The old value matches, so change it<br><br>&nbsp;&nbsp;t.setAttribute(fieldName, newValue);<br>&nbsp;&nbsp;lib.saveType(t);<br>}</pre>
+       <p>The <a href="../JavaScript Object Reference/dwtype.html"><span class="CodeReference">DWType</span></a> object has <a href="../JavaScript Object Reference/dwtype.html#getAttribute"><span class="CodeReference">getAttribute</span></a> and <a href="../JavaScript Object Reference/dwtype.html#setAttribute"><span class="CodeReference">setAttribute</span></a> methods, like other objects that represent DesignWorks circuit elements.&nbsp;To complete the update, we just get the old value for the specified field, see if it matches the one we want to update, then change the value and resave the symbol in the library.</p>
+       <p><b>NOTES:</b></p>
+       <ul>
+        <li>The <span class="CodeReferenceBold">typeList</span> method preloads all the symbols in the library in the process of creating the <span class="CodeReferenceBold">DWType</span> objects for each one. If you were loading a single type from a library, you would have to use the <a href="../JavaScript Object Reference/dwlibrary.html#loadType"><span class="CodeReference">loadType</span></a> method of <a href="../JavaScript Object Reference/dwlibrary.html"><span class="CodeReference">DWLibrary</span></a> to explicitly load the symbol.</li>
+        <li>When you perform many load and save operations on a library, the storage occupied by the library can become fragmented and the library will grow in size with unused space.&nbsp;If you perform many such operations, it is worth using the Lib Maintenance command to manually do a Compact on the library.</li>
+       </ul>
+       <p>&nbsp;</p>
+      </td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0">
+     <tr valign="top" align="left">
+      <td width="8" height="28"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="560" class="TextNavBar" style="text-align: center;">[<a href="./index.html">JavaScript&nbsp;Home</a>] [<a href="./designworks_object_model.html">DesignWorks&nbsp;Object&nbsp;Model</a>] [<a href="./examples.html">Examples</a>] [<a href="./report_device_attributes.html">Report&nbsp;Device&nbsp;Attributes</a>] [Updating&nbsp;Library&nbsp;Attributes] [<a href="./create_device_symbol.html">Create&nbsp;Device&nbsp;Symbol</a>] [<a href="./create_a_circuit.html">Create&nbsp;a&nbsp;Circuit</a>] [<a href="./the_browser_panel___html_dialo.html">The&nbsp;Browser&nbsp;Panel&nbsp;&amp;&nbsp;HTML&nbsp;Dialogs</a>] [<a href="./invoking_a_script.html">Invoking&nbsp;a&nbsp;Script</a>]</td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+</body>
+</html>
+ 

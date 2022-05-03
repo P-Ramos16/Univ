@@ -1,0 +1,108 @@
+{
+		ExpressPCB Netlist
+		Adapted by Phillip Conrad (2005)
+		Update by Neil MacKenzie 2006
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$CREATEREPORT($DESIGNNAME.net) $PROMPT
+$NOTES
+This format generates a netlist file for ExpressPCB.
+
+!!! It works only with a flat design. !!!
+
+Standard attribute fields used:
+
+Name
+Value
+Package
+
+Non-standard attribute fields required:
+
+none
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+
+$END
+{
+		Node Names Table Output
+}
+$DEFINEBLOCK(NNamOut)
+	$IF($EQ(&PinCount,-1))
+		$DIV($NUMPINS,$NUMPINS)
+		$SETVAR(PinCount, 1)
+		$SETVAR(PinCount, $PLUS(&PinCount, $NUMPINS))
+	$ELSE
+		&PinCount
+		$SETVAR(PinCount, $PLUS(&PinCount, $NUMPINS))
+	$END
+$END
+{
+		Node Connections Table Output
+}
+$SETVAR(NumOfPins,12345)
+$SETVAR(LineNumber,1)
+$SETVAR(OldNet,1)
+$DEFINEBLOCK(Format)
+		$SETVAR(LineNumber,$PLUS(&LineNumber,1))
+		$SETVAR(NetNumber,$SIGSEQ(1))
+		$SETVAR(PartNumber,$DEVSEQ(1))
+		$IF($EQ($PINNUM,K))
+			$SETVAR(PinNumber,2)
+		$ELSE
+			$IF($EQ($PINNUM,A))
+				$SETVAR(PinNumber,1)
+			$ELSE
+				$SETVAR(PinNumber,$PINNUM)
+			$END
+		$END
+		$SETVAR(NumOfPins,$MINUS(&NumOfPins,1))
+		$IF($EQ(&NumOfPins, 0))
+			$SETVAR(EndNumber,0)
+		$ELSE	
+			$SETVAR(EndNumber,&LineNumber)
+		$END
+		&NetNumber &PartNumber &PinNumber &EndNumber
+$END
+"ExpressPCB Netlist"
+"Designworks $DWVERSION"
+1
+0
+0
+""
+""
+""
+"Part IDs Table"
+$COMBDEVSON
+$SORT $DEVICES $DEVNAME &Value
+$DEVICES"$DEVNAME" $IF($NOT(&Value))"NA"$ELSE"&Value"$END $IF($NOT(&Package))"NA"$ELSE"&Package"$END
+
+"Net Names Table"
+$BUSNAMEOFF
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$SIGSOURCE(Plus12V)
+$SIGSOURCE(Minus12V)
+$DESIGNSIGSOURCE &SigSources
+$BUSNAMEON(_)
+$AUTONUMBER(2)
+$FIND $SIGNALS $NUMPINS(2)
+$ASSIGNNAMES $SIGNALS
+$ASSIGNNAMES $DEVICES
+$SORT $DEVICES $DEVNAME
+$SORT $SIGNALS $SIGNAME
+$BLANKREPLACE(_)
+$CONTSTART()
+$SETVAR(PinCount, -1)
+$SIGNALS"$SIGNAME" $INLINE(NNamOut)
+
+"Net Connections Table"
+$SETVAR(NetConLine, 1)
+{$SIGPINFORMAT $INLINE(SigPnFmt)}
+$SIGPINFORMAT $INLINE(Format)
+$ITEMSEPARATOR()
+$MAXITEMSPERLINE(1)
+$SIGNALS$SETVAR(NumOfPins,$NUMPINS)$PINS

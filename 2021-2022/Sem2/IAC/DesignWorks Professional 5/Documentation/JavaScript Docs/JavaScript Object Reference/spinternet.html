@@ -1,0 +1,468 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPInternet</H1>
+<P>This object is used to access files from the Internet. NOTE: This version supports only the HTTP protocol, i.e. any URL starting with "http". An SPInternet object is created using the Net.SPInternet method.</P>
+<DIR>
+<LI><A HREF="#contentBinary">
+contentBinary</a>
+ - Returns an array of bytes containing the downloaded data without any conversion of any kind.</LI>
+<LI><A HREF="#contentLength">
+contentLength</a>
+ - Returns the length of the file in bytes, as provided by the server in the HTTP header. If the header has not yet been received at the time of this call, this will not return until the header has been received or an error has been detected. NOTE: Not all servers transmit this information, it is possible to get a value of zero even if the file exists and has a non-zero length. In this case, all you can do is read the file and see how many bytes you get!</LI>
+<LI><A HREF="#contentText">
+contentText</a>
+ - Returns a string containing the contents of the current download converted to text.</LI>
+<LI><A HREF="#contentType">
+contentType</a>
+ - Returns a standard HTTP string containing the MIME type of the file content.</LI>
+<LI><A HREF="#done">
+done</a>
+ - Returns true if the last operation is complete.</LI>
+<LI><A HREF="#Done">
+Done</a>
+ - An event generated when the file has been completely loaded.</LI>
+<LI><A HREF="#Error">
+Error</a>
+ - An event generated when the request has been terminated due to an error.</LI>
+<LI><A HREF="#Found">
+Found</a>
+ - An event generated when a positive response is received from the server. I.e. the file has been found, although it hasn't been completely loaded yet.</LI>
+<LI><A HREF="#getFormURL">
+getFormURL</a>
+ - Starts the process of loading a file from a given "http" URL using the HTTP "GET" method, supplying the given arguments as if they were user-entered elements on an HTML form.</LI>
+<LI><A HREF="#getURL">
+getURL</a>
+ - Starts the process of loading a file from a given "http" URL.</LI>
+<LI><A HREF="#lastError">
+lastError</a>
+ - Returns the internal error code of the last operation. This will be zero if no error</LI>
+<LI><A HREF="#lastErrorString">
+lastErrorString</a>
+ - Returns a human-readable string describing any error from the last operation. This will be empty if no error.</LI>
+<LI><A HREF="#postFormURL">
+postFormURL</a>
+ - Starts the process of loading a file from a given "http" URL using the HTTP "POST" method, supplying the given arguments as if they were user-entered elements on an HTML form.</LI>
+<LI><A HREF="#postURL">
+postURL</a>
+ - Starts the process of loading a file from a given "http" URL using the HTTP "POST" method.</LI>
+<LI><A HREF="#Progress">
+Progress</a>
+ - An event generated each time an increment of progress has been made in requesting and downloading the file.</LI>
+<LI><A HREF="#putURL">
+putURL</a>
+ - Starts the process of loading a file from a given "http" URL using the HTTP "PUT" method.</LI>
+<LI><A HREF="#rawHeaders">
+rawHeaders</a>
+ - Returns a string containing the raw headers that preceeded the current download.</LI>
+<LI><A HREF="#wait">
+wait</a>
+ - Waits for the operation to finish, an error to occur, or the given amount of time to elapse, whichever comes first.</LI>
+<LI><A HREF="#waitProgress">
+waitProgress</a>
+ - Waits for the operation to finish, an error to occur, or the given amount of time to elapse with no response from the server, whichever comes first.</LI>
+</DIR>
+<a name="contentBinary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>contentBinary</B></FONT></P>
+<P>Returns an array of bytes containing the downloaded data without any conversion of any kind.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>contentBinary</B>();
+</P>
+</FONT>
+<H3>Errors:</H3><P>If any error occurs, an exception is generated. To avoid generating an exception, use "wait" to wait for the operation to complete, or for a "Done" event to occur, before using this call.</P>
+<H3>Remarks:</H3><P>
+If the file download is not yet complete, this call will wait until it is complete or an error occurs before returning.
+</P>
+<a name="contentLength"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>contentLength</B></FONT></P>
+<P>Returns the length of the file in bytes, as provided by the server in the HTTP header. If the header has not yet been received at the time of this call, this will not return until the header has been received or an error has been detected. NOTE: Not all servers transmit this information, it is possible to get a value of zero even if the file exists and has a non-zero length. In this case, all you can do is read the file and see how many bytes you get!</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>contentLength</B>();
+</P>
+</FONT>
+<a name="contentText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>contentText</B></FONT></P>
+<P>Returns a string containing the contents of the current download converted to text.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>contentText</B>();
+</P>
+</FONT>
+<H3>Errors:</H3><P>If any error occurs, an exception is generated. To avoid generating an exception, use "wait" to wait for the operation to complete, or for a "Done" event to occur, before using this call.</P>
+<H3>Remarks:</H3><P>
+If the file download is not yet complete, this call will wait until it is complete or an error occurs before returning.
+</P>
+<a name="contentType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>contentType</B></FONT></P>
+<P>Returns a standard HTTP string containing the MIME type of the file content.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>contentType</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+It is beyond the scope of this documentation to describe all the MIME types. Some common ones include: <LI>text/html</LI><LI>image/gif</LI>
+</P>
+<a name="done"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>done</B></FONT></P>
+<P>Returns true if the last operation is complete.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>done</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This read-only property is true if the connection is idle, i.e. either no operation has ever been started, or the last one either completed successfully or terminated with an error.
+</P>
+<a name="Done"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Event:</I> <B><I>name</I>_Done</B></FONT></P>
+<P>An event generated when the file has been completely loaded.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>Done</B>();
+</P>
+</FONT>
+<a name="Error"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Event:</I> <B><I>name</I>_Error</B></FONT></P>
+<P>An event generated when the request has been terminated due to an error.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>Error</B>(errorString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>errorString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An error message describing the error.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="Found"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Event:</I> <B><I>name</I>_Found</B></FONT></P>
+<P>An event generated when a positive response is received from the server. I.e. the file has been found, although it hasn't been completely loaded yet.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>Found</B>();
+</P>
+</FONT>
+<a name="getFormURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFormURL</B></FONT></P>
+<P>Starts the process of loading a file from a given "http" URL using the HTTP "GET" method, supplying the given arguments as if they were user-entered elements on an HTML form.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getFormURL</B>(urlString, name1, value1);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the first form element.</td>
+  </tr>
+  <tr>
+    <td>value1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value of the first form element.</td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL. Must start with "http://"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+Any number of additional form elements can be specified by providing additional name/value argument pairs. See other comments under <A HREF=#getURL>getURL</A>.
+</P>
+<a name="getURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getURL</B></FONT></P>
+<P>Starts the process of loading a file from a given "http" URL.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getURL</B>(urlString);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getURL</B>(urlString, referrer);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL. Must start with "http://"</td>
+  </tr>
+  <tr>
+    <td>referrer</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Optional referrer string sent with the request</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>If a return value is assigned from this method, it returns true if the URL is found, i.e. if the HTTP header is loaded OK. If no return value is assigned, this method returns immediately. You can then use the "Error" event to request a callback on error or periodically check the "done" and "lastError" properties.</P>
+<H3>Remarks:</H3><P>
+Once this method has returned true, you can check the header properties such as contentLen, contentType, rawHeaders, etc. This does not guarantee that the whole file has, or can be, loaded.
+</P>
+<a name="lastError"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lastError</B></FONT></P>
+<P>Returns the internal error code of the last operation. This will be zero if no error</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>lastError</B>();
+</P>
+</FONT>
+<a name="lastErrorString"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lastErrorString</B></FONT></P>
+<P>Returns a human-readable string describing any error from the last operation. This will be empty if no error.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>lastErrorString</B>();
+</P>
+</FONT>
+<a name="postFormURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>postFormURL</B></FONT></P>
+<P>Starts the process of loading a file from a given "http" URL using the HTTP "POST" method, supplying the given arguments as if they were user-entered elements on an HTML form.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>postFormURL</B>(urlString, name1, value1);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the first form element.</td>
+  </tr>
+  <tr>
+    <td>value1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value of the first form element.</td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL. Must start with "http://"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+Any number of additional form elements can be specified by providing additional name/value argument pairs. See other comments under <A HREF=#getURL>getURL</A>.
+</P>
+<a name="postURL"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>postURL</B></FONT></P>
+<P>Starts the process of loading a file from a given "http" URL using the HTTP "POST" method.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>postURL</B>(urlString, extraData, contentType);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL. Must start with "http://"</td>
+  </tr>
+  <tr>
+    <td>contentType</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The MIME type of the extra data.</td>
+  </tr>
+  <tr>
+    <td>extraData</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Any optional PUT data required by the server.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+See other comments under <A HREF=#getURL>getURL</A>.
+</P>
+<a name="Progress"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Event:</I> <B><I>name</I>_Progress</B></FONT></P>
+<P>An event generated each time an increment of progress has been made in requesting and downloading the file.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>Progress</B>(message, current, outOf);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A string describing the current status of the request.</td>
+  </tr>
+  <tr>
+    <td>current</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The number of bytes that has been downloaded.</td>
+  </tr>
+  <tr>
+    <td>outOf</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The total number of bytes to be done. This value depends on the server and may not be available. Most servers return a correct value, but it may be -1.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="putURL"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>putURL</B></FONT></P>
+<P>Starts the process of loading a file from a given "http" URL using the HTTP "PUT" method.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>putURL</B>(urlString, extraData, contentType);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A complete URL. Must start with "http://"</td>
+  </tr>
+  <tr>
+    <td>contentType</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The MIME type of the extra data.</td>
+  </tr>
+  <tr>
+    <td>extraData</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Any optional PUT data required by the server.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+See other comments under <A HREF=#getURL>getURL</A>.
+</P>
+<a name="rawHeaders"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>rawHeaders</B></FONT></P>
+<P>Returns a string containing the raw headers that preceeded the current download.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>rawHeaders</B>();
+</P>
+</FONT>
+<a name="wait"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>wait</B></FONT></P>
+<P>Waits for the operation to finish, an error to occur, or the given amount of time to elapse, whichever comes first.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>wait</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>wait</B>(millis);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>millis</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The maximum number of milliseconds to wait. If this is not specified, the call waits forever.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the operation completed without any error in the given amount of time.</P>
+<a name="waitProgress"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>waitProgress</B></FONT></P>
+<P>Version added: 1.2</P>
+<P>Waits for the operation to finish, an error to occur, or the given amount of time to elapse with no response from the server, whichever comes first.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>waitProgress</B>(millis);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>millis</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The maximum number of milliseconds to wait. If more than this amount of time elapses between responses from the server, the call terminates.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the operation completed without any error.</P>
+<H3>Remarks:</H3><P>
+This method provides an alternative to <a href="#wait">wait</a> for cases where the size of the file is not known and no reasonable guess can be made about how long the operation might take. This call allows the operation to keep waiting as long as some progress is being made.
+</P>
+</BODY>
+</HTML>

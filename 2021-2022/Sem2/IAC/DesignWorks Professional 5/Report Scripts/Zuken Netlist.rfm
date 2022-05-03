@@ -1,0 +1,80 @@
+{
+  Report form for Zuken-Redac
+  C. Dewhurst, May 1, 1996
+  C. Dewhurst, May 2, 1997 - Mods for DW 4.0
+  ©1997 Capilano Computing Systems Ltd.
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$NOTES
+This format generates a netlist file and a component file for Zuken-Redac PCB.
+
+!!! It works only with a flat design. !!!
+ 
+Standard attribute fields used:
+
+Name
+Ground
+Power
+Value
+SigSources
+
+Non-standard attribute fields required:
+
+Design:
+
+  ZR_Codes - Options for .COD line in netlist
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$ROWS(32000)
+$COLUMNS(32000)
+{
+  Create the component list output file .CMP
+}
+$CREATEREPORT($DESIGNNAME.CMP) $PROMPT
+$LINETERMINATOR $DOS
+$COMBDEVSON
+$FIND $DEVICES
+$SORT $DEVICES $DEVNAME
+.CSP 23
+.PCB
+.COM
+
+$DEVICES$DEVNAME$COL(12)&Value
+.EOD
+{
+  Now produce NET file
+}
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+{ Create the netlist output file }
+$CREATEREPORT($DESIGNNAME.NET) $PROMPT
+$LINETERMINATOR $DOS
+$COMBDEVSON
+$CONTSTART()
+$BUSNAMEON(_)
+$UNNAMEDSIGS()
+$FIND $DEVICES
+$FIND $SIGNALS $NUMPINS(1)
+$SORT $DEVICES $DEVNAME
+$SORT $SIGNALS $SIGNAME
+$MAXITEMSPERLINE(8)
+.CSP 23
+.PCB
+.CON
+
+$IF(&ZR_Codes)
+.COD &ZR_Codes
+$END
+$SIGPINFORMAT $DEVNAME $PINNUM
+$REPEATITEMON
+$SIGNALS"$SIGNAME"$NEWLINE$PINS
+
+.EOD

@@ -1,0 +1,45 @@
+.HEA
+.TIM         1990 1 26 9 25 47
+.JOB         standard/standard                                                               
+.APP         "VISULA PCB DESIGN"                                                             
+.UNI         INCH 1.000000   in
+.TYP         INCREMENTAL
+.SWA_PIN     U1                     
+             1                       2                       
+.REN_COM     
+             U1                      U100                    
+.SWA_PIN     U100                   
+             1                       2                       
+.REN_COM     
+             U100                    U101                    
+.SWA_PIN     U101                   
+             1                       2                       
+.SWA_GAT     
+            U101                    U101                    
+             4                       9                       
+             5                       10                      
+             6                       8                       
+.REN_COM     
+             U101                    U201                    
+.SWA_GAT     
+            U201                    U2                      
+             12                      12                      
+             13                      13                      
+             11                      11                      
+.REN_COM     
+             U2                      U200                    
+.SWA_GAT     
+            U201                    U200                    
+             12                      12                      
+             13                      13                      
+             11                      11                      
+.REN_COM     
+             U201                    U1                      
+.REN_COM     
+             U200                    U2                      
+.SWA_GAT     
+            U2                      U1                      
+             4                       4                       
+             5                       5                       
+             6                       6                       
+.END         

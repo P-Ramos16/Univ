@@ -1,0 +1,15 @@
+$NOTES
+Find Signals by Name
+
+Enter the desired signal name in the text box and click Search.
+
+All signals having a name starting with the given characters
+will be located.  You can use wildcards * (any number of characters),
+? (any single character), and # (any numeric characters)
+$ENDNOTES
+$TEMPPATH\find.output
+$CREATEREPORT($TEMPPATH\find.output)
+$FIND $SIGNALS $SIGNAME(&ARG1\*)
+$TITLE Found $SIGCOUNT signals matching &ARG1
+$SIGNALS\$OBJECT $SIGLOC$NEWLINE\$OBJTITLE $SIGNAME
+$CLOSEREPORT

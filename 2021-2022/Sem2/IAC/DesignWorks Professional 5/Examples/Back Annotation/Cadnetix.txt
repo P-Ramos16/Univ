@@ -1,0 +1,19 @@
+PACKAGES
+U1       1 
+U2       2 
+U3       3 
+U4       4 
+
+SWAP 1         1  WITH 1         2 
+SWAP 3         2 18  WITH 3         4 16 
+SWAP 1         4 5 6  WITH 1         9 10 8 
+RENAME 1         TO U400     
+SWAP 1         12 13 11  WITH 2          12 13 11 
+RENAME 1         TO U100     
+RENAME 2         TO U102     
+RENAME 3         TO U103     
+RENAME 4         TO U104     
+END
+
+ 
+

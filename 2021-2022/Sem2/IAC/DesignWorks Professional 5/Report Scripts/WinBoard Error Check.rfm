@@ -1,0 +1,224 @@
+{
+  Error checking script for WINBOARD
+  C. Dewhurst, Jan. 21, 1996
+  ©1996 Capilano Computing Systems Ltd.
+  
+  This script checks for:
+  
+  	- Devices without a valid package code
+	- Bad device names
+	- Bad or duplicate pin numbers
+	- Bad or duplicate signal names
+}
+$CHECK(This script is intended only for FLAT mode designs) $PURE $PHYSICAL
+$DEFINEBLOCK(alert)
+$CHECK(This report form does not work with the Report tool.  Please select the Report Xilinx/Smash tool!) $PURE $PHYSICAL $FLAT
+$END
+{
+  Table to translate DesignWorks default package codes to WinBoard
+}
+$DEFINEBLOCK(DW2WB)
+NAT3HA	TO-5,TRANSIST.LIB
+NAT3HB	TO-5,TRANSIST.LIB
+NAT3KA	TO-5,TRANSIST.LIB
+NAT3KB	TO-5,TRANSIST.LIB
+NAT3KCA	TO-5,TRANSIST.LIB
+NAT3PA	TO-5,TRANSIST.LIB
+NAT3TB	TO-5,TRANSIST.LIB
+NAT3ZA	TO-5,TRANSIST.LIB
+NAT5K	5SIP100,SIP.LIB
+NAT5T	5SIP100,SIP.LIB
+NAT8H	8DIP300,DIP.LIB
+NAT8HC	8DIP300,DIP.LIB
+NAT8J	8DIP300,DIP.LIB
+NAT8J8	8DIP300,DIP.LIB
+NAT8M	8DIP300,DIP.LIB
+NAT8N	8DIP300,DIP.LIB
+NAT8NB	8DIP300,DIP.LIB
+NAT8NE	8DIP300,DIP.LIB
+NAT9K	9SIP100,DIP.LIB
+NAT10H	TO-10GG-46,TRANSIST.LIB
+NAT10HC	TO-10GG-46,TRANSIST.LIB
+NAT12G	12HDR-100,CONNECTR.LIB
+NAT14D	14DIP300,DIP.LIB
+NAT14J	14DIP300,DIP.LIB
+NAT14JA	14DIP300,DIP.LIB
+NAT14M	14DIP300,DIP.LIB
+NAT14N	14DIP300,DIP.LIB
+NAT14NA	14DIP300,DIP.LIB
+NAT14WM	14DIP300,DIP.LIB
+NAT16D	16DIP300,DIP.LIB
+NAT16J	16DIP300,DIP.LIB
+NAT16N	16DIP300,DIP.LIB
+NAT16NA	16DIP300,DIP.LIB
+NAT18DA	18DIP300,DIP.LIB
+NAT18J	18DIP300,DIP.LIB
+NAT20JA	20DIP300,DIP.LIB
+NAT20M	20DIP300,DIP.LIB
+NAT20MB	20DIP300,DIP.LIB
+NAT20NA	20DIP300,DIP.LIB
+NAT24D	24DIP300,DIP.LIB
+NAT28NA	28DIP600,DIP.LIB
+TI8DPN	8DIP300,DIP.LIB
+TI14DPN	14DIP300,DIP.LIB
+TI16DPN	16DIP300,DIP.LIB
+TI20DPN	20DIP300,DIP.LIB
+TI20P	20DIP300,DIP.LIB
+TI24DPN	24DIP300,DIP.LIB
+TI28P	28DIP600,DIP.LIB
+TI40DPW	40DIP600,DIP.LIB
+TI44P	44DIP600,DIP.LIB
+TI48DBW	48DIP600,DIP.LIB
+TI52DBW	52DIP600,DIP.LIB
+TI68P	68DIP900,DIP.LIB
+XX1XX	TP-1S-S,TSTPOINT.LIB
+XX2XX	RC05,RESISTOR.LIB
+XX3XX	TO-5,TRANSIST.LIB
+XX4XX	TO-17,TRANSIST.LIB
+XX5XX	G5L-SPDT,RELAY.LIB
+XX6XX	6HDR-100,CONNECTR.LIB
+XX8XX	8HDR-100,CONNECTR.LIB
+XX9XX	9SIP100,SIP.LIB
+XX10XX	10HDR-100,CONNECTR.LIB
+XX14XX	14HDR-100,CONNECTR.LIB
+XX15XX	DB15M,CONNECTR.LIB
+XX16XX	16HDR-100,CONNECTR.LIB
+XX20XX	20HDR-100,CONNECTR.LIB
+XX25XX	DB25M,CONNECTR.LIB
+XX26XX	26HDR-100,CONNECTR.LIB
+XX34XX	34HDR-100,CONNECTR.LIB
+XX37XX	DB37M,CONNECTR.LIB
+XX50XX	DB50M,CONNECTR.LIB
+$END
+{
+  Listing defaults
+}
+$PROGRESS $PERCENTOFF
+$FILESUFFIX(errors.txt)
+$FILENAME - Error Report - $DATE
+
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$LINETERMINATOR $NONE
+$PROGRESS(Checking package codes)
+{ Create a value in WB_Package for any devices that don't have one }
+$DEVICES$IF($NOT(&WB_Package))$SETATTR(&WB_Package, $MAP(DW2WB, &Package))$END
+$LINETERMINATOR $DEFAULT
+$SETVAR(_AnyErrors, 0)
+{
+  Issue a warning if any devices have no package code
+}
+$FIND $DEVICES $NOT($REGEXP([^,]+\,[^.]+\.[^.]+, &WB_Package))
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have a missing or invalid package code.
+The WB_Package attribute field should contain packageCode,libName,
+e.g. RC05,RESISTOR.LIB
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES$DEVNAME	$TYPENAME	$PAGE	&WB_Package
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+{
+  Check for multiple package codes in same package
+}
+$FIND $DEVICES
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$FIND $NOCLEAR $DEVICES $GT($COUNTVALUES(&WB_Package), 1)
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have inconsistent package codes:
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES$DEVNAME	$TYPENAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+{
+  Check for duplicate pin numbers
+}
+$PROGRESS(Checking pin numbers)
+$FIND $DEVICES
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVPINFORMAT $GT($SAMEPINCOUNT, 1)
+$FIND $SIGNALS
+$FIND $NOCLEAR $DEVICES $NONBLANK($MERGE$PINS)
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have duplicate pin numbers:
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES$DEVNAME	$TYPENAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+{
+  Check for bad device names
+}
+$PROGRESS(Checking device and signal names)
+$FIND $DEVICES $NOT($REGEXP([A-Za-z0-9/()<>._$]+, $DEVNAME))
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have bad device names:
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES$DEVNAME	$TYPENAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+{
+  Check for bad device value field
+}
+$FIND $DEVICES $AND($NOT($NONBLANK(&Value)), $NOT($NONBLANK(&Part)))
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have no Value or Part code.  This should contain the part type or component value:
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$DEVICES$DEVNAME	$TYPENAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+{
+  Check for bad signal names
+  [A-Za-z0-9./_$()\[\]<>]
+}
+$UNNAMEDSIGS(????)
+$FIND $SIGNALS $NOT($REGEXP([A-Za-z0-9/()<>._$]+, $SIGNAME))
+$IF($GT($SIGCOUNT, 0))
+
+The following signals have bad names:
+
+$SORT $SIGNALS $SIGNAME
+$FIND $DEVICES
+$SIGNALS$SIGNAME	$PINS
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+$END
+{
+  Check for duplicate signal names
+}
+$FIND $SIGNALS
+$COMBSIGSON
+$SORT $SIGNALS $SIGNAME
+$FIND $NOCLEAR $SIGNALS $COUNT(2)
+$IF($GT($SIGCOUNT, 0))
+
+The following signals have duplicate names:
+
+$SORT $SIGNALS $SIGNAME
+$SIGNALS$SIGNAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+$END
+$IF($EQ(&_AnyErrors, 0))
+No errors detected!
+$END
+{ Mark the design as checked.
+  NOTE: It's important to do this last because the Scripter itself
+  sets a design attribute, thereby changing the design and updating
+  the date stamp. }
+$SETATTR(&WB_ErrChkDate, $DATE($R))

@@ -1,0 +1,69 @@
+<HTML>
+<BODY>
+<h1>JavaScript Class Structure for Design Data</h1> <p>These pages provide reference documentation on the JavaScript classes used to support access to objects and information in designs.</p> <p></p> <h1>WARNING & DISCLAIMER!</h1> <p>These classes are available for your use but they are <b>NOT SUPPORTED</b> by our technical support staff and we cannot provide no charge assistance for their use. In addition we do not guarantee the correctness or safety of these classes as they were designed for a specific purpose and have not been tested for general use. It is very likely that usage of these classes could result in program crashes or loss of data!</p> <p></p>
+<H1><I>Classes and Data Types</I></H1>
+<DIR>
+  <LI>any - Built in type</LI>
+  <LI>array - Built in type</LI>
+  <LI>Array - Built in type</LI>
+  <LI>array/string - Built in type</LI>
+  <LI>b - Built in type</LI>
+  <LI>binary - Built in type</LI>
+  <LI>bool - Built in type</LI>
+  <LI>boolean - Built in type</LI>
+  <LI>Boolean - Built in type</LI>
+  <LI>c - Built in type</LI>
+  <LI>char - Built in type</LI>
+  <LI>data - Built in type</LI>
+  <LI>Date - Built in type</LI>
+  <LI>date - Built in type</LI>
+  <LI>double - Built in type</LI>
+  <LI>DWArray - Built in type</LI>
+  <LI><A HREF="dwattribute.html">DWAttribute</A> - A DWAttribute object represents a single attribute value on DesignWorks entity such as a device or signal.</LI>
+  <LI><A HREF="dwcircuit.html">DWCircuit</A> - A DWCircuit object represents a circuit in a DesignWorks design. In a typical, flat circuit (i.e. non-hierarchical), there will just be one circuit object which will contain all other elements (devices, signals, etc.). In hierarchical designs, there is a topmost circuit, sometimes referred to as the "design", even though it is the same type of object. This topmost circuit may contain device instances which themselves contain subcircuits, which can also be represented by this type of object. The DWCircuit object is usually the starting point for getting access to other entities in a design, such as devices and signals.</LI>
+  <LI><A HREF="dwdevice.html">DWDevice</A> - A DWDevice object represents a device instance in a DesignWorks circuit. A variety of methods are available for getting and setting device attributes and other internal values. DWDevice objects are not created directly, but are returned by methods of other objects such as <A HREF="DWCircuit.html#addDevice">DWCircuit.addDevice</A>.</LI>
+  <LI><A HREF="dwlibrary.html">DWLibrary</A> - A DWLibrary object represents a DesignWorks symbol library.</LI>
+  <LI>DWObject - Built in type</LI>
+  <LI><A HREF="dwpage.html">DWPage</A> - The DWPage object represents a page in a DesignWorks circuit. The DWPage object is used to get access to visual information about the page, such as border size and style, and can be used to get lists of devices and signals that exists on a specific page. <p>A DWPage object is not created directly, but is returned by methods of DWCircuit, such as <A HREF="DWCircuit.html#pages">DWCircuit.pages</A>.</LI>
+  <LI><A HREF="dwpic.html">DWPic</A> - A DWPic object represents a device symbol or miscellaneous graphic.</LI>
+  <LI><A HREF="dwpin.html">DWPin</A> - The DWPin object represents a device pin in a DesignWorks circuit. The DWPin object is used to get access to information about the pin, such as pin attributes and the attached device and signal objects. <p>A DWPin object is not created directly, but is returned by methods of DWDevice and DWSignal, such as <A HREF="DWDevice.html#pins">DWDevice.pins</A>.</LI>
+  <LI><A HREF="dwsignal.html">DWSignal</A> - A DWSignal object represents a device instance in a DesignWorks circuit. A variety of methods are available for getting and setting device attributes and other internal values. DWSignal objects are not created directly, but are returned by methods of other objects such as <A HREF="DWPin.html#signal">DWPin.signal</A>.</LI>
+  <LI><A HREF="dwstatic.html">DWStatic</A> - This is a static, top-level object that holds some general methods for access to DesignWorks circuit data.</LI>
+  <LI><A HREF="dwtype.html">DWType</A> - The DWType object represents a device type definition and be obtained from a DWLibrary object or from a device instance (DWDevice) in a circuit.</LI>
+  <LI><A HREF="dwtypepin.html">DWTypePin</A> - The DWTypePin object represents a pin on a device type definition. The DWTypePin object is used to get access to information about the pin, such as default pin attributes, pin position, function and direction. <p>A DWTypePin object is not created directly, but is returned by methods of DWType, such as <A HREF="DWType.html#pins">DWType.pins</A></p>. <p>Modifications are not allowed to type definitions that are currently in use in a design. The methods and properties that cause changes to the pin definition can only be used on type objects that have just been created or read from a library and are not in use yet.</p></LI>
+  <LI><A HREF="dwwindow.html">DWWindow</A> - A DWWindow object represents a window that allows drawing onto a displayed object in a DesignWorks schematic</LI>
+  <LI>int - Built in type</LI>
+  <LI>int64 - Built in type</LI>
+  <LI>integer - Built in type</LI>
+  <LI>Integer - Built in type</LI>
+  <LI>name - Built in type</LI>
+  <LI>NetPadFile - Built in type</LI>
+  <LI>object - Built in type</LI>
+  <LI>Object - Built in type</LI>
+  <LI>p - Built in type</LI>
+  <LI>pathStr - Built in type</LI>
+  <LI>real - Built in type</LI>
+  <LI>Rect - Built in type</LI>
+  <LI>RegExp - Built in type</LI>
+  <LI>regExp - Built in type</LI>
+  <LI><A HREF="spaddressbook.html">SPAddressBook</A> - This object represents a NetPad ideas file and can be used to read, create and modify ideas.</LI>
+  <LI><A HREF="sparray.html">SPArray</A> - This is used to return arrays of objects.</LI>
+  <LI><A HREF="spdatabase.html">SPDatabase</A> - This object represents a database created by Microsoft Access or a similar database product and allows access to records within the database. New SPDatabase objects are created using the <a href="spscript.html#SPDatabase">SPDatabase</a> top-level method.</LI>
+  <LI><A HREF="spfile.html">SPFile</A> - An SPFile object is used to work with files and directories, either on your local system or on remote Internet sites. Here are some notes regarding SPFile objects: <LI>An SPFile object can be created directly using the <B>SPFile</B> top-level function or can be generated by other methods such as <B>getFileList</B> <LI>In this version, the file manipulaton methods, such as read, write, delete, etc. are implemented only for local files (i.e. on your own computer). SPFile objects can be used to store information on files on remote FTP sites (see FTP.getFileList), but no active operations can be done on them. <LI>It is not normally necessary to explicitly open and close files. If you perform an operation like read or write that requires a file to be open, it will be opened automatically. Files are closed again automatically when the object is destroyed. See the open and close methods for notes on cases where you may want to control this explicitly.</LI>
+  <LI><A HREF="spftp.html">SPFTP</A> - An SPFTP object is used to connect to an FTP site and perform uploads, downloads, and other FTP operations. An SPFTP object is created using the <A HREF="spnet.html#SPFTP">SPNet.SPFTP</A> method.</LI>
+  <LI><A HREF="sphtmldialog.html">SPHTMLDialog</A> - <p>This class implements a dialog box that allows information to be displayed or the user to be prompted for information using HTML formatted pages. If only a single HTML page is specified, a simple dialog box is displayed. If multiple pages are specified, then a tabbed "property sheet" box is displayed. Methods are provided to allow controls embedded in the pages to be initialized and their final values read back after the dialog is closed.</p> <p>Instances of this class are created using the SPHTMLDialog top-level function.</p></LI>
+  <LI><A HREF="spinternet.html">SPInternet</A> - This object is used to access files from the Internet. NOTE: This version supports only the HTTP protocol, i.e. any URL starting with "http". An SPInternet object is created using the Net.SPInternet method.</LI>
+  <LI><A HREF="spnet.html">SPNet</A> - This is a static, top-level object used to create connections to HTTP (World Wide Web) and FTP servers and to perform various related tasks. The SPNet object always exists and is never explicitly created or destroyed. Since it is a top-level object, methods in this object do not have to be preceded with "Net.".</LI>
+  <LI>SPRect - Built in type</LI>
+  <LI><A HREF="spscript.html">SPScript</A> - This is a global, top-level object containing a collection of general purpose methods and properties. This means that the SPScript object is never created or destroyed and also that the name Script does <I>not</I> need to be used as a prefix to these items. For example the "halt" method can be used just as "halt()". You can refer to it as "SPScript.halt()" if desired, but it is not necessary.</LI>
+  <LI><A HREF="spstringmap.html">SPStringMap</A> - An SPStringMap is a table that allows you to store and look up values based on a string index. It can be used, for example, to keep values associated with names or keep lists of strings to determine when an item already exists in the list.</LI>
+  <LI><A HREF="spzip.html">SPZip</A> - This object lets you create, add to, and extract from standard Zip archive files. An object of this class is created by calling the top-level function SPZip.</LI>
+  <LI>string - Built in type</LI>
+  <LI>String - Built in type</LI>
+  <LI>StringMap - Built in type</LI>
+  <LI>value - Built in type</LI>
+  <LI>var - Built in type</LI>
+  <LI>void - Built in type</LI>
+  <LI>w - Built in type</LI>
+</BODY>
+</HTML>

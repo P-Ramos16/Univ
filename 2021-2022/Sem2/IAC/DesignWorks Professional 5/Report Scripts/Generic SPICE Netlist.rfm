@@ -1,0 +1,61 @@
+{
+  C. Dewhurst, May 27, 1997
+  ©1996-2000 Capilano Computing Systems Ltd.
+}
+$NOTES
+This format generates a hierarchical netlist file for Spice
+from a hierarchical or flat design.
+
+Non-standard attribute fields required:
+
+Field name    Where     Usage
+
+Spice         Devices   Contains SPICE parameters
+
+$END
+$IF($NOT($REGEXP(.*SPICE (Flat|Pure), &DesignType)))
+$IF($NOT($ALERT2(This does not appear to be a SPICE design.  Are you sure you want to proceed?)))
+$ABORT
+$END
+$END
+{
+  $PURE script mode lets us list each internal circuit once
+}
+$HIERARCHY $PURE
+$CREATEREPORT($DESIGNNAME.IN) $PROMPT $CREATOR(ttxt)
+{
+  Specify that the PinSequence attribute field can be used to specify pin order
+}
+$DEVPINSEQUENCE &PinSequence
+$COMBDEVSON
+{
+  Define the contents on an internal circuit
+}
+$DEFINECIRCUIT
+$SORT $DEVICES $DEVNAME
+$DEVICES$DEVNAME $PINS &Spice
+$END
+{
+  Start of main report
+}
+$DESIGNNAME   $DATE   $TIME
+&Spice
+{
+  Put out macros first
+}
+$FIND $DEVICES &Depth
+$SORT $DEVICES &Depth $TYPENAME
+$DEVPINFORMAT $CHILDSIGNAME
+$DEVICES.SUBCKT $TYPENAME $PINS$SINGLE$INTERNAL.ENDS $TYPENAME
+{
+  Put out top circuit
+}
+$HIERARCHY $TOPCIRCUIT
+$DEVPINFORMAT $SIGNAME
+$FIND $DEVICES &Depth
+$SORT $DEVICES $DEVNAME
+$DEVICES$DEVNAME $PINS $TYPENAME &Spice
+$FIND $DEVICES $NOT &Depth
+$SORT $DEVICES $DEVNAME
+$DEVICES$DEVNAME $PINS &Spice
+.END

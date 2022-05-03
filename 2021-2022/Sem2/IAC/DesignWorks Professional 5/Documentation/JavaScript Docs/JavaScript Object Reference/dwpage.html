@@ -1,0 +1,91 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWPage</H1>
+<P>The DWPage object represents a page in a DesignWorks circuit. The DWPage object is used to get access to visual information about the page, such as border size and style, and can be used to get lists of devices and signals that exists on a specific page. <p>A DWPage object is not created directly, but is returned by methods of DWCircuit, such as <A HREF="DWCircuit.html#pages">DWCircuit.pages</A>.</P>
+<DIR>
+<LI><A HREF="#addDevice">
+addDevice</a>
+ - Adds a device to the circuit (i.e. places it on the diagram)</LI>
+<LI><A HREF="#border">
+border</a>
+ - Gets the border rectangle of this circuit page</LI>
+<LI><A HREF="#name">
+name</a>
+ - Gets the name of the page, i.e. it's title</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWPage".</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the circuit containing this page is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</LI>
+</DIR>
+<a name="addDevice"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addDevice</B></FONT></P>
+<P>Adds a device to the circuit (i.e. places it on the diagram)</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> <B>addDevice</B>(type);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td><A HREF = "index.html#DWType">DWType</A></td>
+    <td>A <A HREF"DWType.html">DWType</A> object representing the library type to be instantiated</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWDevice object representing the new device</P>
+<a name="border"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>border</B></FONT></P>
+<P>Gets the border rectangle of this circuit page</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPRect">SPRect</A></td>
+</I> <B>border</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPRect">SPRect</A></td>
+</I> = <B>border</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an SPRect object representing the border of this page</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Gets the name of the page, i.e. it's title</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>name</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+This is a read-only property.
+</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWPage".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the circuit containing this page is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+</BODY>
+</HTML>

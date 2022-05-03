@@ -1,0 +1,16 @@
+$NOTES
+Find Devices by Name
+
+Enter the desired device name in the text box and click Search.
+
+All device symbols having a name starting with the given characters
+will be located.  You can use wildcards * (any number of characters),
+? (any single character), and # (any numeric characters)
+$ENDNOTES
+$TEMPPATH\find.output
+$CREATEREPORT($TEMPPATH\find.output)
+$FIND $DEVICES $DEVNAME(&ARG1\*)
+$SORT $DEVICES $DEVNAME
+$TITLE Found $DEVCOUNT devices matching &ARG1
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE $DEVNAME$NEWLINE\$MESSAGE Name: $DEVNAME - Type: $TYPENAME - Page: $PAGE
+$CLOSEREPORT

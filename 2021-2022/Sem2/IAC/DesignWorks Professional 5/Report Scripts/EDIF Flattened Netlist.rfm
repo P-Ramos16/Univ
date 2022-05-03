@@ -1,0 +1,194 @@
+{
+	EDIF Flattened Netlist script
+	C. Dewhurst  March 6, 2000
+	Copyright 2000 by Capilano Computing Systems Ltd.
+	All rights reserved.
+}
+$NOTES
+This script generates an EDIF netlist from a physical hierarchy mode design.  It uses the device
+instance name (InstName attribute field) for the package name, and so is not appropriate for
+designs created using the default FLAT mode settings.
+
+This netlist format is primarily intended for PCB layout purposes and includes package
+and pin number information appropriate for PCB systems.
+
+- all devices having 3 or less pins that are not numbered are automatically
+assigned numbers.  If any of the discrete components in your design require specific
+pin ordering in the layout, make sure you assigned explicit pin numbers on the drawing.
+
+- the following device properties (attributes) are included:
+      Part - should contain the part number (e.g. 74ALS00)
+      Package - should contain the package (pad, decal) code appropriate for the receiving system
+      Value - should contain any extra part descriptive information (e.g. discrete component value)
+      DateStamp - this is set by the schematic editor automatically when a device instance is modified
+
+- if you need to add more properties to the output, see the script section below where the "(property"
+constructs are output and add extra lines as needed patterned after the existing ones
+
+- IMPORTANT: Names are NOT CASE SENSITIVE in EDIF even though they are in DesignWorks.  If you have
+a signal named "t1" and another named "T1", they will not be logically connected in DesignWorks, but
+will be effectively shorted in the EDIF netlist.  This script checks for that situation and will output
+an error message if it exists.
+
+DISCLAIMER: This script is provided "as is" without any guarantee that it will be compatible with any particular third party system.
+$END
+$CHECK(This script is intended only for PHYSICAL hierarchy mode designs.) $FLAT $PURE
+$CREATEREPORT($DESIGNNAME.edf)
+{
+	Create EDIF header
+}
+(EDIF
+  (rename $EDIFSTRING($DESIGNPATH$DESIGNNAME.edf) "$DESIGNPATH$DESIGNNAME.edf")
+  (EDIFVersion 2 0 0)
+  (EDIFLevel 0)
+  (keywordMap
+    (keywordLevel 0))
+  (status
+    (written
+      (timeStamp $DATE($Y $m $d $h $n $s)))
+      (author "Unknown")
+      (program "DesignWorks EDIF/PC Flattened NetList"
+        (version "$DWVERSION"))
+      (dataOrigin "Capilano Computing Systems Ltd.")
+    )
+  )
+  (library
+    (rename THELIBRARY "TheLibrary")
+    (EDIFLevel 0)
+    (technology
+      (numberDefinition
+        (scale 1
+          (e 252 -7)
+          (unit DISTANCE)
+        )
+      )
+    )
+$DEFINEBLOCK(CELL)
+           \    (cell
+	$NEWLINE      (rename \&$EDIFSTRING(&Part.temp) "&Part.temp")
+	$NEWLINE      (cellType GENERIC)
+	$NEWLINE      (view
+	$NEWLINE        (rename NET_VIEW_1 "NET_VIEW_1")
+	$NEWLINE        (viewType NETLIST)
+	$NEWLINE        (interface
+	$NEWLINE          $PINS
+	$NEWLINE        )
+	$NEWLINE      )
+    $NEWLINE    )
+$END
+$DEFINEBLOCK(INSTANCE)
+           \          (instance
+	$NEWLINE            (rename $EDIFSTRING($DEVINSTNAME) "$SINGLE$DEVINSTNAME")
+	$NEWLINE            (designator "$SINGLE$DEVINSTNAME")
+	$NEWLINE            (viewRef NET_VIEW_1 (cellref \&$EDIFSTRING(&Part.temp))
+	$NEWLINE            (property (rename PART "Part") (string "$SINGLE&Part"))
+	$NEWLINE            (property (rename PACKAGE "Package") (string "$SINGLE&Package"))
+	$NEWLINE            (property (rename VALUE "Value") (string "$SINGLE&Value"))
+	$NEWLINE            (property (rename DATESTAMP "DateStamp.Dev") (string "$SINGLE&DateStamp.Dev"))
+	$NEWLINE            $PINS
+    $NEWLINE          )
+$END
+{
+	Definitions
+}
+$REPORTOFF
+$HIERARCHY $FLAT
+$AUTONUMBER(3)
+$SIGSOURCE(Plus5V) &Power
+$SIGSOURCE(Ground) &Ground
+$DESIGNSIGSOURCE(SigSources)
+$DEFINEATTR(Part.temp/DM)
+$DEFINEATTR(Name.temp/DSM)
+{
+	Check for upper/lower case name collisions
+}
+$PROGRESS(Performing error checks) $PERCENTOFF
+$DEVICES  $SETATTR(Part.temp, $IF(&Part)&Part$ELSE$TYPENAME$END)  $SETATTR(Name.temp, $UPPERCASE($DEVINSTNAME))
+$COMBDEVSON
+$SORT $DEVICES $DEVINSTNAME
+$SETVAR(UniqueNames, $DEVCOUNT)
+$SORT $DEVICES &Name.temp
+$IF($NE(&UniqueNames, $DEVCOUNT))
+$IF($NOT($ALERT2(Warning there are one or more devices whose names differ only in letter case.  Names are not case sensitive in EDIF and these names will collide!)))
+$ABORT
+$END
+$END
+$SIGNALS  $SETATTR(Name.temp, $UPPERCASE($SIGHIERNAME))
+$COMBSIGSON
+$SORT $SIGNALS $SIGHIERNAME
+$SETVAR(UniqueNames, $SIGCOUNT)
+$SORT $SIGNALS &Name.temp
+$IF($NE(&UniqueNames, $SIGCOUNT))
+$IF($NOT($ALERT2(Warning there are one or more signals whose names differ only in letter case.  Names are not case sensitive in EDIF and these names will collide!)))
+$ABORT
+$END
+$END
+{
+	Check for non-matching Power, Ground, Part, Package and Value attribute
+}
+$SORT $DEVICES &Name.temp
+$FIND $NOCLEAR $DEVICES $OR($OR($OR($GT($COUNTVALUES(&Power), 1), $GT($COUNTVALUES(&Ground), 1)), $OR($GT($COUNTVALUES(&Part), 1), $GT($COUNTVALUES(&Package), 1))), $GT($COUNTVALUES(&Value), 1)) $ERRORBITOFF(9)
+$CHECK(One or more devices have non-matching values for the Power, Ground, Part, Package or Value attribute fields) $DEVICES
+{
+	Check unnamed devices
+}
+$FIND $DEVICES $NOT($DEVINSTNAME)
+$CHECK(One or more devices are unnamed and will appear as duplicates in the netlist) $DEVICES
+{
+	Write cell (part type) definitions
+}
+$PROGRESS(Writing cell definitions) $PERCENTON
+$FIND $DEVICES
+$SORT $DEVICES &Part.temp
+$REPORTON
+{
+	NOTE: We are using $PINNAME_$PINNUM for the pin name, because $PINNAME on its own
+	will not be unique in multi-gate packages
+}
+$DEVPINFORMAT (port (rename $EDIFSTRING($PINNAME) "$PINNAME_$PINNUM")(designator "$PINNUM")(direction $PINTYPE))
+$MAXITEMSPERLINE(1)
+$CONTSTART(          )
+$DEVICES  $INLINE(CELL)
+{
+	Write top level cell
+}
+    (cell
+      (rename $EDIFSTRING($DESIGNNAME) "$DESIGNNAME")
+      (cellType GENERIC)
+      (view
+        (rename NET_VIEW_0 "NET_VIEW_0")
+        (viewType NETLIST)
+        (interface)
+        (contents
+{
+	Create device instances
+}
+$PROGRESS(Writing device instances) $PERCENTON
+$CONTSTART(            )
+$DEVPINFORMAT (portInstance $EDIFSTRING($PINNAME_$PINNUM) (designator "$PINNUM"))
+$SORT $DEVICES &Name.temp
+$DEVICES  $INLINE(INSTANCE)
+{
+	Create nets
+}
+$PROGRESS(Writing nets) $PERCENTON
+$CONTSTART(              )
+$SIGPINFORMAT (portRef $EDIFSTRING($PINNAME_$PINNUM) (instanceRef $EDIFSTRING($DEVINSTNAME)))
+$FIND $SIGNALS $NUMPINS(2)
+$SORT $SIGNALS &Name.temp
+$SIGNALS\          (net (rename $EDIFSTRING(&Name.temp) "$SINGLE$SIGHIERNAME")$NEWLINE            (joined$NEWLINE              $PINS$NEWLINE            )$NEWLINE          )
+{
+	Close contents, view, top cell and library, insert design, and close EDIF
+}
+        )
+      )
+    )
+  )
+  (design
+    (rename ROOT "root")
+    (cellRef $EDIFSTRING($DESIGNNAME)
+      (libraryRef THELIBRARY)
+    )
+  )
+)
+$PROGRESS() $PERCENTON

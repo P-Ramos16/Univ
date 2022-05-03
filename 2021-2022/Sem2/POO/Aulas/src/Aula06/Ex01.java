@@ -11,5 +11,13 @@ public class Ex01 {
         System.out.println("Bolseiro: " + bls.getName() + ", NMec: "
         + bls.getNMec() + ", Bolsa: " + bls.getBolsa());
         System.out.println(bls);
+
+        Aluno p1 = new Aluno("Maria", 10,
+        new Date(18, 7, 1990), new Date(1, 9, 2018));
+        Aluno p2 = new Aluno("Maria", 10,
+        new Date(18, 7, 1990), new Date(1, 9, 2018));
+        System.out.println(p1 == p2);
+        System.out.println(p1.equals(p2));
+
         }
 }

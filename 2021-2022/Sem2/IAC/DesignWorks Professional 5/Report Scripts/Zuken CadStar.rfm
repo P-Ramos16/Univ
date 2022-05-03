@@ -1,0 +1,86 @@
+{
+    DesignWorks Report Form for Zuken CadStar
+    Copyright 1990-2006 Capilano Computing Systems
+    
+    Adapted from Racal-Redac form file by Neil MacKenzie - Jan 2006
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$NOTES
+This format generates a netlist file for Zuken CadStar.
+
+!!! It works only with a flat design. !!!
+
+Standard attribute fields used:
+
+Attribute		Where		Description
+
+Name		Signals	The name of each signal net. Bus
+		signals	will be prepended by their bus name.
+Name		Devices	The name of the device which is used
+			in the pin list in each signal net.
+
+Part		Device   The CADStart "Part" Name	See RINF documentation in the CarStar Help system
+Package		Device   Generic componet name(like DIP14), used only when Part is undefined
+
+Ground		Devices  Non-displayed pins wired to ground.
+Power		Devices  Non-displayed pins wired to Plus5V.
+Minus5V		Devices  Non-displayed pins wired to Minus5V.
+Plus12V		Devices  Non-displayed pins wired to Plus12V.
+Minus12V	Devices  Non-displayed pins wired to Minus12V.
+
+Revision
+Designer
+
+Non-standard attribute fields required:
+
+ASSYNO
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$CREATEREPORT($DESIGNNAME.frs) $PROMPT $CREATOR(ttxt)
+$LINETERMINATOR $DOS
+$COMBDEVSON
+$AUTONUMBER(2)
+{ 
+}
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$SIGSOURCE(Plus12V)
+$SIGSOURCE(Minus12V)
+{
+}
+$DESIGNSIGSOURCE &SigSources
+$FIND $SIGNALS $NUMPINS(2)
+$SORT $SIGNALS $SIGNAME
+$SORT $DEVICES $DEVNAME
+$BUSNAMEON(_)
+$CONTSTART(		)
+$MAXITEMSPERLINE(1)
+.HEA
+.TIM $DATE($Y $m $d $h $n $s)	
+.TYP FULL
+
+.REM
+        ASSY.    = &ASSYNO
+        REV.     = &Revision
+        Engineer = &Designer
+.EOR
+
+.REM
+        Component Listing: 
+.EOR
+
+$DEVICES.ADD_COM	$DEVNAME$IF(&Part)	&Part	&Part$ELSE	&Package$END
+
+.REM
+        Node List
+.EOR
+
+$SIGPINFORMAT $DEVNAME	$PINNUM
+$SIGNALS.ADD_TER	$PINS(1)	$SIGNAME$NEWLINE.TER		$PINS(2..)$NEWLINE
+.END

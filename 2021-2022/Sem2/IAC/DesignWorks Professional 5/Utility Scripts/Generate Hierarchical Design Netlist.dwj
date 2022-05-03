@@ -1,0 +1,89 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script creates a netlist which writes the definitions
+// for all subcircuit devices into separate files.
+
+
+netlistExtension = ".net";
+
+cct = currentCircuit;
+if (cct == null)		// No current design
+{
+	alert("There is no current design!");
+	halt;
+}
+
+
+if (!confirm("Clicking OK will generate a set of netlist files "
+			+ "with a separate file for the top level circuit "
+			+ "in the hierarchy and one for each subcircuit definition"))
+{
+	halt;
+}
+
+
+// Create a directory with the same name as the design file
+
+f = SPFile(cct.filePath);
+f.extension = "";
+
+topName = f.name;
+netlistDir = "" + f;		// Make a string with the directory path
+
+createDirectory(netlistDir);
+
+
+// Find the .RFM script relative to where we are
+
+exportScript = SPFile();
+exportScript.setScriptPath("export circuit definition.rfm");
+
+
+// Write top level netlist
+
+writeln("Writing netlist for " + topName);
+runExport(exportScript, false, netlistDir + "\\" + topName + netlistExtension);
+
+
+// Make a list of devices with subcircuit that need to be netlisted
+// into separate files
+
+devices = cct.devices(0, -1, 3);		// Get all devices in the entire design
+num = devices.length;
+
+// Create a list containing one unique entry for each device type
+
+types = SPArray();
+typeNames = SPStringMap();		// This maps one string value to another
+								// and we will use it to ensure we only
+								// get one entry for each unique type
+
+for (i = 0; i < num; i++)
+{
+	d = devices[i];
+	if (typeNames.get(d.type.name) == null)
+	{
+		types.append(d.type);
+		typeNames.set(d.type.name, "");
+	}
+}
+
+// Now open each subcircuit in turn and write a netlist file
+
+num = types.length;
+for (i = 0; i < num; i++)
+{
+	writeln("Writing netlist for " + types[i]);
+	if (types[i].subCircuit != null)
+	{
+		types[i].subCircuit.select;
+		runExport(exportScript, false, netlistDir + "\\" + types[i].name + netlistExtension);
+	}
+}
+
+alert("Done!");

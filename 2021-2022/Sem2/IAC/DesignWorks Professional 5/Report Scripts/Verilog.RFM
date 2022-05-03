@@ -1,0 +1,114 @@
+{
+    DesignWorks Report Form for Verilog
+    Copyright 1990-2000 Capilano Computing Systems
+
+    Note:
+    - Didn't change the names from VMod to VERILOG_Mod
+      as the attributes won't match for designs coming
+      from the Macintosh.
+}
+$NOTES
+This report form produces a netlist for Verilog
+
+
+Limitations:
+
+  none
+
+
+Attribute   Where    Description
+
+VMod        Design   Name of top module and parameter list, if desired
+VStim       Design   Stimulus
+VPre        Design   Preprocessor or compiler commands inserted at front of file
+
+Name        Devices  Device name
+VDelay      Devices  Device delays
+
+Name        Signals  Signal name
+VDecl       Signals  Any non-empty value indicates a
+                     declaration
+
+Stimulus information is read from the design attribute
+field VStim and from the file DESIGNNAME.stm
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+{
+---------------------------------------------------------------------
+}
+$CREATEREPORT($DESIGNNAME.v) $PROMPT
+// $DESIGNNAME - Verilog netlist created $DATE
+// file: $FILENAME
+
+// The following preprocessor or compiler command items are derived from
+// the VPre design attribute field
+
+&VPre
+
+{
+  Now list top module definition
+}
+$HIERARCHY $TOPCIRCUIT
+
+// Top module definition.  The name of the top module
+// will be the design name (i.e. the design file name
+// must be a valid Verilog name), or you can override
+// this by placing a module name (and parameters, if desired)
+// in the design attribute field VMod
+
+module $IF(&VMod)&VMod$ELSE$DESIGNNAME$END;
+
+// If you want to explicitly declare any signals, place
+// the declaration (e.g. "wire") in the VDecl attribute
+// of the signal in question.
+
+$FIND $SIGNALS &VDecl    { Find signals with VDecl attribute for declaration }
+$SIGNALS\  &VDecl $SIGNAME;
+$FIND $SIGNALS
+$COMBDEVSOFF
+$DEVPINFORMAT $SIGNAME
+$ITEMSEPARATOR(, )
+
+// Device instantiations.  A delay paramter can be declared in the VDelay
+// attribute of each device
+
+$DEVICES\  $TYPENAME &VDelay $DEVNAME\($PINS);
+
+// To include extra Verilog code here (e.g. for stimulus),
+// either place the raw code in the VStim design attribute field,
+// or create a text file called file $DESIGNNAME.stm and place
+// it in the same directory as the circuit file.
+
+&VStim
+$INCLUDE($DESIGNNAME.stm) $RAW
+endmodule
+
+$HIERARCHY $PURE
+{
+  Following is the definition for an internal circuit, i.e. "module" definition
+}
+$DEFINECIRCUIT
+$FIND $SIGNALS &VDecl    { Find signals with VDecl attribute for declaration }
+$SIGNALS\  &VDecl $SIGNAME;
+$FIND $SIGNALS
+$SORT $DEVICES $TYPENAME
+$ITEMSEPARATOR(, )
+$DEVICES\  $TYPENAME &VDelay $DEVNAME\($PINS);
+$END
+{
+  Now select types with an internal circuit and list "module" sections
+}
+$FIND $SIGNALS
+$FIND $DEVICES &Depth
+$SORT $DEVICES &Depth $TYPENAME
+$COMBDEVSON
+$PINTYPEFORMAT input output output inout output output output output output output input output input output input output output
+$ITEMSEPARATOR(, )
+$CONTSTART(  )
+$DEVICES$NEWLINE$NEWLINE$NEWLINE// module $TYPENAME$NEWLINE$NEWLINEmodule $TYPENAME\($MAXITEMSPERLINE(255)$DEVPINFORMAT($CHILDSIGNAME)$PINS);$NEWLINE  $MAXITEMSPERLINE(1)$DEVPINFORMAT($PINTYPE $CHILDSIGNAME;)$PINS$NEWLINE$SINGLE$INTERNALendmodule

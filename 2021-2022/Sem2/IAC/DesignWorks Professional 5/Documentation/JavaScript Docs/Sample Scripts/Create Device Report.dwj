@@ -1,0 +1,66 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// Make a simple bill of materials, that is a list of all the
+// device types (by Part attribute value) and a list of the
+// names of the devices of each type.
+// Output is written to a text file.
+
+cct = currentCircuit;			// Get current circuit
+devs = cct.devices;				// Get a list of devices
+list = SPStringMap();			// Make a string map to store values
+
+// For each device, extract the desired attribute fields
+
+for (i = 0; i < devs.length; i++)
+{
+	name = devs[i].getAttribute("Name");
+	part = devs[i].getAttribute("Part");
+	
+	// See if there's already an entry for this Part value.
+	// If not, create an array to hold names associated with
+	// this Part value.  If an array already exists for
+	// this Part value, just add the new name to the list
+	
+	temp = list.get(part);
+	if (temp == null)
+	{
+		list.set(part, SPArray(name));
+	}
+	else temp.append(name);
+}
+
+// Create an output file and ask the user to specify a location
+
+outFile = SPFile();
+if (!outFile.saveDialog("Specify output file")) halt;
+
+// Get all the Part values from the string map in sorted order
+
+keys = list.getSortedKeys();
+
+// For each Part value, get the list of Names and put it
+// out on the same line, in sorted order
+
+for (i = 0; i < keys.length; i++)
+{
+	names = list.get(keys[i]);				// Get the names array
+	names.sort();							// Sort the names
+	outFile.writeText(keys[i] + "\t");		// Write out Part value
+	
+	// Write out Names with a comma separator
+	
+	for (j = 0; j < names.length; j++)
+		if (j > 0) outFile.writeText(", " + names[j]);
+		else outFile.writeText(names[j]);
+	outFile.writeLine("");
+}
+
+// Close the file and ask the system to open it
+
+outFile.close();
+run("NotePad.exe", outFile);

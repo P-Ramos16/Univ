@@ -1,0 +1,64 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script runs through a selected library and updates any part
+// replacing a specified value with a new value in a specified
+// attribute field.
+
+
+// Prompt the user for which library to work on and confirm they
+// really mean it!!!
+
+lib = selectLibrary(true);
+if (lib == null) halt;
+
+if (!confirm("This will modify library " + lib + ".  Is that OK?")) halt;
+
+// Prompt for the name of the field and the old and new values
+
+answers = prompt(SPArray("Field Name", "Old Value", "New Value"), SPArray("","",""), "Change Library Attributes");
+if (answers == null) halt;
+
+fieldName = answers[0];
+oldValue = answers[1];
+newValue = answers[2];
+
+if ((fieldName == "") || (oldValue == newValue))
+{
+	alert("Nothing to do!");
+	halt;
+}
+
+// Run through the types in the selected library
+// and look for any matching fields, updating
+// and resaving them if found
+
+types = lib.typeList;
+num = types.length;
+found = "";
+for (i = 0; i < num; i++)
+{
+	t = types[i];
+	s = t.getAttribute(fieldName);
+	if (s == oldValue)
+	{	// The old value matches, so change it
+		
+		t.setAttribute(fieldName, newValue);
+		lib.saveType(t);
+		
+		// Track changes so we can announce later
+		
+		if (found == "") found = "" + t;
+		else found = ", " + t;
+	}
+}
+
+
+// Announce the results
+
+if (found != "") alert("Updated library element(s): " + found + "!");
+else alert("No library elements were updated!");

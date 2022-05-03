@@ -1,0 +1,268 @@
+<script language="JavaScript" src="../assets/tipscripts.js"></script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Advanced Editing</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META NAME="Generator" CONTENT="NetObjects Fusion 8 for Windows">
+<META CONTENT="Microsoft FrontPage 3.0" NAME="GENERATOR">
+<META CONTENT="none, default" NAME="Microsoft Theme">
+<META CONTENT="b" NAME="Microsoft Border">
+
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../html/style.css">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../html/site.css">
+</HEAD>
+<BODY onload="on_tip_load();" STYLE="margin: 0px;">
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="172">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD HEIGHT="73" WIDTH="172"><!-- msnavigation -->
+<IMG ID="Picture95" HEIGHT="73" WIDTH="172" SRC="../assets/images/dwp_logo_172.jpg" BORDER="0" ALT="dwl3_logo_wide.gif (5892 bytes)" TITLE="dwl3_logo_wide.gif (5892 bytes)"></TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD HEIGHT="2"></TD>
+        </TR>
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD WIDTH="670" CLASS="TextNavBar" STYLE="text-align: left;">[<A HREF="../index.html">Home</A>] [<A HREF="../html/tips_of_the_day.html">Tips&nbsp;of&nbsp;the&nbsp;Day</A>] [<A HREF="../html/products.html">Products</A>] [<A HREF="../html/tutorial.html">Tutorial</A>] [<A HREF="../tutorial/5_min_schematic.html">5&nbsp;Min.&nbsp;Schematic</A>] [Advanced&nbsp;Editing] [<A HREF="../tutorial/device_symbols.html">Device&nbsp;Symbols</A>] [<A HREF="../html/contact.html">Contact</A>]</TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="734">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD WIDTH="5"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT=""></TD>
+            <TD WIDTH="729" CLASS="TextObject"><!-- msnavigation -->
+
+                <P><!-- msnavigation -->
+
+                    <TABLE ID="Table35" BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="99%">
+                        <COLGROUP>
+                        <COL STYLE="width:728px">
+                        </COLGROUP>
+                        <TR>
+                            <!-- msnavigation -->
+
+                            <TD VALIGN="TOP" WIDTH="728">
+                                <H2></H2>
+                                <H2>Advanced Schematic Editing</H2>
+                                <P>This tutorial gives you a closer look at some of the <B>DesignWorks Professional</B> schematic editing features. Topics covered on this page include:</P>
+                                <UL>
+                                    <LI CLASS="List1"><A HREF="#Navigating">Navigating Around the Schematic</A></LI>
+                                    <LI CLASS="List1"><A HREF="#DeletingGroup">Deleting a Group of Objects</A></LI>
+                                    <LI CLASS="List1"><A HREF="#CreatingBus">Creating a Bus</A></LI>
+                                    <LI CLASS="List1"><A HREF="../tutorial/advanced_editing.html">Adding Text Notations</A></LI>
+                                    <LI CLASS="List1"><A HREF="#DevicePackaging">Device Packaging</A></LI>
+                                </UL>
+                                <P STYLE="list-style-type: none;">&nbsp;</P>
+                                <TABLE ID="Table36" BORDER="1" CELLSPACING="2" CELLPADDING="5" WIDTH="600">
+                                    <COLGROUP>
+                                    <COL STYLE="width:321px">
+                                    <COL STYLE="width:247px">
+                                    </COLGROUP>
+                                    <TR>
+                                        <TD VALIGN="TOP" WIDTH="321">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture64" HEIGHT="70" WIDTH="75" SRC="../tutorial/Images/advanc1.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe4.jpg (2535 bytes)" TITLE="wpe4.jpg (2535 bytes)"></P>
+                                        </TD>
+                                        <TD VALIGN="TOP" WIDTH="247">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Starting the Program</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· If it is not already running, double-click on the DesignWorks icon to start the program.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Use the Open Design command to open the example file &quot;FiveMin.cct&quot; provided in the Examples directory <U>OR</U> create it using the instructions given in the<A HREF="../tutorial/5_min_schematic.html">5-Minute Schematic</A> tutorial.</SPAN></B></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture68" HEIGHT="122" WIDTH="115" SRC="../tutorial/Images/Image36.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;"><A NAME="Navigating"></A><B>Navigating Around the Schematic</B></SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Press the right mouse button (Right-click) in an empty area of the schematic (i.e. not on a device or signal line).</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· In the pop-up menu that appears, select the command Reduce to Fit.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">The screen display will be zoomed out to fit the entire schematic in the window. Right-clicking in the schematic displays a pop-up menu containing short-cut editing commands. Right-clicking on a device, signal, pin or attribute field will display a special menu for each type of object.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture72" HEIGHT="89" WIDTH="128" SRC="../tutorial/Images/Image37.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Navigating Around the Schematic (cont&#39;d)</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Select the Magnify command from the View menu.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">Clicking the magnifying glass tool zooms in on that part of the schematic. Some less obvious uses of this tool are:</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Clicking and dragging <U>down and right </U>causes the display to zoom so that the area swept over just fits in the window.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Clicking and dragging <U>up and to the left</U> a small amount causes the display to zoom out one step.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Clicking and dragging <U>up and to the left</U> a large amount (more than 1/2 the screen) causes the display to do a Reduce to Fit.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture76" HEIGHT="127" WIDTH="188" SRC="../tutorial/Images/Image39.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;"><A NAME="DeletingGroup"></A><B>Deleting a Group of Objects</B></SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Using the pointer (<IMG ID="Picture79" HEIGHT="24" WIDTH="24" SRC="../tutorial/Images/Image40.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="">) tool, click and drag from above and to the left of the ground symbol to below and right of it.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Make sure that the ground symbol itself and the attached signal line are highlighted and no other items.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Press the Delete key to remove these items.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture82" HEIGHT="222" WIDTH="285" SRC="../tutorial/Images/advanc2.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe6.jpg (8181 bytes)" TITLE="wpe6.jpg (8181 bytes)"></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;"><A NAME="CreatingBus"></A><B>Creating a Bus</B></SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Select the New Breakout command from the Options menu. In the signal list area of this dialog, enter &quot;D3..0&quot;.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">· Click on the OK button.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">We used sequentially numbered signals in this case, but any collection of names can be used, for example &quot;CLK CLR SIZ0 SIZ1&quot;. &quot;0..3&quot; places the highest numbered signal at the top, &quot;3..0&quot; places it at the bottom.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture86" HEIGHT="107" WIDTH="161" SRC="../tutorial/Images/Image42.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Creating a Bus (cont&#39;d)</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Place the &quot;breakout&quot; symbol adjacent to the 163 device, as shown. Use the arrow keys or tool palette if necessary to orient the breakout symbol.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· If not done already, connect the 4 breakout pins to the inputs of the 163 device.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">A &quot;breakout&quot; is a pseudo-device symbol that ties any collection of signal lines into a single bus line. You can extend a bus line away from either end of the &quot;spine&quot; of the breakout symbol.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture90" HEIGHT="130" WIDTH="159" SRC="../tutorial/Images/Image43.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Creating a Bus (cont&#39;d)</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Using the pointer (<IMG ID="Picture93" HEIGHT="24" WIDTH="24" SRC="../tutorial/Images/Image40.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="">) tool, click and hold exactly at the lower end of the &quot;backbone&quot; of the breakout symbol.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Drag down and right from this point, then release the mouse button. This will have created a bus line as shown.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Right-click on the bus line. In the pop-up menu, select the Signal Info command.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">When the Signal Info command is selected for a bus, a list of the internal signals is displayed.</SPAN></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Click on the OK button.</SPAN></B></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture96" HEIGHT="64" WIDTH="178" SRC="../tutorial/Images/Image52.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><A NAME="AddingText"></A><B>Adding Text Notations</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Move to an unused corner of the schematic page.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Select the text (A) tool in the tool palette.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Click in an open area of the schematic (i.e. not on an existing device, signal or text item). You will see a text entry rectangle.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Enter &quot;All capacitors 10% tol unless otherwise noted&quot;, or any other notation that suits you. Carriage returns can be used in text notations, if desired.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Click outside the text entry rectangle to close it.</B></P>
+                                            <P STYLE="list-style-type: none;">Text notations created in this fashion are stored with the circuit, but are not associated with any device or signal and will never appear in a netlist.</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture100" HEIGHT="275" WIDTH="321" SRC="../tutorial/Images/advanc3.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe8.jpg (11703 bytes)" TITLE="wpe8.jpg (11703 bytes)"></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Adding Text Notations (cont&#39;d)</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Right-click on the text item that was just created.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Select the Properties option.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Click on the Text Style button.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Use the controls in this dialog to set any desired text style.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Click on the OK button in both dialogs to return to the schematic.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">Text style can be set individually for random text notations such as this one. Other forms of text such as attribute and pin numbers have global text style settings, but cannot be set individually. See the Design Preferences command from the Drawing menu.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture104" HEIGHT="335" WIDTH="293" SRC="../tutorial/Images/advanc4.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpeA.jpg (14193 bytes)" TITLE="wpeA.jpg (14193 bytes)"></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><A NAME="DevicePackaging"></A><B>Device Packaging</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Right-click on one of the NAND gate devices.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>· Select the Attributes commmand from the pop up menu.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>·In the attributes dialog select the &quot;Unit&quot; attribute.</B></P>
+                                            <P STYLE="list-style-type: none;"><B>·Change the value of the attribute to &quot;c&quot; and then close the dialog.</B></P>
+                                            <P STYLE="list-style-type: none;">&nbsp;</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture108" HEIGHT="198" WIDTH="288" SRC="../tutorial/Images/advanc5.jpg" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT="wpe9.jpg (8375 bytes)" TITLE="wpe9.jpg (8375 bytes)"></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Device Packaging (cont&#39;d)</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Right-click on the same device as in the previous section and select the Device Info command.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Click on the Packaging Options button.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Select the &quot;Lock and check package and unit&quot; option.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Click on the OK button in both dialogs.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">The Packager has now been instructed to keep this device name unchanged but check it for conflicts in future packaging operations.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none; text-align: center;"><IMG ID="Picture112" HEIGHT="136" WIDTH="194" SRC="../tutorial/Images/Image60.gif" VSPACE="0" HSPACE="0" ALIGN="BOTTOM" BORDER="0" ALT=""></P>
+                                        </TD>
+                                        <TD VALIGN="TOP">
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">Device Packaging (cont&#39;d)</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Select the &quot;Device Naming and Packaging Options&quot;&nbsp; command from the &quot;Name and Packaging&quot; &nbsp; sub-menu of the Options menu.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Change the text in the Default name prefix box to&nbsp; &quot;XX&quot; and click on the OK button.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Select the &quot;Repackage Design&quot; command from the &quot;Name and Packaging&quot; sub-menu of the Options menu.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><B><SPAN STYLE="font-size: x-small;">· Click on the OK button in the confirmation dialog.</SPAN></B></P>
+                                            <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: x-small;">Notice that new names have now been assigned to all devices except the one that we marked as &quot;Lock and Check&quot; and any others that will fit into the same package. Names are assigned starting in the &quot;A1&quot; grid of the schematic, working toward the opposite corner.</SPAN></P>
+                                        </TD>
+                                    </TR>
+                                </TABLE>
+                                <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: medium;">This completes the tutorial section &quot;Advanced Schematic Editing&quot;.</SPAN></P>
+                                <P STYLE="list-style-type: none;">You may wish to use the Save As command from the File menu to save the completed example at this point.</P>
+                                <P STYLE="list-style-type: none;"><A HREF="../html/tutorial.html">Back to the Tutorial Home Page</A></P>
+                                <P STYLE="list-style-type: none;"><SPAN STYLE="font-size: medium;">&nbsp; </SPAN></P>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                    <!-- msnavigation -->
+<!-- msnavigation -->
+
+                    <TABLE ID="Table37" BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="99%">
+                        <COLGROUP>
+                        <COL STYLE="width:728px">
+                        </COLGROUP>
+                        <TR>
+                            <TD WIDTH="728"></TD>
+                        </TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>
+        <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="479">
+            <TR VALIGN="TOP" ALIGN="LEFT">
+                <TD>
+                    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="69">
+                        <TR VALIGN="TOP" ALIGN="LEFT">
+                            <TD WIDTH="5" HEIGHT="32"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT=""></TD>
+                            <TD WIDTH="64"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="64" HEIGHT="1" BORDER="0" ALT=""></TD>
+                        </TR>
+                        <TR VALIGN="TOP" ALIGN="LEFT">
+                            <TD></TD>
+                            <TD WIDTH="64" CLASS="TextObject">
+                                <P><A HREF="../index.html"><IMG ID="Picture28" HEIGHT="66" WIDTH="49" SRC="../assets/images/home.gif" VSPACE="0" HSPACE="0" ALIGN="TOP" BORDER="0" ALT="home" TITLE="home"></A></P>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                </TD>
+                <TD>
+                    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="410">
+                        <TR VALIGN="TOP" ALIGN="LEFT">
+                            <TD WIDTH="40" HEIGHT="32"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="40" HEIGHT="1" BORDER="0" ALT=""></TD>
+                            <TD WIDTH="370"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="370" HEIGHT="1" BORDER="0" ALT=""></TD>
+                        </TR>
+                        <TR VALIGN="TOP" ALIGN="LEFT">
+                            <TD></TD>
+                            <TD WIDTH="370" CLASS="TextObject">
+                                <FORM NAME="DontShowForm" ACTION="" method="POST">
+                                    <P STYLE="text-align: center;"><SPAN STYLE="font-size: xx-small;"><TABLE STYLE="font-size: xx-small;" ID="DontTable" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+<TR><TD>                                                                                                                                             <INPUT ID="DontShow" TYPE=CHECKBOX NAME="DontShow" VALUE="DontShow" onclick="set_dont_show_state(DontShow.checked);">                                                                                      </TD><TD>
+<DIV ID="DontText">Don't show this window at startup</DIV></TD>                                                      </TR><TR><TD COLSPAN=2><DIV ID="DaysText">&nbsp</DIV></TD></TR></TABLE><BR>Copyright 2006-2007 by Capilano Computing Systems Ltd. All rights reserved.<BR><A HREF="http://www.capilano.com" TARGET="_blank">Click here for the Capilano Computing Web Site</A><BR><A HREF="../index.html" TARGET="_blank">Click here to open this window in a separate browser</A></SPAN></P>
+                                </FORM>
+                            </TD>
+                        </TR>
+                    </TABLE>
+                </TD>
+            </TR>
+        </TABLE>
+    </BODY>
+    </HTML>
+     

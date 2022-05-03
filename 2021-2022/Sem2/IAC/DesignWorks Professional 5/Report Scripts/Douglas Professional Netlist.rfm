@@ -1,0 +1,167 @@
+{
+  Format file for Douglas Professional Layout.
+  C. Dewhurst 8/10/92
+  H. Harrison 9/22/92
+  C. Dewhurst 10/15/96
+  Copyright 1996 Capilano Computing Systems Ltd.
+  Copyright 1992 Douglas Electronics Inc.
+}
+$NOTES
+This format generates a netlist and partlist file
+for the Douglas Professional Layout system.
+A default Autorouter method for a two-layer board
+is included in the file.
+
+Design Hierarchy Mode: Flat or Physical
+
+***Note Name Restrictions:
+
+If the design is in Flat hierarchy mode, the Name attribute
+field is used as the package name in the device listing
+and as the net name in the signal listing.  Note that names
+are limited to 10 characters.
+
+If the design is in Physical hierarchy mode, the InstName
+field is used as the package name and the hierarchical
+name is used for signals.
+
+IMPORTANT NOTE: The Douglas system is limited to 10
+characters for device and signal names. In this format,
+hierarchical signal names are used if the design is
+in physical hierarchy mode, so you have to keep
+signal names and hierarchical block names short, and limit
+nesting to one level.
+
+Standard attribute fields used:
+
+Name or InstName
+Package
+Part
+Value
+Power
+Ground
+SigSources
+
+Non-standard attribute fields required:
+
+none
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+{
+  Check for valid hierarchy mode and design type
+}
+$IF($ISPURE)
+$NULL($ALERT1(This netlist script does not support Pure hierarchy mode!))
+$ABORT
+$END
+{
+  Create an output file using the Douglas creator type
+  so if you double-click on the file it will start them up
+}
+$CREATEREPORT($DESIGNNAME.net) $PROMPT $CREATOR(LPCB)
+{
+  Miscellaneous setup stuff
+}
+$ROWS(32000)
+$COLUMNS(80)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE(SigSources)
+$AUTONUMBER(3)
+$COMBDEVSON
+$BLANKREPLACE(_)
+$BUSNAMEON(_)
+$CONTSTART( )
+{
+  Flatten only if this is marked as a hierarchical design
+}
+$IF($ISPHYSICAL)
+$HIERARCHY $FLAT
+$HIERNAMESEPARATOR(_)
+$SORT $DEVICES $DEVINSTNAME
+$ELSE
+$SORT $DEVICES $DEVNAME
+$END
+***COMMENT***
+Schematic: $DESIGNNAME $DATE $TIME
+***LAYERS***
+{
+  Find non-null signals and ensure that they have a name.
+  We don't bother assigning names to device, because they would
+  be pretty bogus as package assignments anyway.
+}
+$FIND $SIGNALS $NUMPINS(2)
+$ASSIGNNAMES $SIGNALS
+$SORT $SIGNALS $SIGNAME
+***NETLIST***
+$SIGNALS$IF($ISPHYSICAL)$SIGHIERNAME$ELSE$SIGNAME$END$COL(15)$PINS
+
+***PARTS***
+{ The following lines list "TI" packages separately with an "_"
+  inserted in front so that all package names have 3 characters. }
+$SORT $DEVICES $DEVNAME
+$DEVICES$IF($ISPHYSICAL)$DEVINSTNAME$ELSE$DEVNAME$END$COL(15) $IF($REGEXP(TI\d+.*, &Package))_&Package$ELSE&Package$END $COL(30)&Part $COL(45)&Value
+ 
+***ROUTER***
+*
+* This is the default routing method
+*
+* Set Spacing on all layers
+GRID = 25
+WIDTH = 12
+TOLERANCE = 0
+* Set Solder side
+LAYER 0
+VERT = 1
+HORZ = 2
+BEND = 10
+* Set Component side
+LAYER 1
+VERT = 2
+HORZ = 1
+BEND = 10
+* Set colors
+LAYER 0 RED
+LAYER 1 GREEN
+* Select all layers again
+LAYER ALL
+* Thru-vias only
+THRU 10
+BURY 0
+* Name the files
+REPORT ? "$DESIGNNAME.REP"
+LOAD ? 
+SAVE 0,1 ? "$DESIGNNAME.01"
+* Show the Rats nest
+DRAW RAT
+* Report 
+PRINT Schematic: $DESIGNNAME $DATE $TIME
+PRINT Route Method: Default
+PRINT DATE TIME "Routed on: "
+PRINT VERSION "Autorouter version: "
+CHECK
+DRAW
+* Route the board
+PITCH 100
+CLEARANCE 100
+ROUTE
+BEEP
+BEEP
+PITCH 25
+CLEARANCE 0
+MAXIMUM 0
+ROUTE
+BEEP
+DRAW
+PAUSE 4
+CYAN
+DRAW RAT 
+PAUSE 10
+END
+***DONE***

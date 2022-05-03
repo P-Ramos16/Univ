@@ -1,0 +1,12 @@
+/* CSS definition file containing site wide stylesheets */
+
+.CodeReference {
+	font-family: "Courier New",  "Lucida Console",  Courier,  Monaco,  Monospace;
+ 	font-size: 14px
+}
+
+.CodeReferenceBold {
+	font-family: "Courier New",  "Lucida Console",  Courier,  Monaco,  Monospace;
+ 	font-size: 14px;
+ 	font-weight: bold
+}

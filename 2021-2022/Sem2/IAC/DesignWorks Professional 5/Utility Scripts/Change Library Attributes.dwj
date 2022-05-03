@@ -1,0 +1,80 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script runs through a selected library and updates any part
+// that has a specified attribute field with a specified value
+// and updates it so a new value.
+
+
+// Make a list of the open libraries and use it to create
+// the HTML for a "select" control on the HTML page.
+
+libs = libraryList();
+numLibs = libs.length;
+
+selStr = "<b>Select Library:</b> <select name=LibSelect>\n";
+for (l = 0; l < numLibs; l++)
+{
+	lib = libs[l];
+	f = SPFile(lib);
+	if (f.name != "")
+	{
+		selStr += "<option value=\"" + f.name + "\">" + f.name + "</option>\n";
+	}
+}
+selStr += "</select>";
+
+// Create the HTML dialog
+
+box = SPHTMLDialog();
+
+f = SPFile();
+f.setScriptPath("change_library_attributes/libprompt.htm");
+
+// Set control values
+
+box.setValue("Select", selStr);
+
+title = "Library Attribute Update";
+
+// Call up the properties box
+
+if (!box.doDialog(f, title, 500, 350)) halt();
+
+// Get the control values
+
+lib = DWLibrary(box.getValue("LibSelect"));
+if (lib == null) halt;
+
+fieldName = box.getValue("FieldName");
+oldValue = box.getValue("OldValue");
+newValue = box.getValue("NewValue");
+
+// Run through the types in the selected library
+// and look for any matching fields, updating
+// and resaving them if found
+
+types = lib.typeList;
+num = types.length;
+found = 0;
+if ((fieldName != "") && (oldValue != newValue))
+{
+	for (i = 0; i < num; i++)
+	{
+		t = types[i];
+		writeln(t);
+		s = t.getAttribute(fieldName);
+		if (s == oldValue)
+		{
+			t.setAttribute(fieldName, newValue);
+			lib.saveType(t);
+			found++;
+		}
+	}
+}
+
+alert(found + " library elements were updated!");

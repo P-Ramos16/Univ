@@ -1,0 +1,30 @@
+{
+  Report generation script for the Calay PCB layout system
+  Copyright 1997 Capilano Computing Systems Ltd.
+}
+$NOTES
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$COLUMNS(80)
+$MAXITEMSPERLINE(1)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$CREATEREPORT($CIRCUITNAME.CAL) $PROMPT
+$LINETERMINATOR $DOS
+$COMBDEVSON
+$CONTREPEATON
+$CONTSTART()
+$FIND $SIGNALS $NUMPINS(2)
+$SIGPINFORMAT $DEVNAME $PINNUM
+$SORT $DEVICES $DEVNAME
+$SORT $SIGNALS $SIGNAME
+$BUSNAMEON(_)
+$BLANKREPLACE(_)
+$SIGNALSN$SIGSEQ $PINS

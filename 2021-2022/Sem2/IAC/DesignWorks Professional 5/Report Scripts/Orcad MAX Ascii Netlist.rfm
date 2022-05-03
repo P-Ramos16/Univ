@@ -1,0 +1,112 @@
+{
+    DesignWorks Report Form for Orcad(Max format)
+    Copyright 1990-2006 Capilano Computing Systems
+}
+$NOTES
+This report form produces a netlist for Massteck's
+MaxEDA PCB.
+
+Limitations:
+
+  This report form works only with Flat designs.
+
+
+Attribute    Where    Description
+
+Name	     Devices
+Part	     Device   Part Name(maybe used as foot print name if MAX_PtFootprint is undefined)
+
+MAX_PtFootprint Devices  Part's MaxEDA library footprint name
+                      (not required)
+MAX_PtGroup  Devices  Components with same value will be
+                      grouped when placed. Value = 0 - 100
+                      (not required)
+MAX_PtLocation
+             Devices  Components location on the PCB board.
+                      (not required)
+MAX_PtRotation
+             Devices  Components rotation in degrees
+                      [seconds]. (not required)
+MAX_PtHint   Devices  Part's additional directives. Must be
+                      in the correct ascii format.
+                      eg: "LOCKED" (not required)
+
+MAX_NtWidth  Signals  Net's routing width (not required)
+MAX_NtThermalLay
+             Signals  Net's thermal layers (not required)
+MAX_NtViaPerNet
+             Signals  Net's via per net (not required)
+MAX_NtWidthByLay
+             Signals  Net's width by layer (not required)
+MAX_NtSpaceByLay
+             Signals  Net's spacing by layer (not required)
+MAX_NtHint   Signals  Net's additional directives. Must be
+                      in the correct ascii format (not
+                      required) eg: "WT:50 RECONRULE:Std"
+
+Ground       Devices  Non-displayed pins wired to ground.
+Power        Devices  Non-displayed pins wired to Plus5V.
+Minus5V      Devices  Non-displayed pins wired to Minus5V.
+Plus12V      Devices  Non-displayed pins wired to Plus12V.
+Minus12V     Devices  Non-displayed pins wired to Minus12V.
+
+$END
+$CHECK(This report form works only for Flat designs) $PURE $PHYSICAL
+{
+---------------------------------------------------------------------
+}
+$CREATEREPORT($DESIGNNAME.asc) $PROMPT $CREATOR(ttxt)
+$ROWS(32000)
+$COLUMNS(80)
+{
+}
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$SIGSOURCE(Minus5V)
+$SIGSOURCE(Plus12V)
+$SIGSOURCE(Minus12V)
+$DESIGNSIGSOURCE(SigSources)
+{
+}
+$ONEPINSOFF
+$ALIGNCOLSOFF
+$TABFIELDSOFF
+$BUSNAMEON(_)
+{
+}
+$COMBDEVSON
+$ASSIGNNAMES $DEVICES $FORMAT(DEV0)
+{
+	Massteck header information.
+}
+*MASSTECK
+*START
+
+{
+}
+$AUTONUMBER(2)
+$COMBSIGSOFF
+{
+	There are 2 groups below:
+		1) Output all devices in error because they don't have a &Part value.
+		2) Output all device with a part attribute.  Includes the footprint name if there is no.
+		   If there is no footprint name then MaxEDA will map &Part to a footprint name.
+}
+$FIND $DEVICES $NOT &Part
+$SORT $DEVICES $DEVNAME
+$DEVICES*COMP $DEVNAME "***ERROR: No value for attribute 'Part'***"
+
+$FIND $DEVICES &Part
+$SORT $DEVICES $DEVNAME
+$DEVICES*COMP $DEVNAME "&Part" $IF(&MAX_PtFootprint)Footprint="&MAX_PtFootprint" $ENDIF$IF(&MAX_PtGroup)Group=&MAX_PtGroup $ENDIF$IF(&MAX_PtLocation)[&MAX_PtLocation] $ENDIF$IF(&MAX_PtRotation)Rot=&MAX_PtRotation $ENDIF$IF(&MAX_PtHint)&MAX_PtHint$ENDIF$NEWLINE
+$FIND $DEVICES
+
+$ASSIGNNAMES $SIGNALS $FORMAT(SIG0)
+$SORT $SIGNALS $SIGNAME
+$MAXITEMSPERLINE(10)
+$FIND $SIGNALS $NUMPINS(2)
+$CONTSTART(	)
+$SIGPINFORMAT $DEVNAME."$PINNUM"
+$SIGNALS*NET "$SIGNAME"$IF(&MAX_NtWidth) W:&MAX_NtWidth$ENDIF$IF(&MAX_NetMin) MIN:&MAX_NetMin$ENDIF$IF(&MAX_NetMax) MAX:&MAX_NetMax$ENDIF$IF(&MAX_NtLevel) NetLev:"&MAX_NtLevel"$ENDIF$IF(&MAX_NtHint) &MAX_NtHint$ENDIF$NEWLINE	$PINS$NEWLINE$IF(&MAX_NtThermalLay)*ATTR KEY="Named" "Net" $SIGSEQ(1) "Count" "THERMALLAYERS" "&MAX_NtThermalLay"$NEWLINE$ENDIF$IF(&MAX_NtViaPerNet)*ATTR KEY="Named" "Net" $SIGSEQ(1) "Count" "VIAPERNET" "&MAX_NtViaPerNet"$NEWLINE$ENDIF$IF(&MAX_NtWidthByLay)*ATTR KEY="Named" "Net" $SIGSEQ(1) "Count" "WIDTHBYLAYER" "&MAX_NtWidthByLay"$NEWLINE$ENDIF$IF(&MAX_NtSpaceByLay)*ATTR KEY="Named" "Net" $SIGSEQ(1) "Count" "SPACINGBYLAYER" "&MAX_NtSpaceByLay"$NEWLINE$ENDIF$NEWLINE
+
+*END

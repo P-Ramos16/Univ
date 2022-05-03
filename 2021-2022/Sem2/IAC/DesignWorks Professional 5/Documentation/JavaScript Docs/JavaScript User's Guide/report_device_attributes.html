@@ -1,0 +1,131 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Report Device Attributes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Generator" content="NetObjects Fusion 10 for Windows">
+<script type="text/javascript">
+<!--
+function F_loadRollover(){} function F_roll(){}
+//-->
+</script>
+<SCRIPT TYPE="text/javascript" SRC="./assets/rollover.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="stylesheet" type="text/css" href="./site.css">
+</head>
+<body style="margin: 0px;">
+ <table cellpadding="0" cellspacing="0" border="0" width="780">
+  <tr valign="top" align="left">
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="142">
+     <tr valign="top" align="left">
+      <td width="12" height="65"><img src="./assets/images/autogen/clearpixel.gif" width="12" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="120"></td>
+      <td width="130">
+       <table id="NavigationBar1" border="0" cellspacing="0" cellpadding="0" width="130">
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./index.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton1','',0);F_roll('NavigationButton1',1)" onMouseOut="F_roll('NavigationButton1',0)"><img id="NavigationButton1" name="NavigationButton1" height="24" width="130" src="./assets/images/autogen/JavaScript_Home_Np1_1.gif" onmouseover="F_loadRollover(this,'JavaScript_Home_NRp2_1.gif',0)" border="0" alt="JavaScript Home" title="JavaScript Home"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./report_device_attributes.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton2','',0);F_roll('NavigationButton2',1)" onMouseOut="F_roll('NavigationButton2',0)"><img id="NavigationButton2" name="NavigationButton2" height="24" width="130" src="./assets/images/autogen/Report_Device_Attributes_Hp3.gif" onmouseover="F_loadRollover(this,'Report_Device_Attributes_HRp4.gif',0)" border="0" alt="Report Device Attributes" title="Report Device Attributes"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./updating_library_attributes.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton3','',0);F_roll('NavigationButton3',1)" onMouseOut="F_roll('NavigationButton3',0)"><img id="NavigationButton3" name="NavigationButton3" height="24" width="130" src="./assets/images/autogen/Updating_Library_Attributes_Np1.gif" onmouseover="F_loadRollover(this,'Updating_Library_Attributes_NRp2.gif',0)" border="0" alt="Updating Library Attributes" title="Updating Library Attributes"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./create_device_symbol.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton4','',0);F_roll('NavigationButton4',1)" onMouseOut="F_roll('NavigationButton4',0)"><img id="NavigationButton4" name="NavigationButton4" height="24" width="130" src="./assets/images/autogen/Create_Device_Symbol_Np1.gif" onmouseover="F_loadRollover(this,'Create_Device_Symbol_NRp2.gif',0)" border="0" alt="Create Device Symbol" title="Create Device Symbol"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./create_a_circuit.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton5','',0);F_roll('NavigationButton5',1)" onMouseOut="F_roll('NavigationButton5',0)"><img id="NavigationButton5" name="NavigationButton5" height="24" width="130" src="./assets/images/autogen/Create_a_Circuit_Np1.gif" onmouseover="F_loadRollover(this,'Create_a_Circuit_NRp2.gif',0)" border="0" alt="Create a Circuit" title="Create a Circuit"></a></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+    </table>
+   </td>
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="568">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="45"></td>
+      <td width="560"><img id="Banner1" height="45" width="560" src="./assets/images/autogen/Report_Device_Attributes_NnBanner.gif" border="0" alt="Report Device Attributes" title="Report Device Attributes"></td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" width="638">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td width="630"><img src="./assets/images/autogen/clearpixel.gif" width="630" height="1" border="0" alt=""></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="630" class="TextObject">
+       <h2>Script Example - Report Device Attributes to Text File</h2>
+       <p>Here, we&#8217;ll look at a simple example of a standalone script that will read data from a design and prepare a report in a text file.&nbsp;This will illustrate a number of useful concepts:</p>
+       <ul>
+        <li>Finding out what is the current design</li>
+        <li>Getting a list of devices in the design</li>
+        <li>Getting attribute values from devices</li>
+        <li>Sorting and manipulating lists of strings</li>
+        <li>Creating text files</li>
+        <li>Running an external application to open the resulting file</li>
+       </ul>
+       <p>Here is the code for our script (this script is also provided in the file <b>create device report.dwj</b> inside the folder <b><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 12px;">Documentation\JavaScript Docs\Sample Scripts</span></b> with the DesignWorks program.</p>
+       <p style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-size: 14px;">// Make a simple bill of materials, that is a list of all the<br>// device types (by Part attribute value) and a list of the<br>// names of the devices of each type.<br>// Output is written to a text file.<br><br>cct = currentCircuit;&nbsp; // Get current circuit<br>devs = cct.devices;&nbsp;&nbsp; // Get a list of devices<br>list = SPStringMap();&nbsp; // Make a string map to store values<br><br>// For each device, extract the desired attribute fields<br><br>for (i = 0; i &lt; devs.length; i++)<br>{<br>&nbsp;&nbsp;name = devs[i].getAttribute(&quot;Name&quot;);<br>&nbsp;&nbsp;part = devs[i].getAttribute(&quot;Part&quot;);<br><br>&nbsp;&nbsp;// See if there&#39;s already an entry for this Part value.<br>&nbsp;&nbsp;// If not, create an array to hold names associated with<br>&nbsp;&nbsp;// this Part value.&nbsp;If an array already exists for<br>&nbsp;&nbsp;// this Part value, just add the new name to the list<br><br>&nbsp;&nbsp;temp = list.get(part);<br>&nbsp;&nbsp;if (temp == null)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;list.set(part, SPArray(name));<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;else temp.append(name);<br>}<br><br>// Create an output file and ask the user to specify a location<br><br>outFile = SPFile();<br>if (!outFile.saveDialog(&quot;Specify output file&quot;)) halt;<br><br>// Get all the Part values from the string map in sorted order<br><br>keys = list.getSortedKeys();<br><br>// For each Part value, get the list of Names and put it<br>// out on the same line, in sorted order<br><br>for (i = 0; i &lt; keys.length; i++)<br>{<br>&nbsp;&nbsp;names = list.get(keys[i]);&nbsp;&nbsp;// Get the names array<br>&nbsp;&nbsp;names.sort();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Sort the names<br>&nbsp;&nbsp;outFile.writeText(keys[i] + &quot;\t&quot;);&nbsp;// Write out Part value<br><br>&nbsp;&nbsp;// Write out Names with a comma separator<br><br>&nbsp;&nbsp;for (j = 0; j &lt; names.length; j++)<br>&nbsp;&nbsp;&nbsp;if (j &gt; 0) outFile.writeText(&quot;, &quot; + names[j]);<br>&nbsp;&nbsp;&nbsp;&nbsp;else outFile.writeText(names[j]);<br>&nbsp;&nbsp;outFile.writeLine(&quot;&quot;);<br>}<br><br>// Close the file and ask the system to open it<br><br>outFile.close();<br>run(&quot;NotePad.exe&quot;, outFile);<br></span><span style="font-family: 'Times New Roman', Times, Serif;"></span>&nbsp;</p>
+       <p style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-family: 'Times New Roman', Times, Serif;">Now we&#8217;ll look at the detailed steps in this script.</span></p>
+       <h3 style="font-family: 'Times New Roman', Times, Serif;">Getting the devices in the current design</h3>
+       <pre style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">cct = currentCircuit;&nbsp; // Get current circuit<br>devs = cct.devices;&nbsp;&nbsp; // Get a list of devices</pre>
+       <p>The method <a href="../JavaScript Object Reference/dwstatic.html#currentCircuit">currentCircuit</a> gets a <a href="../JavaScript Object Reference/dwcircuit.html">DWCircuit</a> object representing the current circuit (i.e. the circuit most recently displayed). This might return null if there is no current circuit and a more robust script would want to add checking for that. If this script is run as it is with no current circuit, you will get an execution error. The <a href="../JavaScript Object Reference/dwcircuit.html">DWCircuit</a> object gives you access to all kinds of information and operations on a DesignWorks circuit, including accessing the circuit elements (devices and signals) in the design.</p>
+       <p>In this case, we use the method <a href="../JavaScript Object Reference/dwcircuit.html#devices">DWCircuit.devices</a> to get an array of <a href="../JavaScript Object Reference/dwdevice.html">DWDevice</a> objects, one for each device in the circuit. We can then iterate through the array to access any information on each device.</p>
+       <h3>Getting Attribute Values from the Design</h3>
+       <pre style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-size: 14px;">name = devs[i].getAttribute(&quot;Name&quot;);</span></pre>
+       <p style="font-family: 'Times New Roman', Times, Serif;"><span style="font-size: 14px;">The <a href="../JavaScript Object Reference/dwdevice.html#getAttribute"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">getAttribute</span></a> method exists in all objects that represent DesignWorks circuit elements. It lets you extract the string value of any attribute field in that object.&nbsp;The field name you specify is that same as the one seen in the list displayed when you select the Define Attribute Fields command.&nbsp;In this case, we are using the Name field, which is commonly used to store the device name (or &#8220;reference designator&#8221;) value displayed on the schematic, and the Part field, which holds the part name.&nbsp;Any other built-in or user-created attribute fields can be accessed the same way.</span></p>
+       <p style="font-family: 'Times New Roman', Times, Serif;"><span style="font-size: 14px;">A corresponding <a href="../JavaScript Object Reference/dwdevice.html#setAttribute"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">setAttribute</span></a> command lets you change these values in circuit elements.</span></p>
+       <h3>Using the SPStringMap Object</h3>
+       <p>The <a href="../JavaScript Object Reference/spstringmap.html">SPStringMap</a> object is an &#8220;associative array&#8221;, that is an array of objects whose index is a string rather than an integer.&nbsp;In this case, we&#8217;re using this because it easily lets us keep a list of the names of devices of each type.&nbsp;I.e. the index into the string map is the value in the Part attribute field.&nbsp;The value that we keep is a list of the names of all devices of that type.&nbsp;When you look up a name in the string map that has not been set (i.e. we have not added any devices with the Part value before) then the value returned by <a href="../JavaScript Object Reference/spstringmap.html#get"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">get</span></a> will be <span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;">null</span>.&nbsp;In this case, we make a new entry which is a new array object that will be used to hold the names of the devices of that type.</p>
+       <p style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-size: 14px;">list = SPStringMap();<br>temp = list.get(part);<br>if (temp == null)<br>&nbsp;&nbsp;list.set(part, SPArray(name));<br>&nbsp;&nbsp;else temp.append(name);</span></p>
+       <h3 style="font-family: 'Times New Roman', Times, Serif;">Creating a Text File</h3>
+       <p style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-size: 14px;">outFile = SPFile();<br>if (!outFile.saveDialog(&quot;Specify output file&quot;)) halt;</span></p>
+       <p style="font-family: 'Times New Roman', Times, Serif;"><span style="font-size: 14px;">The <a href="../JavaScript Object Reference/spfile.html">SPFile</a> object gives you access to a range of operations on disk files on your system, including reading and writing text and binary files, displaying Open and Save dialog boxes, checking the existence of files, etc. In this case, if <a href="../JavaScript Object Reference/spfile.html#saveDialog"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">saveDialog</span></a> returns false, the user has hit the Cancel button, so we just halt the script.</span></p>
+       <h3 style="font-family: 'Times New Roman', Times, Serif;">Formatting the Text Output</h3>
+       <p style="font-family: 'Times New Roman', Times, Serif;">The next section writes the report to the text file using methods of the <a href="../JavaScript Object Reference/sparray.html">SPArray</a> and <a href="../JavaScript Object Reference/spstringmap.html">SPStringMap</a> objects.&nbsp;The code here is achieving these goals:</p>
+       <ul>
+        <li style="font-family: 'Times New Roman', Times, Serif;">The lines are written in sorted order by Part value by using the <a href="../JavaScript Object Reference/spstringmap.html#getSortedKeys"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">getSortedKeys</span></a> method to get the list of Part values.</li>
+        <li style="font-family: 'Times New Roman', Times, Serif;">The list of Name values associated with each Part type is listed on the line in sorted order by using the <a href="../JavaScript Object Reference/sparray.html#sort"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">sort</span></a> method of the SPArray object used to store the list of device names for that Part value.</li>
+        <li style="font-family: 'Times New Roman', Times, Serif;">Name items are separated by commas.</li>
+       </ul>
+       <p style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-size: 14px;">keys = list.getSortedKeys();<br>for (i = 0; i &lt; keys.length; i++)<br>{<br>&nbsp;&nbsp;names = list.get(keys[i]);<br>&nbsp;&nbsp;names.sort();<br>&nbsp;&nbsp;outFile.writeText(keys[i] + &quot;\t&quot;);&nbsp;// Write out Part value<br>&nbsp;&nbsp;for (j = 0; j &lt; names.length; j++)<br>&nbsp;&nbsp;&nbsp;if (j &gt; 0) outFile.writeText(&quot;, &quot; + names[j]);<br>&nbsp;&nbsp;&nbsp;&nbsp;else outFile.writeText(names[j]);<br>&nbsp;&nbsp;outFile.writeLine(&quot;&quot;);<br>}</span></p>
+       <h3 style="font-family: 'Times New Roman', Times, Serif;">Opening the File in an External Application</h3>
+       <p style="font-family: 'Times New Roman', Times, Serif;">The last two lines are going to immediately open the created file in the NotePad application, to save us the trouble of going to look for it.&nbsp;Note these points:</p>
+       <ul>
+        <li style="font-family: 'Times New Roman', Times, Serif;">The <a href="../JavaScript Object Reference/spfile.html#close"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">close</span></a> method of the <a href="../JavaScript Object Reference/spfile.html">SPFile</a> object does not normally have to be called explicitly as the file will be closed automatically when the script finishes. In this case, however, because we want to hand the file off to another application immediately, we have to make sure the file is closed before running NotePad.&nbsp;If we don&#8217;t do this, NotePad will generate an error saying &#8220;this file is in use in another application&#8221;.</li>
+        <li style="font-family: 'Times New Roman', Times, Serif;">The <a href="../JavaScript Object Reference/spscript.html#run"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">run</span></a> method looks in a number of standard locations, like the DesignWorks program folder and the Windows system folder to try and locate the specified application, so we don&#8217;t usually have to specify a complete file path.&nbsp;If the application is in an out-of-the-way location, you can specify the complete file path, or use a registry or environment variable to locate it.</li>
+        <li style="font-family: 'Times New Roman', Times, Serif;">You can also just pass the document name to <b><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">run</span></b>, so the command <b><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">run(outFile)</span></b> could also have been used.&nbsp;In this case, the system would try and open the file using whatever application was appropriate for your output file, based on the file extension you specified when you saved it.&nbsp;In this sense, the <b><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">run</span></b> method is essentially the same as double-clicking on the file in Windows Explorer.</li>
+       </ul>
+       <p style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace;"><span style="font-size: 14px;">outFile.close();<br>run(&quot;NotePad.exe&quot;, outFile);<br></span><span style="font-family: 'Times New Roman', Times, Serif;"></span>&nbsp;</p>
+       <p>&nbsp;</p>
+      </td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0">
+     <tr valign="top" align="left">
+      <td width="8" height="29"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="560" class="TextNavBar" style="text-align: center;">[<a href="./index.html">JavaScript&nbsp;Home</a>] [<a href="./designworks_object_model.html">DesignWorks&nbsp;Object&nbsp;Model</a>] [<a href="./examples.html">Examples</a>] [Report&nbsp;Device&nbsp;Attributes] [<a href="./updating_library_attributes.html">Updating&nbsp;Library&nbsp;Attributes</a>] [<a href="./create_device_symbol.html">Create&nbsp;Device&nbsp;Symbol</a>] [<a href="./create_a_circuit.html">Create&nbsp;a&nbsp;Circuit</a>] [<a href="./the_browser_panel___html_dialo.html">The&nbsp;Browser&nbsp;Panel&nbsp;&amp;&nbsp;HTML&nbsp;Dialogs</a>] [<a href="./invoking_a_script.html">Invoking&nbsp;a&nbsp;Script</a>]</td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+</body>
+</html>
+ 

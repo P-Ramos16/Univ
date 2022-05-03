@@ -1,0 +1,132 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>DesignWorks Professional for Windows</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META NAME="Generator" CONTENT="NetObjects Fusion 8 for Windows">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../html/style.css">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="../html/site.css">
+</HEAD>
+<BODY STYLE="margin: 0px;">
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD WIDTH="10"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="10" HEIGHT="1" BORDER="0" ALT=""></TD>
+            <TD WIDTH="670" CLASS="TextNavBar" STYLE="text-align: left;">[<A HREF="../index.html">Home</A>] [<A HREF="../html/sim_specs.html">Sim&nbsp;Specs</A>] [<A HREF="../html/vhdl_features.html">VHDL&nbsp;Features</A>] [VHDL&nbsp;Language]</TD>
+        </TR>
+    </TABLE>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="710">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD WIDTH="10" HEIGHT="18"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="10" HEIGHT="1" BORDER="0" ALT=""></TD>
+            <TD WIDTH="700"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="700" HEIGHT="1" BORDER="0" ALT=""></TD>
+        </TR>
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD></TD>
+            <TD WIDTH="700" CLASS="TextObject">
+                <H1>VHDL Implementation in DesignWorks Professional</H1>
+                <P>The DesignWorks Simulator Option now includes ability&nbsp;to create simulation models using the VHDL language. However, DesignWorks does&nbsp;not implement 100% of the VHDL language standard.&nbsp; In order to provide a useful&nbsp;product while still being able to sell it at a reasonable price, we have omitted&nbsp;some of the more advanced features of the language in this version.&nbsp; We have&nbsp;tried to provide a useful set of features that will allow small to medium scale&nbsp;designs to be fully implemented and allow the concepts and exercises in commonly&nbsp;used textbooks to be executed This note lists the language features that have&nbsp;been restricted or omitted.</P>
+                <H2>VHDL Keywords&nbsp;Not Implemented</H2>
+                <P>The language features associated with the following&nbsp;keywords are not implemented:</P>
+                <UL>
+                    <LI CLASS="List1">ACCESS </LI>
+                    <LI CLASS="List1">ALIAS </LI>
+                    <LI CLASS="List1">ATTRIBUTE </LI>
+                    <LI CLASS="List1">BUFFER </LI>
+                    <LI CLASS="List1">CONFIGURATION </LI>
+                    <LI CLASS="List1">DISCONNECT </LI>
+                    <LI CLASS="List1">FILE </LI>
+                    <LI CLASS="List1">GENERATE </LI>
+                    <LI CLASS="List1">GROUP </LI>
+                    <LI CLASS="List1">LABEL </LI>
+                    <LI CLASS="List1">NEW </LI>
+                    <LI CLASS="List1">PORT MAP on BLOCK </LI>
+                    <LI CLASS="List1">POSTPONED process </LI>
+                    <LI CLASS="List1">PROTECTED </LI>
+                    <LI CLASS="List1">REAL </LI>
+                    <LI CLASS="List1">RECORD </LI>
+                    <LI CLASS="List1">SHARED </LI>
+                    <LI CLASS="List1">TRANSPORT/INERTIAL/REJECT </LI>
+                    <LI CLASS="List1">UNITS </LI>
+                    <LI CLASS="List1">STABLE QUIET TRANSACTION and DELAYED </LI>
+                </UL>
+                <H2 STYLE="list-style-type: none;"><B>Other VHDL&nbsp;Features Not Implemented</B></H2>
+                <P STYLE="list-style-type: none;">In addition, some specific syntactical features, or&nbsp;unusual operations on some data types have not been implemented, including:</P>
+                <UL>
+                    <LI CLASS="List1">named associations in aggregates </LI>
+                    <LI CLASS="List1">operator overloading </LI>
+                    <LI CLASS="List1">extended identifiers </LI>
+                    <LI CLASS="List1">physical type declaration </LI>
+                    <LI CLASS="List1">enumerated character type declaration </LI>
+                    <LI CLASS="List1">user-defined resolution functions </LI>
+                    <LI CLASS="List1">register types </LI>
+                    <LI CLASS="List1">inertial delay model </LI>
+                    <LI CLASS="List1">attributes: only the following attributes are&nbsp;implemented: </LI>
+                    <UL>
+                        <LI>RANGE </LI>
+                        <LI>LENGTH </LI>
+                        <LI>LEFT </LI>
+                    </UL>
+                </UL>
+                <H2 STYLE="list-style-type: none;"><B>Standard&nbsp;Libraries Supported in DesignWorks</B></H2>
+                <P STYLE="list-style-type: none;">LogicWorks supports only the following standard libraries:</P>
+                <UL>
+                    <LI>SYSTEM </LI>
+                    <LI>STD_LOGIC_1164 - subtypes X01, X01Z, UX01 and UX01Z are not implemented </LI>
+                    <LI>STD_LOGIC_ARITH </LI>
+                </UL>
+                <P STYLE="list-style-type: none;">The above packages are hardwired into the compiler for maximum speed and&nbsp;compactness.&nbsp; In general, other packages cannot be used without some massaging&nbsp;because the standard source code uses VHDL features that are not yet implement&nbsp;in DesignWorks.</P>
+                <H2 STYLE="list-style-type: none;"><B>Other&nbsp;Implementation Notes</B></H2>
+                <H3>Compilation&nbsp;Units</H3>
+                <P STYLE="list-style-type: none;">The VHDL compiler in LogicWorks will only accept a&nbsp;single ENTITY/ARCHITECTURE pair or PACKAGE/PACKAGE BODY pair per file.</P>
+                <H3>Signal Values&nbsp;in VHDL Simulations</H3>
+                <P STYLE="list-style-type: none;">When you compile a VHDL file in LogicWorks, the program actually generates a&nbsp;structural circuit consisting of the various blocks described in the code. Each&nbsp;process (including signal assignments or other constructs that create an&nbsp;implicit process) creates a device with signal inputs and outputs.&nbsp; The existing&nbsp;LogicWorks simulator simulates the signal interconnections between these process&nbsp;blocks. This gives considerable flexibility in interconnecting structural and&nbsp;VHDL components, but places some restrictions on signal values, including:</P>
+                <UL>
+                    <LI CLASS="List1">Signals declared in VHDL can only be bit, std_logic, boolean or integer&nbsp;types or 1-dimensional arrays of bit, std_logic or boolean. </LI>
+                    <LI CLASS="List1">Signals are always resolved and use the DesignWorks simulator&#8217;s resolving&nbsp;algorithm.&nbsp; Non-resolved types can be declared but are always implemented as&nbsp;resolved. User-defined resolution functions are not supported. </LI>
+                    <LI CLASS="List1">The &#8216;inertial&#8217; delay specification is ignored. </LI>
+                    <LI CLASS="List1">The &#8216;register&#8217; designation on a signal is ignored.</LI>
+                    <P>&nbsp;</P>
+                </UL>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="631">
+        <TR VALIGN="TOP" ALIGN="LEFT">
+            <TD>
+                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="74">
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD WIDTH="10" HEIGHT="231"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="10" HEIGHT="1" BORDER="0" ALT=""></TD>
+                        <TD WIDTH="64"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="64" HEIGHT="1" BORDER="0" ALT=""></TD>
+                    </TR>
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD></TD>
+                        <TD WIDTH="64" CLASS="TextObject">
+                            <P><A HREF="../index.html"><IMG ID="Picture28" HEIGHT="66" WIDTH="49" SRC="../assets/images/home.gif" VSPACE="0" HSPACE="0" ALIGN="TOP" BORDER="0" ALT="home" TITLE="home"></A></P>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+            <TD>
+                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="557">
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD WIDTH="53" HEIGHT="241"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="53" HEIGHT="1" BORDER="0" ALT=""></TD>
+                        <TD WIDTH="504"><IMG SRC="../assets/images/autogen/clearpixel.gif" WIDTH="504" HEIGHT="1" BORDER="0" ALT=""></TD>
+                    </TR>
+                    <TR VALIGN="TOP" ALIGN="LEFT">
+                        <TD></TD>
+                        <TD WIDTH="504" CLASS="TextObject">
+                            <FORM NAME="DontShowForm" ACTION="" method="POST">
+                                <P STYLE="text-align: center;"><SPAN STYLE="font-size: xx-small;"><TABLE STYLE="font-size: xx-small;" ID="DontTable" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+<TR><TD>                                                                                                                                             <INPUT ID="DontShow" TYPE=CHECKBOX NAME="DontShow" VALUE="DontShow" onclick="set_dont_show_state(DontShow.checked);">                                                                                      </TD><TD>
+<DIV ID="DontText">Don't show this window at startup</DIV></TD>                                                      </TR></TABLE>
+<BR>Copyright 2006 by Capilano Computing Systems Ltd. All rights reserved.<BR>[<A HREF="http://www.capilano.com" TARGET="_blank">Click here for the Capilano Computing Web Site</A>]<BR>[<A HREF="../index.html" TARGET="_blank">Click here to open this window in a separate browser</A>]</SPAN></P>
+                            </FORM>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+</BODY>
+</HTML>
+ 

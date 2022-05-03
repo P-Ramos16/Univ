@@ -1,0 +1,103 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script displays an HTML dialog allowing the user
+// to select one of a number of preset values for the Part attribute
+
+
+// First, check for a current circuit and at least one selected device
+
+cct = currentCircuit;
+if (cct == null)
+{
+	alert("There is no current design!");
+	halt;
+}
+
+devices = cct.devices(1);
+num = devices.length;
+if (num == 0)	// If nothing is selected, get them all
+{
+	alert("There are no devices selected!");
+	halt;
+}
+
+
+// See if all devices have the same Part value
+// We will post a warning later if they don't
+
+partValue = "";
+spinValue = "";
+notesValue = "";
+differentValues = false;
+for (i = 0; i < num; i++)
+{
+	newValue = devices[i].getAttribute("Part");
+	if (partValue == "")
+	{
+		partValue = newValue;
+	}
+	else if (newValue != partValue)
+	{
+		differentValues = true;
+	}
+
+	newValue = devices[i].getAttribute("Spin");
+	if (spinValue == "")
+	{
+		spinValue = newValue;
+	}
+	else if (newValue != spinValue)
+	{
+		differentValues = true;
+	}
+
+	newValue = devices[i].getAttribute("Notes");
+	if (notesValue == "")
+	{
+		notesValue = newValue;
+	}
+	else if (notesValue != notesValue)
+	{
+		differentValues = true;
+	}
+}
+
+
+// Display an HTML dialog
+
+box = SPHTMLDialog();
+
+f = SPFile();
+f.setScriptPath("device_properties/");
+
+urls = SPArray(f + "devprops.htm",
+               f + "help.htm");			// 2 pages
+
+// Set control values
+
+box.setValue("Warning", differentValues ? "<b>Caution: The selected devices do not all have the same settings.  Clicking OK will set them all to the new selected values</b>" : "");
+box.setValue("PartValue", partValue);
+box.setValue("Spin", spinValue);
+box.setValue("Notes", notesValue);
+
+title = "Device Properties";
+
+// Call up the properties box
+
+if (!box.doDialog(urls, title, 650, 400)) halt();
+
+
+// Set the selected devices with the new value from the control
+
+for (i = 0; i < num; i++)
+{
+	devices[i].setAttribute("Part", box.getValue("PartValue"));
+	devices[i].setAttribute("Spin", box.getValue("Spin"));
+	devices[i].setAttribute("Notes", box.getValue("Notes"));
+}
+

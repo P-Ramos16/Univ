@@ -1,0 +1,363 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWTypePin</H1>
+<P>The DWTypePin object represents a pin on a device type definition. The DWTypePin object is used to get access to information about the pin, such as default pin attributes, pin position, function and direction. <p>A DWTypePin object is not created directly, but is returned by methods of DWType, such as <A HREF="DWType.html#pins">DWType.pins</A></p>. <p>Modifications are not allowed to type definitions that are currently in use in a design. The methods and properties that cause changes to the pin definition can only be used on type objects that have just been created or read from a library and are not in use yet.</p></P>
+<DIR>
+<LI><A HREF="#attributeList">
+attributeList</a>
+ - Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</LI>
+<LI><A HREF="#direction">
+direction</a>
+ - Get or set the pin's visible direction on the symbol (north, south, east, west). This is also used to set invisible and bus internal pins.</LI>
+<LI><A HREF="#func">
+func</a>
+ - Get or set the pin's function (i.e. input, output, etc.).</LI>
+<LI><A HREF="#getAttribute">
+getAttribute</a>
+ - Gets an attribute value from this object</LI>
+<LI><A HREF="#getAttributeVis">
+getAttributeVis</a>
+ - Gets the visibility of an attribute on this object</LI>
+<LI><A HREF="#isBus">
+isBus</a>
+ - Returns true if this pin is a bus.</LI>
+<LI><A HREF="#name">
+name</a>
+ - Get or set the pin's name.</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWTypePin".</LI>
+<LI><A HREF="#pinLength">
+pinLength</a>
+ - Get or set the pin's length.</LI>
+<LI><A HREF="#pinNum">
+pinNum</a>
+ - Get or set the pin's default pin number.</LI>
+<LI><A HREF="#posX">
+posX</a>
+ - Get or set the pin's X position on the symbol.</LI>
+<LI><A HREF="#posY">
+posY</a>
+ - Get or set the pin's Y position on the symbol.</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the type containing this pin is in use in a circuit. No changes can be made to a type definition that is in use.</LI>
+<LI><A HREF="#setAttribute">
+setAttribute</a>
+ - Sets an attribute value in this object</LI>
+<LI><A HREF="#setAttributeVis">
+setAttributeVis</a>
+ - Sets the visibility of an attribute value in this object</LI>
+</DIR>
+<a name="attributeList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>attributeList</B></FONT></P>
+<P>Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>attributeList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>attributeList</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns or accepts an SPArray of DWAttribute objects</P>
+<H3>Remarks:</H3><P>
+You can always get this property, but you cannot set it on a type that is already instantiated in a circuit, or was loaded from a library. This can only be set for a DWTypePin object that was created within the script.
+</P>
+<a name="direction"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>direction</B></FONT></P>
+<P>Get or set the pin's visible direction on the symbol (north, south, east, west). This is also used to set invisible and bus internal pins.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#char">char</A></td>
+</I> = <B>direction</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>direction</B> = <I><A HREF = "index.html#char">char</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+A pin's direction is determined by a single character, which must be one of the following: <table> <tr><td>NORTH</td><td>N</td></tr> <tr><td>SOUTH</td><td>S</td></tr> <tr><td>EAST</td><td>E</td></tr> <tr><td>WEST</td><td>W</td></tr> <tr><td>INVISIBLE</td><td>I</td></tr> <tr><td>BUS INTERNAL</td><td>B</td></tr> </table> <p>See the example under <A HREF=#func>func</A></p>
+</P>
+<a name="func"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>func</B></FONT></P>
+<P>Get or set the pin's function (i.e. input, output, etc.).</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#char">char</A></td>
+</I> = <B>func</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>func</B> = <I><A HREF = "index.html#char">char</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+A pin's function is determined by a single character, which must be one of the following: <table> <tr><td>IN</td><td>I</td></tr> <tr><td>OUT</td><td>O</td></tr> <tr><td>3STATE</td><td>3</td></tr> <tr><td>BIDIR</td><td>B</td></tr> <tr><td>PULLUP</td><td>U</td></tr> <tr><td>OC</td><td>C</td></tr> <tr><td>UNDEFINED</td><td>X</td></tr> <tr><td>BUS</td><td>S</td></tr> <tr><td>LOW</td><td>L</td></tr> <tr><td>HIGH</td><td>H</td></tr> <tr><td>LTCHIN</td><td>W</td></tr> <tr><td>LTCHOUT</td><td>Y</td></tr> <tr><td>CLKIN</td><td>K</td></tr> <tr><td>CLKOUT</td><td>Q</td></tr> <tr><td>CLOCK</td><td>R</td></tr> <tr><td>OE</td><td>E</td></tr> <tr><td>NC</td><td>N</td></tr> <tr><td>POWER</td><td>P</td></tr> <tr><td>DRIVER</td><td>D</td></tr> <tr><td>ANALOG</td><td>A</td></tr> </table>
+</P>
+<H3>Example:</H3><P><PRE>
+// Creating a bus/bundle pin
+
+t = DWType();
+numInternalPins = 4;
+t.numPins = numInternalPins +1;        // Extra pin for the bus/bundle pin itself
+
+pins = t.pins;    // Get the pin list so we can set info on each pin
+
+// Run through input pins and set position and name.
+// The crucial issue for bus/bundle pins is order.
+// The visible bus pin, must be first and its "func" must be "S".
+// The internal pins must follow and have a "direction" of "B".
+// Once any pin is added with a "direction" other than "B", that's
+// the end of the internal pins for this bus pin.
+
+x = 0; y = 140;
+pins[0].posX = x;
+pins[0].posY = y;
+pins[0].name = "P";
+pins[0].func = 'S';           // S for buS
+pins[0].direction = 'W';  // W for West
+
+// The x/y position for the bus internal pins doesn't matter, never used
+
+for (p = 1; p &lt;= numInternalPins; p++)
+{
+    pins[p].name = "P"+(p-1);     // Make a nice name, can be anything you want,
+                                    // as long as there are no duplicates
+    pins[p].func = 'P';               // I for Input, can be whatever you want
+    pins[p].direction = 'B';      // B for Bus internal pin
+}
+</PRE></P>
+<a name="getAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttribute</B></FONT></P>
+<P>Gets an attribute value from this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getAttribute</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string representing the value of the specified attribute field. This string will be empty (zero length) if the field does not exist.</P>
+<a name="getAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttributeVis</B></FONT></P>
+<P>Gets the visibility of an attribute on this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getAttributeVis</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the field is displayed on the schematic, false otherwise</P>
+<a name="isBundle"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isBundle</B></FONT></P>
+<P>Returns true if this pin is a bundle.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>isBundle</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property is read-only.
+</P>
+<a name="isBus"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isBus</B></FONT></P>
+<P>Returns true if this pin is a bus.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>isBus</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property is read-only.
+</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Get or set the pin's name.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>name</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>name</B> = <I><A HREF = "index.html#String">String</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+A pin name is limited to 16 characters. No changes can be made to a type that is instantiated in a circuit.
+</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWTypePin".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="pinLength"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>pinLength</B></FONT></P>
+<P>Get or set the pin's length.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> = <B>pinLength</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>pinLength</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+Length is measured in 1/1000" and must be a multiple of the grid size of 70 units.
+</P>
+<a name="pinNum"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>pinNum</B></FONT></P>
+<P>Get or set the pin's default pin number.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>pinNum</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>pinNum</B> = <I><A HREF = "index.html#String">String</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+Pin numbers can be any characters, but are limited to 4 characters length.
+</P>
+<a name="posX"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>posX</B></FONT></P>
+<P>Get or set the pin's X position on the symbol.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> = <B>posX</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>posX</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+Positions are measured in 1/1000" <p>See the example under <A HREF=#func>func</A></p>
+</P>
+<a name="posY"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>posY</B></FONT></P>
+<P>Get or set the pin's Y position on the symbol.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> = <B>posY</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>posY</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Remarks:</H3><P>
+Positions are measured in 1/1000" <p>See the example under <A HREF=#func>func</A></p>
+</P>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the type containing this pin is in use in a circuit. No changes can be made to a type definition that is in use.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="setAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttribute</B></FONT></P>
+<P>Sets an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>How to set visibility of resulting attribute text. 0 (false) = hide, 1 (true) = show, 2 = use default setting in design's attribute table, -1 = leave current visibility If this parameter is not supplied, 2 is assumed.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value for the specified field</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Null.</P>
+<a name="setAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttributeVis</B></FONT></P>
+<P>Sets the visibility of an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttributeVis</B>(fieldName, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to make the attribute visible, false to hide it</td>
+  </tr>
+  </tbody>
+  </table>
+</BODY>
+</HTML>

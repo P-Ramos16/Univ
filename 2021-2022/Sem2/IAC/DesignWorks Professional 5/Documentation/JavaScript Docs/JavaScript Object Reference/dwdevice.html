@@ -1,0 +1,626 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWDevice</H1>
+<P>A DWDevice object represents a device instance in a DesignWorks circuit. A variety of methods are available for getting and setting device attributes and other internal values. DWDevice objects are not created directly, but are returned by methods of other objects such as <A HREF="DWCircuit.html#addDevice">DWCircuit.addDevice</A>.</P>
+<DIR>
+<LI><A HREF="#attributeList">
+attributeList</a>
+ - Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</LI>
+<LI><A HREF="#circuit">
+circuit</a>
+ - Gets the circuit containing this object. Read-only</LI>
+<LI><A HREF="#detachedType">
+detachedType</a>
+ - Gets an independent type definition representing the device as it currently appears in the circuit.</LI>
+<LI><A HREF="#fillColor">
+fillColor</a>
+ - Gets or sets the fill color for this device.</LI>
+<LI><A HREF="#frame">
+frame</a>
+ - Gets a rectangle bounding the device.</LI>
+<LI><A HREF="#getAttribute">
+getAttribute</a>
+ - Gets an attribute value from this object</LI>
+<LI><A HREF="#getAttributeVis">
+getAttributeVis</a>
+ - Gets the visibility of an attribute on this object</LI>
+<LI><A HREF="#lineColor">
+lineColor</a>
+ - Gets or sets the line color for this device.</LI>
+<LI><A HREF="#locator">
+locator</a>
+ - Gets the locator string of the circuit</LI>
+<LI><A HREF="#makeUnique">
+makeUnique</a>
+ - Isolates the type definition of this device so that it is no longer the same as others that were created from the same library part. That is, updates or modifications to the original type will no longer affect this device.</LI>
+<LI><A HREF="#name">
+name</a>
+ - Gets the name of the device</LI>
+<LI><A HREF="#numPins">
+numPins</a>
+ - Gets the number of pins on this device.</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWDevice".</LI>
+<LI><A HREF="#orientation">
+orientation</a>
+ - Get the device symbol's orientation.</LI>
+<LI><A HREF="#pageNum">
+pageNum</a>
+ - Gets the page number that the device is located on in the circuit.</LI>
+<LI><A HREF="#pins">
+pins</a>
+ - Gets an array of DWPin objects representing the connections to the device.</LI>
+<LI><A HREF="#posX">
+posX</a>
+ - Get the device's X position on the diagram.</LI>
+<LI><A HREF="#posY">
+posY</a>
+ - Get the device's Y position on the diagram.</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the circuit containing this object is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</LI>
+<LI><A HREF="#remove">
+remove</a>
+ - Removes (deletes) the associated signal from its circuit.</LI>
+<LI><A HREF="#select">
+select</a>
+ - Sets the associated signal to be selected, as if the user had clicked on it.</LI>
+<LI><A HREF="#setAttribute">
+setAttribute</a>
+ - Sets an attribute value in this object</LI>
+<LI><A HREF="#setAttributeVis">
+setAttributeVis</a>
+ - Sets the visibility of an attribute value in this object</LI>
+<LI><A HREF="#signalNames">
+signalNames</a>
+ - Gets a list of the names of signals attached to the device's pins, or sets the names of the attached signals from a given list.</LI>
+<LI><A HREF="#simRequestNotification">
+simRequestNotification</a>
+ - Requests that a method in the current script be called when a specified simulation event occurs on this device</LI>
+<LI><A HREF="#simUnrequestNotification">
+simUnrequestNotification</a>
+ - Requests that a previously-requested notification be removed</LI>
+<LI><A HREF="#subCircuit">
+subCircuit</a>
+ - Gets a DWCircuit object representing the subcircuit of the device.</LI>
+<LI><A HREF="#type">
+type</a>
+ - Gets or sets the type definition for the device.</LI>
+<LI><A HREF="#window">
+window</a>
+ - Gets a DWWindow object that allows drawing on the device</LI>
+</DIR>
+<a name="attributeList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>attributeList</B></FONT></P>
+<P>Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>attributeList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>attributeList</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns or accepts an SPArray of DWAttribute objects</P>
+<a name="circuit"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>circuit</B></FONT></P>
+<P>Gets the circuit containing this object. Read-only</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> <B>circuit</B>();
+</P>
+</FONT>
+<a name="detachedType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>detachedType</B></FONT></P>
+<P>Gets an independent type definition representing the device as it currently appears in the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWType">DWType</A></td>
+</I> <B>detachedType</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWType object representing the device instance including any changes made to rotation, subcircuit or attributes.</P>
+<H3>Remarks:</H3><P>
+<p>NOTE: The DWType object returned by this method is a copy independent of the current design and can be edited as desired..</p>
+</P>
+<a name="fillColor"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>fillColor</B></FONT></P>
+<P>Gets or sets the fill color for this device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>fillColor</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>fillColor</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an integer representing the color. Zero means no color (i.e. the default), 1 - 20 are the built-in system colors, any 32-bit number with the top bit set (0x80bbggrr) will be used as a 24-bit RGB color.</P>
+<H3>Remarks:</H3><P>
+<p>NOTE: When setting the color of a device, only filled shapes that are stored with the default background color (i.e. white) have the new color applied to them. Non-default fills are not affected.</p> <p>This call does not modify the symbol definition, but only settings the drawing parameters for this particular device</p>
+</P>
+<a name="frame"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>frame</B></FONT></P>
+<P>Gets a rectangle bounding the device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Rect">Rect</A></td>
+</I> <B>frame</B>();
+</P>
+</FONT>
+<a name="getAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttribute</B></FONT></P>
+<P>Gets an attribute value from this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getAttribute</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string representing the value of the specified attribute field. This string will be empty (zero length) if the field does not exist.</P>
+<a name="getAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttributeVis</B></FONT></P>
+<P>Gets the visibility of an attribute on this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getAttributeVis</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the field is displayed on the schematic, false otherwise</P>
+<a name="getEMTPPhases"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getEMTPPhases</B></FONT></P>
+<P>Gets the number of phases of all power signals attached to the device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>getEMTPPhases</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns 3 for a 3-phase device, 1 for a device connected to 1-phase power signals only, 0 for a device with no power connections, -1 for an error or conflict.</P>
+<a name="lineColor"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lineColor</B></FONT></P>
+<P>Gets or sets the line color for this device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>lineColor</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>lineColor</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an integer representing the color. Zero means no color (i.e. the default), 1 - 20 are the built-in system colors, any 32-bit number with the top bit set (0x80bbggrr) will be used as a 24-bit RGB color.</P>
+<H3>Remarks:</H3><P>
+<p>NOTE: When setting the color of a device, only lines that are stored with the default foreground color (i.e. black) have the new color applied to them. Non-default lines are not changed.</p> <p>This call does not modify the symbol definition, but only settings the drawing parameters for this particular device</p>
+</P>
+<a name="locator"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>locator</B></FONT></P>
+<P>Gets the locator string of the circuit</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>locator</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+The locator string identifies an object within a hierarchical circuit structure and provides a unique way of identifying this object despite duplicate or non-existant names.
+</P>
+<a name="makeUnique"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>makeUnique</B></FONT></P>
+<P>Isolates the type definition of this device so that it is no longer the same as others that were created from the same library part. That is, updates or modifications to the original type will no longer affect this device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>makeUnique</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>makeUnique</B>(doChildren);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>makeUnique</B>(doChildren, doAllOfSameType);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>makeUnique</B>(doChildren, doAllOfSameType, newTypeName);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>makeUnique</B>(doChildren, doAllOfSameType, newTypeName, newPartName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>newPartName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new contents for the Part attribute. If empty, no change is made. If the "doChildren" parameter is TRUE, this name only applies to the top level device, all child devices will retain their original name. Defaults to empty.</td>
+  </tr>
+  <tr>
+    <td>doChildren</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to apply the make unique operation to all devices in this device's subcircuit and any nested subcircuits. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>doAllOfSameType</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to apply the make unique operation to all devices that currently share the same type definition in this design. I.e. after this operation they will all share the new, isolated type definition. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>newTypeName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new name for the type definition, i.e. the name that will appear in the library part list. If empty, no change is made. If the "doChildren" parameter is TRUE, this name only applies to the top level device, all child devices will retain their original name. Defaults to empty.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if operation succeeded, false if any error</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Gets the name of the device</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>name</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+This is a read-only property.
+</P>
+<a name="numPins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>numPins</B></FONT></P>
+<P>Gets the number of pins on this device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>numPins</B>();
+</P>
+</FONT>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWDevice".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="orientation"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>orientation</B></FONT></P>
+<P>Get the device symbol's orientation.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#char">char</A></td>
+</I> = <B>orientation</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+A device's orientation is determined by a single character, which will be one of the following: <table> <tr><td>NORTH</td><td>N</td></tr> <tr><td>NORTHFLIP</td><td>n</td></tr> <tr><td>SOUTH</td><td>S</td></tr> <tr><td>SOUTHFLIP</td><td>s</td></tr> <tr><td>EAST</td><td>E</td></tr> <tr><td>EASTFLIP</td><td>e</td></tr> <tr><td>WEST</td><td>W</td></tr> <tr><td>WESTFLIP</td><td>w</td></tr> <tr><td>INVISIBLE</td><td>I</td></tr> </table>
+</P>
+<a name="pageNum"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>pageNum</B></FONT></P>
+<P>Gets the page number that the device is located on in the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>pageNum</B>();
+</P>
+</FONT>
+<a name="pins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>pins</B></FONT></P>
+<P>Gets an array of DWPin objects representing the connections to the device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWArray">DWArray</A></td>
+</I> <B>pins</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWArray object containing a DWPin object for each pin.</P>
+<a name="posX"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>posX</B></FONT></P>
+<P>Get the device's X position on the diagram.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> = <B>posX</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+Positions are measured in 1/1000"
+</P>
+<a name="posY"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>posY</B></FONT></P>
+<P>Get the device's Y position on the diagram.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> = <B>posY</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+Positions are measured in 1/1000"
+</P>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the circuit containing this object is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="remove"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>remove</B></FONT></P>
+<P>Removes (deletes) the associated signal from its circuit.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>remove</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+Any subsequent references to this DWSignal object will fail with an exception since the associated circuit signal is gone.
+</P>
+<a name="select"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>select</B></FONT></P>
+<P>Sets the associated signal to be selected, as if the user had clicked on it.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>(show);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>(show, deselOthers);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>deselOthers</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to deselect all other circuit objects before selecting this one. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>show</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to have the page containing the object opened and scrolled as needed to display it. Defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="setAttribute"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttribute</B></FONT></P>
+<P>Sets an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>How to set visibility of resulting attribute text. 0 (false) = hide, 1 (true) = show, 2 = use default setting in design's attribute table, -1 = leave current visibility If this parameter is not supplied, 2 is assumed.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value for the specified field</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Null.</P>
+<H3>Remarks:</H3><P>
+If the given field name is not defined in the design's attribute table, it is added automatically. It is preferable to ensure that any fields used are already defined in the target design to make sure the settings are appropriate.
+</P>
+<a name="setAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttributeVis</B></FONT></P>
+<P>Sets the visibility of an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttributeVis</B>(fieldName, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to make the attribute visible, false to hide it</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="signalNames"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>signalNames</B></FONT></P>
+<P>Gets a list of the names of signals attached to the device's pins, or sets the names of the attached signals from a given list.</P>
+<FONT SIZE=+1>
+<P><B>signalNames</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>signalNames</B></P>
+</FONT>
+<H3>Returns:</H3><P>Retrieving this property returns an SPArray object with each element being a string.</P>
+<H3>Remarks:</H3><P>
+This property is intended for saving an restoring names of attached signals when deletting and replacing a device. When getting signal names, a name is left empty if it is invisible and has a default value. Similarly, on setting this property, the signal corresponding to an empty entry will be left unchanged.
+</P>
+<a name="simRequestNotification"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simRequestNotification</B></FONT></P>
+<P>Requests that a method in the current script be called when a specified simulation event occurs on this device</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simRequestNotification</B>(scriptObject, name1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>scriptObject</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An object containing the script methods to call. In practice, this is usually the top level "document" object in an HTML page</td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the notification desired. The script must contain a method with exactly this name. This method will be called with a single argument, the CRDevice object for this device. See below for possible notification names.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<p>NOTE: Only available if DesignWorks Digital Simulator Option is installed</p> <p>Only one notification is implemented at this time.</p> <table border=1><tr><td>onInputChange</td><td>Invoked if the signal value on any device input pin changes</td></tr></table>
+</P>
+<a name="simUnrequestNotification"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>simUnrequestNotification</B></FONT></P>
+<P>Requests that a previously-requested notification be removed</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>simUnrequestNotification</B>(scriptObject, name1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>scriptObject</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An object containing the script methods to call. In practice, this is usually the top level "document" object in an HTML page</td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the notification desired. The script must contain a method with exactly this name. This method will be called with a single argument, the CRDevice object for this device. See below for possible notification names.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<p>NOTE: Only available if DesignWorks Digital Simulator Option is installed</p> <p>The arguments must be exactly the same as for simRequestNotification</p>
+</P>
+<a name="subCircuit"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>subCircuit</B></FONT></P>
+<P>Gets a DWCircuit object representing the subcircuit of the device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> <B>subCircuit</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWCircuit object or null if the device has no subcircuit. The returned object represents the actual circuit in use in the design and should be modified with care.</P>
+<a name="type"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>type</B></FONT></P>
+<P>Gets or sets the type definition for the device.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWType">DWType</A></td>
+</I> <B>type</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>type</B> = <I><A HREF = "index.html#DWType">DWType</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWType object representing the device type definition for this device.</P>
+<H3>Remarks:</H3><P>
+<p>NOTE: When retrieving the type of a device, the type definiton is locked because it is in use in the design. No changes can be made to the type. To get a copy of the type that can be edited, use <A HREF="#detachedType">detachedType</A></p> <p>The type returned by this method is the type (symbol) definition used by the device and does not include any changes made to attributes or rotation in the circuit.</p> <p>Setting a new value for a device's type effectively deletes and replaces the device, which may cause arbitrary connection and other changes in the circuit.</p>
+</P>
+<a name="window"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>window</B></FONT></P>
+<P>Gets a DWWindow object that allows drawing on the device</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWWindow">DWWindow</A></td>
+</I> <B>window</B>();
+</P>
+</FONT>
+</BODY>
+</HTML>

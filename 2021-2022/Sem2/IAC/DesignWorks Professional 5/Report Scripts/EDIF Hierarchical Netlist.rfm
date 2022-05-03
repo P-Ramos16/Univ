@@ -1,0 +1,215 @@
+{
+	EDIF Netlist script
+	C. Dewhurst  March 6, 2000
+	Copyright 2000 by Capilano Computing Systems Ltd.
+	All rights reserved.
+}
+$NOTES
+This script generates a generic EDIF hierarchical netlist from a flat or hierarchical design.
+This netlist format is primarily intended for simulators or FPGA tools that do not need
+physical package and pin number information.  Subcircuit blocks are defined only once
+so there is nowhere to put physical package information for multiple instances.
+
+It is quite likely that you will have to output additional properties (attributes) for device
+instances, depending on the requirements of the receiving system.  See the lines below
+with the EIDF "(property" tag in them and use these lines as a guide for putting out
+more properties if necessary.
+
+- IMPORTANT: Names are NOT CASE SENSITIVE in EDIF even though they are in DesignWorks.  If you have
+a signal named "t1" and another named "T1", they will not be logically connected in DesignWorks, but
+will be effectively shorted in the EDIF netlist.  This script does not perform any checks for this error.
+
+$END
+$CREATEREPORT($DESIGNNAME.edf)
+{
+	Create EDIF header
+}
+(EDIF
+  (rename $EDIFSTRING($DESIGNPATH$DESIGNNAME.edf) "$DESIGNPATH$DESIGNNAME.edf")
+  (EDIFVersion 2 0 0)
+  (EDIFLevel 0)
+  (keywordMap
+    (keywordLevel 0))
+  (status
+    (written
+      (timeStamp $DATE($Y $m $d $h $n $s)))
+      (author "Unknown")
+      (program "DesignWorks EDIF/PC NetList"
+        (version "$DWVERSION")
+      (dataOrigin "Capilano Computing Systems Ltd.")
+    )
+  )
+  (library
+    (rename THELIBRARY "TheLibrary")
+    (EDIFLevel 0)
+    (technology
+      (numberDefinition
+        (scale 1
+          (e 252 -7)
+          (unit DISTANCE)
+        )
+      )
+    )
+{
+	This block defines the output format for a device instance in the netlist
+}
+$DEFINEBLOCK(INSTANCE)
+           \          (instance
+	$NEWLINE            (rename $EDIFSTRING($DEVNAME) "$SINGLE$DEVNAME")
+	$NEWLINE            (designator "$SINGLE$DEVNAME")
+	$NEWLINE            (viewRef NET_VIEW_1 (cellref \&$EDIFSTRING(&Part.temp)))
+	$NEWLINE            (property (rename PART "Part") (string "$SINGLE$DEVNAME&Part"))
+	$NEWLINE            (property (rename VALUE "Value") (string "$SINGLE$DEVNAME&Value"))
+	$NEWLINE            $PINS
+    $NEWLINE          )
+$END
+{
+	Define a single-level circuit.  Used for the top-level circuit and all subcircuits
+}
+$DEFINEBLOCK(EDIFBody)
+$MAXITEMSPERLINE(1)
+{
+		Create device instances
+}
+$PROGRESS(Writing device instances) $PERCENTON
+$CONTSTART(            )
+$DEVPINFORMAT (portInstance $IF($PINNUM)$EDIFSTRING($PINNAME_$PINNUM) (designator "$PINNUM")$ELSE$EDIFSTRING($PINNAME)$END)
+$FIND $DEVICES
+$SORT $DEVICES &Name.temp
+$DEVICES  $INLINE(INSTANCE)
+{
+		Create nets
+}
+$PROGRESS(Writing nets) $PERCENTON
+$CONTSTART(              )
+$SIGPINFORMAT (portRef $IF($ISPORT)$EDIFSTRING($DEVNAME)$ELSE$IF($PINNUM)$EDIFSTRING($PINNAME_$PINNUM)$ELSE$EDIFSTRING($PINNAME)$END (instanceRef $EDIFSTRING($DEVNAME))$END)
+{
+		Note: We turn on output for port connector symbols so they will be included in the pin list on
+		nets that connect up one level
+}
+$INCLUDEPORTSON
+$FIND $DEVICES
+$SORT $DEVICES &Name.temp
+$FIND $SIGNALS $NUMPINS(2)
+$SORT $SIGNALS &Name.temp
+$SIGNALS\          (net (rename $EDIFSTRING($SIGNAME) "$SINGLE$SIGNAME")$NEWLINE            (joined$NEWLINE              $PINS$NEWLINE            )$NEWLINE          )
+$INCLUDEPORTSOFF
+$END
+{
+	Define the output line for primitive devices (i.e having no subcircuit)
+}
+$DEFINEBLOCK(CELL_PRIMITIVE)
+           \    (cell
+	$NEWLINE      (rename \&$EDIFSTRING(&Part.temp) "&Part.temp")
+	$NEWLINE      (cellType GENERIC)
+	$NEWLINE      (view
+	$NEWLINE        (rename NET_VIEW_1 "NET_VIEW_1")
+	$NEWLINE        (viewType NETLIST)
+	$NEWLINE        (interface
+	$NEWLINE          $PINS
+	$NEWLINE        )
+	$NEWLINE      )
+    $NEWLINE    )
+$END
+{
+	Define the output line for subcircuit devices
+}
+$DEFINEBLOCK(CELL_SUBCCT)
+           \    (cell
+	$NEWLINE      (rename \&$EDIFSTRING(&Part.temp) "&Part.temp")
+	$NEWLINE      (cellType GENERIC)
+	$NEWLINE      (view
+	$NEWLINE        (rename NET_VIEW_1 "NET_VIEW_1")
+	$NEWLINE        (viewType NETLIST)
+	$NEWLINE        (interface
+	$NEWLINE          $PINS
+	$NEWLINE        )
+	$NEWLINE        (contents
+	$NEWLINE$SINGLE$INTERNAL(EDIFBody)
+	$NEWLINE        )
+	$NEWLINE      )
+    $NEWLINE    )
+$END
+{
+ ***** This is where we handle the tpo level I/O pins ***************************
+}
+$DEFINEBLOCK(portBody)
+$INCLUDEPORTSON
+$DEVPINFORMAT (direction $IF($REGEXP(INPUT,$PINTYPE))OUTPUT$ELSEINPUT$END)
+$FIND $DEVICES $ISPORT
+$SORT $DEVICES $DEVNAME
+$DEVICES  $INLINE(PORTOUT)
+$INCLUDEPORTSOFF
+
+$END
+$DEFINEBLOCK(PORTOUT)
+           \    	(port
+	$NEWLINE      	  (rename \&$EDIFSTRING($DEVNAME) "$UPPERCASE($DEVNAME)")
+	$NEWLINE      	  (designator "")
+	$NEWLINE	  $PINS
+    	$NEWLINE    	     )
+$END
+{
+*********************************************************************************
+}
+{
+	Definitions
+}
+$REPORTOFF
+$SIGSOURCE(Plus5V) &Power
+$SIGSOURCE(Ground) &Ground
+$DESIGNSIGSOURCE(SigSources)
+$DEFINEATTR(Part.temp/DM)
+$DEFINEATTR(Name.temp/DSM)
+{
+	Create a cell name based on type name or Part attribute
+}
+$HIERARCHY $PURE
+$DEVICES  $SETATTR(Part.temp, $IF(&Part)&Part$ELSE$TYPENAME$END)  $SETATTR(Name.temp, $UPPERCASE($DEVNAME))
+$REPORTON
+{
+	Write cell (part type) definitions for primitive items (i.e. no internal circuit)
+}
+$PROGRESS(Writing cell definitions) $PERCENTOFF
+$DEVPINFORMAT (port (rename $EDIFSTRING($PINNAME) "$IF($PINNUM)$EDIFSTRING($PINNAME_$PINNUM)$ELSE$EDIFSTRING($PINNAME)$END")(direction $PINTYPE))
+$MAXITEMSPERLINE(1)
+$CONTSTART(          )
+$FIND $DEVICES $NOT &Depth
+$SORT $DEVICES &Part.temp
+$COMBDEVSON
+$DEVICES  $INLINE(CELL_PRIMITIVE)
+{
+	Write cell (part type) definitions for subcircuit devices
+}
+$FIND $DEVICES &Depth
+$SORT $DEVICES &Depth &Part.temp
+$DEVICES  $INLINE(CELL_SUBCCT)
+{
+	Write top level cell
+}
+$HIERARCHY $TOPCIRCUIT
+    (cell
+      (rename $EDIFSTRING($DESIGNNAME) "$DESIGNNAME")
+      (cellType GENERIC)
+      (view
+        (rename NET_VIEW_0 "NET_VIEW_0")
+        (viewType NETLIST)
+        (interface
+$INCLUDE $BLOCK(portBody)
+	)
+        (contents
+$INCLUDE $BLOCK(EDIFBody)
+{	Close contents, view, top cell and library, insert design, and close EDIF
+}
+        )
+      )
+    )
+  )
+  (design
+    (rename ROOT "root")
+    (cellRef $EDIFSTRING($DESIGNNAME)
+      (libraryRef THELIBRARY)
+    )
+  )
+)
+$PROGRESS() $PERCENTON

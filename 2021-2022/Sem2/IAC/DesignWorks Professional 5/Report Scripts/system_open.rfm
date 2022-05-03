@@ -1,0 +1,14 @@
+{ This "report" will open the file specified as the first
+  argument when the script is invoked.
+  
+  This is intended for use in creating custom menus
+  using the "menu" INI file keyword.
+
+  We call $EVAL on the argument so that it can contain
+  $ commands (e.g. $DESIGNNAME).  However, this means
+  that a layer of backslashes will be stripped off by
+  the parser.  If you include a file path with backslash
+  separators, the backslashes must be doubled.
+}
+$REPORTOFF
+$SYSTEMOPEN($EVAL(&ARG1))

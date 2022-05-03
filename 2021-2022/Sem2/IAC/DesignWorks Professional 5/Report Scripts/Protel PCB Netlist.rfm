@@ -1,0 +1,52 @@
+{
+  Report form for Protel PCB
+  C. Dewhurst, Jan 16, 1991
+  C. Dewhurst, Sept. 22, 1992 - Mods for DW 3.0
+  C. Dewhurst, June 2, 1997 - Mods for DW 4.0
+  ©1991,1992,1997 Capilano Computing Systems Ltd.
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$NOTES
+This format generates a netlist file for Protel PCB.
+
+!!! It works only with a flat design. !!!
+
+Standard attribute fields used:
+
+Name
+Value
+Package
+Ground
+Power
+
+Non-standard attribute fields required:
+
+none
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$CREATEREPORT($DESIGNNAME.NET) $PROMPT $CREATOR(ttxt)
+$LINETERMINATOR $DOS
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+$BLANKREPLACE(_)
+$COMBDEVSON
+$CONTSTART()
+$SIGPINFORMAT$DEVNAME-$PINNUM
+$ASSIGNNAMES $SIGNALS
+$ASSIGNNAMES $DEVICES
+$FIND $SIGNALS $NUMPINS(2)
+$SORT $SIGNALS $SIGNAME
+$SORT $DEVICES $DEVNAME
+$MAXITEMSPERLINE(1)
+$DEVICES[$NEWLINE$DEVNAME$NEWLINE&Package$NEWLINE&Part$NEWLINE$NEWLINE$NEWLINE$NEWLINE]
+$SIGNALS($NEWLINE$BUSNAME(_)$SIGNAME$NEWLINE$PINS$NEWLINE)

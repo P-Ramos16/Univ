@@ -1,0 +1,10 @@
+/* CSS definition file containing site wide stylesheets */
+.List1 { font-size: x-small; list-style-type: square; list-style-image: url("./assets/images/bullet10x10.gif"); margin-top: 0pt;}
+ H1 { font-family: Arial,Helvetica,Geneva,Sans-serif,sans-serif; font-size: large;}
+ H2 { font-family: Arial,Helvetica,Geneva,Sans-serif,sans-serif;}
+ P { font-family: Arial,Helvetica,Geneva,Sans-serif,sans-serif; font-size: x-small;}
+ H3 { font-family: Arial,Helvetica,Geneva,Sans-serif,sans-serif;}
+ .ToDo { font-size: medium; color: rgb(204,0,0);}
+ LI { font-family: Arial,Helvetica,Geneva,Sans-serif,sans-serif;}
+ .TextNavBar { font-family: Arial,Helvetica,Geneva,Sans-serif,sans-serif;}
+ 

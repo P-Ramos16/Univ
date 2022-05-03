@@ -1,0 +1,315 @@
+/* CSS definition file containing sitestyle stylesheets */
+BODY { background-image: url( "./assets/images/background.gif" )}
+ 
+.nof_GlasgowTealSilverBanners1-Default {
+font-family:verdana; font-size:18; font-weight:700; font-style:normal; color:#008faf 
+}
+
+.nof_GlasgowTealSilverNavbar4-Regular {
+font-family:Trebuchet MS ; font-size:8; font-weight:400; font-style:normal; color:#008faf 
+}
+
+.nof_GlasgowTealSilverNavbar5-Rollover {
+font-family:Trebuchet MS ; font-size:8; font-weight:700; font-style:normal; color:#008faf 
+}
+
+.nof_GlasgowTealSilverNavbar6-Highlighted {
+font-family:Trebuchet MS ; font-size:8; font-weight:700; font-style:normal; color:#535251 
+}
+
+.nof_GlasgowTealSilverNavbar7-HighlightedRollover {
+font-family:Trebuchet MS ; font-size:8; font-weight:700; font-style:normal; color:#535251 
+}
+
+.nof_GlasgowTealSilverNavbar9-Regular {
+font-family:Trebuchet MS ; font-size:8; font-weight:400; font-style:normal; color:#008faf 
+}
+
+.nof_GlasgowTealSilverNavbar10-Rollover {
+font-family:Trebuchet MS ; font-size:8; font-weight:700; font-style:normal; color:#008faf 
+}
+
+.nof_GlasgowTealSilverNavbar11-Highlighted {
+font-family:Trebuchet MS ; font-size:8; font-weight:700; font-style:normal; color:#535251 
+}
+
+.nof_GlasgowTealSilverNavbar12-HighlightedRollover {
+font-family:Trebuchet MS ; font-size:8; font-weight:700; font-style:normal; color:#535251 
+}
+
+/* Forms */
+.nof_formsHandler_label {  
+  display: block;
+  white-space: nowrap;
+  text-align: right;
+  padding-left: 5px;
+  cursor: pointer
+}
+.nof_formsHandler_input_button {
+  margin-right: 5px
+}
+.nof_formsHandler_input_reset {
+  margin-right: 5px
+}
+.nof_formsHandler_input_submit { 
+  margin-right: 5px
+}
+.nof_formsHandler_errorText {  
+  color: rgb(255,0,0)
+}
+.nof_formsHandler_successText {  
+  font-weight: bold;
+  width: 100%;
+  display: block;
+  text-align: center;
+  background-color: rgb(255,204,0);
+  padding: 3px
+}
+.nof_formsHandler_text { 
+  font-family: Arial;
+  font-size: 13px
+}
+.nof_formsHandler_link { 
+  color: rgb(31,75,140);
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none
+}
+.nof_formsHandler_header { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 5px
+}
+.nof_formsHandler_footer { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 2px
+}
+.nof_formsHandler_contentCell {
+  padding: 2px
+}
+.nof_formsHandler_columnHeadingRow { 
+  background-color: rgb(211,208,208);
+  padding: 3px;
+  font-weight: bold
+}
+.nof_formsHandler_textarea { 
+   font-size: 13px;
+  font-family: Arial
+}
+.nof_formsHandler_heading {  
+  font-weight: bold;
+  color: rgb(58,58,85);
+  font-size: 14px
+}
+.nof_formsHandler_content {  
+  background-color: rgb(237,237,237);
+  padding: 2px;
+  border-left: 2px solid rgb(127,186,243);
+  border-right: 2px solid rgb(127,186,243)
+}
+.nof_emailPage_label {  
+  display: block;
+  white-space: nowrap;
+  text-align: right;
+  padding-left: 5px;
+  cursor: pointer
+}
+.nof_emailPage_input_button {
+  margin-right: 5px
+}
+.nof_emailPage_input_reset {
+  margin-right: 5px
+}
+.nof_emailPage_input_submit { 
+  margin-right: 5px
+}
+.nof_emailPage_errorText {  
+  color: rgb(255,0,0)
+}
+.nof_emailPage_text { 
+  font-family: Arial;
+  font-size: 13px
+}
+.nof_emailPage_link { 
+  color: rgb(31,75,140);
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none
+}
+.nof_emailPage_header { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 5px
+}
+.nof_emailPage_footer { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 2px
+}
+.nof_emailPage_contentCell {
+  padding: 2px
+}
+.nof_emailPage_columnHeadingRow { 
+  background-color: rgb(211,208,208);
+  padding: 3px;
+  font-weight: bold
+}
+.nof_emailPage_textarea { 
+   font-size: 13px;
+  font-family: Arial
+}
+.nof_emailPage_heading {  
+  font-weight: bold;
+  color: rgb(58,58,85);
+  font-size: 14px
+}
+.nof_emailPage_content {  
+  background-color: rgb(237,237,237);
+  padding: 2px;
+  border-left: 2px solid rgb(127,186,243);
+  border-right: 2px solid rgb(127,186,243)
+}
+
+.nof_secureSite_label {  
+  display: block;
+  white-space: nowrap;
+  text-align: right;
+  padding-left: 5px;
+  cursor: pointer
+}
+.nof_secureSite_input_button {
+  margin-right: 5px
+}
+.nof_secureSite_input_reset {
+  margin-right: 5px
+}
+.nof_secureSite_input_submit { 
+  margin-right: 5px
+}
+.nof_secureSite_errorText {  
+  color: rgb(255,0,0)
+}
+.nof_secureSite_text { 
+  font-family: Arial;
+  font-size: 13px
+}
+.nof_secureSite_link { 
+  color: rgb(31,75,140);
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none
+}
+.nof_secureSite_header { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 5px
+}
+.nof_secureSite_footer { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 2px
+}
+.nof_secureSite_contentCell {
+  padding: 2px
+}
+.nof_secureSite_columnHeadingRow { 
+  background-color: rgb(211,208,208);
+  padding: 3px;
+  font-weight: bold
+}
+.nof_secureSite_heading {  
+  font-weight: bold;
+  color: rgb(58,58,85);
+  font-size: 14px
+}
+.nof_secureSite_content {  
+  background-color: rgb(237,237,237);
+  padding: 2px;
+  border-left: 2px solid rgb(127,186,243);
+  border-right: 2px solid rgb(127,186,243)
+}
+.nof_news_label {  
+  display: block;
+  white-space: nowrap;
+  text-align: right;
+  padding-left: 5px;
+  cursor: pointer
+}
+.nof_news_input_button {
+  margin-right: 5px
+}
+.nof_news_input_reset {
+  margin-right: 5px
+}
+.nof_news_input_submit { 
+  margin-right: 5px
+}
+.nof_news_errorText {  
+  color: rgb(255,0,0)
+}
+.nof_news_text { 
+  font-family: Arial;
+  font-size: 13px
+}
+.nof_news_link { 
+  color: rgb(31,75,140);
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none
+}
+.nof_news_header { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 5px
+}
+.nof_news_footer { 
+  background-color: rgb(173,199,238);
+  border: 2px solid rgb(127,186,243);
+  padding: 2px
+}
+.nof_news_contentCell {
+  padding: 2px
+}
+.nof_news_columnHeadingRow { 
+  background-color: rgb(211,208,208);
+  padding: 3px;
+  font-weight: bold
+}
+.nof_news_textarea { 
+   font-size: 13px;
+  font-family: Arial
+}
+.nof_news_heading {  
+  font-weight: bold;
+  color: rgb(58,58,85);
+  font-size: 14px
+}
+.nof_news_content {  
+  background-color: rgb(237,237,237);
+  padding: 2px;
+  border-left: 2px solid rgb(127,186,243);
+  border-right: 2px solid rgb(127,186,243)
+}
+
+.nof_news_author { 
+  font-style: italic
+}
+.nof_news_date { 
+  font-weight: bold;
+  color: rgb(153,153,153)
+}
+.nof_news_title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px
+}
+.nof_news_message {
+  margin: 0px
+}
+
+.nof_news_maxPicSize {
+  font-size: 10px;
+  padding-left: 5px;
+  white-space: nowrap
+}

@@ -1,0 +1,68 @@
+{
+    DesignWorks Report Form for Cadence Allegro
+    Copyright 2000 Capilano Computing Systems Ltd.
+	All rights reserved
+}
+$NOTES
+This report form produces a netlist for Cadence Allegro
+
+
+Limitations:
+
+  This report form works only with Flat designs.
+
+
+Attribute    Where    Description
+
+Name         Signals  The name of each signal net. Bus
+                      signals will be prepended by their
+                      bus name.
+Name         Devices  The name of the device which is used
+                      in the pin list in each signal net.
+
+Value        Devices  The parts value used for
+                      documentation and silkscreen.
+
+Part         Devices  Part name
+
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+{
+  Start of Allegro report output.
+  Note that the Allegro format uses commands starting with a $,
+  so you have to put a \ in front so they don't confuse the report
+  generator
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$CREATEREPORT($DESIGNNAME.tel) $PROMPT
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+{
+  First, list packages
+}
+\$PACKAGES
+$SORT $DEVICES &Package &Part &Value
+$CONTEND(,)
+$CONTSTART(      )
+$MAXITEMSPERLINE(8)
+$COMBDEVSON
+$DEVICES$IF(&Package)'&Package' $END! $IF(&Part)'&Part' $END! $IF(&Value)'&Value' $END; $DEVNAME
+{
+  Now nets
+}
+\$NETS
+$FIND $SIGNALS $NUMPINS(1)
+$SORT $SIGNALS $SIGNAME
+$SORT $DEVICES $DEVNAME
+$SIGPINFORMAT $DEVNAME.$PINNUM
+$SIGNALS$SIGNAME ; $PINS
+\$END

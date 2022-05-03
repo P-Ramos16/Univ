@@ -1,0 +1,40 @@
+-- This file contains a simple n-bit register with load, clear, and clk
+-- control signals. Positive edge-triggered.
+
+library IEEE ;
+use IEEE.std_logic_1164.all ;
+use IEEE.std_logic_arith.all ;
+library LogicWorks ;
+use LogicWorks.Debug.all ;
+
+entity regLdClrP is
+  generic ( Nbits : integer := 32 ;
+	    Tpd : time := 500 ps ) ;
+  port ( din : in std_logic_vector (Nbits-1 downto 0) ;
+	 dout : out std_logic_vector (Nbits-1 downto 0) ;
+	 ld, clr, clk : in std_logic ) ;
+end entity regLdClrP ;
+
+architecture behav of regLdClrP is
+begin
+  -- One process with storage will suffice nicely.
+  regProc : process (clk)
+    variable regData : std_logic_vector (Nbits-1 downto 0) ;
+  begin
+    -- clk'event = true for process to execute, so we need to test for
+    -- clk = '1'. We should test for clk'last_value = '0', but LogicWorks
+    -- doesn't support that yet.
+    if (clk = '1') then
+      case ld&clr is
+	when "01" => regData := (others => '0') ;
+	when "10" => regData := din ;
+	when "00" => null ;
+	when "11" => regData := (others => '0') ;
+	when others => regData := (others => 'X') ;
+      end case ;
+      writeln("Register ld&clr '",ld&clr,"' value '",regData,"'.") ;
+      dout <= regData after Tpd ;
+    end if ;
+  end process regProc ;
+end architecture behav ;
+

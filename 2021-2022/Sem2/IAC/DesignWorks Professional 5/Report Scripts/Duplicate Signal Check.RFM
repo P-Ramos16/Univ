@@ -1,0 +1,37 @@
+{
+    DesignWorks Report Form for Duplicate Signal Names
+    Copyright 1990-1995 Capilano Computing Systems
+}
+$NOTES
+This report form produces a list of all signals with
+duplicate names (e.g. signals with the same name but on
+different pages with no page connector).
+
+
+Limitations:
+
+  This report form works only with Flat designs.
+
+
+Attribute    Where    Description
+
+Name         Signals  The name for this signal.
+$END
+$CHECK(This report form works only for Flat designs) $PURE $PHYSICAL
+{
+---------------------------------------------------------------------
+}
+$CREATEREPORT($DESIGNNAME Dup Sigs) $PROMPT $CREATOR(ttxt)
+$HEADER
+Circuit:	$DESIGNNAME
+Date:		$DATE - $TIME
+
+Duplicate Signal Report
+
+Signal Name$COL(32)Page Number
+$ENDHEADER
+$ROWS(50)
+$COMBSIGSON
+$SORT $SIGNALS $SIGNAME
+$FIND $NOCLEAR $SIGNALS $COUNT(2)
+$SIGNALS$SIGNAME$COL(32)$PAGE

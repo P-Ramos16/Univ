@@ -1,0 +1,47 @@
+{
+    DesignWorks Report Form for pSpice
+    Copyright 1990-1995 Capilano Computing Systems
+}
+$NOTES
+This report form produces a netlist for pSpice's simulator.
+
+
+Limitations:
+
+  This report form works only with Flat designs.
+
+
+Attribute    Where    Description
+
+Name         Devices  This attribute must match the SPICE
+                      naming conventions for device names.
+Name         Signals  This attribute must match the SPICE
+                      naming conventions for signal names.
+                      Ground must have the name 0.
+
+Spice        Design   Contains SPICE models or control lines
+Spice        Devices  Contains SPICE parameters to follow
+                      the pin list.
+Spice.Pre    Devices  Contains SPICE information that must
+                      appear before the pin list on a device
+                      line. This happens for odd cases like
+                      the digital stimulus device. Normally
+                      left empty.
+$END
+$CHECK(This report form works only for Flat designs) $PURE $PHYSICAL
+{
+---------------------------------------------------------------------
+}
+$FIND $DEVICES $NOT &Spice
+$CHECK(The attribute field 'Spice' is missing in one or more devices!) $DEVICES
+$CREATEREPORT($DESIGNNAME.CIR) $PROMPT $CREATOR(ttxt)
+$FIND $DEVICES
+$COMBDEVSOFF
+$DEVPINSEQUENCE &PinSequence
+$DESIGNNAME   $DATE   $TIME
+$SORT $DEVICES $DEVNAME
+$DEVPINFORMAT $SIGNAME
+&Spice
+.PROBE
+$DEVICES$DEVNAME &(Spice.Pre) $PINS &Spice
+.END

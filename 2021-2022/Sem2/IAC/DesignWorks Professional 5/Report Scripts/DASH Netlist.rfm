@@ -1,0 +1,59 @@
+{
+  Format file for Douglas Professional Layout.
+  G. Harris 1/6/94
+  C. Dewhurst 6/2/97 Mods for 4.0
+  Copyright 1994,1997 Capilano Computing Systems Ltd.
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$CREATEREPORT($DESIGNNAME.net) $PROMPT
+$LINETERMINATOR $DOS
+$NOTES
+This format generates a FutureNet-DASH compatible netlist file.
+
+Design Hierarchy Mode: Flat 
+
+Standard attribute fields used:
+
+Name
+Part
+Power
+Plus5V
+SigSources
+
+Non-standard attribute fields required:
+
+none
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$ROWS(32000)
+$COLUMNS(80)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V)
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$FIND $SIGNALS $NUMPINS(1)
+$SORT $DEVICES &Part &Val &Tol &Str &Name $PAGE
+$ASSIGNNAMES $SIGNALS
+$ASSIGNNAMES $DEVICES
+$SORT $DEVICES $DEVNAME
+$SORT $SIGNALS $SIGNAME
+$BUSNAMEON(_)
+$BLANKREPLACE(_)
+$CONTSTART()
+$MAXITEMSPERLINE(1)
+NETLIST,2
+(DRAWING,$DESIGNNAME,1-1
+DATA,51,DNUM,&DNUM
+DATA,53,1
+DATA,54,$DATE
+)
+$DEVPINFORMAT DATA,1,$PINNUM
+$DEVICES(SYM,1-1,$DEVTOKEN$NEWLINEDATA,2,$DEVNAME$NEWLINEDATA,3,&Part$NEWLINE$PINS$NEWLINE)
+$SIGPINFORMAT PIN,1-1,$DEVTOKEN,$DEVNAME,1,$PINNUM
+$SIGNALS(SIG,,$SIGNAME,1,5,$SIGNAME$NEWLINE$PINS$NEWLINE)

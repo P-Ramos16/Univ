@@ -1,0 +1,596 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWWindow</H1>
+<P>A DWWindow object represents a window that allows drawing onto a displayed object in a DesignWorks schematic</P>
+<DIR>
+<LI><A HREF="#arc">
+arc</a>
+ - Adds an arc to a picture</LI>
+<LI><A HREF="#backColor">
+backColor</a>
+ - Sets the background (fill) color for subsequent drawing commands</LI>
+<LI><A HREF="#ellipse">
+ellipse</a>
+ - Adds an ellipse to a picture</LI>
+<LI><A HREF="#foreColor">
+foreColor</a>
+ - Sets the foreground (line) color for subsequent drawing commands</LI>
+<LI><A HREF="#line">
+line</a>
+ - Draw a line in the window</LI>
+<LI><A HREF="#lineWidth">
+lineWidth</a>
+ - Sets the line width for subsequent line drawing commands</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWWindow".</LI>
+<LI><A HREF="#polygon">
+polygon</a>
+ - Adds a polygon to a picture</LI>
+<LI><A HREF="#polygonClose">
+polygonClose</a>
+ - Closes the current polygon, i.e. draws any points accumulate using method "polygon" as a closed polygon figure.</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the library file is marked "read only" by the file system.</LI>
+<LI><A HREF="#rect">
+rect</a>
+ - Adds a rectangle to a picture</LI>
+<LI><A HREF="#text">
+text</a>
+ - Draws text to a window</LI>
+<LI><A HREF="#textBold">
+textBold</a>
+ - Sets the text bold setting for subsequent text drawing commands</LI>
+<LI><A HREF="#textFont">
+textFont</a>
+ - Sets the text font name for subsequent text drawing commands</LI>
+<LI><A HREF="#textItalic">
+textItalic</a>
+ - Sets the text italic setting for subsequent text drawing commands</LI>
+<LI><A HREF="#textRotation">
+textRotation</a>
+ - Sets the text rotation for subsequent text drawing commands</LI>
+<LI><A HREF="#textSize">
+textSize</a>
+ - Sets the text size for subsequent text drawing commands</LI>
+</DIR>
+<a name="arc"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>arc</B></FONT></P>
+<P>Adds an arc to a picture</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>arc</B>(left, top, right, bottom, start, extent);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>right</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The right side of the defining box, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>left</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The left side of the defining box, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>extent</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The number of degrees spanned by the arc, clockwise from the starting angle. Must a an integer 0 < extent < 360</td>
+  </tr>
+  <tr>
+    <td>bottom</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The bottom of the defining box, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>start</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The start angle of the arc, measured clockwise in degrees from the start angle of 12 o'clock</td>
+  </tr>
+  <tr>
+    <td>top</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The top of the defining box, in 1/1000"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+If the defining rectangle is square, then the arc will be a segment of a circle with the specified start and extent angles. If the defining rectangle is non-square, the start and extent angles define points as if the box was square, then scaling is applied to produce an arc of the given shape.
+</P>
+<a name="backColor"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>backColor</B></FONT></P>
+<P>Sets the background (fill) color for subsequent drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>backColor</B>(c);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>backColor</B>(r, g, b);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>backColor</B> = <I><A HREF = "index.html#c">c</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>g</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The green component of the desired colour, in the range 0 - 255</td>
+  </tr>
+  <tr>
+    <td>r</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The red component of the desired colour, in the range 0 - 255</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The blue component of the desired colour, in the range 0 - 255</td>
+  </tr>
+  <tr>
+    <td>c</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The desired color specified as a hex value 0x00bbggrr or R + G*256 + B*65536 where R, G, and B are colour values from 0 (black) to 255 (maximum). 0 represents black and 0xffffff represents white. Specifying -1 means no drawing is done.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+For language purists outside the U.S., this can also be specified as backColour
+</P>
+<a name="ellipse"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>ellipse</B></FONT></P>
+<P>Adds an ellipse to a picture</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>ellipse</B>(left, top, right, bottom);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>right</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The right side of the bounding box, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>left</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The left side of the bounding box, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>bottom</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The bottom of the bounding box, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>top</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The top of the bounding box, in 1/1000"</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="foreColor"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>foreColor</B></FONT></P>
+<P>Sets the foreground (line) color for subsequent drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>foreColor</B>(c);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>foreColor</B>(r, g, b);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>foreColor</B> = <I><A HREF = "index.html#c">c</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>g</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The green component of the desired colour, in the range 0 - 255</td>
+  </tr>
+  <tr>
+    <td>r</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The red component of the desired colour, in the range 0 - 255</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The blue component of the desired colour, in the range 0 - 255</td>
+  </tr>
+  <tr>
+    <td>c</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The desired color specified as a hex value 0x00bbggrr or R + G*256 + B*65536 where R, G, and B are colour values from 0 (black) to 255 (maximum). 0 represents black and 0xffffff represents white. Specifying -1 means no drawing is done.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+For language purists outside the U.S., this can also be specified as foreColour
+</P>
+<a name="line"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>line</B></FONT></P>
+<P>Draw a line in the window</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>line</B>(x1, y1, x2, y2);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>y1</td>
+    <td><A HREF = "index.html#real">real</A></td>
+    <td>The y position of the starting point, expressed as a percentage of the distance from top to bottom in the window</td>
+  </tr>
+  <tr>
+    <td>y2</td>
+    <td><A HREF = "index.html#real">real</A></td>
+    <td>The y position of the ending point, expressed as a percentage of the distance from top to bottom in the window</td>
+  </tr>
+  <tr>
+    <td>x1</td>
+    <td><A HREF = "index.html#real">real</A></td>
+    <td>The x position of the starting point, expressed as a percentage of the distance from left to right in the window</td>
+  </tr>
+  <tr>
+    <td>x2</td>
+    <td><A HREF = "index.html#real">real</A></td>
+    <td>The x position of the ending point, expressed as a percentage of the distance from left to right in the window</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="lineWidth"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>lineWidth</B></FONT></P>
+<P>Sets the line width for subsequent line drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>lineWidth</B>(w);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>lineWidth</B> = <I><A HREF = "index.html#w">w</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The desired line width in pixels at normal zoom</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="objType"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWWindow".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="polygon"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>polygon</B></FONT></P>
+<P>Adds a polygon to a picture</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>polygon</B>(x1, y1, x2, y2, ...);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>polygon</B>(x1, y1);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>y1</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The y position of the starting point, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>y2</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The y position of the next line end point, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>x1</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The x position of the starting point, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>x2</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The x position of the next line end point, in 1/1000"</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This can be called in either of two ways. <p>The first method allows you to completely specify the polygon with a single call by providing two or more x/y pairs as arguments. The first x/y pair given is the starting point and subsequent pairs represent the polygon points.</p> <p>The second method allows you to specify the polygon one point at a time. This method is more useful if the points are being generated by a loop under program control. The first time this method is called, the x/y pair given is considered to be the starting point. Subsequent calls provide additional points. Points continue to be accumulated into the same polygon until either polygonClose is called, any non-polygon drawing method is called or the picture is closed.</p> <p>NOTE: Polygons are always closed. If the last point specified is not the same as the first, an additional line is added to close it. The line width, line color and fill color are set by the lineWidth, fgColour and backColor methods, respectively.
+</P>
+<a name="polygonClose"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>polygonClose</B></FONT></P>
+<P>Closes the current polygon, i.e. draws any points accumulate using method "polygon" as a closed polygon figure.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>polygonClose</B>();
+</P>
+</FONT>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the library file is marked "read only" by the file system.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="rect"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>rect</B></FONT></P>
+<P>Adds a rectangle to a picture</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>rect</B>(left, top, right, bottom);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>right</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The right side of the rectangle, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>left</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The left side of the rectangle, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>bottom</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The bottom of the rectangle, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>top</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The top of the rectangle, in 1/1000"</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="text"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>text</B></FONT></P>
+<P>Draws text to a window</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>text</B>(str, x, y);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>text</B>(str, x, y, just);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>x</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The x position of the anchor point, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>y</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The y position of the anchor point, in 1/1000"</td>
+  </tr>
+  <tr>
+    <td>str</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text string to place</td>
+  </tr>
+  <tr>
+    <td>just</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Optional, specifies the text justification, i.e. the position of the anchor point relative to the text. This consists of 1 character specifying the horizontal justification and one for the vertical. If the character "L" or "R" appears, the XY position specifies the left hand side or right hand side of the text, respectively. If neither appears, middle is assumed. If the character "T" or "B" appears, the XY position specifies the top or bottom of the text, respectively. If neither appears, middle is assumed. The order of the characters is not important and all unknown characters are ignored. If this is not specified, the text will be centered around the given point.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="textBold"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>textBold</B></FONT></P>
+<P>Sets the text bold setting for subsequent text drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>textBold</B>(b);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>textBold</B> = <I><A HREF = "index.html#b">b</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>TRUE for bold text, FALSE for normal</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="textFont"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>textFont</B></FONT></P>
+<P>Sets the text font name for subsequent text drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>textFont</B>(name);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>textFont</B> = <I><A HREF = "index.html#name">name</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The desired font name</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="textItalic"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>textItalic</B></FONT></P>
+<P>Sets the text italic setting for subsequent text drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>textItalic</B>(b);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>textItalic</B> = <I><A HREF = "index.html#b">b</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>TRUE for italic text, FALSE for normal</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="textRotation"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>textRotation</B></FONT></P>
+<P>Sets the text rotation for subsequent text drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>textRotation</B>(r);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>textRotation</B> = <I><A HREF = "index.html#p">p</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>r</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The desired rotation, in degrees counterclockwise from the normal position</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="textSize"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>textSize</B></FONT></P>
+<P>Sets the text size for subsequent text drawing commands</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>textSize</B>(p);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>textSize</B> = <I><A HREF = "index.html#p">p</A></td>
+</I></P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>p</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The desired point size (approx. 1/72")</td>
+  </tr>
+  </tbody>
+  </table>
+</BODY>
+</HTML>

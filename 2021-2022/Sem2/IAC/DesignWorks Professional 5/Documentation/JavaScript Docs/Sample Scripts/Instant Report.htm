@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Instant Report</title>
+	</head>
+	<script language="javascript">
+	
+	    var globalObj;
+	    
+		function onopen(global)
+		{
+			globalObj = global;
+			return true;
+		}
+
+		function onclose(global)
+		{
+			globalObj = null;
+		}
+		
+		function ongenerate()
+		{
+			cct = globalObj.currentCircuit;
+			if (cct == null)
+			{
+				html = "<b>No current circuit!</b>";
+			}
+			else
+			{
+				devs = cct.devices(1);
+				if (devs.length == 0)
+				{
+					html = "<b>No devices are selected in the circuit!</b>";
+				}
+				else
+				{
+					html = "<table>\n";
+					for (i = 0; i < devs.length; i++)
+					{
+						dev = devs[i];
+						part = dev.getAttribute("Part");
+						if (part == "") part = dev.type.name;
+						html += "<tr><td>" + dev.getAttribute("Name")
+								+ "</td><td><b><a target=\"_blank\" href=\"http://www.capilano.com/beta/html_report.php?type=" + part + "\">"+ part + "</a></b><td></tr>";
+					}
+					html += "</table>\n";
+				}
+			}
+			
+			ReportTable.innerHTML = html;
+		}
+
+	</script>
+	<body TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0">
+		<font face="trebuchet ms, arial, helvetica" size=-2>
+		<table width="100%" border="1">
+			<tr>
+				<td width="200">
+					<h3>Instant Report</h3>
+					<form ID="Form1">
+						<input type="button" value="Generate" onclick="ongenerate();" ID="Button1" NAME="Button1">
+					</form>
+					<font size=-1>
+						<p>Press the button to generate a report on the selected devices in the circuit</p>
+					</font>
+				</td>
+				<td>
+					<DIV style="display='block'" ID="ReportTable"></DIV>
+				</td>
+			</tr>
+		</table>
+		</font>
+	</body>
+</html>

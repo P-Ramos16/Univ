@@ -1,0 +1,193 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWLibrary</H1>
+<P>A DWLibrary object represents a DesignWorks symbol library.</P>
+<DIR>
+<LI><A HREF="#close">
+close</a>
+ - Close the library, if it's open, otherwise do nothing.</LI>
+<LI><A HREF="#DWLibrary">
+DWLibrary</a>
+ - Create a library object and associate it with a new or existing symbol library file.</LI>
+<LI><A HREF="#exists">
+exists</a>
+ - Indicates whether the specified library file exists.</LI>
+<LI><A HREF="#loadType">
+loadType</a>
+ - Loads a device type definition from the library</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWLibrary".</LI>
+<LI><A HREF="#open">
+open</a>
+ - Opens the library, optionally specifying a new library file. If the given library does not exist, a new, empty library is created</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the library file is marked "read only" by the file system.</LI>
+<LI><A HREF="#saveType">
+saveType</a>
+ - Saves a device type definition to the library</LI>
+<LI><A HREF="#typeList">
+typeList</a>
+ - Gets a list of the all types stored in the library</LI>
+</DIR>
+<a name="close"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>close</B></FONT></P>
+<P>Close the library, if it's open, otherwise do nothing.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>close</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns false if the library file is open and cannot be closed, true otherwise.</P>
+<a name="DWLibrary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>DWLibrary</B></FONT></P>
+<P>Create a library object and associate it with a new or existing symbol library file.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> <B>DWLibrary</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWLibrary object.</P>
+<H3>Remarks:</H3><P>
+This creates a new DWLibrary script object and associates the given file name with it. At the time of this call, no attempt is made to open or create an actual library file. This is not done until another method (e.g. loadType) is called that requires it. This means that this call succeeds and returns an object even if the file does not exist and cannot be created using the given name information. <p>When an actual file is required, this method first attempts to open the file using the given file name string as a complete path name. If that fails, it then looks through all currently open library files and sees if the given name matches one of them. If that fails, a new library is created using the given name as a complete file path. If that fails, an exception is generated.</p>
+</P>
+<a name="exists"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>exists</B></FONT></P>
+<P>Indicates whether the specified library file exists.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>exists</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns false if the library file cannot be located, true otherwise.</P>
+<a name="loadType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>loadType</B></FONT></P>
+<P>Loads a device type definition from the library</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWType">DWType</A></td>
+</I> <B>loadType</B>(name);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the type to load (i.e. as it appears in the parts listing in the Parts Palette</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>A <A HREF"DWType.html">DWType</A> object if successful, or null if unsuccessful.</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWLibrary".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="open"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>open</B></FONT></P>
+<P>Opens the library, optionally specifying a new library file. If the given library does not exist, a new, empty library is created</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>open</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>open</B>(path);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The file name and path for the library file. If a relative path is given, the usual rules are applied to try and locate it.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the library file was opened successfully, false otherwise</P>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the library file is marked "read only" by the file system.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="saveType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>saveType</B></FONT></P>
+<P>Saves a device type definition to the library</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>saveType</B>(type);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>saveType</B>(type, dateStamp);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>dateStamp</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Optional argument that specifies whether to update the datestamp that is stored with the type. The default is TRUE. This is usually set to TRUE if this type is new or has been modified in any way from its last saved definition. This would be FALSE only to copy a type from one place to another with no changes.</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td><A HREF = "index.html#DWType">DWType</A></td>
+    <td>The type to save. This must be a <A HREF"DWType.html">DWType</A> object.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="typeList"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>typeList</B></FONT></P>
+<P>Gets a list of the all types stored in the library</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#array">array</A></td>
+</I> = <B>typeList</B></P>
+</FONT>
+<H3>Returns:</H3><P>An SPArray of <A HREF"DWType.html">DWType</A> objects. The number of objects returned can be determined from the value of array.length</P>
+</BODY>
+</HTML>

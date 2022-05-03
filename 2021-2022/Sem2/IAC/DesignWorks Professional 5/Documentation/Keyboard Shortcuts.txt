@@ -1,0 +1,78 @@
+DesignWorks Professional 4 for Windows
+Keyboard Shortcuts - Dec 10, 2000
+
+
+I. - MENU COMMAND SHORTCUTS
+-----------------------
+
+Command             Schematic          Symbol Editor
+-------             ---------          -------------
+
+AddPins                    -                    E
+Auto Create Symbol         -                    J
+Bring to Front             -                    B
+Close                      W                    W
+Copy                       C                    C
+Cut                        X                    X
+Design Preferences         J                    -
+Draw Bus             Shift+B                    -
+Draw Signal          Shift+S                    -
+Duplicate                  D                    D
+Draw Text                  E                    -
+Enlarge              Shift+E              Shift+E
+                 Alt+Page Up                    -
+Export                    F2                    -
+Export Again         Ctrl+F2                    -
+Find                       F                    -
+Go to selected             G                    -
+Get Info                   I                    -
+Group                      -                    G
+Move to Grid               -              Shift+G
+New                        N                    N
+New Breakout               B                    -
+Normal Size          Shift+N              Shift+N
+                        Home                    -
+Open                       O                    O
+Orientation                Q                    -
+Part Attributes            -                    I
+Paste                      V                    V
+Pin Attributes             -              Shift+I
+Pop Up               Shift+U                    -
+Print                      P                    -
+Push Into            Shift+I                    -
+Redo                 Shift+Z                    -
+Redraw                   End                    -
+Reduce               Shift+R              Shift+R
+               Alt+Page Down                    -
+Reduce to Fit        Shift+F              Shift+F
+                   Ctrl+Home                    -
+Revert                     M                    -
+Save                       S                    S
+Save As              Shift+A                    -
+Select All                 A                    A
+Send to Back               -              Shift+B
+Subcircuit and Part Type   -                    Q
+Undo                       Z                    Z
+Text Font                  -                    T
+Ungroup                    -                    U
+Zap                        H                    -
+
+
+II. - OTHER KEYBOARD SHORTCUTS
+------------------------------
+
+Delete Key - Deletes selected items
+Arrow Keys - Flip and rotate items while placing
+             a device or pasting
+Arrow Keys - Move selected items in small steps
+Ctrl, Shift, Alt - Control line breaks while drawing signals
+Ctrl, Shift - Control device alignment while placing devices
+Page Up Key - Scroll Up
+Page Up + Ctrl - Scroll Left
+Page Down Key - Scroll Down
+Page Down + Ctrl - Scroll Right
+
+
+
+Copyright 2000 by Capilano Computing Systems Ltd.
+All rights reserved.

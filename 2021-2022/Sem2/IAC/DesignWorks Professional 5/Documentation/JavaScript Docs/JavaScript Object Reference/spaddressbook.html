@@ -1,0 +1,85 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPAddressBook</H1>
+<P>This object represents a NetPad ideas file and can be used to read, create and modify ideas.</P>
+<DIR>
+<LI><A HREF="#openRead">
+openRead</a>
+ - Opens a NetPad file for read-only access.</LI>
+<LI><A HREF="#openReadWrite">
+openReadWrite</a>
+ - Opens a NetPad file for read/write access.</LI>
+</DIR>
+<a name="openRead"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>openRead</B></FONT></P>
+<P>Opens a NetPad file for read-only access.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>openRead</B>();
+</P>
+</FONT>
+<P>Opens a NetPad file whose name has already been specified.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>openRead</B>(filePath);
+</P>
+</FONT>
+<P>Opens a NetPad file with the given name.</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path name to the NetPad file, which must already exist.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>If the return value from this method is used, it will return true for success, or false if any error occurred. If the return value is not assigned, an exception will be generated on any error.</P>
+<H3>Remarks:</H3><P>
+It is not necessary to explicitly open a NetPad file unless you want to restrict it to read-only access. If you do not call openRead or openReadWrite, the file will be automatically opened for read/write access when used.
+</P>
+<a name="openReadWrite"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>openReadWrite</B></FONT></P>
+<P>Opens a NetPad file for read/write access.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>openReadWrite</B>();
+</P>
+</FONT>
+<P>Opens a NetPad file whose name has already been specified.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>openReadWrite</B>(filePath);
+</P>
+</FONT>
+<P>Opens a NetPad file with the given name.</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path name to the NetPad file, which must already exist.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>If the return value from this method is used, it will return true for success, or false if any error occurred. If the return value is not assigned, an exception will be generated on any error.</P>
+<H3>Remarks:</H3><P>
+It is not necessary to explicitly open a NetPad file unless you want to restrict it to read-only access. If you do not call openRead or openReadWrite, the file will be automatically opened for read/write access when used.
+</P>
+</BODY>
+</HTML>

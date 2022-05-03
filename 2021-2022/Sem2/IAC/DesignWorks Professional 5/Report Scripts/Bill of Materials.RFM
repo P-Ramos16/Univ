@@ -1,0 +1,41 @@
+{
+    DesignWorks Report Form for Bill of Materials
+    Copyright 1990-1995 Capilano Computing Systems
+
+    Requires an attribute field "type" to be defined in every part or library
+    entry with the catalog part number, and another called "value" with the
+    component value, if needed.
+
+}
+$NOTES
+This report form produces a bill of materials.
+
+
+Limitations:
+
+  none
+
+
+Attribute    Where    Description
+
+Part         Devices  The part name.
+Value        Devices  The value for this device.
+Name         Devices  The name for this device.
+$END
+{
+---------------------------------------------------------------------
+}
+$CREATEREPORT($DESIGNNAME.BOM) $PROMPT $CREATOR(ttxt)
+$COMBDEVSON
+$MAXITEMSPERLINE(12)
+$CONTSTART(                                        )
+$SORT $DEVICES &Part $LEXICAL &Value
+$HEADER
+Circuit:	$DESIGNNAME
+Date:		$DATE - $TIME
+
+Device Type        Num. Used   Value    References
+
+$ENDHEADER
+$ROWS(50)
+$DEVICES&Part$COL(23)$COUNT$COL(32)&Value$COL(40)$DEVNAME

@@ -1,0 +1,750 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWStatic</H1>
+<P>This is a static, top-level object that holds some general methods for access to DesignWorks circuit data.</P>
+<DIR>
+<LI><A HREF="#convertDate">
+convertDate</a>
+ - Converts date and time values from the Windows integer format used internally for date stamps and file info to and from the JavaScript date format that can be used to display formatted date and time values.</LI>
+<LI><A HREF="#currentCircuit">
+currentCircuit</a>
+ - Returns the currently active circuit.</LI>
+<LI><A HREF="#currentDesign">
+currentDesign</a>
+ - Returns the currently active design, i.e. the design containing the currently active circuit.</LI>
+<LI><A HREF="#currentLibrary">
+currentLibrary</a>
+ - Returns the the library currently selected in the parts palette, or null if no library or all libraries are selected.</LI>
+<LI><A HREF="#defaultObject">
+defaultObject</a>
+ - Returns the object on which this script was invoked, if any.</LI>
+<LI><A HREF="#getAppVersionInt">
+getAppVersionInt</a>
+ - Provides the version number of the application that is hosting the script.</LI>
+<LI><A HREF="#getAppVersionLong">
+getAppVersionLong</a>
+ - Provides the version number of the application that is hosting the script.</LI>
+<LI><A HREF="#getAppVersionShort">
+getAppVersionShort</a>
+ - Provides the version number of the application that is hosting the script.</LI>
+<LI><A HREF="#getScaleFromUnit">
+getScaleFromUnit</a>
+ - Returns a floating-point scale value representing the given unit, e.g. kV return 1000, uF returns 0.000001, etc.</LI>
+<LI><A HREF="#libraryList">
+libraryList</a>
+ - Returns an SPArray object containing a DWLibrary object for each of the currently open libraries.</LI>
+<LI><A HREF="#newBrowserPanel">
+newBrowserPanel</a>
+ - Opens a new tab in the dockable status panel and creates an Internet Explorer browser instance in the panel.</LI>
+<LI><A HREF="#newDesign">
+newDesign</a>
+ - Creates a new, empty design with or without opening it in a visible window.</LI>
+<LI><A HREF="#newDocument">
+newDocument</a>
+ - Create a new document window within the application given the document type string. Optionally provide data to fill the document with.</LI>
+<LI><A HREF="#newTextDocument">
+newTextDocument</a>
+ - Create a new text document window within the application. Optionally provide data to fill the document with.</LI>
+<LI><A HREF="#openDesign">
+openDesign</a>
+ - Opens a design file, with or without prompting the user and with or without opening it in a visible window.</LI>
+<LI><A HREF="#openLibrary">
+openLibrary</a>
+ - Opens a symbol library file, or returns a reference to it if the specified file is already open.</LI>
+<LI><A HREF="#readIniString">
+readIniString</a>
+ - Reads a string value from the application's INI file or state file.</LI>
+<LI><A HREF="#requestDesignNotification">
+requestDesignNotification</a>
+ - Requests that a method in the current script be called when a specified event occurs on this design</LI>
+<LI><A HREF="#runExport">
+runExport</a>
+ - Runs an Export script, as if the user had selected the Export command.</LI>
+<LI><A HREF="#runExportToString">
+runExportToString</a>
+ - Runs an Export script and returns the output it generates as a string value. This version also accepts optional string arguments and a default object to be used in generating the report</LI>
+<LI><A HREF="#selectLibrary">
+selectLibrary</a>
+ - Displays a box allowing the user to select one of the currently open libraries.</LI>
+<LI><A HREF="#unrequestDesignNotification">
+unrequestDesignNotification</a>
+ - Requests that a previously-requested notification be removed</LI>
+<LI><A HREF="#writeStateString">
+writeStateString</a>
+ - Reads a string value from the application's INI file or state file.</LI>
+</DIR>
+<a name="convertDate"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>convertDate</B></FONT></P>
+<P>Converts date and time values from the Windows integer format used internally for date stamps and file info to and from the JavaScript date format that can be used to display formatted date and time values.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> = <B>convertDate</B>(dateObj);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#date">date</A></td>
+</I> = <B>convertDate</B>(intDate);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>dateObj</td>
+    <td><A HREF = "index.html#Date">Date</A></td>
+    <td>A JavaScript Date object, created using new Date()</td>
+  </tr>
+  <tr>
+    <td>intDate</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>An integer representing a date in Windows internal format. This can also be a string representation of an integer</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<p>The internal Windows format used for datestamps on files and devices is the number of seconds since January 1, 1970.</p> <p>IMPORTANT NOTE: The date value returned is NOT a JavaScript Date object. To create a JavaScript date object that can be used to extract year/month/day fields, format output, etc. use the expression dateObj = new Date(returnedValue); </p>
+</P>
+<a name="currentCircuit"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>currentCircuit</B></FONT></P>
+<P>Returns the currently active circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>currentCircuit</B></P>
+</FONT>
+<a name="currentDesign"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>currentDesign</B></FONT></P>
+<P>Returns the currently active design, i.e. the design containing the currently active circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>currentDesign</B></P>
+</FONT>
+<a name="currentLibrary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>currentLibrary</B></FONT></P>
+<P>Returns the the library currently selected in the parts palette, or null if no library or all libraries are selected.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> = <B>currentLibrary</B></P>
+</FONT>
+<a name="defaultObject"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>defaultObject</B></FONT></P>
+<P>Returns the object on which this script was invoked, if any.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWObject">DWObject</A></td>
+</I> = <B>defaultObject</B></P>
+</FONT>
+<H3>Returns:</H3><P>The type of object returned depends on the type of object selected in the circuit and could be one of DWCircuit, DWDevice, DWSignal, or DWPin</P>
+<H3>Remarks:</H3><P>
+This is only set if the script was invoked as a result of a command on a single selected circuit object and will return null otherwise.
+</P>
+<a name="getAppVersionInt"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAppVersionInt</B></FONT></P>
+<P>Provides the version number of the application that is hosting the script.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Integer">Integer</A></td>
+</I> = <B>getAppVersionInt</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an integer specifying the version number. See below for more details.</P>
+<H3>Remarks:</H3><P>
+The integer format is intended for internal use within a script to determine whether data was created using an earlier or later version of the software. The integer format is: <pre> (major version # * 16384) + (minor version # * 4096) + (increment # * 256) + (release type * 16) -- 1 = development, 2 = alpha, 3 = beta, 4 = release + step # </pre> <p>For example, the version 3.2b3 would give 57395. If any part of the version number is not given in the usual written form, it is assumed to be zero. This numbering scheme ensures that the integer value always increases for later versions. </p>
+</P>
+<a name="getAppVersionLong"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAppVersionLong</B></FONT></P>
+<P>Provides the version number of the application that is hosting the script.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>getAppVersionLong</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a string specifying the version number. See below for more details.</P>
+<H3>Remarks:</H3><P>
+This method returns a string specifying the application name and version number in a human-readable form, for example DesignWorks version 3.2.4b1 </p>
+</P>
+<a name="getAppVersionShort"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAppVersionShort</B></FONT></P>
+<P>Provides the version number of the application that is hosting the script.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>getAppVersionShort</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a string specifying the version number. See below for more details.</P>
+<H3>Remarks:</H3><P>
+This method returns a string specifying the application name and version number in an abbreviated form, for example DW3.2.4b1 </p>
+</P>
+<a name="getScaleFromUnit"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getScaleFromUnit</B></FONT></P>
+<P>Returns a floating-point scale value representing the given unit, e.g. kV return 1000, uF returns 0.000001, etc.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#double">double</A></td>
+</I> = <B>getScaleFromUnit</B>(unit);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>unit</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A string representing the units</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="libraryList"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>libraryList</B></FONT></P>
+<P>Returns an SPArray object containing a DWLibrary object for each of the currently open libraries.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>libraryList</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>libraryList</B>(excludeReadOnly);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>excludeReadOnly</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>TRUE to list only libraries that are writeable, defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="newBrowserPanel"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>newBrowserPanel</B></FONT></P>
+<P>Opens a new tab in the dockable status panel and creates an Internet Explorer browser instance in the panel.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newBrowserPanel</B>(url, title);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newBrowserPanel</B>(url, title, alias);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newBrowserPanel</B>(url, title, alias, object);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The title to display in the window tab. This should be short!</td>
+  </tr>
+  <tr>
+    <td>url</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL (web address or full file path) of the resource to display in the browser</td>
+  </tr>
+  <tr>
+    <td>alias</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An internal name for the window. If this is specified, subsequent opens using the same alias will use the same window instead of opening a new one.</td>
+  </tr>
+  <tr>
+    <td>object</td>
+    <td><A HREF = "index.html#Object">Object</A></td>
+    <td>An object that will be passed as the second argument to the onopen method in the document page. NOTE: If the page keeps a global reference to this object (i.e. outside the scope of the onopen method) then it should set this reference to null when the page exits or it is no longer needed.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the call is successful, false otherwise.</P>
+<H3>Remarks:</H3><P>
+NOTE: Due to the way window and browser creation is queued by the system, the browser will not be created and navigated to the given URL until some time after the call is completed. This method returning true indicates only that the request was queued successfully.
+</P>
+<a name="newDesign"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>newDesign</B></FONT></P>
+<P>Creates a new, empty design with or without opening it in a visible window.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>newDesign</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>newDesign</B>(visible);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>visible</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to open the design in a visible window, false to open it as and internal structure only, invisible to the user. Defaults to true.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWCircuit object for the design or null if the operation failed.</P>
+<H3>Remarks:</H3><P>
+This creates a new, empty design with default settings, without referring to any template.
+</P>
+<a name="newDocument"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>newDocument</B></FONT></P>
+<P>Create a new document window within the application given the document type string. Optionally provide data to fill the document with.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newDocument</B>(docType);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newDocument</B>(docType, data);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newDocument</B>(docType, data, path);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newDocument</B>(docType, data, path, object);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Location to save the new document file. If not specified, the document is opened but not saved.</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Data used to fill the new document. The format and meaning of the data depend on the document type.</td>
+  </tr>
+  <tr>
+    <td>object</td>
+    <td><A HREF = "index.html#object">object</A></td>
+    <td>The object (normally a DWDevice) that will be the parent object for this new document. Default is null.</td>
+  </tr>
+  <tr>
+    <td>docType</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A string that uniquely identifies a document type. This is the name that is used in the system registry to register the type, or any unique subset of the name. Not case sensitive.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the document opened successfully, false otherwise</P>
+<a name="newTextDocument"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>newTextDocument</B></FONT></P>
+<P>Create a new text document window within the application. Optionally provide data to fill the document with.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newTextDocument</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>newTextDocument</B>(data);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Text data used to fill the new document</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the document opened successfully, false otherwise</P>
+<a name="openDesign"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>openDesign</B></FONT></P>
+<P>Opens a design file, with or without prompting the user and with or without opening it in a visible window.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>openDesign</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>openDesign</B>(visible);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>openDesign</B>(filePath);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> = <B>openDesign</B>(filePath, visible);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>visible</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to open the design in a visible window, false to open it as and internal structure only, invisible to the user. Defaults to true.</td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The complete file path of the design file to open</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWCircuit object for the design or null if the open failed.</P>
+<H3>Remarks:</H3><P>
+If no argument is provided, this is equivalent to selecting the Open Design command.
+</P>
+<a name="openLibrary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>openLibrary</B></FONT></P>
+<P>Opens a symbol library file, or returns a reference to it if the specified file is already open.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> = <B>openLibrary</B>(file);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> = <B>openLibrary</B>(file, visible);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>visible</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>TRUE to make the library visible to the user (i.e. it appears in the parts palette), false to keep it hidden, defaults to TRUE.</td>
+  </tr>
+  <tr>
+    <td>file</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The file name of the symbol library. This can be a full path or a partial path relative to the program location.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="readIniString"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>readIniString</B></FONT></P>
+<P>Reads a string value from the application's INI file or state file.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>readIniString</B>(section, name);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>readIniString</B>(section, name, readState);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The INI keyword</td>
+  </tr>
+  <tr>
+    <td>readState</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to read the state file instead of the INI file. Defaults to false if not specified.</td>
+  </tr>
+  <tr>
+    <td>section</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The INI section name</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the value of the string, or NULL if no such entry is found.</P>
+<H3>Remarks:</H3><P>
+Two INI files are stored in the application's program folder. The file appName.INI is the initialization file that contains fixed settings and can be modified by the user. The "state" file appNameState.INI uses the same general format, but is written and read by the application to save program settings between sessions.
+</P>
+<a name="requestDesignNotification"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>requestDesignNotification</B></FONT></P>
+<P>Requests that a method in the current script be called when a specified event occurs on this design</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>requestDesignNotification</B>(scriptObject, name1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>scriptObject</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An object containing the script methods to call. In practice, this is usually the top level "document" object in an HTML page</td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the notification desired. The script must contain a method with exactly this name. This method will be called with a single argument, the DWCircuit object for this design. See below for possible notification names.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<table border=1> <tr><td>onDesignOpen</td><td>Invoked if any design is opened</td></tr> <tr><td>onDesignClose</td><td>Invoked if any design is closed</td></tr> <tr><td>onDesignSelect</td><td>Invoked when any change in page activation for any design occurs</td></tr> <tr><td>onDesignNameChange</td><td>Invoked when any design's name is changed</td></tr> <tr><td>onDesignStructChange</td><td>Invoked when any structural circuit change occurs in any design</td></tr> </table>
+</P>
+<a name="runExport"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>runExport</B></FONT></P>
+<P>Runs an Export script, as if the user had selected the Export command.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>runExport</B>(filePath);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>runExport</B>(filePath, open);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>runExport</B>(filePath, open, arg1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>open</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to open the resulting text output file in the built-in text editor after the operation completes. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A relative or absolute path to the script file. If a relative path is given, the usual rules are applied to locate it.</td>
+  </tr>
+  <tr>
+    <td>arg1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>an optional argument string passed to the export script. You can pass any number of these optional arguments and they are available within the export script using the notation &ARG1, &ARG2, etc.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns false if the script file cannot be located, true otherwise.</P>
+<a name="runExportToString"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>runExportToString</B></FONT></P>
+<P>Runs an Export script and returns the output it generates as a string value. This version also accepts optional string arguments and a default object to be used in generating the report</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>runExportToString</B>(filePath);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>runExportToString</B>(filePath, object);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>runExportToString</B>(filePath, object, arg1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A relative or absolute path to the script file. If a relative path is given, the usual rules are applied to locate it.</td>
+  </tr>
+  <tr>
+    <td>arg1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An optional argument to pass to the report script. Any number of these can be passed. They are accessible in the script at &ARG1, &ARG2, etc.</td>
+  </tr>
+  <tr>
+    <td>object</td>
+    <td><A HREF = "index.html#DWObject">DWObject</A></td>
+    <td>A circuit object or null. This can be a circuit, signal, device or pin object and will be the "default object" for the report, i.e. the object referred to in the top-level context of the script commands. Defaults to null.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns null if the script file cannot be located, otherwise it returns the text output generated by the report. <p>NOTES:</p> <p>The result generated is very is the default output from the script, assuming no output file is opened. The script can still elect to explicitly open an output file and write data to the file. That data will not be included in this result.</p> <p>The return value is limited in length to 100K as the report generator must guess in advance how big a buffer to allocate for output.</p></P>
+<a name="selectLibrary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>selectLibrary</B></FONT></P>
+<P>Displays a box allowing the user to select one of the currently open libraries.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> = <B>selectLibrary</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWLibrary">DWLibrary</A></td>
+</I> = <B>selectLibrary</B>(excludeReadOnly);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>excludeReadOnly</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>TRUE to list only libraries that are writeable, defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWLibrary object for the selected library, or null if the user cancels</P>
+<a name="unrequestDesignNotification"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>unrequestDesignNotification</B></FONT></P>
+<P>Requests that a previously-requested notification be removed</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>unrequestDesignNotification</B>(scriptObject, name1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>scriptObject</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>An object containing the script methods to call. In practice, this is usually the top level "document" object in an HTML page</td>
+  </tr>
+  <tr>
+    <td>name1</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the notification desired. The script must contain a method with exactly this name. This method will be called with a single argument, the CRCircuit object for this design. See below for possible notification names.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+<p>The arguments must be exactly the same as for requestDesignNotification</p>
+</P>
+<a name="writeStateString"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>writeStateString</B></FONT></P>
+<P>Reads a string value from the application's INI file or state file.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>writeStateString</B>(section, name, value);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The INI keyword</td>
+  </tr>
+  <tr>
+    <td>section</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The INI section name</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>nothing</P>
+<H3>Remarks:</H3><P>
+The "state" file appNameState.INI uses the same general format as the INI file, but is written and read by the application to save program settings between sessions. The file format is very simple and will only accept one-line text values without any control characters in them.
+</P>
+</BODY>
+</HTML>

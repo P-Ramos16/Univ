@@ -1,0 +1,549 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWSignal</H1>
+<P>A DWSignal object represents a device instance in a DesignWorks circuit. A variety of methods are available for getting and setting device attributes and other internal values. DWSignal objects are not created directly, but are returned by methods of other objects such as <A HREF="DWPin.html#signal">DWPin.signal</A>.</P>
+<DIR>
+<LI><A HREF="#addLine">
+addLine</a>
+ - Add a visible line to this signal</LI>
+<LI><A HREF="#attributeList">
+attributeList</a>
+ - Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</LI>
+<LI><A HREF="#bus">
+bus</a>
+ - Get the bus that this signal is contained in, if any.</LI>
+<LI><A HREF="#busSignals">
+busSignals</a>
+ - Returns an list of the signals contained in this bus</LI>
+<LI><A HREF="#circuit">
+circuit</a>
+ - Gets the circuit containing this object. Read-only</LI>
+<LI><A HREF="#connectByName">
+connectByName</a>
+ - Connects another signal segment to this one by changing the other signal's name to match this one, making it visible if necessary, and disconnecting the other segment from others it may be attached to.</LI>
+<LI><A HREF="#connectTo">
+connectTo</a>
+ - Connects this signal to a specified pin or signal, including optionally adding visible lines. This will result in this signal being merged with the other signal.</LI>
+<LI><A HREF="#getAttribute">
+getAttribute</a>
+ - Gets an attribute value from this object</LI>
+<LI><A HREF="#getAttributeVis">
+getAttributeVis</a>
+ - Gets the visibility of an attribute on this object</LI>
+<LI><A HREF="#isBus">
+isBus</a>
+ - Returns true if this signal is a bus.</LI>
+<LI><A HREF="#lineColor">
+lineColor</a>
+ - Gets or sets the line color for this signal.</LI>
+<LI><A HREF="#lineWidth">
+lineWidth</a>
+ - Gets or sets the line width for this signal.</LI>
+<LI><A HREF="#locator">
+locator</a>
+ - Gets the locator string of the circuit</LI>
+<LI><A HREF="#name">
+name</a>
+ - Gets the name of the signal</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWSignal".</LI>
+<LI><A HREF="#pins">
+pins</a>
+ - Returns an array of DWPin objects representing all the pins connected to this signal</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the circuit containing this object is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</LI>
+<LI><A HREF="#remove">
+remove</a>
+ - Removes (deletes) the associated signal from its circuit.</LI>
+<LI><A HREF="#select">
+select</a>
+ - Sets the associated signal to be selected, as if the user had clicked on it.</LI>
+<LI><A HREF="#setAttribute">
+setAttribute</a>
+ - Sets an attribute value in this object</LI>
+<LI><A HREF="#setAttributeVis">
+setAttributeVis</a>
+ - Sets the visibility of an attribute value in this object</LI>
+</DIR>
+<a name="addLine"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addLine</B></FONT></P>
+<P>Add a visible line to this signal</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> <B>addLine</B>(p1x, p1y, p2x, p2y);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> <B>addLine</B>(p1x, p1y, p2x, p2y, hitCheck);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>p2x</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>X coordinate of second point of line</td>
+  </tr>
+  <tr>
+    <td>p2y</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>Y coordinate of second point of line</td>
+  </tr>
+  <tr>
+    <td>p1x</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>X coordinate of first point of line</td>
+  </tr>
+  <tr>
+    <td>p1y</td>
+    <td><A HREF = "index.html#integer">integer</A></td>
+    <td>Y coordinate of first point of line</td>
+  </tr>
+  <tr>
+    <td>hitCheck</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to check for connections to other signals at both ends of the line. Defaults to false. WARNING: If this test results in connections to other signals, this signal may cease to exist, with unpredictable consequences if you make further references to thos object!</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the signal object remaining after the add line operation. If hitCheck is false, this will always be this object. If hitCheck is true and the add line results in a merge with another signal, this object may cease to exist and this method returns the new object.</P>
+<H3>Remarks:</H3><P>
+The order of points is of no consequence. All coordinates should normally be multiples of the standard grid spacing of 70 units. <p>NOTE: If you use hitCheck == true, then you should always make sure that this object still exists if you plan to keep using it.</p>
+</P>
+<a name="attributeList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>attributeList</B></FONT></P>
+<P>Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>attributeList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>attributeList</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns or accepts an SPArray of DWAttribute objects</P>
+<a name="bundle"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>bundle</B></FONT></P>
+<P>Get the bundle that this signal is contained in, if any.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>bundle</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWSignal object reprenting the bundle containing this signal, or null if the signal is not in a bundle.</P>
+<a name="bundleSignals"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>bundleSignals</B></FONT></P>
+<P>Returns an list of the signals contained in this bundle</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>bundleSignals</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns NULL if this signal is not a bundle, otherwise returns an SPArray of SPSignal objects representing the signals in the bundle.</P>
+<a name="bus"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>bus</B></FONT></P>
+<P>Get the bus that this signal is contained in, if any.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>bus</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWSignal object reprenting the bus containing this signal, or null if the signal is not in a bus.</P>
+<a name="busSignals"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>busSignals</B></FONT></P>
+<P>Returns an list of the signals contained in this bus</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>busSignals</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns NULL if this signal is not a bus, otherwise returns an SPArray of SPSignal objects representing the signals in the bus.</P>
+<a name="circuit"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>circuit</B></FONT></P>
+<P>Gets the circuit containing this object. Read-only</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> <B>circuit</B>();
+</P>
+</FONT>
+<a name="connectByName"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>connectByName</B></FONT></P>
+<P>Connects another signal segment to this one by changing the other signal's name to match this one, making it visible if necessary, and disconnecting the other segment from others it may be attached to.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>connectByName</B>(pin);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>connectByName</B>(sig);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>sig</td>
+    <td><A HREF = "index.html#DWSignal">DWSignal</A></td>
+    <td>Any other signal. IMPORTANT: If this target signal has multiple segments connected by name, this method will rename only one of them, and it cannot be reliably predicted which segment it will be as it depends on construction order and can change due to editing operations.</td>
+  </tr>
+  <tr>
+    <td>pin</td>
+    <td><A HREF = "index.html#DWPin">DWPin</A></td>
+    <td>Any device pin that is connected to the target signal segment. The pin itself is not significant, it is only used as a way of identifying the attached signal segment.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the connection was changed successfully, false otherwise.</P>
+<a name="connectTo"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>connectTo</B></FONT></P>
+<P>Connects this signal to a specified pin or signal, including optionally adding visible lines. This will result in this signal being merged with the other signal.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(pin);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(pin, visible);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(signal);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(signal, visible);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>signal</td>
+    <td><A HREF = "index.html#DWSignal">DWSignal</A></td>
+    <td>the signal to connect to.</td>
+  </tr>
+  <tr>
+    <td>visible</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to add visible lines as needed to show the connection on the diagram.</td>
+  </tr>
+  <tr>
+    <td>pin</td>
+    <td><A HREF = "index.html#DWPin">DWPin</A></td>
+    <td>the pin to connect to.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a DWSignal object for the resulting signal (which may be this one) if the connection succeeded, null if not. This can fail if the source and destination are not compatible (e.g. are in different busses) or if visible is specified and the pins are not on the same page.</P>
+<H3>Remarks:</H3><P>
+If visible is not specified, the source and destination will be logically connected (i.e. for simulation and netlisting purposes) but will not appear connected on the diagram. This may be more efficient for example if creating a circuit only for internal use and not for future editing. <p>IMPORTANT: This operation may result in this signal ceasing to exist after this operation! If you intend to keep accessing this signal for future operations, then replace it with the returned value from this method.</p>
+</P>
+<a name="getAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttribute</B></FONT></P>
+<P>Gets an attribute value from this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getAttribute</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string representing the value of the specified attribute field. This string will be empty (zero length) if the field does not exist.</P>
+<a name="getAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttributeVis</B></FONT></P>
+<P>Gets the visibility of an attribute on this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getAttributeVis</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the field is displayed on the schematic, false otherwise</P>
+<a name="getEMTPPhases"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getEMTPPhases</B></FONT></P>
+<P>Gets the number of phases for this signal.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>getEMTPPhases</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns 3 for a 3-phase signal, 1 for a 1-phase power signal, 0 for a non-power signal, -1 for an error or conflict (shouldn't normally occur).</P>
+<a name="isBundle"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isBundle</B></FONT></P>
+<P>Returns true if this signal is a bundle.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>isBundle</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property is read-only.
+</P>
+<a name="isBus"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isBus</B></FONT></P>
+<P>Returns true if this signal is a bus.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>isBus</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property is read-only.
+</P>
+<a name="lineColor"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lineColor</B></FONT></P>
+<P>Gets or sets the line color for this signal.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>lineColor</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>lineColor</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an integer representing the signal color. Zero means no color (i.e. the default), 1 - 20 are the built-in system colors, any 32-bit number with the top bit set (0x80bbggrr) will be used as a 24-bit RGB color.</P>
+<a name="lineWidth"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lineWidth</B></FONT></P>
+<P>Gets or sets the line width for this signal.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>lineWidth</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>lineWidth</B> = <I><A HREF = "index.html#int">int</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns an integer representing the signal width. 1 means 1 pixel width at normal scale.</P>
+<a name="locator"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>locator</B></FONT></P>
+<P>Gets the locator string of the circuit</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>locator</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+The locator string identifies an object within a hierarchical circuit structure and provides a unique way of identifying this object despite duplicate or non-existant names.
+</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Gets the name of the signal</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>name</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+This is a read-only property.
+</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWSignal".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="pins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>pins</B></FONT></P>
+<P>Returns an array of DWPin objects representing all the pins connected to this signal</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>pins</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns an SPArray object containing a <A HREF"DWPin.html">DWPin</A> object for each pin attached to this signal</P>
+<H3>Remarks:</H3><P>
+WARNING: This array becomes invalid if any subsequent script commands causes elements to be added or destroyed. Not much checking is done for this and bad things could happen if you aren't careful!
+</P>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the circuit containing this object is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="remove"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>remove</B></FONT></P>
+<P>Removes (deletes) the associated signal from its circuit.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>remove</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+Any subsequent references to this DWSignal object will fail with an exception since the associated circuit signal is gone.
+</P>
+<a name="select"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>select</B></FONT></P>
+<P>Sets the associated signal to be selected, as if the user had clicked on it.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>(show);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>(show, deselOthers);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>deselOthers</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to deselect all other circuit objects before selecting this one. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>show</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to have the page containing the object opened and scrolled as needed to display it. Defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="setAttribute"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttribute</B></FONT></P>
+<P>Sets an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>How to set visibility of resulting attribute text. 0 (false) = hide, 1 (true) = show, 2 = use default setting in design's attribute table, -1 = leave current visibility If this parameter is not supplied, 2 is assumed.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value for the specified field</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Null.</P>
+<H3>Remarks:</H3><P>
+If the given field name is not defined in the design's attribute table, it is added automatically. It is preferable to ensure that any fields used are already defined in the target design to make sure the settings are appropriate.
+</P>
+<a name="setAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttributeVis</B></FONT></P>
+<P>Sets the visibility of an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttributeVis</B>(fieldName, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to make the attribute visible, false to hide it</td>
+  </tr>
+  </tbody>
+  </table>
+</BODY>
+</HTML>

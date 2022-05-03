@@ -1,0 +1,28 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+if (!confirm("This script generates a page index text block in the design"
+		+ " attribute field 'PageIndex'.  In order to display the index"
+		+ " this field must be included as a user variable (i.e. &PageIndex)"
+		+ " in a text item on the page.")) halt;
+
+cct = currentCircuit;
+if (cct == null)
+{
+	alert("There's no current circuit!");
+	halt;
+}
+
+ps = cct.pages;
+str = "";
+for (i = 0; i < ps.length; i++)
+{
+	if (str != "") str += "\n";
+	str += sprintf("%2d - %s", i+1, ps[i].name);
+}
+
+cct.setAttribute("PageIndex", str);

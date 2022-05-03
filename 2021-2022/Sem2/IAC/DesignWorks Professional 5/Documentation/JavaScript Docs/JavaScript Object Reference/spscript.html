@@ -1,0 +1,1702 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPScript</H1>
+<P>This is a global, top-level object containing a collection of general purpose methods and properties. This means that the SPScript object is never created or destroyed and also that the name Script does <I>not</I> need to be used as a prefix to these items. For example the "halt" method can be used just as "halt()". You can refer to it as "SPScript.halt()" if desired, but it is not necessary.</P>
+<DIR>
+<LI><A HREF="#addScriptSearchPath">
+addScriptSearchPath</a>
+ - Adds a new directory to the list of the directories that will be searched for scripts whenever a script file name is specified.</LI>
+<LI><A HREF="#alert">
+alert</a>
+ - This displays a simple box with an OK button and the given string.</LI>
+<LI><A HREF="#appendFile">
+appendFile</a>
+ - Works identically to writeFile except that data is appended to an existing file, instead of replacing it.</LI>
+<LI><A HREF="#command">
+command</a>
+ - Runs the given DOS-style command.</LI>
+<LI><A HREF="#compareBinary">
+compareBinary</a>
+ - Compares two data items for an exact binary equivalence. This can be used to verify an exact copy after file or network operations.</LI>
+<LI><A HREF="#confirm">
+confirm</a>
+ - This displays a simple box with OK and Cancel buttons and the given string.</LI>
+<LI><A HREF="#convertCRLF">
+convertCRLF</a>
+ - Converts the given string from internal LF-only to Windows-style CR/LF line termination.</LI>
+<LI><A HREF="#convertSlashes">
+convertSlashes</a>
+ - Gets or sets the status of the global "convert slashes in filenames" flag.</LI>
+<LI><A HREF="#createDirectory">
+createDirectory</a>
+ - Creates the specified directory.</LI>
+<LI><A HREF="#decrypt">
+decrypt</a>
+ - Decrypts the given data and returns a new array containing the decrypted block.</LI>
+<LI><A HREF="#deleteDirectory">
+deleteDirectory</a>
+ - Deletes the given directory, including all its contents.</LI>
+<LI><A HREF="#deleteFile">
+deleteFile</a>
+ - Deletes the specified file.</LI>
+<LI><A HREF="#deleteFiles">
+deleteFiles</a>
+ - Deletes all files and directories matching the given pattern.</LI>
+<LI><A HREF="#encrypt">
+encrypt</a>
+ - Encrypts the given data and returns a new array containing the encrypted block.</LI>
+<LI><A HREF="#getEnv">
+getEnv</a>
+ - Gets the value of a system environment variable.</LI>
+<LI><A HREF="#getFileList">
+getFileList</a>
+ - Generates a list of files in the given directory.</LI>
+<LI><A HREF="#getGlobalValue">
+getGlobalValue</a>
+ - Gets a value stored in a global object</LI>
+<LI><A HREF="#getScriptArg">
+getScriptArg</a>
+ - Gets the value of a positional argument passed when the script was invoked.</LI>
+<LI><A HREF="#getScriptSearchPaths">
+getScriptSearchPaths</a>
+ - Gets a list of the directories that will be searched for scripts whenever a script file name is specified.</LI>
+<LI><A HREF="#getTextFromClipboard">
+getTextFromClipboard</a>
+ - Returns a string containing any text on the clipboard.</LI>
+<LI><A HREF="#getWordsFromText">
+getWordsFromText</a>
+ - Creates an array of the "words" in a text string.</LI>
+<LI><A HREF="#halt">
+halt</a>
+ - Immediately stops execution of the script.</LI>
+<LI><A HREF="#htmlProperties">
+htmlProperties</a>
+ - This displays a property page with individual sheets defined using HTML.</LI>
+<LI><A HREF="#loadVar">
+loadVar</a>
+ - Loads a variable value that was saved using <a href="#saveVar">saveVar</a>.</LI>
+<LI><A HREF="#navigate">
+navigate</a>
+ - Start the default Web browser and pass it the given URL</LI>
+<LI><A HREF="#NetPadFile">
+NetPadFile</a>
+ - Creates a new NetPadFile object.</LI>
+<LI><A HREF="#parseScriptFile">
+parseScriptFile</a>
+ - This is the same as <A HREF="#parseScriptText">parseScriptText</A> but the source is a file instead of a literal string.</LI>
+<LI><A HREF="#parseScriptText">
+parseScriptText</a>
+ - Parses the given string as if it was part of the current script. Any global objects and methods in the current script are accessible to the new script and any top level items defined in the new script will be accessible to the calling script. Any top level statements in the added script are executed immediately. If any one of these statements is an expression that generates a value, that value is returned.</LI>
+<LI><A HREF="#printf">
+printf</a>
+ - Generates formatted text output to the console window.</LI>
+<LI><A HREF="#progress">
+progress</a>
+ - Writes text to the application's status bar progress box</LI>
+<LI><A HREF="#prompt">
+prompt</a>
+ - This displays a simple box with OK and Cancel buttons and one or more text entry boxes.</LI>
+<LI><A HREF="#putTextOnClipboard">
+putTextOnClipboard</a>
+ - Places the given text on the clipboard.</LI>
+<LI><A HREF="#run">
+run</a>
+ - Runs an application or opens a file. This is equivalent to double-clicking on the specified file in the Explorer. If the file is an application, it is started. If the file is a document, the system attempts to find the associated application and open it.</LI>
+<LI><A HREF="#saveVar">
+saveVar</a>
+ - Saves a variable value to the system registry.</LI>
+<LI><A HREF="#setGlobalValue">
+setGlobalValue</a>
+ - Saves an arbitrary value to a global object</LI>
+<LI><A HREF="#setScriptResult">
+setScriptResult</a>
+ - Set the script result value that will be returned to the process that invoked the script</LI>
+<LI><A HREF="#setScriptSearchPaths">
+setScriptSearchPaths</a>
+ - Sets the list of the directories that will be searched for scripts whenever a script file name is specified.</LI>
+<LI><A HREF="#sleep">
+sleep</a>
+ - Pauses execution of the script for the given number of milliseconds.</LI>
+<LI><A HREF="#SPAddressBook">
+SPAddressBook</a>
+ - Creates a new SPAddressBook object.</LI>
+<LI><A HREF="#SPArray">
+SPArray</a>
+ - Creates a new, empty SPArray object.</LI>
+<LI><A HREF="#SPDatabase">
+SPDatabase</a>
+ - Creates a new SPDatabase object.</LI>
+<LI><A HREF="#SPFile">
+SPFile</a>
+ - Creates a new SPFile object.</LI>
+<LI><A HREF="#SPHTMLDialog">
+SPHTMLDialog</a>
+ - Creates a new, empty SPHTMLDialog object which is used to display an HTML dialog or property sheet.</LI>
+<LI><A HREF="#sprintf">
+sprintf</a>
+ - Generates formatted text output to a string.</LI>
+<LI><A HREF="#SPStringMap">
+SPStringMap</a>
+ - Creates a new SPStringMap object.</LI>
+<LI><A HREF="#SPZip">
+SPZip</a>
+ - Creates a new SPZip object.</LI>
+<LI><A HREF="#write">
+write</a>
+ - Writes text to the console window.</LI>
+<LI><A HREF="#writeFile">
+writeFile</a>
+ - Writes binary or text data to a file.</LI>
+<LI><A HREF="#writeln">
+writeln</a>
+ - Writes text to the console window followed by a newline.</LI>
+</DIR>
+<a name="addScriptSearchPath"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>addScriptSearchPath</B></FONT></P>
+<P>Adds a new directory to the list of the directories that will be searched for scripts whenever a script file name is specified.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>addScriptSearchPath</B>(pathString);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>addScriptSearchPath</B>(pathString, permanent);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>permanent</td>
+    <td><A HREF = "index.html#Boolean">Boolean</A></td>
+    <td>specifies whether this setting should be "permanent", i.e. the settings should be saved by the application and restored automatically each time the application is started. If this is false, the settings remain in effect only until the application quites. Defaults to true.</td>
+  </tr>
+  <tr>
+    <td>pathString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>a single directory name. This may be an absolute or relative path. If it is relative, the standard application directories are searched for the directory.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="alert"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>alert</B></FONT></P>
+<P>This displays a simple box with an OK button and the given string.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>alert</B>(textString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>textString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to display.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="appendFile"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>appendFile</B></FONT></P>
+<P>Works identically to writeFile except that data is appended to an existing file, instead of replacing it.</P>
+<H3>Remarks:</H3><P>
+This method is useful as a method of logging errors or actions during script execution. If the file doesn't exist, it is created.
+</P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="#writeFile">writeFile</A></LI>
+</DIR>
+<a name="command"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>command</B></FONT></P>
+<P>Runs the given DOS-style command.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>command</B>(commandStr);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>command</B>(commandStr, waitMillis);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>commandStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The command string to execute</td>
+  </tr>
+  <tr>
+    <td>waitMillis</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The amount of time to wait for completion of the command. If this is not specified, or a negative value is given, it waits until the started command completes, regardless of how long that takes. If zero is given, it returns immediately. If a positive value is given, it waits for the command to complete, or for the given number of milliseconds, whichever comes first.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This function starts the DOS command interpreter and submits the given command. On Windows NT systems only, the function returns a string containing the output from the command. Note that the command processor is started from scratch each time this function is used, so it has no memory of current drive or directory settings. All commands and file names should be specified with complete paths.
+</P>
+<a name="compareBinary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>compareBinary</B></FONT></P>
+<P>Compares two data items for an exact binary equivalence. This can be used to verify an exact copy after file or network operations.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>compareBinary</B>(block1, block2);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>block1</td>
+    <td><A HREF = "index.html#array/string">array/string</A></td>
+    <td>First data item for comparison</td>
+  </tr>
+  <tr>
+    <td>block2</td>
+    <td><A HREF = "index.html#array/string">array/string</A></td>
+    <td>Second data item for comparison</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>bool - true if the two blocks match exactly, false otherwise</P>
+<H3>Errors:</H3><P>Will generate an exception if the two arguments don't match and no return value is requested. See the remarks.</P>
+<H3>Remarks:</H3><P>
+Note that you can use this function with no return value, as in the following example. In this case, the script will halt with an error if the blocks don't match. This can be used to do a quick and dirty comparison without bothering with a fancy error response.
+</P>
+<H3>Example:</H3><P><PRE>
+// Write a file, then read it back and compare.
+// This will generate an exception if the two
+// files are not identical.
+
+data1 = SPFile("c:/source.dat").readBinary();
+SPFile("c:/dest.dat").writeBinary(data1);
+compareBinary(SPFile("c:/dest.dat").readBinary(), data1);
+</PRE></P>
+<a name="confirm"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>confirm</B></FONT></P>
+<P>This displays a simple box with OK and Cancel buttons and the given string.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>confirm</B>(textString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>textString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to display.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if OK clicked, false if Cancel clicked.</P>
+<a name="convertCRLF"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>convertCRLF</B></FONT></P>
+<P>Converts the given string from internal LF-only to Windows-style CR/LF line termination.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>convertCRLF</B>(text);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to convert.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a new string with all lines terminated with carriage return/line feed.</P>
+<H3>Remarks:</H3><P>
+This should only be used in rare cases where an ActiveX control or other external object requires Windows-style line termination and will not accept a multiline string passed directly. This method is not required when writing to a file or FTP site using "writeText" methods since the conversion is done automatically.
+</P>
+<a name="convertSlashes"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>convertSlashes</B></FONT></P>
+<P>Gets or sets the status of the global "convert slashes in filenames" flag.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>convertSlashes</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>convertSlashes</B>(flagValue);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>flagValue</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to enable slash conversion, false to disable it.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+If this flag is on, all methods and functions that operate on file names will accept a "/" forward slash character as a directory separator. This allows easier specification of path names without having to escape every backslash character that is used in a JavaScript string constant.
+</P>
+<a name="createDirectory"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>createDirectory</B></FONT></P>
+<P>Creates the specified directory.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>createDirectory</B>(pathStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>pathStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path of the directory to create</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This function will do its best to create the given path, creating all the parent directories if necessary. If the given directory already exists, nothing is done and no error is reported.
+</P>
+<a name="decrypt"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>decrypt</B></FONT></P>
+<P>Decrypts the given data and returns a new array containing the decrypted block.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>decrypt</B>(passwordStr, data);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>This is the encrypted binary data block. This must be exactly the block generated by encrypt with no modifications of any kind.</td>
+  </tr>
+  <tr>
+    <td>passwordStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The password used to encrypt the data.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the decrypted data. Most data types, including strings, will be decrypted back to the data type they existed in before they were encrypted.</P>
+<H3>Remarks:</H3><P>
+This decrypts the given data block that was encrypted using <B>encrypt</B>.
+</P>
+<a name="deleteDirectory"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>deleteDirectory</B></FONT></P>
+<P>Deletes the given directory, including all its contents.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>deleteDirectory</B>(pathStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>pathStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path of the directory to delete</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+WARNING: This will delete the given directory and everything in it without comment!!! There is no way of undoing this operation once it is done.
+</P>
+<a name="deleteFile"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>deleteFile</B></FONT></P>
+<P>Deletes the specified file.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>deleteFile</B>(pathStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>pathStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path name of the file to delete</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="deleteFiles"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>deleteFiles</B></FONT></P>
+<P>Deletes all files and directories matching the given pattern.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>deleteFiles</B>(patternStr);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>deleteFiles</B>(patternStr, except);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>patternStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The full path name and pattern specifying the files to delete. See the examples.</td>
+  </tr>
+  <tr>
+    <td>except</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A file name to omit from the delete process, not including its path.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Example:</H3><P><PRE>
+deleteFiles("c:/images/*.gif");                 // Delete all files with the given extension
+deleteFiles("c:/data/item*.dat", "item9.dat");   // Delete all "itemxxx.dat" except item9.dat
+deleteFiles("c:/*.*");                          // Delete the entire contents of you c: drive!!! (No I haven't tested it!)
+</PRE></P>
+<a name="encrypt"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>encrypt</B></FONT></P>
+<P>Encrypts the given data and returns a new array containing the encrypted block.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>encrypt</B>(passwordStr, data);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>The data to encrypt. This can be any data type that can be converted to a binary array.</td>
+  </tr>
+  <tr>
+    <td>passwordStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The password used to encrypt the data. The longer the better!</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the encrypted data as an array of bytes.</P>
+<H3>Remarks:</H3><P>
+This encrypts the given data using a 40-bit algorithm and returns the result as a binary data block. This block can then be written to a file or transmitted by FTP as desired. Passing a complex object to this function will result in the objects "value" method being called and the resulting data being encrypted. In general, this will <I>not</I> result in the object being reconstituted when it is decrypted.
+</P>
+<a name="getEnv"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getEnv</B></FONT></P>
+<P>Gets the value of a system environment variable.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> = <B>getEnv</B>(name);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the desired environment variable.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the value string, or null if no environment variable was found with the given name.</P>
+<H3>Example:</H3><P><PRE>
+paths = getEnv("PATH");
+</PRE></P>
+<a name="getFileList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFileList</B></FONT></P>
+<P>Generates a list of files in the given directory.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>getFileList</B>(directoryPath);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#Array">Array</A></td>
+</I> <B>getFileList</B>(directoryPath, patternStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>directoryPath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>String specifying the full path to the directory in question. As with other file specifications, directory names can be separated with either forward "/" or backward "\" slashes</td>
+  </tr>
+  <tr>
+    <td>patternStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Optional pattern to match a subset of the files in the directory, e.g. "*.doc". If this is not specified, all files in the directory match.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns an array of SPFile objects, one for each item matched. The methods in the SPFile object can be used to read, write or get information about the individual files.</P>
+<H3>Errors:</H3><P>Does not generate any error exceptions. If the given directory doesn't exist or can't be read for any reason, an empty array is returned.</P>
+<H3>Example:</H3><P><PRE>
+files = getFileList("c:/temp");
+writeln("These are the temporary files:");
+for (i = 0; i &lt; files.length; i++)
+{
+    printf("File #%08d is %s", i, files[i].fullName);
+}
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="#SPFile">SPFile</A></LI>
+</DIR>
+<a name="getGlobalValue"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getGlobalValue</B></FONT></P>
+<P>Gets a value stored in a global object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> = <B>getGlobalValue</B>(name);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>A "variable name" that the value was saved under. This is case sensitive and there are no restrictions on length or character content of the name</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the saved value, or null if there is no value under the given name</P>
+<H3>Remarks:</H3><P>
+This function is used in conjunction with <a href="#setGlobalValue">setGlobalValue</a> to save arbitrary values that can be used by other system components by other other invocations of scripts. These values are global to the application and survive for the application session. <p>NOTE: You can also get and set values by direct reference to a name, as in <br>valName = newValue; // Set the value <br>prevValue = valName; // Get the value<br> Any unknown name will automatically get added to the list of known top-level symbols.</p> <p><b>WARNING:</b> Is is very risky to globally save objects such as DesignWorks circuit elements or any other objects that may refer to outside resources. Such objects may contain internal pointers that may be invalidated by other application operations and may cause the program to crash if misused. The only safe use of this function is to store simple numerical or string values.</p>
+</P>
+<H3>Example:</H3><P><PRE>
+prevSetting = getGlobalValue("OldSetting");
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="setglobalvalue.html">setGlobalValue</A></LI>
+</DIR>
+<a name="getScriptArg"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getScriptArg</B></FONT></P>
+<P>Gets the value of a positional argument passed when the script was invoked.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> = <B>getScriptArg</B>(num);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>num</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The argument number, in the range 1 to N, where N is the number of arguments passed.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the argument value string, or null if no argument with the given number.</P>
+<H3>Remarks:</H3><P>
+This function is used to fetch argument values that were passed by the outside caller that invoked the script. For example, if the script was started directly from the application's command line, the arguments given after the script name can be accessed by this method.
+</P>
+<H3>Example:</H3><P><PRE>
+secondArg = getScriptArg(2);
+</PRE></P>
+<a name="getScriptSearchPaths"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getScriptSearchPaths</B></FONT></P>
+<P>Gets a list of the directories that will be searched for scripts whenever a script file name is specified.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getScriptSearchPaths</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>Returns an SPArray object containing path strings. The number of items can be determined using the SPArray.length property.</P>
+<H3>Remarks:</H3><P>
+Returns a list of all current script search paths, including those set permanently in the application's initialization file and others added later by the user or by scripts.
+</P>
+<a name="getTextFromClipboard"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getTextFromClipboard</B></FONT></P>
+<P>Returns a string containing any text on the clipboard.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getTextFromClipboard</B>();
+</P>
+</FONT>
+<H3>Returns:</H3><P>A string containing any text present on the clipboard, or null if there is no text available.</P>
+<a name="getWordsFromText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getWordsFromText</B></FONT></P>
+<P>Version added: 1.2</P>
+<P>Creates an array of the "words" in a text string.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getWordsFromText</B>(text);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getWordsFromText</B>(text, charSet);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>charSet</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A string containing one each of all the characters allowed in a word. If this is not specified, the upper and lower case letters are assumed.</td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The source text from which words are to be extracted</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This function returns an SPArray object containing all the words extracted from the text, in the exact order found. Duplicates are not removed, although they can easily be removed using SPArray.removeDuplicates. A "word" consists of any sequence of the characters found in the character set, and a word ends when any character not in the set is encountered. If no words are located an array of length zero will be returned.
+</P>
+<a name="halt"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>halt</B></FONT></P>
+<P>Immediately stops execution of the script.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>halt</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>halt</B>(messageStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>messageStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A text message to display in the exception error box.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+If any string argument is given, an exception error box is displayed with the given string, otherwise no box is displayed.
+</P>
+<a name="htmlProperties"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>htmlProperties</B></FONT></P>
+<P>This displays a property page with individual sheets defined using HTML.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>htmlProperties</B>(urls);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>htmlProperties</B>(urls, defaultVals);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>htmlProperties</B>(urls, defaultVals, title);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>htmlProperties</B>(urls, defaultVals, title, sizeX, sizeY);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>sizeX</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The width in pixels for the displayed box. If not specified, defaults are used.</td>
+  </tr>
+  <tr>
+    <td>sizeY</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The height in pixels for the displayed box</td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The title for the dialog box</td>
+  </tr>
+  <tr>
+    <td>urls</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL(s) or file name(s) of the HTML page(s) to display. If this is a string, then a simple dialog box is displayed showing that page. If this is an SPArray of strings, then a tabbed property sheet box is displayed with one tab per URL.</td>
+  </tr>
+  <tr>
+    <td>defaultVals</td>
+    <td><A HREF = "index.html#SPArray">SPArray</A></td>
+    <td>The default values to place in the controls on the pages. This can be an array of strings to match the controls on the pages.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns an array of the control values if OK clicked, null if Cancel clicked. The form of this array is the same as the defaultVals array passed as an argument.</P>
+<a name="loadVar"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>loadVar</B></FONT></P>
+<P>Version added: 1.1</P>
+<P>Loads a variable value that was saved using <a href="#saveVar">saveVar</a>.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> <B>loadVar</B>(name);
+</P>
+</FONT>
+<P>Load the value with the given name. If the value doesn't exist, "null" is returned.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> <B>loadVar</B>(name, default);
+</P>
+</FONT>
+<P>Load the value, or return the default value if not found.</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>default</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>A default value to return if the given name is not found.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The variable name. See comments under <a href="#saveVar">saveVar</a>.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>An exception will be generated if the data is found but is corrupt or an unrecognized format.</P>
+<a name="navigate"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>navigate</B></FONT></P>
+<P>Start the default Web browser and pass it the given URL</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>navigate</B>(urlString);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>urlString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL to navigate to</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="NetPadFile"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>NetPadFile</B></FONT></P>
+<P>Creates a new NetPadFile object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#NetPadFile">NetPadFile</A></td>
+</I> <B>NetPadFile</B>();
+</P>
+</FONT>
+<P>// Creates a NetPadFile object without any file association</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#NetPadFile">NetPadFile</A></td>
+</I> <B>NetPadFile</B>(filePath);
+</P>
+</FONT>
+<P>// Creates a NetPadFile object associated with the given file</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>filePath</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The complete path name of the NetPad file. The file does not have to exist initially. It can be created using the NetPadFile.create method. If this is not specified, the NetPadFile object will be unassociated initially and a file name must be set before it can be used.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="netpadfile.html">NetPadFile</A></LI>
+</DIR>
+<a name="parseScriptFile"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>parseScriptFile</B></FONT></P>
+<P>This is the same as <A HREF="#parseScriptText">parseScriptText</A> but the source is a file instead of a literal string.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> <B>parseScriptFile</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of a file containing the text to be parsed.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+If the file name string does not contain an absolute path, then the directory containing the current script is searched first, followed by the application directory and any other search paths specified by the application.
+</P>
+<a name="parseScriptText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>parseScriptText</B></FONT></P>
+<P>Parses the given string as if it was part of the current script. Any global objects and methods in the current script are accessible to the new script and any top level items defined in the new script will be accessible to the calling script. Any top level statements in the added script are executed immediately. If any one of these statements is an expression that generates a value, that value is returned.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#value">value</A></td>
+</I> <B>parseScriptText</B>(text);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The script text to be parsed.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the value produced by the last top level expression executed in the given script.</P>
+<a name="printf"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>printf</B></FONT></P>
+<P>Generates formatted text output to the console window.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>printf</B>(formatStr, arg1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>arg1...</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>Values to be converted to text according to the format commands in the format string</td>
+  </tr>
+  <tr>
+    <td>formatStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Text string containing literal text and format arguments</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>void</P>
+<H3>Errors:</H3><P>Does not generate any error exceptions. If the actual arguments don't match the data required by the format string, default values will be substituted in the output.</P>
+<H3>Remarks:</H3><P>
+This method is used to generate formatted text in the console window using format arguments patterned after the standard C/C++ printf function. Since the formatting arguments are quite extensive, they are described on a separate page <A HREF="printf.html">printf Formatting</A>. Users familiar with the original C function should note that JavaScript conversions are considerably more general than C. For example, essentially any JavaScript data item can be converted to a string, so "%s" conversion can be used with any data argument to get a default output.
+</P>
+<H3>Example:</H3><P><PRE>
+files = getFileList("c:/temp");
+writeln("These are the temporary files:");
+for (i = 0; i &lt; files.length; i++)
+{
+    printf("File #%08d is %s", i, files[i].fullName);
+}
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="#sprintf">sprintf</A></LI>
+<LI><A HREF="spfile.html#fprintf">SPFile.fprintf</A></LI>
+</DIR>
+<a name="progress"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>progress</B></FONT></P>
+<P>Writes text to the application's status bar progress box</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>progress</B>(textStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>textStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to display.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="prompt"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>prompt</B></FONT></P>
+<P>This displays a simple box with OK and Cancel buttons and one or more text entry boxes.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>prompt</B>(displayMsg);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>prompt</B>(displayMsg, defaultText);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>prompt</B>(displayMsg, defaultText, title);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The title for the dialog box</td>
+  </tr>
+  <tr>
+    <td>defaultText</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The default text to place in the edit box. This can be an array of strings to match the edit boxes created as noted above.</td>
+  </tr>
+  <tr>
+    <td>displayMsg</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The label text to display next to the edit box. If this is a string, then a single edit box is displayed. If this is an SPArray of strings, then multiple edit boxes are displayed, one per element.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the string or strings entered if OK clicked, null if Cancel clicked. If only a single edit box is created (i.e. "labelText" is a simple string or an array of one element), then the return value is a string. If multiple boxes are created (i.e. "labelText" is an array), then an SPArray of values is returned, one per edit box.</P>
+<a name="putTextOnClipboard"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>putTextOnClipboard</B></FONT></P>
+<P>Places the given text on the clipboard.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>putTextOnClipboard</B>(text);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to place on the clipboard</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>true if OK, false if any error (very unlikely).</P>
+<a name="run"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>run</B></FONT></P>
+<P>Runs an application or opens a file. This is equivalent to double-clicking on the specified file in the Explorer. If the file is an application, it is started. If the file is a document, the system attempts to find the associated application and open it.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>run</B>(fileName);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>run</B>(fileName, arguments);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>run</B>(fileName, arguments, startingDir);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>run</B>(fileName, arguments, startingDir, waitMillis);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>The complete path of the application or file in question.</td>
+  </tr>
+  <tr>
+    <td>startingDir</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>The initial default directory for the application. This is ignored if the specified file is not an application.</td>
+  </tr>
+  <tr>
+    <td>arguments</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>The command line arguments to pass to the application. This is ignored if the specified file is not an application.</td>
+  </tr>
+  <tr>
+    <td>waitMillis</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The amount of time to wait for completion of the other application. If this is not specified, or zero is given, the call returns immediately without waiting for completion. If a negative value is given, it waits until the started application completes, regardless of how long that takes. If a positive value is given, it waits for the application to complete, or for the given number of milliseconds, whichever comes first.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the command was completed, false if it was still running on return.</P>
+<a name="saveVar"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>saveVar</B></FONT></P>
+<P>Version added: 1.1</P>
+<P>Saves a variable value to the system registry.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>saveVar</B>(name);
+</P>
+</FONT>
+<P>Save a boolean "true" value.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>saveVar</B>(name, value);
+</P>
+</FONT>
+<P>Save the given value.</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>The data to save. This must be a simple object (i.e. scalar, string or byte array) and must not exceed 1K (1024 bytes) in size.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>The variable name. See comments below.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>An exception will be generated for any attempt to save any data this is too long or an unsupported data type.</P>
+<H3>Remarks:</H3><P>
+This function saves a variable to the system registry so that's its value can be used in later executions of the same, or any other, script. <p>Variable names are universal, i.e. any script in any script database file on the same computer can request or change the value using the same name at any future time. Variable names are also hierarchical, i.e. you can create groups of variables by using a "path" format similar to a file name. For example: <pre>saveVar("FileCleanUp/LastFile", lastFileName);</pre> will create a registry key called "FileCleanUp" and under it a variable called "LastFile". This can be used to group values with a common function. Any number of nested names can be used.</p> <p>saveVar cannot save complex system or user-defined objects such as arbitrary arrays, Date, SPInternet, etc. Special handling is included for SPArray objects with binary values, but other types of objects must be converted to some suitable binary or string value in order to be saved. This restriction is necessary because of the arbitrary complexity of the internal storage and state of these objects.</p> <p>If you need to get direct access to values saved with saveVar using other registry tools, they are stored under the key HKEY_CURRENT_USER\Software\FlyingObjects\ScriptPilot\UserVars. Values are stored with a header that specifies the length and type of data so that it can be reconstructed with its original data type. This data should not be hand modified unless you're sure you know what you're doing!</p>
+</P>
+<a name="setGlobalValue"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setGlobalValue</B></FONT></P>
+<P>Saves an arbitrary value to a global object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setGlobalValue</B>(name, value);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#value">value</A></td>
+    <td>Any value. See below for warnings about this value.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>A "variable name" that the value will be saved under. This is case sensitive and there are no restrictions on length or character content of the name</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This function is used in conjunction with <a href="#getGlobalValue">getGlobalValue</a> to save arbitrary values that can be used by other system components by other other invocations of scripts. These values are global to the application and survive for the application session. <p><b>WARNING:</b> Is is very risky to globally save objects such as DesignWorks circuit elements or any other objects that may refer to outside resources. Such objects may contain internal pointers that may be invalidated by other application operations and may cause the program to crash if misused. The only safe use of this function is to store simple numerical or string values.</p>
+</P>
+<H3>Example:</H3><P><PRE>
+setGlobalValue("OldSetting", boxValue);
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="getglobalvalue.html">getGlobalValue</A></LI>
+</DIR>
+<a name="setScriptResult"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setScriptResult</B></FONT></P>
+<P>Set the script result value that will be returned to the process that invoked the script</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>setScriptResult</B>(text);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text value to return to the caller. The argument does not have to be a string, but it will be converted to a string value before being returned.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="setScriptSearchPaths"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setScriptSearchPaths</B></FONT></P>
+<P>Sets the list of the directories that will be searched for scripts whenever a script file name is specified.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>setScriptSearchPaths</B>(pathString);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>setScriptSearchPaths</B>(pathsArray);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>setScriptSearchPaths</B>(pathString, permanent);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#void">void</A></td>
+</I> <B>setScriptSearchPaths</B>(pathsArray, permanent);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>permanent</td>
+    <td><A HREF = "index.html#Boolean">Boolean</A></td>
+    <td>specifies whether this setting should be "permanent", i.e. the settings should be saved by the application and restored automatically each time the application is started. If this is false, the settings remain in effect only until the application quites. Defaults to true.</td>
+  </tr>
+  <tr>
+    <td>pathsArray</td>
+    <td><A HREF = "index.html#SPArray">SPArray</A></td>
+    <td>an array containing any number of directory path strings. They will be searched in the order given.</td>
+  </tr>
+  <tr>
+    <td>pathString</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>a single directory name. This may be an absolute or relative path. If it is relative, the standard application directories are searched for the directory.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This method removes all search directories currently on the search path list, except "hard" settings that are specified in the application's initialization file, and then adds the given item or items.
+</P>
+<a name="sleep"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>sleep</B></FONT></P>
+<P>Pauses execution of the script for the given number of milliseconds.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>sleep</B>(waitMillis);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>waitMillis</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The amount of time to sleep, in milliseconds.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="SPAddressBook"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPAddressBook</B></FONT></P>
+<P>Creates a new SPAddressBook object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPAddressBook">SPAddressBook</A></td>
+</I> <B>SPAddressBook</B>();
+</P>
+</FONT>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spaddressbook.html">SPAddressBook</A></LI>
+</DIR>
+<a name="SPArray"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPArray</B></FONT></P>
+<P>Version added: 1.1</P>
+<P>Creates a new, empty SPArray object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>SPArray</B>();
+</P>
+</FONT>
+<P>Initializes an empty array</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>SPArray</B>(multiLineString);
+</P>
+</FONT>
+<P>Extracts lines from the given string and makes them elements</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>SPArray</B>(str1, ...);
+</P>
+</FONT>
+<P>Converts each argument to a string and makes it an element</P>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>multiLineString</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>A string that will be used to initialize the array. Substrings separated by newline characters will be placed in successive elements.</td>
+  </tr>
+  <tr>
+    <td>str1</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>Any number of strings to be assigned to assigned to array elements.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This function with no arguments creates a new, empty SPArray object. It will rarely be necessary to use this function. Normally, an SPArray object is created by a function that returns one, such as <A HREF="#getFileList">getFileList</A>. In some cases, such as the following example, it may be desirable to create an empty array initially for later modification. <p>NOTE: Remember that the SPArray object differs from the standard JavaScript Array object in that all elements must be of the same type. Three types are supported, binary (i.e. an array of bytes), string and object.</p>
+</P>
+<H3>Example:</H3><P><PRE>
+a = SPArray();
+addFiles(a, "c:/documents");
+addFiles(a, "c:/development");
+
+function addFiles(arr, dir)
+{
+    arr.append(getFileList(dir));
+}
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="sparray.html">SPArray</A></LI>
+</DIR>
+<a name="SPDatabase"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPDatabase</B></FONT></P>
+<P>Creates a new SPDatabase object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPDatabase">SPDatabase</A></td>
+</I> <B>SPDatabase</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>The complete path and name of the database file to associate with this object.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the SPDatabase object. This only creates the object and a non-null value does not mean the database was opened successfully.</P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spdatabase.html">SPDatabase</A></LI>
+</DIR>
+<a name="SPFile"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPFile</B></FONT></P>
+<P>Creates a new SPFile object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPFile">SPFile</A></td>
+</I> <B>SPFile</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPFile">SPFile</A></td>
+</I> <B>SPFile</B>(fileName);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPFile">SPFile</A></td>
+</I> <B>SPFile</B>(fileName, refDir, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A full or relative path and name of the file to associate with this object. If this is not specified, the file object will be unassociated and the path must be set before it is used.</td>
+  </tr>
+  <tr>
+    <td>refDir</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>If the file name given is relative, this directory will be searched first for the given file, before looking in the usual system locations. Any number of additional refDir arguments can be specified</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spfile.html">SPFile</A></LI>
+</DIR>
+<a name="SPHTMLDialog"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPHTMLDialog</B></FONT></P>
+<P>Creates a new, empty SPHTMLDialog object which is used to display an HTML dialog or property sheet.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPHTMLDialog">SPHTMLDialog</A></td>
+</I> <B>SPHTMLDialog</B>();
+</P>
+</FONT>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="#SPHTMLDialog">SPHTMLDialog</A></LI>
+</DIR>
+<a name="sprintf"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>sprintf</B></FONT></P>
+<P>Generates formatted text output to a string.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>sprintf</B>(formatStr, arg1, ...);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>arg1...</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>Values to be converted to text according to the format commands in the format string</td>
+  </tr>
+  <tr>
+    <td>formatStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>Text string containing literal text and format arguments</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the formatted string.</P>
+<H3>Errors:</H3><P>Does not generate any error exceptions. If the actual arguments don't match the data required by the format string, default values will be substituted in the output.</P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="#printf">printf</A></LI>
+<LI><A HREF="spfile.html#fprintf">SPFile.fprintf</A></LI>
+</DIR>
+<a name="SPStringMap"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPStringMap</B></FONT></P>
+<P>Creates a new SPStringMap object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#StringMap">StringMap</A></td>
+</I> <B>SPStringMap</B>();
+</P>
+</FONT>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spstringmap.html">SPStringMap</A></LI>
+</DIR>
+<a name="SPZip"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>SPZip</B></FONT></P>
+<P>Creates a new SPZip object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPZip">SPZip</A></td>
+</I> <B>SPZip</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>The complete path and name of the zip file to associate with this object. The file does not have to exist.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spzip.html">SPZip</A></LI>
+</DIR>
+<a name="write"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>write</B></FONT></P>
+<P>Writes text to the console window.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>write</B>(textStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>textStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to display.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="writeFile"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>writeFile</B></FONT></P>
+<P>Writes binary or text data to a file.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>writeFile</B>(fileName, array);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>writeFile</B>(fileName, string);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>Complete file name, including path. Forward slashes are converted to backslashes in file names.</td>
+  </tr>
+  <tr>
+    <td>string</td>
+    <td><A HREF = "index.html#string">string</A></td>
+    <td>Text data to be written out.</td>
+  </tr>
+  <tr>
+    <td>array</td>
+    <td><A HREF = "index.html#array">array</A></td>
+    <td>Binary data to be written out.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>void</P>
+<H3>Remarks:</H3><P>
+WARNING: If the specified file already exists, it is replaced without comment. Generates an exception if any error occurs. For more complete error handling, use the read/write methods in the SPFile object. If the data argument is a string data type, text conversion is done on the data so that the resulting file is stored in ASCII character codes with CR/LF line terminators. If you don't want this conversion, use SPFile.writeBinary.
+</P>
+<H3>Example:</H3><P><PRE>
+str = "hello\n";
+writeText("c:/hello.txt", str);
+</PRE></P>
+<H3>See Also:</H3><DIR>
+<LI><A HREF="spfile.html#writeText">SPFile.writeText</A></LI>
+</DIR>
+<a name="writeln"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>writeln</B></FONT></P>
+<P>Writes text to the console window followed by a newline.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>writeln</B>(textStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>textStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to display.</td>
+  </tr>
+  </tbody>
+  </table>
+</BODY>
+</HTML>

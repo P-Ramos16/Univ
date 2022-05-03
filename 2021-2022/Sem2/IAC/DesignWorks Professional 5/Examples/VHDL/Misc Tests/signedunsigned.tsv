@@ -1,0 +1,22 @@
+$I I	$E OS	$E OU
+0	0	0
+ffffffff	ffffffffff	00ffffffff
+7fffffff	7fffffff	7fffffff
+80000000	ff80000000	0080000000
+0	0	0
+1	1	1
+80000001	ff80000001	80000001
+fffffffe	fffffffffe	fffffffe
+3fffffff	3fffffff	3fffffff
+ffff	ffff	ffff
+fffff	fffff	fffff
+ffffff	ffffff	ffffff
+fffffff	fffffff	fffffff
+1fffffff	1fffffff	1fffffff
+55555555	55555555	55555555
+aaaaaaaa	ffaaaaaaaa	aaaaaaaa
+f0000000	fff0000000	f0000000
+e0000000	ffe0000000	e0000000
+c0000000	ffc0000000	c0000000
+d000ffff	ffd000ffff	d000ffff
+

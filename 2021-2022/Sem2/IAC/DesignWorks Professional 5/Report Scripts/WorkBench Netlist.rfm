@@ -1,0 +1,153 @@
+{
+    DesignWorks Report Form for Electronic Workbench
+    Copyright 1990-2006 Capilano Computing Systems
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$NOTES
+This format generates a netlist file for Electronic Workbench.
+
+!!! It works only with a flat design. !!!
+
+Standard attribute fields used:
+
+Name
+Ground
+Power
+Plus5V
+Minus12V
+SigSources
+Value
+
+Non-standard attribute fields(most are not required) :
+
+Design
+
+EWB_units
+EWB_layers
+EWB_gateswap
+EWB_pinswap
+EWB_crossprobe
+
+Signals
+
+EWB_trackwidth
+EWB_trackwidth_max
+EWB_trckwidth_min
+EWB_tracklength_max
+EWB_tracklength_min
+EWB_clearance_to_trace
+EWB_clearance_to_pad
+EWB_clearance_to_via
+EWB_routing_layer
+EWB_setting_locked
+EWB_net_group
+
+Devices
+EWB_package		- required
+EWB_value		- required
+EWB_gateswap
+EWB_pinswap
+EWB_component_space
+EWB_component_group
+EWB_settings_locked
+EWB_comp_variants
+EWB_comp_variant_independent
+
+Pins
+
+EWB_gategroup
+EWB_pingroup
+EWB_gate
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$CREATEREPORT($DESIGNNAME.EWNET) $PROMPT $CREATOR(ttxt)
+{*****************DEFINE STUFF ****************}
+$DEFINEBLOCK(DeviceStuff)
+$NEWLINE$TAB$TAB(device "&EWB_value")
+$NEWLINE$TAB$TAB(value "&EWB_value") 
+$NEWLINE$TAB$TAB(gateswap $IF(&EWB_gateswap)&EWB_gateswap$ELSE"0"$END)
+$NEWLINE$TAB$TAB(pinswap $IF(&EWB_pinswap)&EWB_pinswap$ELSE"0"$END)
+$NEWLINE$TAB$TAB(component_space $IF(&EWB_component_space)"&EWB_component_space"$ELSE"0.00000000e+000"$END)
+$NEWLINE$TAB$TAB(component_group $IF(&EWB_component_group)"&EWB_component_group"$ELSE""$END)
+$NEWLINE$TAB$TAB(settings_locked $IF(&EWB_settings_locked)"&EWB_settings_locked"$ELSE"0"$END)
+$NEWLINE$TAB$TAB(comp_variants $IF(&EWB_comp_variants)"&EWB_comp_variants"$ELSE"Default1;"$END)
+$NEWLINE$TAB$TAB(comp_variant_independent $IF(&EWB_comp_variants_independent)"&EWB_comp_variantsindependent"$ELSE"0"$END)  
+$END
+$DEFINEBLOCK(SigStuff)
+$TAB$TAB(net "$SIGNAME" $NEWLINE
+	$NEWLINE$TAB$TAB$TAB(trackwidth $IF(&EWB_trackwdith)"&EWB_trackwdith"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(trackwidth_max  $IF(&EWB_trackwidth_max)"&EWB_trackwidth_max"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(trackwidth_min $IF(&EWB_trackwidth_min)"&EWB_trackwidth_min"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(tracklength_max $IF(&EWB_tracklength_max)"&EWB_tracklength_max"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(tracklength_min $IF(&EWB_tracklength_min)"&EWB_tracklength_min"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(clearance_to_trace $IF(&EWB_clearance_to_trace)"&EWB_clearance_to_trace"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(clearance_to_pad $IF(&EWB_clearance_to_pad)"&EWB_clearance_to_pad"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(clearance_to_via $IF(&EWB_clearance_to_via)"&EWB_clearance_to_via"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(clearance_to_copper $IF(&EWB_clearance_to_copper)"&EWB_clearance_to_copper"$ELSE"-1.00000000e+000"$END)
+	$NEWLINE$TAB$TAB$TAB(routing_layer $IF(&EWB_routing_layer)"&EWB_routing_layer"$ELSE"Copper Top"$END)
+	$NEWLINE$TAB$TAB$TAB(settings_locked $IF(&EWB_settings_locked)"&EWB_settings_locked"$ELSE"0"$END)
+	$NEWLINE$TAB$TAB$TAB(net_group $IF(&EWB_net_group)"&EWB_net_group"$ELSE""$END)
+$NEWLINE$TAB$TAB)
+$END
+$DEFINEBLOCK(PinStuff)
+$TAB$TAB(pin "$PINNUM" 
+$NEWLINE$TAB$TAB$TAB(net "$SIGNAME")
+$NEWLINE$TAB$TAB$TAB(pintype "$PINTYPE")
+$NEWLINE$TAB$TAB$TAB(gategroup $IF(&EWB_gategroup)"&EWB_gategroup"$ELSE""$END)
+$NEWLINE$TAB$TAB$TAB(pingroup $IF(&EWB_pingroup)"&EWB_pingroup"$ELSE""$END)
+$NEWLINE$TAB$TAB$TAB(label "$PINNAME")
+$NEWLINE$TAB$TAB$TAB(gate $IF(&EWB_gate)"&EWB_gate"$ELSE""$END)
+$NEWLINE$TAB$TAB)
+$END
+$LINETERMINATOR $DOS
+$ROWS(32000)
+$COLUMNS(80)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$SIGSOURCE(Plus12V)
+$SIGSOURCE(Minus12V)
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(2)
+$ASSIGNNAMES $SIGNALS
+$BUSNAMEON(_)
+$COMBDEVSON
+$SIGPINFORMAT$DEVNAME $PINNUM
+$DEVPINFORMAT$INLINE(PinStuff)
+$PINTYPEFORMAT IN OUT
+{***************** Generate Output *****************}
+$FIND $SIGNALS $NUMPINS(2)
+$SORT $SIGNALS $SIGNAME
+(ToolInfo
+	(netlist "ULTIboard" 7 0 0)
+	(tool "Multisim" 7 0 0)
+	(timestamp   $TIME("$h-$n-$s") $DATE("$m-$d-$Y"))
+	(version 3 0 0 )
+	(gateswap $IF(&EBW_gateswap)&EBW_gateswap$ELSE0$END)
+	(pinswap $IF(&EBW_pinswap)&EBW_pinswap$ELSE0$END)
+	(crossprobe \{$IF(&EBW_crossprobe)&EBW_crossprobe$ELSE2B478C21-96EC-48E7-A295-3778AD9B755D$END\})
+	(units $IF(&EBW_units)&EBW_units$ELSEMil$END)
+)	
+(nets
+$SIGNALS $INLINE(SigStuff)
+$SORT $DEVICES $DEVNAME
+)
+$UNSELECTEDPINS $OFF $NOWARN
+(components
+$DEVICES $TAB(instance "&EWB_package" "$DEVNAME" $INLINE(DeviceStuff)$PINS $NEWLINE$TAB)
+)
+(layers
+	(layer "Copper Bottom"
+		(routable "1")
+		(type "Signal")
+	)
+	(layer "Copper Top"
+		(routable "1")
+		(type "Signal")
+	)
+)

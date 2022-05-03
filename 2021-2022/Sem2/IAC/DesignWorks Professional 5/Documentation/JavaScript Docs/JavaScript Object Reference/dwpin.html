@@ -1,0 +1,405 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> DWPin</H1>
+<P>The DWPin object represents a device pin in a DesignWorks circuit. The DWPin object is used to get access to information about the pin, such as pin attributes and the attached device and signal objects. <p>A DWPin object is not created directly, but is returned by methods of DWDevice and DWSignal, such as <A HREF="DWDevice.html#pins">DWDevice.pins</A>.</P>
+<DIR>
+<LI><A HREF="#attributeList">
+attributeList</a>
+ - Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</LI>
+<LI><A HREF="#bus">
+bus</a>
+ - Get the bus pin that this pin is contained in, if any.</LI>
+<LI><A HREF="#busPins">
+busPins</a>
+ - Returns an list of the pins contained in this bus pin</LI>
+<LI><A HREF="#circuit">
+circuit</a>
+ - Gets the circuit containing this object. Read-only</LI>
+<LI><A HREF="#connectTo">
+connectTo</a>
+ - Connects this pin to a specified pin, including optionally adding visible lines. This will result in the signal associated with this pin being merged with the other signal.</LI>
+<LI><A HREF="#device">
+device</a>
+ - Get the device that this pin is associated with. This cannot be set.</LI>
+<LI><A HREF="#getAttribute">
+getAttribute</a>
+ - Gets an attribute value from this object</LI>
+<LI><A HREF="#getAttributeVis">
+getAttributeVis</a>
+ - Gets the visibility of an attribute on this object</LI>
+<LI><A HREF="#isBus">
+isBus</a>
+ - Returns true if this pin is a bus.</LI>
+<LI><A HREF="#locator">
+locator</a>
+ - Gets the locator string of the pin</LI>
+<LI><A HREF="#name">
+name</a>
+ - Gets the name of the pin</LI>
+<LI><A HREF="#objType">
+objType</a>
+ - Returns a string with the name of this object class "DWPin".</LI>
+<LI><A HREF="#readOnly">
+readOnly</a>
+ - Returns true if the circuit containing this object is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</LI>
+<LI><A HREF="#select">
+select</a>
+ - Sets the associated signal to be selected, as if the user had clicked on it.</LI>
+<LI><A HREF="#setAttribute">
+setAttribute</a>
+ - Sets an attribute value in this object</LI>
+<LI><A HREF="#setAttributeVis">
+setAttributeVis</a>
+ - Sets the visibility of an attribute value in this object</LI>
+<LI><A HREF="#signal">
+signal</a>
+ - Get the signal that this pin is attached to. This cannot be set.</LI>
+</DIR>
+<a name="attributeList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>attributeList</B></FONT></P>
+<P>Gets or sets the attribute list (i.e. the collection of all attribute values) associated with this object.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>attributeList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>attributeList</B> = <I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I></P>
+</FONT>
+<H3>Returns:</H3><P>Returns or accepts an SPArray of DWAttribute objects</P>
+<a name="bundle"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>bundle</B></FONT></P>
+<P>Get the bundle pin that this pin is contained in, if any.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWPin">DWPin</A></td>
+</I> = <B>bundle</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWPin object reprenting the bundle pin containing this pin, or null if the pin is not in a bundle.</P>
+<a name="bundlePins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>bundlePins</B></FONT></P>
+<P>Returns an list of the pins contained in this bundle pin</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>bundlePins</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns NULL if this pin is not a bundle, otherwise returns an SPArray of DWPin objects representing the pins in the bundle.</P>
+<a name="bus"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>bus</B></FONT></P>
+<P>Get the bus pin that this pin is contained in, if any.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWPin">DWPin</A></td>
+</I> = <B>bus</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns a DWPin object reprenting the bus pin containing this pin, or null if the pin is not in a bus.</P>
+<a name="busPins"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>busPins</B></FONT></P>
+<P>Returns an list of the pins contained in this bus pin</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> = <B>busPins</B></P>
+</FONT>
+<H3>Returns:</H3><P>Returns NULL if this pin is not a bus, otherwise returns an SPArray of DWPin objects representing the pins in the bus.</P>
+<a name="circuit"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>circuit</B></FONT></P>
+<P>Gets the circuit containing this object. Read-only</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWCircuit">DWCircuit</A></td>
+</I> <B>circuit</B>();
+</P>
+</FONT>
+<a name="connectTo"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>connectTo</B></FONT></P>
+<P>Connects this pin to a specified pin, including optionally adding visible lines. This will result in the signal associated with this pin being merged with the other signal.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(pin);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(pin, visible);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(signal);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>connectTo</B>(signal, visible);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>signal</td>
+    <td><A HREF = "index.html#DWSignal">DWSignal</A></td>
+    <td>the signal to connect to.</td>
+  </tr>
+  <tr>
+    <td>visible</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to add visible lines as needed to show the connection on the diagram.</td>
+  </tr>
+  <tr>
+    <td>pin</td>
+    <td><A HREF = "index.html#DWPin">DWPin</A></td>
+    <td>the pin to connect to.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the connection succeeded, false if not. This can fail if the source and destination are not compatible (e.g. are in different busses) or if visible is specified and the pins are not on the same page.</P>
+<H3>Remarks:</H3><P>
+If visible is not specified, the source and destination will be logically connected (i.e. for simulation and netlisting purposes) but will not appear connected on the diagram. This may be more efficient for example if creating a circuit only for internal use and not for future editing.
+</P>
+<a name="device"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>device</B></FONT></P>
+<P>Get the device that this pin is associated with. This cannot be set.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWDevice">DWDevice</A></td>
+</I> = <B>device</B></P>
+</FONT>
+<a name="getAttribute"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttribute</B></FONT></P>
+<P>Gets an attribute value from this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getAttribute</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string representing the value of the specified attribute field. This string will be empty (zero length) if the field does not exist.</P>
+<a name="getAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getAttributeVis</B></FONT></P>
+<P>Gets the visibility of an attribute on this object</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>getAttributeVis</B>(fieldName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to retrieve</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the field is displayed on the schematic, false otherwise</P>
+<a name="isBundle"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isBundle</B></FONT></P>
+<P>Returns true if this pin is a bundle.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>isBundle</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property is read-only.
+</P>
+<a name="isBus"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>isBus</B></FONT></P>
+<P>Returns true if this pin is a bus.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>isBus</B></P>
+</FONT>
+<H3>Remarks:</H3><P>
+This property is read-only.
+</P>
+<a name="locator"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>locator</B></FONT></P>
+<P>Gets the locator string of the pin</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>locator</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+The locator string identifies an object within a hierarchical circuit structure and provides a unique way of identifying this object despite duplicate or non-existant names.
+</P>
+<a name="name"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>name</B></FONT></P>
+<P>Gets the name of the pin</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>name</B>();
+</P>
+</FONT>
+<H3>Remarks:</H3><P>
+This is a read-only property.
+</P>
+<a name="objType"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>objType</B></FONT></P>
+<P>Returns a string with the name of this object class "DWPin".</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>objType</B></P>
+</FONT>
+<a name="readOnly"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>readOnly</B></FONT></P>
+<P>Returns true if the circuit containing this object is marked "read only". Note that this status primarily affects the user interface and does not prevent script methods from making changes to the circuit.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> = <B>readOnly</B></P>
+</FONT>
+<a name="select"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>select</B></FONT></P>
+<P>Sets the associated signal to be selected, as if the user had clicked on it.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>(show);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>select</B>(show, deselOthers);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>deselOthers</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to deselect all other circuit objects before selecting this one. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>show</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>Pass true to have the page containing the object opened and scrolled as needed to display it. Defaults to false.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="setAttribute"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttribute</B></FONT></P>
+<P>Sets an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttribute</B>(fieldName, value, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>How to set visibility of resulting attribute text. 0 (false) = hide, 1 (true) = show, 2 = use default setting in design's attribute table, -1 = leave current visibility If this parameter is not supplied, 2 is assumed.</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The new value for the specified field</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Null.</P>
+<H3>Remarks:</H3><P>
+If the given field name is not defined in the design's attribute table, it is added automatically. It is preferable to ensure that any fields used are already defined in the target design to make sure the settings are appropriate.
+</P>
+<a name="setAttributeVis"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setAttributeVis</B></FONT></P>
+<P>Sets the visibility of an attribute value in this object</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setAttributeVis</B>(fieldName, visibility);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fieldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the field to set</td>
+  </tr>
+  <tr>
+    <td>visibility</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to make the attribute visible, false to hide it</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="signal"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>signal</B></FONT></P>
+<P>Get the signal that this pin is attached to. This cannot be set.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#DWSignal">DWSignal</A></td>
+</I> = <B>signal</B></P>
+</FONT>
+</BODY>
+</HTML>

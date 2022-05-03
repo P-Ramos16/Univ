@@ -1,0 +1,19 @@
+$NOTES
+Find Devices by Instance Name (InstName attribute)
+
+This is used to locate devices in a hierarchical design by their InstName attribute.
+
+Enter the desired device name in the text box and click Search.
+
+All device symbols having a name starting with the given characters
+will be located.  You can use wildcards * (any number of characters),
+? (any single character), and # (any numeric characters)
+$ENDNOTES
+$HIERARCHY $FLAT
+$TEMPPATH\find.output
+$CREATEREPORT($TEMPPATH\find.output)
+$FIND $DEVICES &InstName(&ARG1\*)
+$SORT $DEVICES &InstName
+$TITLE Found $DEVCOUNT devices matching &ARG1
+$DEVICES\$OBJECT $DEVLOC$NEWLINE\$OBJTITLE &InstName$NEWLINE\$MESSAGE Name=$DEVNAME InstName=&InstName Hierarchical Name=$DEVHIERNAME
+$CLOSEREPORT

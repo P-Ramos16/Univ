@@ -1,0 +1,44 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script makes a text document with a full listing
+// of all the types in the selected library and their attributes
+
+if (!confirm("This script will create a text document with a full "
+			+ "listing of the types in the selected library "
+			+ "and their attributes")) halt;
+
+lib = selectLibrary();
+if (lib == null) halt;
+
+types = lib.typeList;
+num = types.length;
+
+outStr = "";
+
+for (i = 0; i < num; i++)
+{
+	as = types[i].attributeList;
+	str = types[i].name + "\n";
+	na = as.length;
+	for (k = 0; k < na; k++)
+	{
+		if (as[k].name.indexOf("Date") >= 0)
+		{
+			str += "   " + as[k].name + "=" + convertDate(as[k].value) + "\n";
+		}
+		else
+		{
+			str += "   " + as[k] + "\n";
+		}
+	}
+	
+	outStr += str;
+}
+
+newTextDocument(outStr);
+

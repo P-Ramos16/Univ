@@ -1,0 +1,43 @@
+{
+  ©1992 Capilano Computing Systems Ltd.
+  10/01/92 - GWH - Fixed up for DW 3.0
+  6/2/97 - CD - Mods for DW 4.0
+}
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$NOTES
+This format generates a netlist file for VAMPs McCad.
+
+!!! It works only with a flat design. !!!
+
+Standard attribute fields used:
+
+Ground
+Power
+SigSources
+
+Non-standard attribute fields required:
+
+none
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$CREATEREPORT($DESIGNNAME.mc) $PROMPT $CREATOR(ttxt)
+$COMBDEVSON
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+$BLANKREPLACE(_)
+$FIND $SIGNALS $NUMPINS(2)
+$SORT $SIGNALS $SIGNAME
+$SORT $DEVICES $DEVNAME
+$MAXITEMSPERLINE(1)
+$CONTSTART(	)
+$SIGPINFORMAT $DEVNAME	$PINNUM
+$SIGNALS$SIGNAME	$PINS

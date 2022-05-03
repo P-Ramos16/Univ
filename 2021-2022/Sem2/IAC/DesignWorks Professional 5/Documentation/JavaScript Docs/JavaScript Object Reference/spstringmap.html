@@ -1,0 +1,164 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPStringMap</H1>
+<P>An SPStringMap is a table that allows you to store and look up values based on a string index. It can be used, for example, to keep values associated with names or keep lists of strings to determine when an item already exists in the list.</P>
+<DIR>
+<LI><A HREF="#get">
+get</a>
+ - Get the value associated with a key.</LI>
+<LI><A HREF="#getKeyAtIndex">
+getKeyAtIndex</a>
+ - Get the string key at the Nth position from the start of the map. This can be used to enumerate all items in the map.</LI>
+<LI><A HREF="#getValueAtIndex">
+getValueAtIndex</a>
+ - Get the value at the Nth position from the start of the map. This can be used to enumerate all items in the map.</LI>
+<LI><A HREF="#length">
+length</a>
+ - Returns the number of items in the map</LI>
+<LI><A HREF="#remove">
+remove</a>
+ - Removes a key and associated value from the map.</LI>
+<LI><A HREF="#set">
+set</a>
+ - Sets a value in the map.</LI>
+</DIR>
+<a name="get"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>get</B></FONT></P>
+<P>Get the value associated with a key.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#var">var</A></td>
+</I> <B>get</B>(keyStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>keyStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The key to look up.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the value associated with the given key</P>
+<a name="getKeyAtIndex"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getKeyAtIndex</B></FONT></P>
+<P>Get the string key at the Nth position from the start of the map. This can be used to enumerate all items in the map.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#var">var</A></td>
+</I> <B>getKeyAtIndex</B>(index);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>index</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The index of the desired element, must be in the range 0..length-1</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the key at the given index</P>
+<H3>Remarks:</H3><P>
+An equivalent way of accessing the keys by index is to use array index notation, e.g. map[index]. This is exactly equivalent to map.getKeyAtIndex(index)
+</P>
+<a name="getValueAtIndex"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getValueAtIndex</B></FONT></P>
+<P>Get the value at the Nth position from the start of the map. This can be used to enumerate all items in the map.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#var">var</A></td>
+</I> <B>getValueAtIndex</B>(index);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>index</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The index of the desired element, must be in the range 0..length-1</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the value at the given index</P>
+<a name="length"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>length</B></FONT></P>
+<P>Returns the number of items in the map</P>
+<a name="remove"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>remove</B></FONT></P>
+<P>Removes a key and associated value from the map.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>remove</B>(keyStr);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>keyStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The key to remove.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="set"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>set</B></FONT></P>
+<P>Sets a value in the map.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>set</B>(keyStr);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I>void</I> <B>set</B>(keyStr, value);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>keyStr</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The key that will be used to store the value</td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#any">any</A></td>
+    <td>The data to be associated with this key. If this is not specified, the boolean value "true" is stored.</td>
+  </tr>
+  </tbody>
+  </table>
+</BODY>
+</HTML>

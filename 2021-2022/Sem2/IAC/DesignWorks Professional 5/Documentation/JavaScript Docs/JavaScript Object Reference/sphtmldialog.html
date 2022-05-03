@@ -1,0 +1,137 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPHTMLDialog</H1>
+<P><p>This class implements a dialog box that allows information to be displayed or the user to be prompted for information using HTML formatted pages. If only a single HTML page is specified, a simple dialog box is displayed. If multiple pages are specified, then a tabbed "property sheet" box is displayed. Methods are provided to allow controls embedded in the pages to be initialized and their final values read back after the dialog is closed.</p> <p>Instances of this class are created using the SPHTMLDialog top-level function.</p></P>
+<DIR>
+<LI><A HREF="#doDialog">
+doDialog</a>
+ - This displays the dialog box and waits until the user clicks OK or Cancel.</LI>
+<LI><A HREF="#getValue">
+getValue</a>
+ - Gets the value of a named control on the HTML pages.</LI>
+<LI><A HREF="#setValue">
+setValue</a>
+ - Sets an initial value for a named control on the HTML pages.</LI>
+</DIR>
+<a name="doDialog"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>doDialog</B></FONT></P>
+<P>This displays the dialog box and waits until the user clicks OK or Cancel.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>doDialog</B>(urls);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>doDialog</B>(urls, title);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>doDialog</B>(urls, title, sizeX, sizeY);
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>doDialog</B>(urls, title, sizeX, sizeY, showButtons);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>sizeX</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The width in pixels for the displayed box. If not specified, defaults are used.</td>
+  </tr>
+  <tr>
+    <td>sizeY</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The height in pixels for the displayed box</td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The title for the dialog box</td>
+  </tr>
+  <tr>
+    <td>urls</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The URL(s) or file name(s) of the HTML page(s) to display. If this is a string, then a simple dialog box is displayed showing that page. If this is an SPArray of strings, then a tabbed property sheet box is displayed with one tab per URL.</td>
+  </tr>
+  <tr>
+    <td>showButtons</td>
+    <td><A HREF = "index.html#bool">bool</A></td>
+    <td>true to show the standard OK & Cancel buttons, false shows only the HTML window and a close box, all other controls must be provided in the HTML</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the user clicks OK, false for Cancel.</P>
+<a name="getValue"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getValue</B></FONT></P>
+<P>Gets the value of a named control on the HTML pages.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>getValue</B>(name);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the control. This must exactly match the NAME= parameter specified in the HTML.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns the string value of the control at the time the user clicked OK, or null if there was no control with the given name.</P>
+<H3>Remarks:</H3><P>
+It is the caller's responsibility to ensure the controls all have unique names assigned across all the pages displayed in one box. If multple controls have the same name, this function will return the value of the last one encountered during the closing process.
+</P>
+<a name="setValue"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>setValue</B></FONT></P>
+<P>Sets an initial value for a named control on the HTML pages.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>setValue</B>(name, value);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>value</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The value to assign to the control.</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the control. This must exactly match the NAME= parameter specified in the HTML.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+It is the caller's responsibility to ensure the controls all have unique names assigned across all the pages displayed in one box. If multple controls have the same name, all same-named controls will get the same value.
+</P>
+</BODY>
+</HTML>

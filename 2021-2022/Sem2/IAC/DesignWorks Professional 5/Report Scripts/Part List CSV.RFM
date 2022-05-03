@@ -1,0 +1,27 @@
+{
+    DesignWorks Report Form for Bill of Materials in CSV (Comma Separated Values) format
+    Copyright 2000 Capilano Computing Systems Ltd.
+}
+$NOTES
+This report form produces a bill of materials.
+
+
+Limitations:
+
+  none
+
+
+Attribute    Where    Description
+
+Part         Devices  The part name.
+Value        Devices  The value for this device.
+Name         Devices  The name for this device.
+$END
+{
+---------------------------------------------------------------------
+}
+$CREATEREPORT($DESIGNNAME.CSV) $PROMPT $CREATOR(ttxt)
+$COMBDEVSON
+$SORT $DEVICES &Part $LEXICAL &Value
+Part,Count,Value,Refs
+$DEVICES&Part,$COUNT,&Value,$DEVNAME

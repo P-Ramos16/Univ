@@ -1,0 +1,106 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script demonstrates the ability to perform the
+// circuit creation actions that would normally be done
+// by a user, namely, placing symbols from a library
+// on the schematic and connecting the pins to form
+// a complete circuit
+
+if (!confirm("This script creates a new design window, loads "
+	+ "devices from a library and connects them together to "
+	+ "form a simple circuit"))
+{
+	halt;
+}
+
+// Create a new, empty design
+
+cct = newDesign();
+
+pSpace = 280;		// Spacing between input port connectors
+xPort = -2100;		// X position of input port connectors
+
+// Find and load the library elements we need
+
+l = DWLibrary("Simulation Gates");
+if (l == null)
+{
+	alert("Couldn't find library Simulation Gates");
+	halt;
+}
+
+tAnd2 = l.loadType("AND-2");
+tOr3 = l.loadType("OR-3");
+
+// Place devices and set their names
+// Note: All positions must be a multiple of 70 to avoid nasty messages!
+
+a1 = cct.addDevice(tAnd2, -1400, -560);
+a1.setAttribute("Name", "A1", 1);
+a2 = cct.addDevice(tAnd2, -1400, 0);
+a2.setAttribute("Name", "A2", 1);
+a3 = cct.addDevice(tAnd2, -1400, 560);
+a3.setAttribute("Name", "A3", 1);
+o1 = cct.addDevice(tOr3, 0, 0);
+o1.setAttribute("Name", "O1", 1);
+
+// Load and place port connectors
+
+l = DWLibrary("Pseudo Devices");
+if (l == null)
+{
+	alert("Couldn't find library Pseudo Devices");
+	halt;
+}
+
+tIn = l.loadType("Port In");
+tOut = l.loadType("Port Out");
+
+y = -560;
+p1 = cct.addDevice(tIn,  xPort, y);
+p1.setAttribute("Name", "I1", 1);
+y += pSpace;
+p2 = cct.addDevice(tIn,  xPort, y);
+p2.setAttribute("Name", "I2", 1);
+y += pSpace;
+p3 = cct.addDevice(tIn,  xPort, y);
+p3.setAttribute("Name", "I3", 1);
+y += pSpace;
+p4 = cct.addDevice(tIn,  xPort, y);
+p4.setAttribute("Name", "I4", 1);
+y += pSpace;
+p5 = cct.addDevice(tIn,  xPort, y);
+p5.setAttribute("Name", "I5", 1);
+y += pSpace;
+p6 = cct.addDevice(tIn,  xPort, y);
+p6.setAttribute("Name", "I6", 1);
+
+po = cct.addDevice(tOut,  1400, 70, 'W');
+po.setAttribute("Name", "OUT", 1);
+
+// Connect everyone together
+
+a1.pins[2].connectTo(o1.pins[0], true);
+a2.pins[2].connectTo(o1.pins[1], true);
+a3.pins[2].connectTo(o1.pins[2], true);
+
+p1.pins[0].connectTo(a1.pins[0], true);
+p2.pins[0].connectTo(a1.pins[1], true);
+p3.pins[0].connectTo(a2.pins[0], true);
+p4.pins[0].connectTo(a2.pins[1], true);
+p5.pins[0].connectTo(a3.pins[0], true);
+p6.pins[0].connectTo(a3.pins[1], true);
+
+po.pins[0].connectTo(o1.pins[3], true);
+
+
+// Because all these operations fly under the user-interface
+// radar, we have to mark it as dirty so a close will prompt
+// the user to save
+
+cct.changed = true;

@@ -1,0 +1,152 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Invoking a Script</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Generator" content="NetObjects Fusion 10 for Windows">
+<script type="text/javascript">
+<!--
+function F_loadRollover(){} function F_roll(){}
+//-->
+</script>
+<SCRIPT TYPE="text/javascript" SRC="./assets/rollover.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="stylesheet" type="text/css" href="./site.css">
+</head>
+<body style="margin: 0px;">
+ <table cellpadding="0" cellspacing="0" border="0" width="726">
+  <tr valign="top" align="left">
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="142">
+     <tr valign="top" align="left">
+      <td width="12" height="65"><img src="./assets/images/autogen/clearpixel.gif" width="12" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="120"></td>
+      <td width="130">
+       <table id="NavigationBar1" border="0" cellspacing="0" cellpadding="0" width="130">
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./index.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton1','',0);F_roll('NavigationButton1',1)" onMouseOut="F_roll('NavigationButton1',0)"><img id="NavigationButton1" name="NavigationButton1" height="24" width="130" src="./assets/images/autogen/JavaScript_Home_Np1_1.gif" onmouseover="F_loadRollover(this,'JavaScript_Home_NRp2_1.gif',0)" border="0" alt="JavaScript Home" title="JavaScript Home"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./designworks_object_model.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton2','',0);F_roll('NavigationButton2',1)" onMouseOut="F_roll('NavigationButton2',0)"><img id="NavigationButton2" name="NavigationButton2" height="24" width="130" src="./assets/images/autogen/DesignWorks_Object_Model_Np1.gif" onmouseover="F_loadRollover(this,'DesignWorks_Object_Model_NRp2.gif',0)" border="0" alt="DesignWorks Object Model" title="DesignWorks Object Model"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./examples.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton3','',0);F_roll('NavigationButton3',1)" onMouseOut="F_roll('NavigationButton3',0)"><img id="NavigationButton3" name="NavigationButton3" height="24" width="130" src="./assets/images/autogen/Examples_Np1.gif" onmouseover="F_loadRollover(this,'Examples_NRp2.gif',0)" border="0" alt="Examples" title="Examples"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./the_browser_panel___html_dialo.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton4','',0);F_roll('NavigationButton4',1)" onMouseOut="F_roll('NavigationButton4',0)"><img id="NavigationButton4" name="NavigationButton4" height="24" width="130" src="./assets/images/autogen/The_Browser_Panel___HTML_DialoNp1.gif" onmouseover="F_loadRollover(this,'The_Browser_Panel___HTML_DialoNRp2.gif',0)" border="0" alt="The Browser Panel & HTML Dialogs" title="The Browser Panel & HTML Dialogs"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./invoking_a_script.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton5','',0);F_roll('NavigationButton5',1)" onMouseOut="F_roll('NavigationButton5',0)"><img id="NavigationButton5" name="NavigationButton5" height="24" width="130" src="./assets/images/autogen/Invoking_a_Script_Hp3_1.gif" onmouseover="F_loadRollover(this,'Invoking_a_Script_HRp4_1.gif',0)" border="0" alt="Invoking a Script" title="Invoking a Script"></a></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+    </table>
+   </td>
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="568">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="45"></td>
+      <td width="560"><img id="Banner1" height="45" width="560" src="./assets/images/autogen/Invoking_a_Script_NnBanner.gif" border="0" alt="Invoking a Script" title="Invoking a Script"></td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" width="584">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td width="576"><img src="./assets/images/autogen/clearpixel.gif" width="576" height="1" border="0" alt=""></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="576" class="TextObject">
+       <h2>Invoking a JavaScript</h2>
+       <p>In this section we&#8217;ll look at the various ways that a JavaScript can be run and how they can be used to enhance various program functions.</p>
+       <h3>Running a Script Directly</h3>
+       <p>The most straight-forward way to run a script is to open the script document (.DWJ file) in DesignWorks, then select the Scripts/Run Script command.&nbsp;The script will be executed starting at the first line until it halts or completes.&nbsp;It is up to the script to make use of the top-level methods <a href="../JavaScript Object Reference/dwstatic.html#currentDesign"><span class="CodeReference">currentDesign</span></a> or <a href="../JavaScript Object Reference/dwstatic.html#currentCircuit"><span class="CodeReference">currentCircuit</span></a> or some other means of prompting to locate the design the user is looking at and perform any desired operations.</p>
+       <h3>Attaching a Script to a Custom Menu Command</h3>
+       <p>You can add custom menu commands to DesignWorks that cause a script to be started when selected. This allows you to add small convenience operations or significant features to the package to customize it for your application. For an example, see the custom menu that is included with the DesignWorks package. We will provide an example of how this is done here and the full details are provided in the DesignWorks Professional 5 manual.</p>
+       <h4>Adding a Menu Item to the Main Menu Bar</h4>
+       <p>To add a custom menu, a configuration line must be added to the initialization file DW.INI, as follows:</p>
+       <ul>
+        <p class="CodeReference" style="font-size: 14px;">Menu = &quot;Menu Title&quot;, &quot;Menu Command&quot;, &quot;myscriptdir\myscript.dwj&quot;, &quot;Status message&quot;</p>
+       </ul>
+       <p style="font-size: 14px;">(Note that all of the above must be on one line in the INI file.)</p>
+       <p style="font-size: 14px;">When this command is selected, the script is started and executed starting from the first line until it halts or completes. Since this is activated by a top-level menu in the application, the action is not associated with any specific object in the circuit.&nbsp;It is up to the script to make use of the top-level methods <a href="../JavaScript Object Reference/dwstatic.html#currentDesign"><span class="CodeReference">currentDesign</span></a> or <a href="../JavaScript Object Reference/dwstatic.html#currentCircuit"><span class="CodeReference">currentCircuit</span></a> or some other means of prompting to locate the design the user is looking at and perform any desired operations.</p>
+       <p style="font-size: 14px;"><b><i>TIP:</i></b> In this example, we&#8217;re using the custom menu command to start a JavaScript (i.e. we have specified a .DWJ file), but you can also specify an export script (.RFM), a document file (such as a text file) or an external application.</p>
+       <h4 style="font-size: 14px;">Adding a Menu Item to Popup Menus</h4>
+       <p style="font-size: 14px;">DesignWorks has specific menus that are displayed in place when the user right-clicks on an object in the schematic.&nbsp;To add a command to the device popup menu, we insert a line like the following in the [Drawing] section of the DW.INI file:</p>
+       <ul>
+        <p class="CodeReference" style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 12px;"><span style="font-size: 10pt;">PopupScriptDev = &quot;Device Info Panel...&quot; open_dev_panel.dwj</span></p>
+       </ul>
+       <p>This command will be inserted in the menu that is displayed for a right-click on any device. Similarly, you can use the <span class="CodeReference">PopupScriptSig</span> command for signals, <span class="CodeReference">PopupScriptPin</span> for pins and <span class="CodeReference">PopupScriptCct</span> for circuits (i.e. a click in an open area of a diagram.</p>
+       <p>An important difference with this type of menu activation is that popup menu commands are associated with a specific object on the schematic.&nbsp;You can determine which object by using the <a href="../JavaScript Object Reference/dwstatic.html#defaultObject"><span class="CodeReference">defaultObject</span></a> top-level method which will return either a <a href="../JavaScript Object Reference/dwdevice.html"><span class="CodeReference">DWDevice</span></a>, <a href="../JavaScript Object Reference/dwsignal.html"><span class="CodeReference">DWSignal</span></a>, <a href="../JavaScript Object Reference/dwpin.html"><span class="CodeReference">DWPin</span></a> or <a href="../JavaScript Object Reference/dwcircuit.html"><span class="CodeReference">DWCircuit</span></a> object for the item that was clicked on.</p>
+       <h3 style="font-family: 'Times New Roman', Times, Serif; font-size: 20px;">Running a Script in Response to Opening a Device</h3>
+       <p>The action of double-clicking a device on a schematic can be intercepted by a script, that is, the script will be run instead of the usual program response. This can be used to implement custom properties displays, simulation displays or other views of data associated with a device.</p>
+       <p>To implement this, the name of the script file must be specified in the <span class="CodeReference">Script.Open.Dev</span> attribute field, either in the device instance itself in the schematic, or as a default value stored with the symbol.&nbsp;When the user double-clicks on the device, this field is checked.&nbsp;If it contains a value, the script is searched for and executed instead of the normal program action, which depends on the device type.</p>
+       <p><b><i>NOTE:</i></b> You can determine which device was double-clicked by using the <a href="../JavaScript Object Reference/dwstatic.html#defaultObject"><span class="CodeReference">defaultObject</span></a> top-level method which will return a <a href="../JavaScript Object Reference/dwdevice.html"><span class="CodeReference">DWDevice</span></a> object.</p>
+       <h3>Running a Script from another Script</h3>
+       <h4>Invoking a JavaScript from another JavaScript</h4>
+       <p>The <a href="../JavaScript Object Reference/spscript.html#parseScriptFile"><span class="CodeReference">parseScriptFile</span></a> method can be used to invoke another script. Here is an example of how it could be used:</p>
+       <ul>
+        <pre style="font-size: 14px;">f = SPFile();<br>f.setAppPath(&#8220;my scripts/special1.dwj&#8221;);<br>value = parseScriptFile(f);</pre>
+       </ul>
+       <p>Note these points:</p>
+       <ul>
+        <li>We are using the <a href="../JavaScript Object Reference/spfile.html"><span class="CodeReference">SPFile</span></a> object just as a way of locating a file relative to the application. <a href="../JavaScript Object Reference/spfile.html#setAppPath"><span class="CodeReference">setAppPath</span></a> sets the file object using the given path relative to the location of the DesignWorks application. There are several variations of this method, such as <a href="../JavaScript Object Reference/spfile.html#setScriptPath"><span class="CodeReference">setScriptPath</span></a> which locates the file relative to the location of the currently running script.</li>
+        <li><a href="../JavaScript Object Reference/spscript.html#parseScriptFile"><span class="CodeReference">parseScriptFile</span></a> reads the given script and executes any top-level statements found in it, i.e. those not contained in a function definition.&nbsp;It also adds all function and other definitions found in the file to the script space of the calling script, so they can now be called as if they were part of the current file.</li>
+        <li><a href="../JavaScript Object Reference/spscript.html#parseScriptFile"><span class="CodeReference">parseScriptFile</span></a> also returns any value generated by the last expression executed in the parsed script file.&nbsp;This can be used to call simple or complex scripts to do some calculation and return a simple result.</li>
+       </ul>
+       <h4>Running a JavaScript from an Export Script</h4>
+       <p>You can also call a JavaScript from inside an export script using the <span class="CodeReferenceBold">$RUNSCRIPT</span> export keyword. As described above, any value generated by the last top-level expression in the script will be returned by this command and inserted in the output stream (or as determined by other commands in the export script).&nbsp;This command is discussed in more detail in the <b>Export Script Language Reference</b>.</p>
+       <h3>Running a Script Inside an HTML Page</h3>
+       <p>JavaScript code can also be included in HTML code that is displayed in a Browse Panel or HTML Dialog box displayed within DesignWorks.&nbsp;This is covered in more detail in the section <a href="./the_browser_panel___html_dialo.html">The Browser Panel &amp; HTML Dialogs</a>.</p>
+       <p><b><i>NOTE:</i></b> It is important to note that scripts that are included inside an HTML file are running in a different environment than scripts that are executed directly from DesignWorks.&nbsp;Scripts executed using all the methods mentioned elsewhere on this page are executed directly inside DesignWorks and have direct access to the DesignWorks object model (i.e. the DWxxx and SPxxx object types) but do not have any access to the document and other other object types provided by Internet Explorer.&nbsp;Scripts included in an HTML page are running in the Internet Explorer environment and are only passed a reference to the DesignWorks object model through the &#8220;global object&#8221; passed to the <span class="CodeReferenceBold">onopen</span> method.&nbsp;See the section <a href="./the_browser_panel___html_dialo.html">The Browser Panel &amp; HTML Dialogs</a> for more information.</p>
+       <h3>Where Scripts Are Located</h3>
+       <p>JavaScript code is stored in a plain text file and should normally have the file extension DWJ to allow DesignWorks to recognize how to handle the file. Wherever a JavaScript file name can be specified, you have these options:</p>
+       <ul>
+        <li>You can specify the complete path name, i.e. starting with a drive or server name on your system, e.g. <span class="CodeReferenceBold">C:\my scripts\design scripts\open_design.dwj</span></li>
+        <li>You can specify the file name or partial path relative to any of the default or user-specified search directories.</li>
+       </ul>
+       <p>By default, DesignWorks searches in:</p>
+       <ul>
+        <li>The folder containing the application.</li>
+        <li>The &#8220;root&#8221; folder specified by the user.&nbsp;This is normally the same as the application folder, but in network environments it is sometimes set to be another location on the user&#8217;s system.</li>
+        <li>The working directory specified for the application.&nbsp;Again, this is normally the same as the application directory, but can be changed when the program is started.</li>
+       </ul>
+       <p>You can also add search directories using any of these methods:</p>
+       <ul>
+        <li>You can specify a <span class="CodeReferenceBold">ScriptFolder</span> keyword in the <span class="CodeReferenceBold">[JScript]</span> section of the initialization file DW.INI</li>
+        <li>You can add permanent or temporary search paths using the <a href="../JavaScript Object Reference/spscript.html#addScriptSearchPath"><span class="CodeReference">addScriptSearchPath</span></a> method.</li>
+       </ul>
+       <p><b><i>TIP:</i></b> When specifying file path names inside a JavaScript, remember that the backslash character has special meaning in string constants. For example,</p>
+       <ul>
+        <p class="CodeReference">fileName = &#8220;C:\\my scripts\\design scripts\\open_design.dwj&#8221;;</p>
+       </ul>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+      </td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0">
+     <tr valign="top" align="left">
+      <td width="8" height="104"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="560" class="TextNavBar" style="text-align: center;">[<a href="./index.html">JavaScript&nbsp;Home</a>] [<a href="./designworks_object_model.html">DesignWorks&nbsp;Object&nbsp;Model</a>] [<a href="./examples.html">Examples</a>] [<a href="./the_browser_panel___html_dialo.html">The&nbsp;Browser&nbsp;Panel&nbsp;&amp;&nbsp;HTML&nbsp;Dialogs</a>] [Invoking&nbsp;a&nbsp;Script]</td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+</body>
+</html>
+ 

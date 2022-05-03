@@ -1,0 +1,41 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script locates an external document file associated
+// with the selected device and opens it
+
+
+// NOTE: This script is not intended to be run directly (i.e. using
+// the Run Script command).  It is intended to be specified as the
+// target of a popup menu command.  The popup menu command sets
+// the value of the "defaultObject" property which is used to
+// determined which device was selected.
+
+dev = defaultObject;
+if (dev == null) halt;
+
+docName = dev.getAttribute("DocName.Dev");
+
+if (docName == "")
+{
+	alert("This command runs a script that uses the DocName.Dev attribute "
+			+ "field of this device to locate an external document file "
+			+ "to open.  The DocName.Dev field of this device is empty.");
+	halt;
+}
+
+f = SPFile(docName);
+if (!f.exists)
+{
+	alert("This command runs a script that uses the DocName.Dev attribute "
+			+ "field of this device to locate an external document file "
+			+ "to open.  The DocName.Dev field of this device specifies the file \""
+			+ docName + "\" which cannot be located.");
+	halt;
+}
+
+run(docName);

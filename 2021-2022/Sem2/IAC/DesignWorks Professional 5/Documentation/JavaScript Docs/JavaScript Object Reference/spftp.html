@@ -1,0 +1,392 @@
+<HTML>
+<BODY>
+<P><A HREF=kwindex.html>Keyword Index</A></P>
+<H1><I>Object: </I> SPFTP</H1>
+<P>An SPFTP object is used to connect to an FTP site and perform uploads, downloads, and other FTP operations. An SPFTP object is created using the <A HREF="spnet.html#SPFTP">SPNet.SPFTP</A> method.</P>
+<DIR>
+<LI><A HREF="#close">
+close</a>
+ - Closes the connection to the FTP server.</LI>
+<LI><A HREF="#createDirectory">
+createDirectory</a>
+ - Creates a directory on the FTP server.</LI>
+<LI><A HREF="#deleteDirectory">
+deleteDirectory</a>
+ - Deletes a directory from the FTP server.</LI>
+<LI><A HREF="#deleteFile">
+deleteFile</a>
+ - Deletes a file from the FTP server.</LI>
+<LI><A HREF="#directory">
+directory</a>
+ - Gets or sets the current directory for this FTP connection.</LI>
+<LI><A HREF="#getFileList">
+getFileList</a></LI>
+<LI><A HREF="#lastError">
+lastError</a>
+ - Returns the internal error code of the last operation. This will be zero if no error</LI>
+<LI><A HREF="#lastErrorString">
+lastErrorString</a>
+ - Returns a human-readable string describing any error from the last operation. This will be empty if no error.</LI>
+<LI><A HREF="#readBinary">
+readBinary</a></LI>
+<LI><A HREF="#readText">
+readText</a></LI>
+<LI><A HREF="#rename">
+rename</a>
+ - Renames a file on the FTP server.</LI>
+<LI><A HREF="#wait">
+wait</a>
+ - Waits for the operation to finish, an error to occur, or the given amount of time to elapse, whichever comes first.</LI>
+<LI><A HREF="#write">
+write</a></LI>
+<LI><A HREF="#writeBinary">
+writeBinary</a>
+ - Uploads a binary data block to an FTP server.</LI>
+<LI><A HREF="#writeText">
+writeText</a>
+ - Uploads a text data block to an FTP file.</LI>
+</DIR>
+<a name="close"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>close</B></FONT></P>
+<P>Closes the connection to the FTP server.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>close</B>();
+</P>
+</FONT>
+<a name="createDirectory"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>createDirectory</B></FONT></P>
+<P>Creates a directory on the FTP server.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>createDirectory</B>(dirName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>dirName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the directory to create on the remote server.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="deleteDirectory"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>deleteDirectory</B></FONT></P>
+<P>Deletes a directory from the FTP server.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>deleteDirectory</B>(dirName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>dirName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the directory on the remote server to delete.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="deleteFile"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>deleteFile</B></FONT></P>
+<P>Deletes a file from the FTP server.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>deleteFile</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the file on the remote server to delete.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="directory"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>directory</B></FONT></P>
+<P>Gets or sets the current directory for this FTP connection.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> = <B>directory</B></P>
+</FONT>
+<FONT SIZE=+1>
+<P><B>directory</B> = <I><A HREF = "index.html#String">String</A></td>
+</I></P>
+</FONT>
+<H3>Errors:</H3><P>No errors are reported</P>
+<a name="getFileList"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>getFileList</B></FONT></P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getFileList</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>getFileList</B>(pattern);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>pattern</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>A file name pattern, e.g. "*.zip". Only files matching this pattern will be returned.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns an array of objects of type SPFile containing the names of the matched files.</P>
+<a name="lastError"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lastError</B></FONT></P>
+<P>Returns the internal error code of the last operation. This will be zero if no error</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#int">int</A></td>
+</I> <B>lastError</B>();
+</P>
+</FONT>
+<a name="lastErrorString"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Property:</I> <B>lastErrorString</B></FONT></P>
+<P>Returns a human-readable string describing any error from the last operation. This will be empty if no error.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>lastErrorString</B>();
+</P>
+</FONT>
+<a name="readBinary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>readBinary</B></FONT></P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#SPArray">SPArray</A></td>
+</I> <B>readBinary</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the file to download, i.e. the name on the FTP site.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns an array of bytes containing the data downloaded.</P>
+<H3>Errors:</H3><P>If any error occurs, an exception is generated.</P>
+<H3>Remarks:</H3><P>
+The data is not stored in a local file, it is only returned in memory as an array.
+</P>
+<a name="readText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>readText</B></FONT></P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#String">String</A></td>
+</I> <B>readText</B>(fileName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>fileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name of the file to download, i.e. the name on the FTP site.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns a string containing the download data, converted to text.</P>
+<H3>Errors:</H3><P>If any error occurs, an exception is generated.</P>
+<H3>Remarks:</H3><P>
+The data is not stored in a local file, it is only returned in as a string.
+</P>
+<a name="rename"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>rename</B></FONT></P>
+<P>Renames a file on the FTP server.</P>
+<FONT SIZE=+1>
+<P><I>void</I> <B>rename</B>(oldName, newName);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>newName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The desired new name.</td>
+  </tr>
+  <tr>
+    <td>oldName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The current name of the file on the remote server.</td>
+  </tr>
+  </tbody>
+  </table>
+<a name="wait"></a>
+<BR><IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>wait</B></FONT></P>
+<P>Waits for the operation to finish, an error to occur, or the given amount of time to elapse, whichever comes first.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>wait</B>();
+</P>
+</FONT>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>wait</B>(millis);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>millis</td>
+    <td><A HREF = "index.html#int">int</A></td>
+    <td>The maximum number of milliseconds to wait. If this is not specified, the call waits forever.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Returns:</H3><P>Returns true if the operation completed without any error.</P>
+<a name="write"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>write</B></FONT></P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>write</B>(remoteFileName, data);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>Any data item.</td>
+  </tr>
+  <tr>
+    <td>remoteFileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name under which the data will be saved on the FTP server</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Remarks:</H3><P>
+This method behaves like writeText if the data argument is a string, writeBinary otherwise.
+</P>
+<a name="writeBinary"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>writeBinary</B></FONT></P>
+<P>Uploads a binary data block to an FTP server.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>writeBinary</B>(remoteFileName, data);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td><A HREF = "index.html#data">data</A></td>
+    <td>Any data item that can be converted to binary.</td>
+  </tr>
+  <tr>
+    <td>remoteFileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name under which the data will be saved on the FTP server</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>If any error occurs and a return value is assigned, this method will return true if the write completed OK, false if any error occurred. If an error occurs and no return value is assigned, an exception is generated.</P>
+<a name="writeText"></a>
+<IMG SRC="shadow_bar_purp.gif" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<P><FONT SIZE=+2><I>Method:</I> <B>writeText</B></FONT></P>
+<P>Uploads a text data block to an FTP file.</P>
+<FONT SIZE=+1>
+<P><I><A HREF = "index.html#bool">bool</A></td>
+</I> <B>writeText</B>(remoteFileName, text);
+</P>
+</FONT>
+<table border=1 cellPadding=0 cellSpacing=2 width=100% bordercolordark="#000066" bordercolorlight="#999933">
+<TR><TH align=left COLSPAN=3><FONT SIZE=+1>Parameters</FONT></TH></TR>
+<tbody>
+  <tr>
+    <td width=100><b>Name</b></td>
+    <td width=100><b>Expected Type</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr>
+    <td>remoteFileName</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The name under which the data will be saved on the FTP server</td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td><A HREF = "index.html#String">String</A></td>
+    <td>The text to upload.</td>
+  </tr>
+  </tbody>
+  </table>
+<H3>Errors:</H3><P>If any error occurs and a return value is assigned, this method will return true if the write completed OK, false if any error occurred. If an error occurs and no return value is assigned, an exception is generated.</P>
+</BODY>
+</HTML>

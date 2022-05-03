@@ -1,0 +1,149 @@
+{
+  Error checking script for Generic PCB Design Kit
+  C. Dewhurst, May 27, 1997
+  ©1996-2000 Capilano Computing Systems Ltd.
+  
+  This script checks for:
+  
+  - Devices without a Spice param
+  - Bad device names
+  - Bad or duplicate signal names
+}
+$NOTES
+  This script checks for:
+  
+  - Devices without a Spice param
+  - Bad device names
+  - Bad or duplicate signal names
+$END
+{
+  First, see if we're clearing all errors
+}
+$IF($EQ(&_Operation, UnmarkOK))
+$REPORTOFF
+$IF($NOT($ALERT2(This will clear all Mark as OK settings in this design!)))
+$ABORT
+$END
+$DEVICES$CLEARERRORS
+$SIGNALS$CLEARERRORS
+$ABORT
+$END
+{
+  If we're doing a "Mark as OK", we don't want any report
+}
+$IF($EQ(&_Operation, MarkOK))
+$REPORTOFF
+$IF($NOT($ALERT2(This will mark all current errors as OK!)))
+$ABORT
+$END
+$ELSE
+$CREATEREPORT($DESIGNNAME Errors.txt) $PROMPT
+$END
+{
+  Listing defaults
+}
+$PROGRESS $PERCENTOFF
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+$SETVAR(_AnyErrors, 0)
+{
+  Issue a warning if any devices have no Spice value
+}
+$FIND $DEVICES $NOT(&Spice) $ERRORBITOFF(8)
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have no Spice attribute value:
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$IF($EQ(&_Operation, MarkOK))
+$DEVICES$SETERRORBIT(8)
+$ELSE
+$DEVICES$DEVNAME	$TYPENAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+$END
+{
+  Check for bad device names
+}
+$PROGRESS(Checking device and signal names)
+$FIND $DEVICES $NOT($REGEXP(\w+, $DEVNAME)) $ERRORBITOFF(0)
+$IF($GT($DEVCOUNT, 0))
+
+The following devices have bad device names:
+
+$SORT $DEVICES $DEVNAME
+$COMBDEVSON
+$IF($EQ(&_Operation, MarkOK))
+$DEVICES$SETERRORBIT(0)
+$ELSE
+$DEVICES$DEVNAME	$TYPENAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $DEVCOUNT))
+$END
+$END
+{
+  Check for bad signal names
+}
+$UNNAMEDSIGS(????)
+$FIND $SIGNALS $NOT($REGEXP(\w+, $SIGNAME)) $ERRORBITOFF(0)
+$IF($GT($SIGCOUNT, 0))
+
+The following signals have bad names:
+
+$SORT $SIGNALS $SIGNAME
+$IF($EQ(&_Operation, MarkOK))
+$SIGNALS$SETERRORBIT(0)
+$ELSE
+$FIND $DEVICES
+$SIGNALS$SIGNAME	$PINS
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+$END
+$END
+{
+  Check for duplicate signal names
+}
+$FIND $SIGNALS
+$COMBSIGSON
+$SORT $SIGNALS $SIGNAME
+$FIND $NOCLEAR $SIGNALS $COUNT(2) $ERRORBITOFF(1)
+$IF($GT($SIGCOUNT, 0))
+
+The following signals have duplicate names:
+
+$SORT $SIGNALS $SIGNAME
+$IF($EQ(&_Operation, MarkOK))
+$SIGNALS$SETERRORBIT(1)
+$ELSE
+$SIGNALS$SIGNAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+$END
+$END
+{
+  Check for null signals
+}
+$FIND $DEVICES
+$FIND $SIGNALS $NUMPINS(1) $NOT($NUMPINS(2)) $ERRORBITOFF(2)
+$COMBSIGSOFF
+$IF($GT($SIGCOUNT, 0))
+
+The following signals have only one pin connection:
+
+$SORT $SIGNALS $SIGNAME
+$IF($EQ(&_Operation, MarkOK))
+$SIGNALS$SETERRORBIT(2)
+$ELSE
+$SIGNALS$SIGNAME	$PAGE
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+$END
+$END
+{
+  If we're reporting, put up an error box
+}
+$IF($NE(&_Operation, MarkOK))
+$IF($GT(&_AnyErrors, 0))
+$NULL($ALERT1(&_AnyErrors errors found!))
+$ELSE
+$NULL($ALERT1(No errors found!))
+$END
+$END

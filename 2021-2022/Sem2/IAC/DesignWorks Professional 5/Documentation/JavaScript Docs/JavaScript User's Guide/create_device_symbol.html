@@ -1,0 +1,141 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Create Device Symbol</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Generator" content="NetObjects Fusion 10 for Windows">
+<script type="text/javascript">
+<!--
+function F_loadRollover(){} function F_roll(){}
+//-->
+</script>
+<SCRIPT TYPE="text/javascript" SRC="./assets/rollover.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="stylesheet" type="text/css" href="./site.css">
+</head>
+<body style="margin: 0px;">
+ <table cellpadding="0" cellspacing="0" border="0" width="792">
+  <tr valign="top" align="left">
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="142">
+     <tr valign="top" align="left">
+      <td width="12" height="65"><img src="./assets/images/autogen/clearpixel.gif" width="12" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="120"></td>
+      <td width="130">
+       <table id="NavigationBar1" border="0" cellspacing="0" cellpadding="0" width="130">
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./index.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton1','',0);F_roll('NavigationButton1',1)" onMouseOut="F_roll('NavigationButton1',0)"><img id="NavigationButton1" name="NavigationButton1" height="24" width="130" src="./assets/images/autogen/JavaScript_Home_Np1_1.gif" onmouseover="F_loadRollover(this,'JavaScript_Home_NRp2_1.gif',0)" border="0" alt="JavaScript Home" title="JavaScript Home"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./report_device_attributes.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton2','',0);F_roll('NavigationButton2',1)" onMouseOut="F_roll('NavigationButton2',0)"><img id="NavigationButton2" name="NavigationButton2" height="24" width="130" src="./assets/images/autogen/Report_Device_Attributes_Np1.gif" onmouseover="F_loadRollover(this,'Report_Device_Attributes_NRp2.gif',0)" border="0" alt="Report Device Attributes" title="Report Device Attributes"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./updating_library_attributes.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton3','',0);F_roll('NavigationButton3',1)" onMouseOut="F_roll('NavigationButton3',0)"><img id="NavigationButton3" name="NavigationButton3" height="24" width="130" src="./assets/images/autogen/Updating_Library_Attributes_Np1.gif" onmouseover="F_loadRollover(this,'Updating_Library_Attributes_NRp2.gif',0)" border="0" alt="Updating Library Attributes" title="Updating Library Attributes"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./create_device_symbol.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton4','',0);F_roll('NavigationButton4',1)" onMouseOut="F_roll('NavigationButton4',0)"><img id="NavigationButton4" name="NavigationButton4" height="24" width="130" src="./assets/images/autogen/Create_Device_Symbol_Hp3_1.gif" onmouseover="F_loadRollover(this,'Create_Device_Symbol_HRp4_1.gif',0)" border="0" alt="Create Device Symbol" title="Create Device Symbol"></a></td>
+        </tr>
+        <tr valign="top" align="left">
+         <td width="130" height="24"><a href="./create_a_circuit.html" style="cursor:hand; text-decoration:none;" onMouseOver="F_loadRollover('NavigationButton5','',0);F_roll('NavigationButton5',1)" onMouseOut="F_roll('NavigationButton5',0)"><img id="NavigationButton5" name="NavigationButton5" height="24" width="130" src="./assets/images/autogen/Create_a_Circuit_Np1.gif" onmouseover="F_loadRollover(this,'Create_a_Circuit_NRp2.gif',0)" border="0" alt="Create a Circuit" title="Create a Circuit"></a></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+    </table>
+   </td>
+   <td>
+    <table border="0" cellspacing="0" cellpadding="0" width="568">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td height="45"></td>
+      <td width="560"><img id="Banner1" height="45" width="560" src="./assets/images/autogen/Create_Device_Symbol_NnBanner.gif" border="0" alt="Create Device Symbol" title="Create Device Symbol"></td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" width="650">
+     <tr valign="top" align="left">
+      <td width="8" height="10"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td width="642"><img src="./assets/images/autogen/clearpixel.gif" width="642" height="1" border="0" alt=""></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="642" class="TextObject">
+       <h2>Script Example - Creating a Device Symbol</h2>
+       <p>Here, we&#8217;ll look at a simple example of a standalone script that will create device symbol and store it in a library.&nbsp;This will illustrate a number of useful concepts:</p>
+       <ul>
+        <li>Prompting the user to select a library</li>
+        <li>Prompting the user for simple text values</li>
+        <li>Creating the graphics for a symbol based on given parameters</li>
+        <li>Setting pin information in a symbol</li>
+        <li>Saving a symbol to a library</li>
+       </ul>
+       <p>Here are some ideas for applications for this script and ways it could be extended:</p>
+       <ul>
+        <li>Read data from a file or remote location and generate a symbol based on external data</li>
+        <li>Auto-generate a collection of symbols with variations such as number of pins, etc.</li>
+       </ul>
+       <p>Here is the code for our script (this script is also provided in the file <span class="CodeReferenceBold"><b>Create Device Symbol.dwj</b></span><b> </b>inside the folder <b><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 12px;">Documentation\JavaScript Docs\Sample Scripts</span></b> with the DesignWorks program.</p>
+       <pre style="font-size: 12px;">// Put up a box to select a library to store the new symbol to.<br>// The &quot;true&quot; argument indicates that we only want libraries<br>// that are writeable<br><br>l = selectLibrary(true);<br>if (l == null) halt;<br><br><br>// Prompt for a name and number of inputs<br><br>answers = prompt(SPArray(&quot;Symbol Name&quot;, &quot;Number of inputs&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPArray(&quot;THING&quot;, &quot;4&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;Device Parameters&quot;);<br>if (answers == null) halt;<br><br>symbolName = answers[0];<br>nData = parseInt(answers[1]);<br><br>if ((nData &lt; 1) || (nData &gt; 100))<br>{<br>&nbsp;&nbsp;alert(&quot;Sorry, number of inputs out of range&quot;);<br>&nbsp;&nbsp;halt;<br>}<br><br>// Parameters for generating the symbol<br><br><br>distp = 140;&nbsp;&nbsp;&nbsp;// Must be a multiple of 70 or you&#39;ll get errors when you use it!<br>width = 1400;<br><br>// Create the picture for the symbol<br><br>pic = DWPic();<br>pic.rect(0, 0, width, distp*(nData+1));<br>pic.textSize = 12;<br>pic.text(&quot;THING&quot;+nData, width/2, (distp*(nData+1)/2));<br>pic.textSize = 9;<br><br>// Create the symbol object<br><br>t = DWType();<br>t.numPins = nData*2;&nbsp; // Set number of pins<br><br>pins = t.pins;&nbsp;&nbsp;&nbsp;&nbsp; // Get the pin list so we can set info on each pin<br><br>// Run through input pins and set position and name<br><br>x = 0; y = distp;<br>for (p = 0; p &lt; nData; p++)<br>{<br>&nbsp;&nbsp;pins[p].posX = x;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Pin position on symbol<br>&nbsp;&nbsp;pins[p].posY = y;<br>&nbsp;&nbsp;pins[p].direction = &#39;W&#39;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Pin direction<br>&nbsp;&nbsp;pins[p].func = &#39;I&#39;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // I for In, O for Out<br>&nbsp;&nbsp;pins[p].pinLength = distp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Must be multiples of 70<br>&nbsp;&nbsp;pic.text(&quot;k&quot;+(p+1), x+40, y, &#39;L&#39;);&nbsp;&nbsp;// Last argument is justification<br>&nbsp;&nbsp;pins[p].name=&#39;k&#39;+(p+1);<br>&nbsp;&nbsp;y += distp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Spacing to next pin<br>}<br><br>// Now same for output pins<br><br>x = width; y = distp;<br>for (p = nData; p &lt; nData*2; p++)<br>{<br>&nbsp;&nbsp;pins[p].posX = x;<br>&nbsp;&nbsp;pins[p].posY = y;<br>&nbsp;&nbsp;pins[p].direction = &#39;E&#39;;<br>&nbsp;&nbsp;pins[p].func = &#39;O&#39;;// I for In, O for Out<br>&nbsp;&nbsp;pins[p].pinLength = distp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Must be multiples of 70<br>&nbsp;&nbsp;pic.text(&quot;m&quot;+(p+1-nData), x-40, y, &#39;R&#39;);&nbsp;&nbsp;// Set text on symbol<br>&nbsp;&nbsp;pins[p].name=&#39;m&#39;+(p+1-nData);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Official pin name<br>&nbsp;&nbsp;y += distp;<br>}<br><br>t.pic = pic;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Associate the picture with the type<br>t.name = &quot;THING&quot; + nData;&nbsp;&nbsp;&nbsp;&nbsp; // Set the official symbol name as it will appear<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// in the library list<br>t.setAttribute(&quot;Part&quot;, t.name);&nbsp; // Set the Part attribute to be the same<br><br>l.saveType(t);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Save to selected library<br><br>alert(&quot;New symbol type &quot; + t + &quot; has been generated and stored in library &quot; + l);</pre>
+       <p>Now let&#8217;s go through some of the finer points of this script.</p>
+       <h3>Prompting the User to Select a Library</h3>
+       <pre style="font-size: 12px;">l = selectLibrary(true);<br>if (l == null) halt;</pre>
+       <p>The <a href="../JavaScript Object Reference/dwstatic.html#selectLibrary"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 12px;">selectLibrary</span></a> method displays a box showing all the symbol libraries currently open (i.e. showing in the Parts palette) and allows the user to pick one.&nbsp;The argument <span class="CodeReferenceBold">true</span> specifies that we only want libraries that are enabled for writing.&nbsp;In this case, because we are going to update symbols and rewrite them to the library, read-only libraries are not much good to us.</p>
+       <h3>Prompting the User for Text Data</h3>
+       <pre style="font-size: 12px;">answers = prompt(SPArray(&quot;Symbol Name&quot;, &quot;Number of inputs&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPArray(&quot;THING&quot;, &quot;4&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;Device Parameters&quot;);<br>if (answers == null) halt;<br><br>symbolName = answers[0];<br>nData = parseInt(answers[1]);</pre>
+       <p>The <a href="../JavaScript Object Reference/spscript.html#prompt"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">prompt</span></a> method displays a simple dialog box that lets you request text input from the user.&nbsp;It allows you to specify multiple items so you can request any number of strings in one operation.&nbsp;In this case we want to know a name for the symbol and the number of input pins desired, so we create an array of strings with the labels, one for each box.&nbsp;The second argument to <span class="CodeReferenceBold"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">prompt</span></span> is the default values for the boxes, which must be an array that matches the box labels in number.&nbsp;The return value from <span class="CodeReferenceBold"><span style="font-family: 'Courier New', 'Lucida Console', Courier, Monaco, Monospace; font-size: 14px;">prompt</span></span> will be a similar array with one element for the text that the user typed in each box.&nbsp;If it returns <span class="CodeReferenceBold">null</span>, the user hit the Cancel button. We then copy the user&#8217;s input from the result array into our own variables, converting the &#8220;number of inputs&#8221; value into an integer using the JavaScript <span class="CodeReferenceBold">parseInt</span> function.</p>
+       <h3>Creating the Graphics for a Symbol</h3>
+       <pre style="font-size: 12px;">pic = DWPic();<br>pic.rect(0, 0, width, distp*(nData+1));<br>pic.textSize = 12;<br>pic.text(&quot;THING&quot;+nData, width/2, (distp*(nData+1)/2));<br>pic.textSize = 9;</pre>
+       <p>The <a href="../JavaScript Object Reference/dwpic.html"><span class="CodeReference">DWPic</span></a> object is used to create graphic elements to be used in a schematic, especially device symbols.&nbsp;It has methods for adding standard graphical elements such as lines, rectangels, arcs and text.&nbsp;In this case, we calculate the size of the symbol based on the user-specified number of inputs and draw the outline of the symbol and the text label.&nbsp;The text labels for the pins will be added later as we set pin information.</p>
+       <h3>Creating the Device Type Object</h3>
+       <pre style="font-size: 12px;">t = DWType();<br>t.numPins = nData*2;&nbsp;&nbsp;// Set number of pins</pre>
+       <p>The <a href="../JavaScript Object Reference/dwtype.html"><span class="CodeReference">DWType</span></a> object represents the definition of a device type.&nbsp;It collects together the graphics for the symbol, default attribute values for the type itself, information about position, direction, function and attributes for pins and possibly information on a subcircuit definition.&nbsp;A type object can be saved to or retrieved from a library and can be instantiated as a device in a schematic.</p>
+       <h3>Setting Pin Information</h3>
+       <pre style="font-size: 12px;">pins = t.pins;&nbsp;&nbsp;&nbsp;&nbsp; // Get the pin list so we can set info on each pin<br><br>x = 0; y = distp;<br>for (p = 0; p &lt; nData; p++)<br>{<br>&nbsp;&nbsp;pins[p].posX = x;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Pin position on symbol<br>&nbsp;&nbsp;pins[p].posY = y;<br>&nbsp;&nbsp;pins[p].direction = &#39;W&#39;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Pin direction<br>&nbsp;&nbsp;pins[p].func = &#39;I&#39;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // I for In, O for Out<br>&nbsp;&nbsp;pins[p].pinLength = distp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Must be multiples of 70<br>&nbsp;&nbsp;pic.text(&quot;k&quot;+(p+1), x+40, y, &#39;L&#39;);&nbsp;&nbsp;// Last argument is justification<br>&nbsp;&nbsp;pins[p].name=&#39;k&#39;+(p+1);<br>&nbsp;&nbsp;y += distp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Spacing to next pin<br>}</pre>
+       <p>Here we set the information required for each pin on the symbol.&nbsp;Note the following points:</p>
+       <ul>
+        <li>The property <a href="../JavaScript Object Reference/dwtype.html#pins"><span class="CodeReference">pins</span></a> of <a href="../JavaScript Object Reference/dwtype.html"><span class="CodeReference">DWType</span></a> is an array of <a href="../JavaScript Object Reference/dwtypepin.html"><span class="CodeReference">DWTypePin</span></a> objects, each representing one pin on the type definition.&nbsp;Several items of information must be set up on each pin in order to create a valid definition:</li>
+        <ul>
+         <li>the pin position, x and y.&nbsp;These values are measured in 1/1008 inch and must be multiples of 70, which is the internal grid value.</li>
+         <li>the pin direction, E, W, N or S for east, west, north or south</li>
+         <li>the pin function, the most common values of which are I or O for input or output</li>
+         <li>the pin length, which again must be multiples of 70 and 140 is the typical value used in most symbols</li>
+         <li>the pin name, which should be unique</li>
+        </ul>
+        <li>While we&#8217;re setting the pin information, we also add an annotation to the symbol graphic to show the name of each pin.&nbsp;This is optional and can be adjusted as needed to suit the application.</li>
+       </ul>
+       <h3>Saving the Symbol to the Library</h3>
+       <pre style="font-size: 12px;">t.pic = pic;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Associate the picture with the type<br>t.name = &quot;THING&quot; + nData;&nbsp;&nbsp;&nbsp;&nbsp; // Set the official symbol name as it will appear<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// in the library list<br>t.setAttribute(&quot;Part&quot;, t.name);&nbsp; // Set the Part attribute to be the same<br><br>l.saveType(t);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Save to selected library</pre>
+       <p>To complete the creation of this type definition, we:</p>
+       <ul>
+        <li>associate the symbol graphic with the type object by simply assigning it to the <a href="../JavaScript Object Reference/dwtype.html#pic"><span class="CodeReference">pic</span></a> property of <a href="../JavaScript Object Reference/dwtype.html"><span class="CodeReference">DWType</span></a></li>
+        <li>we set the name of the type definition (i.e. the name that will appear in the parts palette)</li>
+        <li>we set the Part attribute to be the same as the name.&nbsp;This is optional, but the Part attribute is commonly used when generating bills of materials and other reports, so it is useful to have a meaningful value in it.</li>
+        <li>we save the type definition to the library that was selected earlier using the <a href="../JavaScript Object Reference/dwlibrary.html#saveType"><span class="CodeReference">saveType</span></a> method of <a href="../JavaScript Object Reference/dwlibrary.html"><span class="CodeReference">DWLibrary</span></a></li>
+       </ul>
+       <p>&nbsp;</p>
+       <p style="font-size: 12px;">&nbsp;</p>
+      </td>
+     </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0">
+     <tr valign="top" align="left">
+      <td width="8" height="51"><img src="./assets/images/autogen/clearpixel.gif" width="8" height="1" border="0" alt=""></td>
+      <td></td>
+     </tr>
+     <tr valign="top" align="left">
+      <td></td>
+      <td width="560" class="TextNavBar" style="text-align: center;">[<a href="./index.html">JavaScript&nbsp;Home</a>] [<a href="./designworks_object_model.html">DesignWorks&nbsp;Object&nbsp;Model</a>] [<a href="./examples.html">Examples</a>] [<a href="./report_device_attributes.html">Report&nbsp;Device&nbsp;Attributes</a>] [<a href="./updating_library_attributes.html">Updating&nbsp;Library&nbsp;Attributes</a>] [Create&nbsp;Device&nbsp;Symbol] [<a href="./create_a_circuit.html">Create&nbsp;a&nbsp;Circuit</a>] [<a href="./the_browser_panel___html_dialo.html">The&nbsp;Browser&nbsp;Panel&nbsp;&amp;&nbsp;HTML&nbsp;Dialogs</a>] [<a href="./invoking_a_script.html">Invoking&nbsp;a&nbsp;Script</a>]</td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+</body>
+</html>
+ 

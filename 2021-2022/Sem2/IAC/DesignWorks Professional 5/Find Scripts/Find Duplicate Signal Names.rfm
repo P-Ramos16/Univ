@@ -1,0 +1,30 @@
+{
+    DesignWorks Report Form for Duplicate Signal Names
+    Copyright 1990-2000 Capilano Computing Systems
+
+	Error bit usage
+
+		1	Duplicate signal names
+}
+$NOTES
+Find Duplicate Signal Names
+
+This search produces a list of all signals with
+duplicate names (e.g. signals with the same name but on
+different pages with no page connector).
+
+
+Limitations:
+
+  In a hierarchical design, this script searches only the current circuit.
+
+Mark as OK: You can use Mark as OK to indicate that a given item is OK and should not be checked again.
+$END
+$TEMPPATH\find.output
+$CREATEREPORT($TEMPPATH\find.output)
+$COMBSIGSON
+$SORT $SIGNALS $SIGNAME
+$FIND $NOCLEAR $SIGNALS $COUNT(2) $ERRORBITOFF(1)
+$TITLE Found $SIGCOUNT signals with duplicate names
+$SIGNALS\$OBJECT $SIGLOC$NEWLINE\$OBJTITLE $SIGNAME - duplicate name$NEWLINE\$ERRBIT 1$NEWLINE\$MESSAGE Signals $SIGNAME on page(s) $PAGE have duplicate names.
+$CLOSEREPORT

@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+
+entity Icache is
+ port(
+		I	: in	std_logic_vector(31 downto 0);
+		OS	: out   std_logic_vector(39 downto 0);
+		OU	: out   std_logic_vector(39 downto 0)
+	);
+end entity Icache ;
+
+architecture behav of Icache is
+
+begin
+
+  p1 : process (I)
+    variable intf : integer;
+  begin
+  intf := conv_integer(I);
+  OS <= conv_signed(intf, 40);
+  OU <= conv_unsigned(intf, 40);
+  
+  end process p1;
+
+end architecture behav;
+
+

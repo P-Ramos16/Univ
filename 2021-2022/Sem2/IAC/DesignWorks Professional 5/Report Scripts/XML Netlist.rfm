@@ -1,0 +1,63 @@
+{
+    DesignWorks Report Script for sample XML netlist format
+    Copyright 2000 Capilano Computing Systems Ltd.
+	All rights reserved
+}
+$NOTES
+This report script produces a sample netlist in XML format.
+As of this writing, no industry standard XML format was available,
+but this format will provide a basis for users wishing to expand their own.
+
+
+Limitations:
+
+  This report form works only with Flat designs.
+
+
+*** IMPORTANT NOTE ***
+
+This netlist script for a third party PCB system is provided with DesignWorks on an "as is" basis with no guarantee that it will work in any particular environment.  Capilano Computing has no control over the file formats that may be used by these systems.  These scripts have generally been created and tested in conjunction with DesignWorks users and were developed for use with a specific version of the target system.  The third party developer may change formats at any time, and we do not have the resources to track every version of every system on the market.
+
+If this script does not appear to generate the format required for your system, we are happy to assist customers in generating the appropriate format.  Please contact us at tech@capilano.com and provide a sample netlist and as much information as you can about the required format.
+$END
+$CHECK(This report form is intended only for FLAT mode designs) $PURE $PHYSICAL
+$CREATEREPORT($DESIGNNAME.xml) $PROMPT
+$SIGPINFORMAT <pin><name>$DEVNAME</name><pinnum>$PINNUM</pinnum></pin>
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+$MAXITEMSPERLINE(1)
+<!DOCTYPE netlist [
+	<!ELEMENT netlist (header?, components?, nets)>
+	<!ELEMENT header (date?, source?, generator?)>
+	<!ELEMENT components (component*)>
+	<!ELEMENT nets (net*)>
+	<!ELEMENT net (name?, pin*)>
+	<!ELEMENT pin (name, pinnum)>
+	<!ELEMENT component (name, part, value?, datestamp?)>
+	<!ELEMENT date (#PCDATA)>
+	<!ELEMENT source (#PCDATA)>
+	<!ELEMENT generator (#PCDATA)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT part (#PCDATA)>
+	<!ELEMENT value (#PCDATA)>
+	<!ELEMENT datestamp (#PCDATA)>
+	<!ELEMENT pinnum (#PCDATA)>
+]>
+<netlist>
+  <header>
+    <date>$DATE</date>
+	<source>$DESIGNNAME</source>
+	<generator>DesignWorks Professional for Windows</generator>
+  </header>
+
+  <components>
+$DEVICES    <component>$NEWLINE      <name>$DEVNAME</name>$NEWLINE      <part>&Part</part>$IF(&Value)$NEWLINE      <value>&Value</value>$ENDIF$NEWLINE      <datestamp>&(DateStamp.Dev)</datestamp>$NEWLINE    </component>
+  </components>
+  <nets>
+$CONTSTART(      )
+$SIGNALS    <net><name>$SIGNAME</name>$NEWLINE      $PINS$NEWLINE    </net>
+  </nets>
+</netlist>

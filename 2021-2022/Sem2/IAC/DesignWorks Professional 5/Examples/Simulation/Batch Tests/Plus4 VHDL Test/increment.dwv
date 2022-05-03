@@ -1,0 +1,22 @@
+-- This file contains a simple n-bit increment unit.
+
+library IEEE ;
+use IEEE.std_logic_1164.all ;
+use IEEE.std_logic_arith.all ;
+library LogicWorks ;
+use LogicWorks.Debug.all ;
+
+entity increment is
+  generic ( Nbits : integer := 32 ;
+	    Tpd : time := 500 ps ) ;
+  port ( x : in std_logic_vector (Nbits-1 downto 0) ;
+	 xout : out std_logic_vector (Nbits-1 downto 0) ) ;
+end entity increment ;
+
+architecture behav of increment is
+begin
+
+  xout <= x + conv_unsigned(4,Nbits) after Tpd ;
+
+end architecture behav ;
+

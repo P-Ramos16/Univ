@@ -1,0 +1,58 @@
+{
+  Find script to locate unconnected pins.
+  C. Dewhurst, May 1, 2000
+  ©1996-2000 Capilano Computing Systems Ltd.
+
+  Error bit usage
+
+	2	Unconnected signals
+}
+$NOTES
+Find Unconnected Signals
+
+This search script performs general checks for:
+
+  - unconnected signals (i.e. only one device connection)
+
+These checks are not specific to any one PCB system and may not be appropriate
+for the design system you are using.
+
+You can use Mark as OK to mark items so that they are not flagged in future.
+
+Search text box: Not used
+
+$ENDNOTES
+$PROGRESS $OFF
+{
+  Listing defaults
+}
+$CREATEREPORT($TEMPPATH$DESIGNNAME Errors.txt)
+$SIGSOURCE(Ground)
+$SIGSOURCE(Plus5V) &Power
+$DESIGNSIGSOURCE &SigSources
+$AUTONUMBER(3)
+$BUSNAMEON(_)
+$SETVAR(_AnyErrors, 0)
+{
+  Check for unconnected signals
+}
+$FIND $DEVICES
+$FIND $SIGNALS $NUMPINS(1) $NOT($NUMPINS(2)) $ERRORBITOFF(2)
+$COMBSIGSOFF
+$SORT $SIGNALS $SIGNAME
+$SIGNALS\$OBJECT $SIGLOC$NEWLINE\$OBJTITLE $SIGNAME - unconnected$NEWLINE\$ERRBIT 2$NEWLINE\$MESSAGE Signals $SIGNAME on page(s) $PAGE has only one pin connection.
+$SETVAR(_AnyErrors, $PLUS(&_AnyErrors, $SIGCOUNT))
+{
+  Write out $TITLE line for ErrorScript window
+}
+\$TITLE
+&_AnyErrors unconnected signals found!  Error file is $TEMPPATH$DESIGNNAME Errors.txt.
+{
+  Close the report output to the text file.
+  All subsequent output will go to ErrorScript as the file name.
+}
+$CLOSEREPORT
+{
+  Return report file name for ErrorScript
+}
+$TEMPPATH$DESIGNNAME Errors.txt

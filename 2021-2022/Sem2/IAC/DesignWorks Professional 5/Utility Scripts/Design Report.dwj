@@ -1,0 +1,86 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// This script creates a report based on the selected
+// devices in the current circuit and displays the
+// results using an HTML dialog
+
+
+cct = currentCircuit;
+if (cct == null)
+{
+	alert("There is no current design!");
+	halt;
+}
+
+
+// Display design info
+
+fc = SPFile(cct.filePath);
+designStr = "<p><b>Design file:</b> " + fc + "</p>\n";
+designStr += "<p><b>File last modified:</b> " + fc.modifiedTime + "</p>\n";
+
+attrs = cct.attributeList;
+if (attrs.length > 0)
+{
+	str = "<p><b>Design attributes:</b></p><table>\n";
+	for (j = 0; j < attrs.length; j++)
+	{
+		str += "<tr><td>&nbsp;</td><td>" + attrs[j].name + "</td><td>" + attrs[j].value + "</td></tr>\n";
+	}
+	str += "</table>\n";
+	designStr += str;
+}
+
+
+// Now, get and display information on selected devices
+// (or all devices, if none are selected)
+
+devices = cct.devices(1);
+if (devices.length == 0)	// If nothing is selected, get them all
+{
+	devices = cct.devices;
+}
+
+num = devices.length;
+
+deviceStr = "<b>Number of devices listed:</b> " + num;
+
+for (i = 0; i < num; i++)
+{
+	dev = devices[i];
+	str = "<p><b><a target=\"_blank\" href=\"http://www.capilano.com/beta/html_report.php?type=" + dev.type.name + "\">"+ dev.type.name + "</a></b> - click link to get device info from a remote site</p>\n";
+	attrs = dev.attributeList;
+	if (attrs.length > 0)
+	{
+		str += "<table>\n";
+		for (j = 0; j < attrs.length; j++)
+		{
+			str += "<tr><td>&nbsp;</td><td>" + attrs[j].name + "</td><td>" + attrs[j].value + "</td></tr>\n";
+		}
+		str += "</table>\n";
+	}
+	deviceStr += str;
+}
+
+
+// Display and HTML dialog box
+
+box = SPHTMLDialog();
+
+f = SPFile();
+f.setScriptPath("design_report/");
+
+urls = SPArray(f + "html_report.htm");
+
+box.setValue("DesignReport", designStr);
+box.setValue("DeviceReport", deviceStr);
+
+title = "Design Report";
+
+// Call up the properties box
+if (!box.doDialog(urls, title, 700, 500)) halt();

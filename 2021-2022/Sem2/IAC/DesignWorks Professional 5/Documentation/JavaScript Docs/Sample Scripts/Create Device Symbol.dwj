@@ -1,0 +1,88 @@
+// Copyright 2007 by Capilano Computing Systems Ltd.
+// This script is provided only as an example of possible
+// applications of the DesignWorks scripting features.
+// No correctness or fitness for any particular usage
+// is expressed or implied.
+
+
+// Put up a box to select a library to store the new symbol to.
+// The "true" argument indicates that we only want libraries
+// that are writeable
+
+l = selectLibrary(true);
+if (l == null) halt;
+
+
+// Prompt for a name and number of inputs
+
+answers = prompt(SPArray("Symbol Name", "Number of inputs"),
+                     SPArray("THING", "4"),
+                           "Device Parameters");
+if (answers == null) halt;
+
+symbolName = answers[0];
+nData = parseInt(answers[1]);
+
+if ((nData < 1) || (nData > 100))
+{
+	alert("Sorry, number of inputs out of range");
+	halt;
+}
+
+// Parameters for generating the symbol
+
+distp = 140;		// Must be a multiple of 70 or you'll get errors when you use it!
+width = 1400;
+
+// Create the picture for the symbol
+
+pic = DWPic();
+pic.rect(0, 0, width, distp*(nData+1));
+pic.textSize = 12;
+pic.text("THING"+nData, width/2, (distp*(nData+1)/2));
+pic.textSize = 9;
+
+// Create the symbol object
+
+t = DWType();
+t.numPins = nData*2;		// Set number of pins
+
+pins = t.pins;	// Get the pin list so we can set info on each pin
+
+// Run through input pins and set position and name
+
+x = 0; y = distp;
+for (p = 0; p < nData; p++)
+{
+	pins[p].posX = x;				// Pin position on symbol
+	pins[p].posY = y;
+	pins[p].direction = 'W';		// Pin direction
+  	pins[p].func = 'I';   			// I for In, O for Out
+    pins[p].pinLength = distp;		// Must be multiples of 70
+  	pic.text("k"+(p+1), x+40, y, 'L');    // Last argument is justification
+    pins[p].name='k'+(p+1);
+	y += distp;		// Spacing to next pin
+}
+
+// Now same for output pins
+
+x = width; y = distp;
+for (p = nData; p < nData*2; p++)
+{
+	pins[p].posX = x;
+	pins[p].posY = y;
+	pins[p].direction = 'E';
+  	pins[p].func = 'O';				// I for In, O for Out
+    pins[p].pinLength = distp;   	// Must be multiples of 70
+	pic.text("m"+(p+1-nData), x-40, y, 'R');    // Set text on symbol. Last argument is justification
+    pins[p].name='m'+(p+1-nData);	// Official pin name for internal and report use
+	y += distp;
+}
+
+t.pic = pic;					// Associate the picture with the type
+t.name = symbolName + nData;		// Set the official symbol name as it will appear in the library list
+t.setAttribute("Part", t.name);	// Set the Part attribute to be the same for good measure
+
+l.saveType(t);		// Save to selected library
+
+alert("New symbol type " + t + " has been generated and stored in library " + l);
