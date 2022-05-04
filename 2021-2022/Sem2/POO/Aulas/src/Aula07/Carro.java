@@ -5,7 +5,7 @@ public class Carro extends Viatura {
     private String viaturaName;
     private Character viaturaClass;
     private String viaturaType;
-    private Boolean viaturaReserved = false;
+    private Boolean viaturaReserved;
     
     public Carro() {
         super(agenciaName, agenciaAddress);
@@ -15,6 +15,7 @@ public class Carro extends Viatura {
         viaturaName = vname;
         viaturaType = vType;
         viaturaClass = 'A';
+        viaturaReserved = false;
         
         if (vClass >= 'A' && vClass <= 'F') {
             viaturaClass = vClass;
@@ -32,7 +33,10 @@ public class Carro extends Viatura {
     public void request() {
         if (!viaturaReserved) {
             viaturaReserved = true;
+
+            System.out.println("DONE");
         }
+        System.out.println("TRIED");
     }
 
     public void recieve() {

@@ -11,7 +11,7 @@ public abstract class Alojamentos extends Agencia {
 
 
     public Alojamentos(String aName, String aCode, String aAddress, Double aPrice, Boolean aReserved, Double aReview) {
-        super(agenciaName, agenciaAddress);
+        super();
         alojName = aName;
         alojCode = aCode;
         alojAddress = aAddress;

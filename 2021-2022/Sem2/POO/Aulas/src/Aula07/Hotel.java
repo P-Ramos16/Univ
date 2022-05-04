@@ -4,9 +4,15 @@ import java.util.Scanner;
 
 public class Hotel extends Alojamentos {
     
+    public String alojName;
+    public String alojCode;
+    public String alojAddress;
+    public Double alojPrice;
+    public Boolean alojReserved;
+    public Double alojReview;
     private String hotelType;
     
-    public Hotel() {
+    public Hotel(String alojName, String alojCode, String alojAddress, Double alojPrice, Boolean alojReserved, Double alojReview) {
         super(alojName, alojCode, alojAddress, alojPrice, alojReserved, alojReview);
     }
 

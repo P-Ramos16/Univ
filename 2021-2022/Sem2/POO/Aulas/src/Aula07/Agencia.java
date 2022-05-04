@@ -1,12 +1,19 @@
 package Aula07;
 
-public abstract class Agencia {
+public class Agencia {
     
     public static String agenciaName;
     public static String agenciaAddress;
     
-    public Agencia(String name, String address) {
+    public Agencia(){}
+
+
+    public void set(String name, String address) {
         agenciaName = name;
         agenciaAddress = address;
+    }
+
+    public String get() {
+        return "Name: " + agenciaName + "Address: " + agenciaAddress;
     }
 }

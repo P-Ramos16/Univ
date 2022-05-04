@@ -3,9 +3,9 @@ package Aula07;
 public abstract class Viatura extends Agencia {
     
     public Viatura(String name, String vClass) {
-        super(agenciaName, agenciaAddress);
+        super();
     }
-
+    
     public abstract String get();
     public abstract String print();
     public abstract void request();
