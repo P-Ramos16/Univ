@@ -2,10 +2,10 @@ package Aula07;
 
 public class Carro extends Viatura {
     
-    private static String viaturaName;
-    private static Character viaturaClass;
-    private static String viaturaType;
-    private static String viaturaReserved = "No";
+    private String viaturaName;
+    private Character viaturaClass;
+    private String viaturaType;
+    private Boolean viaturaReserved = false;
     
     public Carro() {
         super(agenciaName, agenciaAddress);
@@ -21,16 +21,23 @@ public class Carro extends Viatura {
         }
     }
 
-    public String get() {
+    public String print() {
         return "Viatura: " + viaturaName + " " + "Class: " + viaturaClass + " " + "Type: " + viaturaType + " " + "Reserved: " + viaturaReserved; 
     }
 
-    public void reserve() {
-        if (viaturaReserved == "No") {
-            viaturaReserved = "Yes";
+    public String get() {
+        return viaturaName;
+    }
+
+    public void request() {
+        if (!viaturaReserved) {
+            viaturaReserved = true;
         }
-        else {
-            viaturaReserved = "No";
+    }
+
+    public void recieve() {
+        if (viaturaReserved) {
+            viaturaReserved = false;
         }
     }
 }
