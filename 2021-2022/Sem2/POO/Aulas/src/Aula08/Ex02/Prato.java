@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Prato {
     public String pratoNome; 
-    public ArrayList<Ingredientes> IngredientesList = new ArrayList<Ingredientes>();
+    public ArrayList<Alimento> IngredientesList = new ArrayList<Alimento>();
 
     public Prato(String nome) {
         pratoNome = nome;
