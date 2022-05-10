@@ -33,10 +33,7 @@ public class Carro extends Viatura {
     public void request() {
         if (!viaturaReserved) {
             viaturaReserved = true;
-
-            System.out.println("DONE");
         }
-        System.out.println("TRIED");
     }
 
     public void recieve() {

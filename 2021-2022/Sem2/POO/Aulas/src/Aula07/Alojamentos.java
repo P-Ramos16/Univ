@@ -2,22 +2,33 @@ package Aula07;
 
 public abstract class Alojamentos extends Agencia {
     
-    public String alojName;
-    public String alojCode;
-    public String alojAddress;
-    public Double alojPrice;
-    public Boolean alojReserved;
-    public Double alojReview;
+    private String alojType;
+    private String alojName;
+    private String alojCode;
+    private String alojAddress;
+    private Double alojPrice;
+    private Boolean alojReserved;
+    private Double alojReview;
 
 
-    public Alojamentos(String aName, String aCode, String aAddress, Double aPrice, Boolean aReserved, Double aReview) {
+    public Alojamentos(String aType, String aName, String aCode, String aAddress, Double aPrice, Boolean aReserved, Double aReview) {
         super();
+        alojType = aType;
         alojName = aName;
         alojCode = aCode;
         alojAddress = aAddress;
         alojPrice = aPrice;
         alojReserved = aReserved;
         alojReview = aReview;
+    }
+    
+    public abstract void set(String alojType, String alojName, String alojCode, String alojAddString, Double alojPrice, Boolean alojReserved, Double alojReviDouble);
+
+    public String get() {
+        return alojName; 
+    }
+    public String print() {
+        return "Tipo: " + alojType + " Alojamento: " + alojName + " " + "Code: " + alojCode + " " + "Address: " + alojAddress + " " + "Price: " + alojPrice + " " + "Reserved: " + alojReserved + " " + "Review: " + alojReview; 
     }
 
     public void request() {
@@ -30,14 +41,5 @@ public abstract class Alojamentos extends Agencia {
         if (alojReserved) {
             alojReserved = false;
         }
-    }
-    
-    public abstract void set(String alojName, String alojCode, String alojAddString, Double alojPrice, Boolean alojReserved, Double alojReviDouble);
-
-    public String get() {
-        return alojName; 
-    }
-    public String print() {
-        return "Alojamento: " + alojName + " " + "Code: " + alojCode + " " + "Address: " + alojAddress + " " + "Price: " + alojPrice + " " + "Reserved: " + alojReserved + " " + "Review: " + alojReview; 
     }
 }

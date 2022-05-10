@@ -30,10 +30,10 @@ public class A08E02 {
 		Alimento res = null;
 		switch ((int) (Math.random() * 4)) {
 		case 0:
-			res = new Carne(VariedadeCarne.FRANGO, 22.3, 345.3, 300);
+			res = new Carne("FRANGO", 22.3, 345.3, 300);
 			break;
 		case 1:
-			res = new Peixe(TipoPeixe.CONGELADO, 31.3, 25.3, 200);
+			res = new Peixe("CONGELADO", 31.3, 25.3, 200);
 			break;
 		case 2:
 			res = new Legume("Couve Flor", 21.3, 22.4, 150);
@@ -60,5 +60,5 @@ public class A08E02 {
 		}
 		return res;
 	}
-
+	
 }

@@ -13,4 +13,20 @@ public class Ementa {
         ementaNome = nome;
         ementaLocal = local;
     }
+
+    public void addPrato(Prato pratoX, String dia) {
+        pratoX.setDia(dia);
+        PratoList.add(pratoX);
+    }
+
+    public String toString() {
+
+        String finalString = "";
+
+        for (int i = 0; i < PratoList.size(); i++) {
+            finalString += PratoList.get(i).print() + "\n";
+        }
+
+        return finalString;
+    }
 }

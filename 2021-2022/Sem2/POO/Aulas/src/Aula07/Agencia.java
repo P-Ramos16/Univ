@@ -14,6 +14,6 @@ public class Agencia {
     }
 
     public String get() {
-        return "Name: " + agenciaName + "Address: " + agenciaAddress;
+        return "Name: " + agenciaName + " Address: " + agenciaAddress;
     }
 }

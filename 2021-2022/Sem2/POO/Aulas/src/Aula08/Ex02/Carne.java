@@ -8,7 +8,12 @@ public class Carne extends Alimento {
     public boolean veg = false;
 
     public Carne(String tipo, Double proteinas, Double calorias, int peso) {
-        super(proteinas, calorias, peso);
+        super(tipo, proteinas, calorias, peso);
         carneTipo = tipo;
     }
+
+    public boolean isVeg() {
+        return veg;
+    }
+
 }

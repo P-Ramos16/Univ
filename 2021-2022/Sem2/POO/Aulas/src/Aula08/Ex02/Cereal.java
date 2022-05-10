@@ -8,7 +8,12 @@ public class Cereal extends Alimento {
     public boolean veg = true;
 
     public Cereal(String tipo, Double proteinas, Double calorias, int peso) {
-        super(proteinas, calorias, peso);
+        super(tipo, proteinas, calorias, peso);
         cerialTipo = tipo;
     }
+
+    public boolean isVeg() {
+        return veg;
+    }
+
 }

@@ -4,19 +4,21 @@ import java.util.Scanner;
 
 public class Apartamento extends Alojamentos {
     
-    public String alojName;
-    public String alojCode;
-    public String alojAddress;
-    public Double alojPrice;
-    public Boolean alojReserved;
-    public Double alojReview;
+    private String alojType;
+    private String alojName;
+    private String alojCode;
+    private String alojAddress;
+    private Double alojPrice;
+    private Boolean alojReserved;
+    private Double alojReview;
     private int apartRooms;
     
-    public Apartamento(String alojName, String alojCode, String alojAddress, Double alojPrice, Boolean alojReserved, Double alojReview) {
-        super(alojName, alojCode, alojAddress, alojPrice, alojReserved, alojReview);
+    public Apartamento(String alojType, String alojName, String alojCode, String alojAddress, Double alojPrice, Boolean alojReserved, Double alojReview) {
+        super(alojType, alojName, alojCode, alojAddress, alojPrice, alojReserved, alojReview);
     }
 
-    public void set(String aName, String aCode, String aAddress, Double aPrice, Boolean aReserved, Double aReview) {
+    public void set(String aType, String aName, String aCode, String aAddress, Double aPrice, Boolean aReserved, Double aReview) {
+        alojType = aType;
         alojName = aName;
         alojCode = aCode;
         alojAddress = aAddress;
@@ -33,9 +35,5 @@ public class Apartamento extends Alojamentos {
         System.out.print("      > ");
         int numRooms = sc.nextInt();
         apartRooms = numRooms;
-    }
-    
-    public String get() {
-        return "Apartamento: " + alojName + " " + "Num. Rooms: " + apartRooms + " " + "Code: " + alojCode + " " + "Address: " + alojAddress + " " + "Price: " + alojPrice + " " + "Reserved: " + alojReserved + " " + "Review: " + alojReview; 
     }
 }
