@@ -4,6 +4,8 @@ public class LigeiroEletrico extends Ligeiro implements VeiculoEletrico{
     
     public int legElecBateria;
     public int legEleAlcance;
+    public int ALLAlcance;
+
 
     public LigeiroEletrico(String matricula, String marca, String modelo, int potencia, int quadro, int bagageira, int bateria, int alcance) {
         super(matricula, marca, modelo, potencia, quadro, bagageira);
@@ -15,6 +17,7 @@ public class LigeiroEletrico extends Ligeiro implements VeiculoEletrico{
         ligCapBagageira = bagageira;
         legElecBateria = bateria;
         legEleAlcance = alcance;
+        ALLAlcance = alcance;
 
     }
 
@@ -25,8 +28,25 @@ public class LigeiroEletrico extends Ligeiro implements VeiculoEletrico{
         ligCapBagageira = bagageira;
     }
 
+
+    public void trajeto(int newKm) {
+        veicLastTrajeto = veicTrajeto;
+        veicTrajeto = newKm;
+        autonomia();
+    }
+
     public int autonomia() {
-        return (legElecBateria / 100) * legEleAlcance;
+        if (veicTrajeto != 0) {
+            legElecBateria = legElecBateria - (veicTrajeto * 100 / ALLAlcance);
+        }
+        
+        legEleAlcance = legEleAlcance - veicTrajeto;
+        if (0 > legEleAlcance) {
+            legEleAlcance = 0;
+        }
+
+        return legEleAlcance;
+
     }
 
     public void carregar(int perc) {
