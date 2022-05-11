@@ -297,6 +297,23 @@ public class Ex01 {
                     System.out.println("Veiculo com mais kms: " + currEmpresa.mostKM());
                     System.out.println("");
                     break;
+
+                 
+                case(8):
+
+                    System.out.println(" __CARREGAR_ELETRICO__ ");
+                    System.out.println("");
+                    System.out.println("Which Veiculo (matricula)?");
+                    System.out.print("     > ");
+                    veic1 = sc.nextLine();
+                    veic1 = sc.nextLine();
+                    System.out.println("Carregar por quanto (0-100)?");
+                    System.out.print("     > ");
+                    int batt = sc.nextInt();
+                    System.out.println("");
+
+                    currEmpresa.carregar(veic1, batt);
+                    break;
             }
         }
     }

@@ -19,4 +19,11 @@ public class Motociclo extends VeiculoMotorizado {
         veicPotencia = potencia;
         motoType = tipo;
     }
+
+
+    public String toString() {
+        return "Tipo : " + this.getClass().getSimpleName() + " Marca: " + veicMarca + " Modelo: " + veicModelo + " Matricula: " + veicMatricula + "  Potência: " + veicPotencia + " Distância Total: " + veicDistTotal + " Tipo: " + motoType;
+    }
+
+    public void carregar(int batt) {}
 }

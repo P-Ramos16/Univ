@@ -24,4 +24,6 @@ public class PesPassageiros extends Pesado{
         pesMaxPeso = peso;
         passPessoasMax = pessoas;
     }
+
+    public void carregar(int batt) {}
 }

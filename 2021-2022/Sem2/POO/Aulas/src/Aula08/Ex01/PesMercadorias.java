@@ -24,4 +24,6 @@ public class PesMercadorias extends Pesado{
         pesMaxPeso = peso;
         mercCargaMax = carga;
     }
+
+    public void carregar(int batt) {}
 }

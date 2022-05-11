@@ -21,4 +21,6 @@ public class Ligeiro extends VeiculoMotorizado{
         ligNumQuadro = quadro;
         ligCapBagageira = bagageira;
     }
+
+    public void carregar(int batt) {}
 }

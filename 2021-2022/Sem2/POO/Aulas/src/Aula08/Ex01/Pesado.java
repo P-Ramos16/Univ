@@ -14,4 +14,11 @@ public class Pesado extends VeiculoMotorizado{
         pesNumQuadro = quadro;
         pesMaxPeso = peso;
     }
+
+    public void carregar(int batt) {}
+
+
+    public String toString() {
+        return "Tipo : " + this.getClass().getSimpleName() + " Marca: " + veicMarca + " Modelo: " + veicModelo + " Matricula: " + veicMatricula + "  Potência: " + veicPotencia + " Distância Total: " + veicDistTotal + " CargaMax: " + pesMaxPeso;
+    }
 }

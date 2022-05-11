@@ -35,5 +35,10 @@ public class PesPassageirosEletrico extends PesPassageiros implements VeiculoEle
     public void carregar(int perc) {
         legElecBateria += perc;
     }
+
+
+    public String toString() {
+        return "Tipo : " + this.getClass().getSimpleName() + " Marca: " + veicMarca + " Modelo: " + veicModelo + " Matricula: " + veicMatricula + "  Potência: " + veicPotencia + " Distância Total: " + veicDistTotal + " Alcance: " + legEleAlcance + " Bateria: " + legElecBateria;
+    }
     
 }

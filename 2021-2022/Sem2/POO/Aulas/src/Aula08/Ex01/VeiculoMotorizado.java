@@ -33,7 +33,7 @@ public abstract class VeiculoMotorizado implements KmPercorridosInterface {
     }
 
     public String toString() {
-        return "Marca: " + veicMarca + " Modelo: " + veicModelo + " Matricula: " + veicMatricula + "  Potência: " + veicPotencia + " Distância Total: " + veicDistTotal;
+        return "Tipo : " + this.getClass().getSimpleName() + " Marca: " + veicMarca + " Modelo: " + veicModelo + " Matricula: " + veicMatricula + "  Potência: " + veicPotencia + " Distância Total: " + veicDistTotal;
     }
 
     public String get() {
@@ -47,4 +47,6 @@ public abstract class VeiculoMotorizado implements KmPercorridosInterface {
     public String getModel() {
         return veicModelo;
     }
+
+    public abstract void carregar(int batt);
 }

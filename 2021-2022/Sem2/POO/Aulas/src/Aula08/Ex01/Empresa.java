@@ -78,6 +78,25 @@ public class Empresa {
         return VeiculoList.get(n).toString();   
     }
 
+    public void carregar(String veic, int batt) {
+
+        int n = 0;
+
+        for (int i = 0; i < VeiculoList.size(); i++) {
+            if (VeiculoList.get(i).get().equals(veic)) {     
+                n = i;
+            }
+        }
+
+        if (VeiculoList.get(n) instanceof LigeiroEletrico || VeiculoList.get(n) instanceof PesPassageirosEletrico ) {
+            VeiculoList.get(n).carregar(batt);
+        }
+
+        else {
+            System.out.println("Erro: Esse veiculo não é eletrico!!");
+        }
+    }
+
     public VeiculoMotorizado getVeic(String veic) {
         for (int i = 0; i < VeiculoList.size(); i++) {
             if (VeiculoList.get(i).get() == veic) {

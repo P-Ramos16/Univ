@@ -24,4 +24,10 @@ public class Taxi extends Ligeiro{
         ligCapBagageira = bagageira;
         taxiNumLicenca = licenca;
     }
+
+    public String toString() {
+        return "Tipo : " + this.getClass().getSimpleName() + " Marca: " + veicMarca + " Modelo: " + veicModelo + " Matricula: " + veicMatricula + "  Potência: " + veicPotencia + " Distância Total: " + veicDistTotal + " Licença: " + taxiNumLicenca;
+    }
+
+    public void carregar(int batt) {}
 }
