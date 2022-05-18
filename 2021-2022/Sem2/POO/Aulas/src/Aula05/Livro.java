@@ -1,5 +1,4 @@
 package Aula05;
-import java.util.*;
 
 public class Livro {
     private int id;
