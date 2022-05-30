@@ -6,7 +6,6 @@ newLine:.asciiz "\n"
 	
 	.text	
 main:	li	$t1, 0x12345678
-
 	# print ao prompt
 	la 	$a0, prompt
 	li	$v0, 4
@@ -52,3 +51,4 @@ for:	beq	$s1, 8, forend	# if i == 0 go to forend
 		
 forend:	li 	$v0, 10
 	syscall 		# exit()
+
