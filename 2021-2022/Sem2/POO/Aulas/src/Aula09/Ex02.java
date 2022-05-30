@@ -20,6 +20,9 @@ public class Ex02 {
         printVals(new HashSet<Integer>(), "HashSet");
         printVals(new LinkedHashSet<Integer>(), "LinkedHash");
         printVals(new TreeSet<Integer>(), "TreeSet");
+        
+
+        TreeMap<String, String[]> x = new TreeMap<String, String[]>();
 
         System.out.println("-------------------------------------------------------------------------");
 
