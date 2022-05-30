@@ -5,7 +5,7 @@ newLine:.asciiz "\n"
 
 	
 	.text	
-main:	li	$t1, 0xFFFFFFFF
+main:	li	$t1, 0x12345678
 
 	# print ao prompt
 	la 	$a0, prompt

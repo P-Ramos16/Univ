@@ -11,15 +11,15 @@ public class Ex02 {
         System.out.println();
         System.out.println("-------------------------------------------------------------------------");
 
-        printVals(new ArrayList<>(), "ArrayList");
-        printVals(new LinkedList<>(), "LinkedList");
-        printVals(new Vector<>(), "Vector");
-        printVals(new Stack<>(), "Stack");
-        printVals(new ArrayDeque<>(), "ArrayDeque");
-        printVals(new PriorityQueue<>(), "PriorityQ");
-        printVals(new HashSet<>(), "HashSet");
-        printVals(new LinkedHashSet<>(), "LinkedHash");
-        printVals(new TreeSet<>(), "TreeSet");
+        printVals(new ArrayList<Integer>(), "ArrayList");
+        printVals(new LinkedList<Integer>(), "LinkedList");
+        printVals(new Vector<Integer>(), "Vector");
+        printVals(new Stack<Integer>(), "Stack");
+        printVals(new ArrayDeque<Integer>(), "ArrayDeque");
+        printVals(new PriorityQueue<Integer>(), "PriorityQ");
+        printVals(new HashSet<Integer>(), "HashSet");
+        printVals(new LinkedHashSet<Integer>(), "LinkedHash");
+        printVals(new TreeSet<Integer>(), "TreeSet");
 
         System.out.println("-------------------------------------------------------------------------");
 
