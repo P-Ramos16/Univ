@@ -18,9 +18,5 @@ public class Ex_02_1 {
 
         System.out.printf("Resultado > %s\n", res);
 
-
-
-
-
     }
 }
