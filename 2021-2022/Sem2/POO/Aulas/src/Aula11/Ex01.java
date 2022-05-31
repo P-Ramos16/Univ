@@ -46,7 +46,6 @@ public class Ex01 {
             for (String n : input.split("[ \n]")){
                 word = n;
 
-
                 if (word.length() > 0 && dividersSet.contains(Character.toString(word.charAt(word.length()-1)))) {
                     wordsArray.add(word);
                 }
