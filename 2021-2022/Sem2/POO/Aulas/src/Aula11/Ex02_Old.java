@@ -5,7 +5,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-public class Ex02 {
+public class Ex02_Old {
 
     public static void main(String[] args) {
 

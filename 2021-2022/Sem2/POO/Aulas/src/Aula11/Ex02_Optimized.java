@@ -5,7 +5,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-public class Ex02_Remake {
+public class Ex02_Optimized {
 
     public static void main(String[] args) {
 
@@ -14,7 +14,6 @@ public class Ex02_Remake {
 
         ArrayList<ArrayList<String>> arrayVoos = new ArrayList<ArrayList<String>>();
         TreeMap<String, String> mapComp = new TreeMap<String, String>();
-        ArrayList<ArrayList<String>> arrayComp1 = new ArrayList<ArrayList<String>>();
         ArrayList<ArrayList<String>> arrayFinal = new ArrayList<ArrayList<String>>();
         TreeMap<String, ArrayList<String>> mapDelays = new TreeMap<String, ArrayList<String>>();
         TreeMap<String, Integer> arrayNumFligths = new TreeMap<String, Integer>();
@@ -253,4 +252,3 @@ public class Ex02_Remake {
         }
     }
 }
-
