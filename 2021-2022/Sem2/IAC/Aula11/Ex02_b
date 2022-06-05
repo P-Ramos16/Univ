@@ -1,0 +1,44 @@
+	.data
+minus:	.asciiz "teXto em minusculas"
+maius:	.space	20
+
+# i -> $t0
+#	&minus[0] -> $a0
+#	&mainus[0] -> $a1
+#	&minus[1] -> $t1
+#	&mainus[1] -> $t2
+#	&cópia de mainus[i] -> $t3
+
+	.text
+main:	li	$t0, 0		
+
+	li	$v0, 8
+	la	$a0, minus
+	syscall
+	
+	
+	la	$a0, ($a0)	#a0 = minus[0] = minus
+	la	$a1, maius	#a1 = maius[0] = maius
+while:	addu	$t1, $a0, $t0	#t1 = minus + i*1
+	lb	$t3, 0($t1)	#t3 = copia de minus[i]
+	beq	$t3, '\0', endwhile	#while (minus[i] != '\0')
+	
+	bgt	$t3, 'z', jump
+	blt	$t3, 'a', jump
+	
+	addi	$t3, $t3, 'A'	#t3 + 'A'
+	subi	$t3, $t3, 'a'	#t3 - 'a'
+	
+jump:	addu	$t2, $a1, $t0	#t2 = maius + i*1 = maius[i]
+	sb	$t3, 0($t2)	#maius[i] = t3
+		
+	addi	$t0, $t0, 1	#i++
+	j while
+	
+endwhile:
+	la	$a0, maius
+	li	$v0, 4
+	syscall		#printstr maius
+	
+	li	$v0, 10
+	syscall
