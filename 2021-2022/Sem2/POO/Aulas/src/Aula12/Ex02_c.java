@@ -32,23 +32,10 @@ public class Ex02_c {
 
             while (inFile.hasNextLine()) {
                 String[] words = inFile.nextLine().split("[\t]");
-                                
-                ArrayList<String> tempArray = new ArrayList<String>();
-                tempArray.add(words[1]);    // Add Score
-                tempArray.add(words[2]);    // Add Rating
-                tempArray.add(words[3]);    // Add Genre
-                tempArray.add(words[4]);    // Add Running Time
-
-                movieMap.put(words[0], tempArray);    // Associate the movies info with it's name       
-            }
-
-            for (Map.Entry<String, ArrayList<String>> entry : movieMap.entrySet()) {
-                String keyX = entry.getKey();
-                ArrayList<String> arrayX = entry.getValue();
-
-                Movie tempM = new Movie(keyX, Double.parseDouble(arrayX.get(0)), arrayX.get(1), arrayX.get(2), Integer.parseInt(arrayX.get(3)));
                 
-                moviesArray.add(tempM);
+                Movie tempM = new Movie(words[0], Double.parseDouble(words[1]), words[2], words[3], Integer.parseInt(words[4]));
+                
+                moviesArray.add(tempM);   
             }
 
             // Print by score
