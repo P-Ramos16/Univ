@@ -23,7 +23,7 @@ public class Ex01 {
         int numTotal = 0;
 
         try {
-            Scanner inFile = new Scanner(new File("src/Aula12/lorem.txt"));
+            Scanner inFile = new Scanner(new File("Aula12/lorem.txt"));
             while (inFile.hasNextLine()) {
                 String[] words = inFile.nextLine().split("[ \n]");
                 

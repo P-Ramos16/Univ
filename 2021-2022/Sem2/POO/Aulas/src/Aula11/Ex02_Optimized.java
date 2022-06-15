@@ -31,8 +31,8 @@ public class Ex02_Optimized {
         System.out.println("");
 
         //  Ficheiros
-        Path fileName0 = Path.of("src/Aula11/voos.txt");
-        Path fileName1 = Path.of("src/Aula11/companhias.txt");
+        Path fileName0 = Path.of("Aula11/voos.txt");
+        Path fileName1 = Path.of("Aula11/companhias.txt");
 
         try {
             String inputVoos = Files.readString(fileName0);
@@ -89,7 +89,7 @@ public class Ex02_Optimized {
             i = 0;
             //  Processar ambos os arrays de Voos e Companhias e colocar cada linha processada num Array Final
             while (i < arrayVoos.size()) {
-                
+
                 //  ArrayList Temporária que guarda os valores agrupados de uma só linha
                 ArrayList<String> arrayTemp = new ArrayList<String>();
 
@@ -136,7 +136,7 @@ public class Ex02_Optimized {
             System.out.println("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
 
             System.out.printf("┃  %-8s ┃ %-8s ┃ %24s ┃ %24s ┃ %8s ┃ %-12s       ┃\n", "Hora", "Voo", "Companhia", "Origem", "Atraso", "Observações:");
-            System.out.printf("┃━━━━━━━━━━━┃━━━━━━━━━━┃━━━━━━━━━━━━━━━━━━━━━━━━━━┃━━━━━━━━━━━━━━━━━━━━━━━━━━┃━━━━━━━━━━┃━━━━━━━━━━━━━━━━━━━━┃\n");
+            System.out.printf("┣━━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━┫\n");
 
             // Prints dos valores
             for (ArrayList<String> lineFinal : arrayFinal) {
@@ -195,7 +195,7 @@ public class Ex02_Optimized {
 
 
             // Guardar num ficheiro
-            File destinationFile = new File("src/Aula11/Infopublico.txt");
+            File destinationFile = new File("Aula11/Infopublico.txt");
             if (destinationFile.createNewFile()) {
                 System.out.println("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
                 System.out.printf("┃                                         File Created: %-37s                ┃\n", destinationFile.getName());
@@ -206,7 +206,7 @@ public class Ex02_Optimized {
                 System.out.println("┃                                     File already exists! Overridding                                       ┃");
                 System.out.println("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
             }
-            FileWriter destinationFileWriter = new FileWriter("src/Aula11/Infopublico.txt");
+            FileWriter destinationFileWriter = new FileWriter("Aula11/Infopublico.txt");
             destinationFileWriter.write("Hora   Voo   Companhia   Origem   Atraso   Observações:\n");
             for (ArrayList<String> lineFinal : arrayFinal) {
                 destinationFileWriter.write(lineFinal.get(0) + "  " + lineFinal.get(1) + "  " + lineFinal.get(2) + "  " + lineFinal.get(3) + "  " + lineFinal.get(4) + "  " + lineFinal.get(5) + "\n");
@@ -216,7 +216,7 @@ public class Ex02_Optimized {
 
 
             // Número de voos de cada cidade
-            FileWriter destinationFileWriter0 = new FileWriter("src/Aula11/cidades.txt");
+            FileWriter destinationFileWriter0 = new FileWriter("Aula11/cidades.txt");
             destinationFileWriter0.write("Origem   Voos:\n");
 
             for (ArrayList<String> lineFinal : arrayFinal) {

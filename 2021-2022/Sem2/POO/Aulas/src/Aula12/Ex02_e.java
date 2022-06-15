@@ -19,12 +19,10 @@ public class Ex02_e {
         System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
         System.out.println("");
 
-        TreeMap<String, ArrayList<String>> movieMap = new TreeMap<String, ArrayList<String>>();
-
         ArrayList<Movie> moviesArray = new ArrayList<Movie>();
 
         try {
-            Scanner inFile = new Scanner(new File("src/Aula12/movies.txt"));
+            Scanner inFile = new Scanner(new File("Aula12/movies.txt"));
 
             if(inFile.hasNextLine()) { // Skip First Line
                 inFile.nextLine();

@@ -21,9 +21,8 @@ public class Ex02_d {
 
         TreeSet<String> genreSet = new TreeSet<String>();
 
-
         try {
-            Scanner inFile = new Scanner(new File("src/Aula12/movies.txt"));
+            Scanner inFile = new Scanner(new File("Aula12/movies.txt"));
 
             if(inFile.hasNextLine()) { // Skip First Line
                 inFile.nextLine();
