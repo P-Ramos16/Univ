@@ -1,0 +1,29 @@
+
+Al�nea 1) ----------------------------------
+
+Livro 1 tem 4 autores
+Livro 2 tem 0 autores
+TOTAL DE PRODUTOS DO MERCADO: 0
+Descri��o de electr1 :Frigor�fico:Bosch/XPTO
+AUTORES DE Livro 1: [Autor 1(2000~), Autor 2(2000~), Autor 3(2010~), Autor 4(2018~), ]
+TOTAL DE PRODUTOS DO MERCADO: 557
+TOTAL DE PRODUTOS DO MERCADO: 557
+
+ePOO -  Loja Online - Loja Online 
+ 
+   Codigo Produto                  Em Stock        PVP
+ExamP_2020.Electrodomestico@2db0f6b2ExamP_2020.Electrodomestico@3cd1f1c8ExamP_2020.Electrodomestico@3a4afd8dExamP_2020.Livro@1996cd68ExamP_2020.Livro@3339ad8eExamP_2020.Telemovel@555590
+Informa��o sobre Frigor�fico:
+Frigor�fico:Bosch/XPTO
+Informa��o sobre Telem�vel:
+
+
+Al�nea 2) ----------------------------------
+
+Teste - Loja Online 
+ 
+   Codigo Produto                  Em Stock        PVP
+
+Lista de Todos os Produtos com PVP superior a 500 Euros:
+Lista de Electrodom�sticos com Classe A:
+

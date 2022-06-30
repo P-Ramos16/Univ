@@ -1,8 +1,10 @@
-package ExamP_2017;
+package ExamP_2017.Ex2;
 
 public class ObjetoMovel {
-    private int X, Y;
+    public int X, Y;
     private double currSpeed, totalDistance = 0;
+
+    public ObjetoMovel() {}
 
     public void move(int newX, int newY) {
         calcDistance(newX, newY);
@@ -21,20 +23,20 @@ public class ObjetoMovel {
         totalDistance += Math.sqrt((newX - this.X)^2 + (newY - this.Y)^2);
     }
 
-    public String getX() {
-        return String.valueOf(this.X);
+    public Integer getX() {
+        return (this.X);
     }
 
-    public String getY() {
-        return String.valueOf(this.Y);
+    public Integer getY() {
+        return (this.Y);
     }
 
-    public String getVelocidade() {
-        return String.valueOf(this.currSpeed);
+    public int getVelocidade() {
+        return (int)(this.currSpeed);
     }
 
-    public String getDistancia()) {
-        return String.valueOf(this.totalDistance);
+    public double getDistancia() {
+        return (this.totalDistance);
     }
 
 }

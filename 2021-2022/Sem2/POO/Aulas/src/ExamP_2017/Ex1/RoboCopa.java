@@ -1,6 +1,6 @@
-package ExamP_2017;
+package ExamP_2017.Ex1;
 
-package ep;
+import java.util.*;
 
 public class RoboCopa {
 	public static void main(String[] args) {

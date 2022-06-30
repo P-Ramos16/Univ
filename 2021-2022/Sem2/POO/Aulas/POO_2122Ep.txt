@@ -1,0 +1,28 @@
+
+Alínea 1) ----------------------------------
+
+Clientes: 
+The best[Aveiro]
+Team mates[Coimbra]
+Cool bunch[Viseu]
+
+
+Eventos: 
+The best [Aveiro]
+*** Evento em 2022-06-24, total = 1110.0euros 
+    KAYAK sporting activity with 12 participants
+    FULL_MENU for 10 participants
+    DRINKS_AND_SNACKS for 20 participants
+*** Evento em 2022-07-10, total = 890.0euros 
+    HIKING sporting activity with 15 participants
+    WINE_TASTING with 20 participants
+Team mates [Coimbra]
+*** Evento em 2022-06-30, total = 940.0euros 
+    LIGHT_BITES for 20 participants
+    ARCHITECTURAL_TOUR with 10 participants
+    RIVER_TOUR with 10 participants
+Cool bunch [Viseu]
+*** Evento em 2022-06-25, total = 940.0euros 
+    DRINKS_AND_SNACKS for 20 participants
+    ART_MUSEUM with 20 participants
+
