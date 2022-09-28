@@ -1,4 +1,4 @@
-function [outpu0, outpu1] = prob(k, n, p, N)
+function [probSimulacao] = prob(k, n, p, N)
     
     lancamentos = rand(n,N) > p;
     sucessos= sum(lancamentos)==k;
