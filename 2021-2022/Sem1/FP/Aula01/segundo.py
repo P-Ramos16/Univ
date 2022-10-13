@@ -1,8 +1,13 @@
-inp = int(input("Insira uma quantidade de segundos:"))
+import time
 
+#inp = int(input("Insira uma quantidade de segundos:"))
+inp  = time.time() - 946684800
 
-hora = int(inp // (60*60))
-mins = int((inp % (60*60)) / 60)
-seg = int(inp % 60)
+#inp = 1665234618 - 946684800
 
-print("{:02d}:{:02d}:{:02d}".format(hora, mins, seg))
+dia  = int((inp // (60*60*24)))
+
+mins = int((inp % (60*60*24)) / 60)
+seg  = int(inp % 60)
+
+print("Dias     > {:>5d}\nMinutos  > {:>5d} \nSegundos > {:>5d}".format(dia, mins, seg))
