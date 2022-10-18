@@ -44,7 +44,7 @@ class stack
       push(v);
     }
     T pop(void)
-    { // get and remove a thing from the too of the stack (last in, first out!)
+    { // get and remove a thing from the top of the stack (last in, first out!)
       T v;
 
       if(d_size <= 0)

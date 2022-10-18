@@ -5,8 +5,34 @@
 //
 
 #include <iostream>
+#include <array>
 
 using std::cout; // make this symbol from the std namespace directly visible
+
+
+void show(const char c) {
+  cout << "char: "
+       << c
+       << std::endl;
+}
+
+void show(const int a[]) {
+  
+  cout << "array: [";
+
+  for (int i = 0; i < sizeof(a) - 1; i++) {
+  cout << a[i] 
+       << ",";
+
+  }
+  cout << a[sizeof(a)-1]
+       << "]"
+       << std::endl;
+
+}
+
+
+
 
 void show(const int i)
 {
@@ -31,6 +57,11 @@ void show(const char *s,const char *h = "string: ") // second argument with defa
 
 int main(void)
 {
+  show('a');
+  
+  int a[3] = { 2,7,-1 };
+  show(a);
+
   show(1.0);
   show("hello");
   show(-3);

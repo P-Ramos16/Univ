@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const double special_value = 1.2345;
+const double special_value = 5;
 
 double my_sqrt(double x)
 {
