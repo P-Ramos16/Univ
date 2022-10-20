@@ -1,7 +1,6 @@
-N = 1e5;      %  num experiencias
-n = 5;        %  num roupas 
-i = 0:1:n;
-p = 0.3       %  Probabilidade do evento
+N = 1e4;      %  num experiencias
+n = 8000;     %  num chips
+p = 1 / 1000; %  Probabilidade do evento
 
 
                 %  X: Num de roupas defeituosas observadas
@@ -11,7 +10,7 @@ array   =  rand(n, N);
 
 % array de quantas vezes aconteceu cada numero de coroas
 % (se arrayProbs(1) for 3, quer dizer que em só 3 experiencias nao houve qualquer defeito)
-arrayProbs = [0 0 0 0 0 0];
+arrayProbs = zeros(1, 25);
 
 for col=1:N
 
@@ -20,11 +19,10 @@ for col=1:N
     % numero de colunas 
     numDefeitos = sum(defeitos);
 
-    arrayProbs(numDefeitos + 1) = arrayProbs(numDefeitos + 1) + 1;
+    arrayProbs(1, numDefeitos + 1) = arrayProbs(1, numDefeitos + 1) + 1;
 end
 
-PMassax = arrayProbs / N
+ProbA = arrayProbs(1, 7 + 1)/ N
 
-media = sum(i.*PMassax)
-variancia = sum((i.^2).*PMassax) - media^2  % = var(i, PMassax)
-desvio = sqrt(variancia)                    % = std(variancia)
+
+Pk = (8000*7999*7998*7997*7996*7995*7994 / (7*6*5*4*3*2)) * p^7 * (1-p)^7993

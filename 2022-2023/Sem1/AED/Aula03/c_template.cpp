@@ -34,8 +34,10 @@ class stack
     }
     void push(T v)
     { // put a thing in the stack
-      if(d_size >= max_size)
+      if(d_size >= max_size){
         cerr << "push error: the stack is full" << endl; // nice place to throw an exception!
+        throw 1;
+      }
       else
         d_data[d_size++] = v;
     }
@@ -51,6 +53,7 @@ class stack
       {
         cerr << "pop error: the stack is empty" << endl; // nice place to throw an exception!
         v = T(0); // this assumes that the compiler knows how to convert an integer to type T
+        throw 2;
       }
       else
         v = d_data[--d_size];
@@ -68,6 +71,7 @@ class stack
       {
         cerr << "top error: the stack is empty" << endl; // nice place to throw an exception!
         v = T(0); // this assumes that the compiler knows how to convert an integer to type T
+        throw 2;
       }
       else
         v = d_data[d_size - 1];
@@ -77,14 +81,30 @@ class stack
 
 int main(void)
 {
-  stack<int,10> s; // a stack capable of holding 10 integers
+  stack<int,2> s; // a stack capable of holding 10 integers
+  try {
+    cout << "push: 3" << endl;
+    s.push(3);
+    cout << "push: 7" << endl;
+    s.push(7);
+    cout << "pop: " << s.pop() << endl; // should print 7
+    cout << "top: " << s.top() << endl; // should print 3
+    cout << "pop: " << s.pop() << endl; // should print 3
+  }
 
-  cout << "push: 3" << endl;
-  s.push(3);
-  cout << "push: 7" << endl;
-  s.push(7);
-  cout << "pop: " << s.pop() << endl; // should print 7
-  cout << "top: " << s.top() << endl; // should print 3
-  cout << "pop: " << s.pop() << endl; // should print 3
+  catch(int i) {
+    switch(i) {
+      case (1):
+        cout << "Stack is full!!";
+        break;
+      case (2):
+        cout << "Stack is empty!!";
+        break;
+      default:
+        cout << "Problem with the stack!!";
+        break;
+    }
+  }
+
   return 0;
 }

@@ -16,16 +16,16 @@ void show(const char c) {
        << std::endl;
 }
 
-void show(const int a[]) {
+void show(const int a[3]) {
   
   cout << "array: [";
 
-  for (int i = 0; i < sizeof(a) - 1; i++) {
+  for (int i = 0; i < sizeof(a)/sizeof(*a); i++) {
   cout << a[i] 
        << ",";
 
   }
-  cout << a[sizeof(a)-1]
+  cout << a[sizeof(a)/sizeof(*a)]
        << "]"
        << std::endl;
 

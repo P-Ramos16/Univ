@@ -37,19 +37,19 @@ int main(void)
   double da[] = { 1.0,3.0,5.0 };
 
   cout << "ia[] sum: "
-       << std::setw(5)
+       << std::setw(6)
        << sum<int>(ia,size(ia))
        << endl
        << "da[] sum: "
-       << std::fixed << std::setw(12) << std::setprecision(6)
+       << std::fixed << std::setw(8) << std::setprecision(2)
        << sum<double>(da,size(da))
        << "\n"
        << "ia[] mean: "
-       << std::setw(5)
+       << std::setw(4)
        << mean<int>(ia,size(ia))
        << endl
        << "da[] mean: "
-       << std::fixed << std::setw(12) << std::setprecision(6)
+       << std::fixed << std::setw(7) << std::setprecision(2)
        << mean<double>(da,size(da))
 
        << endl;
