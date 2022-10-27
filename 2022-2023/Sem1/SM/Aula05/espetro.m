@@ -21,5 +21,4 @@ function [X, f] = espetro(x, Ta)
 %     Sum=0;% Reset
 
 
-
 end
