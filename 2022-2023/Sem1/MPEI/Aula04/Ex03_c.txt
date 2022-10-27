@@ -1,0 +1,1 @@
+A distribuição da variável aleatótia X é distribuição Binomial.

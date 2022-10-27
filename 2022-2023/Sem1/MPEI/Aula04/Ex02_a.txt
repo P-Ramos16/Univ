@@ -1,0 +1,2 @@
+Espaço de amostragem = 100
+100 casos possíveis elementares (1 para cada nota) cada um com 0.01 de probabilidade

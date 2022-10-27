@@ -1,0 +1,7 @@
+P(A e B) = 2/36 = 1/18
+P(A) = 1/9
+P(B) = 1/2
+
+Se são independentes:
+P(A e B) = P(A) * P(B), logo
+1/9 * 1/2 = 1/18  <== correto, são independentes

@@ -1,0 +1,9 @@
+Os casos possíveis são: 
+    -ter um rapaz e uma rapariga;
+    -ter uma rapariga e um rapaz;
+    -ter dois rapazes;
+    -ter duas raparigas.
+
+Os casos de sucesso são os casos possíveis menos a "ter duas raparigas".
+
+Logo a probabilidade de ter pelo menos um rapaz é 3/4 = 0.75.

@@ -1,0 +1,4 @@
+Espaço de amostragem = 3
+P(Nota5) = 90/100
+P(Nota50) = 9/100
+P(Nota100) = 1/100

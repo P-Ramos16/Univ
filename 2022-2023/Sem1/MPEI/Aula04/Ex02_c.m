@@ -8,5 +8,5 @@ stairs([0 i 4], [0 PDistrix 1]);
 title('Alinea 2b');
 xlabel('Numeros que podem sair');
 ylabel('A probabilidade de sair');
-axis([0 4 0 1.25]);
+axis([0.5 3.5 0 1.25]);
 grid on;

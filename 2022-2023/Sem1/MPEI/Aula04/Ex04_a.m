@@ -25,6 +25,16 @@ end
 
 PMassax = arrayProbs / N
 
+
+stairs(i, cumsum(PMassax));
+title('Alinea 4a');
+xlabel('Numero de roupa');
+ylabel('A probabilidade de ter uma defeituosa');
+axis([0 5 0 1.25]);
+grid on;
+
 media = sum(i.*PMassax)
 variancia = sum((i.^2).*PMassax) - media^2  % = var(i, PMassax)
 desvio = sqrt(variancia)                    % = std(variancia)
+
+P2Defeito = sum(PMassax) - PMassax(1) - PMassax(2)

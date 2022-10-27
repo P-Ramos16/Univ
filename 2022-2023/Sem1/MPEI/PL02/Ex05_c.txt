@@ -1,0 +1,7 @@
+P(C e D) = 9/36 = 1/4 = 0.25
+P(C) = 11/36
+P(D) = 25/36
+
+Se são independentes:
+P(C e D) = P(C) * P(D), logo
+11/36 * 25/36 = 275/1296 ~= 0.21219  <== errado, são dependentes

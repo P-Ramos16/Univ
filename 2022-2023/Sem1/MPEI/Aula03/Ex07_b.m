@@ -34,3 +34,19 @@ CasosFavErroCarlos = sum(sum(arrayC));
 
 % P(Carlos|Erro)
 ProbCarlosDadoQueErro = CasosFavErroCarlos / CasosFavErro
+
+
+% Casos Favoraveis Bruno e Erro
+CasosFavErroBruno = sum(sum(arrayB));
+
+% P(Bruno|Erro)
+ProbBrunoDadoQueErro = CasosFavErroBruno / CasosFavErro
+
+
+% Casos Favoraveis Andre e Erro
+CasosFavErroAndre = sum(sum(arrayA));
+
+% P(Andre|Erro)
+ProbAndreDadoQueErro = CasosFavErroAndre / CasosFavErro
+
+% É mais provável que seja do Bruno
