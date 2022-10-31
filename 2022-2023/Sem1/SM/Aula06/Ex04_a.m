@@ -2,7 +2,7 @@ Ta = 0.05;      % sampling period
 
 f0 = 1;         % signal frequency
 T0 = 1 / f0;    % signal period
-Np = 100;       % number of periods
+Np = 2;       % number of periods
 
 N = round(Np*T0/Ta);
 t = (0:N-1)'*Ta;
