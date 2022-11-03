@@ -1,0 +1,11 @@
+nEstados = 20;
+
+matTransicao = randfixedsum(nEstados, nEstados, 1, 0, 1)
+
+matTransicao = rand(nEstados, nEstados) 
+
+for col = 1:0:nEstados
+    matTransicao(:,col) = matTransicao(:,col) / sum(matTransicao())
+end
+
+% matrep ?
