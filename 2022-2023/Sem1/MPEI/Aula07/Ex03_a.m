@@ -1,11 +1,11 @@
 nEstados = 20;
 
-matTransicao = randfixedsum(nEstados, nEstados, 1, 0, 1);
 
 matTransicao = rand(nEstados, nEstados) ;
 
-matTransicao = matTransicao/ sum(matTransicao)
+for i = 1:1:20
+    matTransicao(:,i) = matTransicao(:,i)/ sum(matTransicao(:,i));
+end
 
 matTransicao
-
 % repmat ?
