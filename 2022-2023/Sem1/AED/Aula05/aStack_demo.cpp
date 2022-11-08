@@ -6,15 +6,38 @@
 
 #include <iostream>
 #include "aStack.h"
+#include<string.h>
 
 using std::cout;
 using std::cerr;
 using std::endl;
 
-int check_parenthesis(const char *s)
-{
-  // put your code here (20 lines of code should be enough)
-  return -1;
+int check_parenthesis(const char *s) {
+
+  int returnCode = 0;  
+  aStack<int> stack;  
+  for(int i = 0; i < strlen(s); i++) {
+    if (s[i] == '(') {
+      stack.push(i);
+    }
+    else if (s[i] == ')') {
+      if (stack.is_empty()) {
+        returnCode = 1;
+        cout << "  unmatched \')\' at position " << i << endl;
+      }
+      else {
+        cout << "  \'(\' at position " << stack.top() << " and matching \')\' at position " << i << endl;
+        stack.pop();
+      }
+    }
+  }
+  while(!stack.is_empty()) {
+      returnCode = 1;
+      cout << "  unmatched \'(\' at position " << stack.top() << endl;
+      stack.pop();
+  }
+  return returnCode;
+
 }
 
 int main(int argc,char **argv)
