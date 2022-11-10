@@ -16,7 +16,7 @@ int check_parenthesis(const char *s) {
 
   int returnCode = 0;  
   aStack<int> stack;  
-  for(int i = 0; i < strlen(s); i++) {
+  for(int i = 0; s[i]!='\0'; i++) {
     if (s[i] == '(') {
       stack.push(i);
     }

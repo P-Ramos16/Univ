@@ -1,0 +1,16 @@
+clear all
+close all
+clc
+
+%%
+N1 = 128;
+N2 = 128;
+n1 = (0:N1-1);
+n2 = (0:N2-1)';
+
+%%
+x = sin(2*pi*0.2*(n1+0*n2));
+X = fft2(x);
+
+%%
+plot(x(:,1))

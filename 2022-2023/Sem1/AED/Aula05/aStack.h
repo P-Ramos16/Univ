@@ -54,7 +54,15 @@ class aStack
     }
     void push(T &v)
     {
-      assert(cur_size < max_size);
+      if (cur_size == max_size) {
+        int new_size = max_size + 100;
+        T* new_data = new T[new_size];
+        for (int i=0; i<max_size;i++) {
+          new_data[i] = data[i];
+        }
+        delete[] data;
+        data = new_data;
+      }
       data[cur_size++] = v;
     }
     T pop(void)

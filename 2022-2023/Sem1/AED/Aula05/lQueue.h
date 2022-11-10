@@ -8,38 +8,45 @@
 #define _AED_lQueue_
 
 #include <cassert>
+#include "sList.h"
 
 template <typename T>
-class lQueue
-{
+class lQueue {
   private:
+    sList<T>* data;
   public:
-    lQueue(void)
-    {
+    lQueue(void) {
+      data = new sList<T>();
     }
-    ~lQueue(void)
-    {
+    ~lQueue(void) {
+      delete data;
     }
-    void clear(void)
-    {
+    void clear(void) {
+      delete data;
+      data = new sList<T>();
+      return;
     }
-    int size(void) const
-    {
+    int size(void) const {
+      return data->size();
     }
-    int is_full(void) const
-    {
+    int is_full(void) const {
+      return data->is_full();
     }
-    int is_empty(void) const
-    {
+    int is_empty(void) const {
+      return data->size() == 0;
     }
-    void enqueue(T &v)
-    {
+    void enqueue(T &v) {
+      data->insert_after_tail(v); // Vale  mais a pena meter no fim, pois se colocar o dequeue (inicio da fila)
+                                 // na tail, como remove_tail é muito ineficiente o código ficaria muito mais ineficiente
+      return;
     }
-    T dequeue(void)
-    {
+    T dequeue(void) {
+      data->remove_head();
+      return 0;
     }
-    T peek(void)
-    {
+    T peek(void) {
+      data->move_to_head();
+      return data->size()-1; // o??????????
     }
 };
 
