@@ -1,0 +1,1 @@
+             dict(header='Abrir Doca', body=lambda row: A(T('Abrir'), _class='btn btn-primary editBtn', _onclick='ajax(' + {{=URL('default', 'openDock')}} + ', [' + str(row.id) + ', ' + str(db.stations(db.stations.id == row.station).stationid) + '])'))]
