@@ -72,8 +72,8 @@ function sortArray() {
 
     if [ "$w" -eq 0 ]; then
         # Sort Array
-        for i in $(seq 1 $(( maxProc - 1 ))); do
-            for j in $(seq $i $(( maxProc - 1 ))); do
+        for i in $(seq 1 $(( numProcMax - 1 ))); do
+            for j in $(seq $i $(( numProcMax - 1 ))); do
                 if [[ "${dataArray[$i, 5]}" -lt "${dataArray[$j, 5]}" ]]; then
                     temp=("${dataArray[$i, 0]}" "${dataArray[$i, 1]}" "${dataArray[$i, 2]}" "${dataArray[$i, 3]}" "${dataArray[$i, 4]}" "${dataArray[$i, 5]}" "${dataArray[$i, 6]}" "${dataArray[$i, 7]}")
                     for ((n = 0; n < 8; n++)); do
@@ -86,8 +86,8 @@ function sortArray() {
         return
     fi
 
-    for i in $(seq 1 $(( maxProc - 1 ))); do
-        for j in $(seq $i $(( maxProc - 1 ))); do
+    for i in $(seq 1 $(( numProcMax - 1 ))); do
+        for j in $(seq $i $(( numProcMax - 1 ))); do
             if [[ "${dataArray[$i, 6]}" -lt "${dataArray[$j, 6]}" ]]; then
                 temp=("${dataArray[$i, 0]}" "${dataArray[$i, 1]}" "${dataArray[$i, 2]}" "${dataArray[$i, 3]}" "${dataArray[$i, 4]}" "${dataArray[$i, 5]}" "${dataArray[$i, 6]}" "${dataArray[$i, 7]}")
                 for ((n = 0; n < 8; n++)); do
@@ -106,7 +106,7 @@ function reReadWrite() {
 
     # Check for read/write every second
     for i in $(seq 1 $(( numProcMax - 1 ))); do
-        procPId=${PIdArray[$i]}
+        procPId=${procData[$i, 2]}
 
         procRead=($(cat /proc/${procPId}/io | awk '$1 == "rchar:" { print $2 }') )
         procWrite=($(cat /proc/${procPId}/io | awk '$1 == "wchar:" { print $2 }') )
@@ -134,7 +134,6 @@ function reReadWrite() {
 
 
 # Default Values, podem ser sobreescritos pelo utilizador
-secs=2              # Tempo entre as duas leituras das taxas read/write
 c=".*"              # Regex para filtrar processos pelo seu COMM
 s="Jan 1 00:00"     # Data mínima inicial dos processos
 e="Dez 31 24:00"    # Data máxima inicial dos processos
@@ -144,6 +143,14 @@ export M=100000            # PID máximo dos processos
 export p=100               # Num máximo de processos a mostrar
 export w=0
 export r=0
+lastArg="${@: -1}"
+
+if [[ -z "${lastArg}" ]] || [[ "${lastArg}" =~ '^[0-9]+$'  ]] || [[ "${lastArg}" -lt 1 ]] || [[ "${lastArg}" -gt 1000 ]]; then
+    usage
+else
+    secs="${@: -1}"              # Tempo entre as duas leituras das taxas read/write
+fi
+
 
 
 # Get options from command    
@@ -213,39 +220,45 @@ PIdArray=($(ps -Ao pid,etime,user,comm | grep -v root | tail -n +2 | awk -v user
 
 
 # Número de processos no array
-maxProc=${#PIdArray[@]}
+procIdsCatched=${#PIdArray[@]}
+maxProc=0
 declare -A procData
 
 # Generate array of Processes
-# for i = [0, 1, ..., maxProc-1]
-for i in $(seq 1 $(( maxProc - 1 ))); do
+# for i = [0, 1, ..., procIdsCatched-1]
+for i in $(seq 1 $(( procIdsCatched - 1 ))); do
     procPId=${PIdArray[$i]}
     
+    if [[ -f "/proc/${procPId}/io" ]]; then
+        if [[ -r "/proc/${procPId}/io" ]]; then
 
-    procRead=($(cat /proc/${procPId}/io | awk '$1 == "rchar:" { print $2 }'))
-    procWrite=($(cat /proc/${procPId}/io | awk '$1 == "wchar:" { print $2 }'))
+            procRead=($(cat /proc/${procPId}/io | awk '$1 == "rchar:" { print $2 }') )
+            procWrite=($(cat /proc/${procPId}/io | awk '$1 == "wchar:" { print $2 }'))
 
-    if [ $procRead -eq 0  ] && [ $procWrite -eq 0 ]; then
-        continue
+            if [[ $procRead -eq 0  ]] && [[ $procWrite -eq 0 ]]; then
+                continue
+            fi
+
+            procComm=($(cat /proc/${procPId}/comm))
+            procUser=($(stat --format '%U' /proc/${procPId}))
+            procDate=($(ps -p ${procPId} -o lstart= | awk '{ print $2, $3, $4 }'))
+
+            procData[$maxProc, 0]=${procComm}
+            procData[$maxProc, 1]=${procUser}
+            procData[$maxProc, 2]=${procPId}
+            procData[$maxProc, 3]=${procRead}
+            procData[$maxProc, 4]=${procWrite}
+            procData[$maxProc, 5]=${procRead}
+            procData[$maxProc, 6]=${procWrite}
+            procData[$maxProc, 7]=${procDate[@]}
+
+            ((maxProc=maxProc+1))
+        fi
     fi
-
-    procComm=($(cat /proc/${procPId}/comm))
-    procUser=($(stat --format '%U' /proc/${procPId}))
-    procDate=($(ps -p ${procPId} -o lstart= | awk '{ print $2, $3, $4 }'))
-
-    procData[$i, 0]=${procComm}
-    procData[$i, 1]=${procUser}
-    procData[$i, 2]=${procPId}
-    procData[$i, 3]=${procRead}
-    procData[$i, 4]=${procWrite}
-    procData[$i, 5]=${procRead}
-    procData[$i, 6]=${procWrite}
-    procData[$i, 7]=${procDate[@]}
 
 done
 
 sleep $secs
-
 
 reReadWrite procData maxProc
 

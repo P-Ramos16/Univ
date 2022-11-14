@@ -25,3 +25,5 @@ end
 
 pRank
 
+%  As páginas com maior rank são a C, D e F, com valores perto de 1/3 cada,
+% visto que são páginas com "spider traps" ou "dead-ends"

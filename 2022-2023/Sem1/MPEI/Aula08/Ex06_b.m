@@ -22,3 +22,7 @@ end
 %%
 plot(1:1:n, probFinal);
 grid on;
+
+%  Após cerca de 5 transições, a probabilidade de estar no
+% estado 2 é quase nula, visto que é muito mais provável
+% ter-mos ficado presos num estado absorvente.

@@ -15,4 +15,4 @@ B  = vetEstadosFinal(2) * nAlunos
 C  = vetEstadosFinal(3) * nAlunos
 
 % IGUAL À ALINEA C pois após algumas iterações
-% estabiliza num estado estacionário
+% a probabilidade estabiliza num estado estacionário

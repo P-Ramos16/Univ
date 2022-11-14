@@ -15,6 +15,7 @@ for dia = 2:31
     nDiasChuva = nDiasChuva + V(3);
 end
 
+% Numero de dias médio com dores visto que o primeiro dia é de Sol
 nDiasDorSol = nDiasSol * 0.1 + nDiasNuvens * 0.3 + nDiasChuva * 0.5
 
 
@@ -30,6 +31,7 @@ for dia = 2:31
     nDiasChuva = nDiasChuva + V(3);
 end
 
+% Numero de dias médio com dores visto que o primeiro dia é de Chuva
 nDiasDorChuva = nDiasSol * 0.1 + nDiasNuvens * 0.3 + nDiasChuva * 0.5
 
 %  Irá existir diferença entre o nũmero medio de dias com

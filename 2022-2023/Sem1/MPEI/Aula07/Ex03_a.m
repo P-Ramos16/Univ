@@ -8,4 +8,7 @@ for i = 1:1:20
 end
 
 matTransicao
-% repmat ?
+
+sum(matTransicao)
+matTransicao >= 0 & matTransicao <= 1
+% Tudo uns, logo é estocástica

@@ -37,3 +37,10 @@ plot(1:1:n, probFinalA);
 plot(1:1:n, probFinalB);
 grid on;
 hold off;
+
+
+% As probabilidades de estar no estado 3 e 5 aumentam até quase cobrirem
+% chegaram a uma soma de 1. Isto acontece pois ambos são estados
+% absorventes.
+% É de notar que a probabilidade de chegar ao estado 3 é muito
+% maior do que a probabilidade de chegar ao estado 5, mas as curvas ainda são semelhantes.

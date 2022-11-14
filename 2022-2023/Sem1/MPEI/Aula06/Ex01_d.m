@@ -11,13 +11,13 @@ vetEstado1 = [0.15  % prob estar presente na primeira aula
 
 vetEstadoFinal = zeros(1, 30);
 
-vetEstadoFinal(1) = vetEstado1(1)
+vetEstadoFinal(1) = vetEstado1(1);
 
 for i = 1:1:29
     vetEstado = (matEstados^i) * vetEstado1;
     vetEstadoFinal(i+1) = vetEstado(2);
 end
 
-plot(nAulas, vetEstadoFinal)
-axis([0 31 0.1 0.3])
-grid on
+plot(nAulas, vetEstadoFinal);
+axis([0 31 0.1 0.3]);
+grid on;

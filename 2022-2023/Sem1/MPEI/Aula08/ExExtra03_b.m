@@ -1,9 +1,9 @@
-H = [0   0   0   0   1   0
-     1   0   0   0   1   0
-     0   1   0   1   0   0
-     0   0   1   0   0   0
-     0   1   0   0   0   0
-     0   0   0   0   1   1];
+H = [0   1/2    1/2   0     1/4     0
+     1   0      0     0     1/4     0
+     0   0      0     1     1/4     0
+     0   0      1/2   0     1/4     1
+     0   0      0     0     0       0
+     0   1/2    0     0     0       0];
 
 N = size(H);
 N = N(1);   % num páginas
@@ -15,6 +15,7 @@ H = H./saidas;
 H(isnan(H)) = 0;
 
 A = beta*H + (1-beta)*ones(N)/N;
+
 
 %% 
 iter = 1;
@@ -30,6 +31,4 @@ end
 iter
 pRank = newpRank
 
-%  É precido 14 iterações
-%  Os valores são muito parecidos, visto que após 10 iterações
-% os valores já ficam muito constantes
+%  A melhor página é a D e a pior é a E
