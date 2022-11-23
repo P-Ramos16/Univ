@@ -9,7 +9,7 @@ function [y, ts] = reconstroiSinal(x, Ta)
     fs = 100*fa;
     ts = [0:(length(y)-1)]'*(1/fs);
     
-    for n = 1:1:N
+    for n = 1:1:N-1
         y = y + x(n) * sinc(fa * (ts - n*Ta));
     end
 end

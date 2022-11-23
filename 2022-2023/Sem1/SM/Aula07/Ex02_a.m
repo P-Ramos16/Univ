@@ -1,4 +1,4 @@
-Ta = 0.2;      % sampling period
+Ta = 0.05;      % sampling period
 
 T = 5;
 
@@ -10,8 +10,8 @@ hold on
 figure(1);
 plot(t, x, 'o');
 legend("Sinal original");
-[X, t] = reconstroiSinal(x, Ta);
-plot(t, X, '--');
+[X, ts] = reconstroiSinal(x, Ta);
+plot(ts, X, '--');
 legend("Sinal reconst.");
 title('Ex02_a');
 xlabel('x');

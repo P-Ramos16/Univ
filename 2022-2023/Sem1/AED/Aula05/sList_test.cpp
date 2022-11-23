@@ -4,13 +4,13 @@
 // Generic singly-linked list test code
 //
 // compile with
-//   c++ -Wall -O2 -std=c++0x sList_test.cpp
+//   c++ -Wall -O2 -std=c++0x dList_test.cpp
 //
 
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
-#include "sList.h"
+#include "dList.h"
 
 using std::rand;
 using std::cout;
@@ -19,8 +19,11 @@ using std::setw;
 
 int main(void)
 {
-  sList<int> L;
+
+  dList<int> L;
+
   L.test_invariants();
+
   int i = 0;
   while(i < 1000000)
   {
@@ -96,11 +99,12 @@ int main(void)
         break;
     }
     i += j;
+    cout << "All went well! (till) >>> " << j << endl;
     if(j != 0)
       L.test_invariants();
   }
-  cout << "Final contents of the list:" << endl;
   L.move_to_head();
+  cout << "Final contents of the list:" << endl;
   L.test_invariants();
   for(int i = 0;i < L.size();i++)
   {

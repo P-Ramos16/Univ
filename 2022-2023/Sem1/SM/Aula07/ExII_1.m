@@ -10,8 +10,12 @@ hold on
 figure(1);
 plot(t, x, 'o');
 legend("Sinal original");
-[X, t] = reconstroiSinal(x, Ta);
-plot(t, X, '--');
+
+[index,quantized] = quantiz(x)
+
+
+
+plot(index, quantized, '--');
 legend("Sinal reconst.");
 title('Ex02_a');
 xlabel('x');
