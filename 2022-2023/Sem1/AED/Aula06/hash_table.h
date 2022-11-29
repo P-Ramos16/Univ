@@ -170,8 +170,15 @@ void display() {
 
   for(i = 0; i < hash_table_size; i++) {
 
-    if(hash_table[i] != NULL)
+    hash_table_node* lastNode = find_hash_table_node(i);
+
+    if(lastNode != NULL)
+      printf(" Hash Code: %i",i);
+      while (lastNode->next != NULL) {
         printf(" (%d,%d)",*hash_table[i]->key,hash_table[i]->value);
+        lastNode = lastNode->next;
+      }
+    }
     else
         printf(" ~~ ");
   }

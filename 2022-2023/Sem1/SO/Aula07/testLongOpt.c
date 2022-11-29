@@ -16,11 +16,7 @@ int main(int argc, char *argv[])
             {   "file", required_argument, 0,  0  },
             {        0,                 0, 0,  0  }
         };
-    while ( (c = getopt_long(argc, argv, "abc:d:012",
-                            long_options, &option_index)
-            ) != -1 
-          )
-    {
+    while ((c = getopt_long(argc, argv, "abc:d:012", long_options, &option_index)) != -1 ) {
         int this_option_optind = optind ? optind : 1;
         switch (c)
         {

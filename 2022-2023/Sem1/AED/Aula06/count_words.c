@@ -23,8 +23,8 @@ typedef int T;
 // complete the register_word function (count this word)
 //
 
-void register_word(char word[64])
-{
+void register_word(char word[64]) {
+  
 }
 
 

@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
         // strtod(24abc) = "a"
         // strdod(24) = \0
 
+        printf("strtod > %i\n", strtod(argv[1], &endarg1));
+        printf("atoi > %i\n", atoi(argv[1]));
+
         if (endarg1 == argv[1] || *endarg1 != '\0' || endarg2 == argv[3] || *endarg2 != '\0') {
             printf("Argumento(s) inválido(s)\n");
             return EXIT_SUCCESS;
@@ -32,24 +35,24 @@ int main(int argc, char *argv[]) {
 
         switch(*(argv[2])) {
             case '+':
-                result = atof(argv[1]) + atof(argv[3]);
+                result = num1 + num2;
                 break;
 
             case '-':
-                result = atof(argv[1]) - atof(argv[3]);
+                result = num1 - num2;
                 break;
 
             case 'x':
             case '*':
-                result = atof(argv[1]) * atof(argv[3]);
+                result = num1 * num2;
                 break;
 
             case '/':
-                result = atof(argv[1]) / atof(argv[3]);
+                result = num1 / num2;
                 break;
 
             case 'p':
-                result = pow(atof(argv[1]), atof(argv[3]));
+                result = pow(num1, num2);
                 break;
 
             default:

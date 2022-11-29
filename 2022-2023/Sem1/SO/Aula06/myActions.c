@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /* SUGESTÂO: utilize as páginas do manual para conhecer mais sobre as funções usadas:
  man system
@@ -10,7 +11,9 @@
 int main(int argc, char *argv[])
 {
     char text[1024];
-    
+
+    FILE *fp = fopen("command.log", "w");
+
     do
     {
         printf("Command: ");
@@ -26,9 +29,17 @@ int main(int argc, char *argv[])
            system(text);
            printf("---------------------------------\n");
         }
+
+        time_t mytime = time(NULL);
+        char * time_str = ctime(&mytime);
+        time_str[strlen(time_str)-1] = '\0';
+
+        fprintf(fp, "%s | %s", text, time_str);
+
     } while(strcmp(text, "end"));
 
     printf("-----------The End---------------\n");
 
+    fclose(fp);
     return EXIT_SUCCESS;
 }

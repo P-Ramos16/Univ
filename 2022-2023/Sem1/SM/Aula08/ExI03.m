@@ -25,7 +25,7 @@ axis([-1000 1000 0 6e-3]);
 grid on;
 
 
-[xReconst, t] = reconstroi(X, fa); % xFiltered
+[xReconst, t] = reconstroi(xFiltered, f); % xFiltered
 
 sound(xReconst, fa)
 

@@ -1,6 +1,7 @@
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* SUGESTÂO: utilize as páginas do manual para conhecer mais sobre as funções usadas:
   man opendir
@@ -19,15 +20,25 @@ void listDir(char dirname[])
         return;
     }
 
-    dent = readdir(dp);
-    while(dent!=NULL) 
+    char newDir[250];
+    memset(newDir, 0, sizeof(newDir));
+    while(dent=readdir(dp)) 
     {
-        if(dent->d_name[0] != '.') /* do not list hidden dirs/files */
-        {
-          printf("%s/%s\n",dirname,dent->d_name);
+        if(dent->d_name[0] == '.') { /* do not list hidden dirs/files */
+            continue;
         }
+        strcat(newDir, dirname);
+        strcat(newDir, "/");
+        strcat(newDir, dent->d_name);
+        if(dent->d_type == DT_DIR) { /* list dirs */
+            printf("\n----%s----\n\n", newDir);
+            listDir(newDir);
+        }
+        else {
+          printf("%s\n",newDir);
+        }
+        memset(newDir, 0, sizeof(newDir));
 
-        dent = readdir(dp);
     }
 }
 
