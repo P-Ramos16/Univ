@@ -5,7 +5,6 @@
 int main(int argc, char *argv[])
 {
     printf("\n-----\n");
-    execl("/bin/ls", "ls", "-l", NULL);
     printf("-----\n\n");
     printf("Filho: PID = %d, PPID = %d\n", getpid(), getppid());
     sleep(3);
