@@ -1,8 +1,8 @@
 function [N, M, Stream] = Load8bitStream(Filename)
-%SAVE8BITIMAGE Summary of this function goes here
-%   Detailed explanation goes here
-    file = fopen(Filename, 'rb');
-    
+    %  Abre o ficheiro e retira o tamanho da matriz
+    % original. Retira depois o Stream e fecha
+    % o ficheiro.
+    file = fopen(Filename, 'rb');    
     N = fread(file, 1, 'uint16');
     M = fread(file, 1, 'uint16');
     Stream = fread(file, inf, 'uint8');

@@ -1,4 +1,4 @@
-function SimilarUsers = getSimilarUsers_MinHash(J, Nu, threshold, users)
+function SimilarUsers = getSimilarUsers(J, Nu, threshold, users)
     %% Com base na distância, determina pares com
     %% distância inferior a um limiar pré-definido
         
@@ -14,6 +14,6 @@ function SimilarUsers = getSimilarUsers_MinHash(J, Nu, threshold, users)
         end
     end
     
-    save("similarUsers.mat", "SimilarUsers")
+    %save("similarUsers.mat", "SimilarUsers");
 end
 

@@ -2,6 +2,7 @@ clear all;
 load("Mensagem.mat");
 [simbolos, frequencia] = alfabeto2(Mensagem);
 
+length(Mensagem)
 simbolos
 frequencia
 

@@ -14,6 +14,6 @@ function SimilarUsers = getSimilarUsers(J, Nu, threshold, users)
         end
     end
     
-    save("similarUsers.mat", "SimilarUsers");
+    %save("similarUsers.mat", "SimilarUsers");
 end
 

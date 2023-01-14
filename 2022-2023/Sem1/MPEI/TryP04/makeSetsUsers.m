@@ -1,6 +1,4 @@
-function [Set, Nu, users] = makeSets_MinHash(file)
-    % Código base para deteção de pares similares
-    
+function [Set, Nu, users] = makeSetsUsers(file)    
     udata = load(file); % Carrega o ficheiro dos dados dos filmes
     
     % Fica apenas com as duas primeiras colunas

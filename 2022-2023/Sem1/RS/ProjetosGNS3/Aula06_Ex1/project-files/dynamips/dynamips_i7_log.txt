@@ -1,0 +1,50 @@
+Dec 02 18:17:14.534 HYPERVISOR: Release 0.2.22-amd64/Linux (tag 2022052400)
+Dec 02 18:17:14.534 HYPERVISOR: Started on IP = localhost, TCP port = 53541.
+Dec 02 18:17:14.543 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 02 18:17:14.544 HYPERVISOR: exec_cmd: hypervisor working_dir /root/GNS3/projects/Aula06_Ex1/project-files/dynamips 
+Dec 02 18:17:14.544 GENERAL: working_dir=/root/GNS3/projects/Aula06_Ex1/project-files/dynamips
+Dec 02 18:17:14.544 HYPERVISOR: exec_cmd: hypervisor working_dir /root/GNS3/projects/Aula06_Ex1/project-files/dynamips/b3369681-f5fe-4be8-9ff2-d5fdc2a1ec11 
+Dec 02 18:17:14.544 GENERAL: working_dir=/root/GNS3/projects/Aula06_Ex1/project-files/dynamips/b3369681-f5fe-4be8-9ff2-d5fdc2a1ec11
+Dec 02 18:17:14.544 HYPERVISOR: exec_cmd: vm create R1 2 c3725 
+Dec 02 18:17:14.544 VM: VM R1 created.
+Dec 02 18:17:14.545 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5003 
+Dec 02 18:17:14.545 HYPERVISOR: exec_cmd: c3725 get_mac_addr R1 
+Dec 02 18:17:14.545 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Dec 02 18:17:14.546 HYPERVISOR: exec_cmd: vm set_ios R1 /root/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Dec 02 18:17:14.546 HYPERVISOR: exec_cmd: c3725 set_mac_addr R1 c202.659f.0000 
+Dec 02 18:17:14.546 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Dec 02 18:17:14.546 HYPERVISOR: exec_cmd: vm get_status R1 
+Dec 02 18:17:14.546 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 NM-1FE-TX 
+Dec 02 18:17:14.547 HYPERVISOR: exec_cmd: vm get_status R1 
+Dec 02 18:17:14.547 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 NM-1FE-TX 
+Dec 02 18:17:14.672 HYPERVISOR: exec_cmd: nio create_udp udp-7b3d5342-4caa-4f94-aafb-6f6c47130491 10004 127.0.0.1 10005 
+Dec 02 18:17:14.881 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-7b3d5342-4caa-4f94-aafb-6f6c47130491 
+Dec 02 18:17:14.882 HYPERVISOR: exec_cmd: vm get_status R1 
+Dec 02 19:25:38.224 HYPERVISOR: exec_cmd: vm create Ghost 0 c3725 
+Dec 02 19:25:38.224 VM: VM Ghost created.
+Dec 02 19:25:38.226 HYPERVISOR: exec_cmd: vm set_ios Ghost /root/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Dec 02 19:25:38.227 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Dec 02 19:25:38.230 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost /root/GNS3/projects/Aula06_Ex1/project-files/dynamips/c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Dec 02 19:25:38.233 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Dec 02 19:25:38.233 HYPERVISOR: exec_cmd: vm set_config Ghost configs/i0_startup-config.cfg 
+Dec 02 19:25:38.233 HYPERVISOR: exec_cmd: vm start Ghost 
+Dec 02 19:25:38.507 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Dec 02 19:25:38.508 HYPERVISOR: exec_cmd: vm stop Ghost 
+Dec 02 19:25:38.663 VM: VM Ghost shutdown.
+Dec 02 19:25:38.664 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Dec 02 19:25:38.665 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Dec 02 19:25:38.665 VM: VM Ghost destroyed.
+Dec 02 19:25:38.666 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Dec 02 19:25:38.666 HYPERVISOR: exec_cmd: vm set_ghost_file R1 /root/GNS3/projects/Aula06_Ex1/project-files/dynamips/c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Dec 02 19:25:38.666 HYPERVISOR: exec_cmd: vm get_status R1 
+Dec 02 19:25:38.667 HYPERVISOR: exec_cmd: vm set_config R1 configs/i2_startup-config.cfg 
+Dec 02 19:25:38.667 HYPERVISOR: exec_cmd: vm start R1 
+Dec 02 19:28:38.918 HYPERVISOR: exec_cmd: vm extract_config R1 
+Dec 02 19:28:38.931 HYPERVISOR: exec_cmd: vm extract_config R1 
+Dec 02 19:33:15.070 HYPERVISOR: exec_cmd: vm get_status R1 
+Dec 02 19:33:15.072 HYPERVISOR: exec_cmd: vm stop R1 
+Dec 02 19:33:15.149 VM: VM R1 shutdown.
+Dec 02 19:33:15.149 HYPERVISOR: exec_cmd: vm extract_config R1 
+Dec 02 19:49:57.971 HYPERVISOR: Stopped.
+Dec 02 19:49:57.971 VM: VM R1 destroyed.
+Dec 02 19:49:57.971 GENERAL: reset done.

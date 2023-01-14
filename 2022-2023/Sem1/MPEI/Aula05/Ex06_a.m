@@ -6,7 +6,7 @@ p = 1 / 1000; %  Probabilidade do evento
                 %  X: Num de roupas defeituosas observadas
 
 array   =  rand(n, N);
-         % array de tamanho 2 com numeros de 0 a 1
+         % array de tamanho 8000 x 1e4 com numeros de 0 a 1
 
 % array de quantas vezes aconteceu cada numero de coroas
 % (se arrayProbs(1) for 3, quer dizer que em só 3 experiencias nao houve qualquer defeito)

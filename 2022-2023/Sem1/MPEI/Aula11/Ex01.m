@@ -24,6 +24,7 @@ end
 %% Calcula a distância de Jaccard entre todos os pares pela definição.
 J = zeros(Nu, Nu); % array para guardar distâncias
 h = waitbar(0, "Calculating");
+tic
 for n1 = 1:Nu
     waitbar(n1/Nu,h);
     for n2 = n1+1:Nu
@@ -32,6 +33,7 @@ for n1 = 1:Nu
         J(n1, n2) = 1 - (length(intersect(u1,u2)) / length(union(u1,u2)));
     end
 end
+toc
 delete(h)
 
 imagesc(J);

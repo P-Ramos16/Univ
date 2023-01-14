@@ -14,6 +14,7 @@ x = sin(2*pi*f0*t); %signal to process
 hold on
 p = plot(f, abs(X), 'b');
 %p = plot(t, x, 'g');
+axis([-5 5 0 1])
 p(1).LineWidth = 1;
 legend("f");
 title('Ex03_a');

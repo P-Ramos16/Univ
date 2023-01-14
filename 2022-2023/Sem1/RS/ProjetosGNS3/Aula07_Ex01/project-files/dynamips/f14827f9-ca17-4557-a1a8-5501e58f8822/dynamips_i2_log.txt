@@ -1,0 +1,59 @@
+Dec 28 19:50:10.798 HYPERVISOR: Release 0.2.22-amd64/Linux (tag 2022052400)
+Dec 28 19:50:10.798 HYPERVISOR: Started on IP = localhost, TCP port = 48025.
+Dec 28 19:50:10.805 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 28 19:50:10.805 HYPERVISOR: exec_cmd: hypervisor working_dir /root/GNS3/projects/Aula07_Ex01/project-files/dynamips 
+Dec 28 19:50:10.805 GENERAL: working_dir=/root/GNS3/projects/Aula07_Ex01/project-files/dynamips
+Dec 28 19:50:10.806 HYPERVISOR: exec_cmd: hypervisor working_dir /root/GNS3/projects/Aula07_Ex01/project-files/dynamips/590f3ef0-7ef5-4d36-9306-6024c772e8df 
+Dec 28 19:50:10.806 GENERAL: working_dir=/root/GNS3/projects/Aula07_Ex01/project-files/dynamips/590f3ef0-7ef5-4d36-9306-6024c772e8df
+Dec 28 19:50:10.806 HYPERVISOR: exec_cmd: vm create R3 3 c3725 
+Dec 28 19:50:10.806 VM: VM R3 created.
+Dec 28 19:50:10.807 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5002 
+Dec 28 19:50:10.808 HYPERVISOR: exec_cmd: c3725 get_mac_addr R3 
+Dec 28 19:50:10.808 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Dec 28 19:50:10.809 HYPERVISOR: exec_cmd: vm set_ios R3 /root/GNS3/images/IOS/c3725-advipservicesk9-mz.124-21.image 
+Dec 28 19:50:10.810 HYPERVISOR: exec_cmd: c3725 set_mac_addr R3 c203.8f81.0000 
+Dec 28 19:50:10.811 HYPERVISOR: exec_cmd: vm set_nvram R3 256 
+Dec 28 19:50:10.812 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:50:10.812 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 NM-1FE-TX 
+Dec 28 19:50:10.813 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:50:10.813 HYPERVISOR: exec_cmd: vm slot_add_binding R3 2 0 NM-1FE-TX 
+Dec 28 19:50:10.945 HYPERVISOR: exec_cmd: nio create_udp udp-d4ab8407-076e-4bcc-ab7e-948f228c378f 10002 127.0.0.1 10003 
+Dec 28 19:50:11.161 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 0 udp-d4ab8407-076e-4bcc-ab7e-948f228c378f 
+Dec 28 19:50:11.162 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:50:11.492 HYPERVISOR: exec_cmd: nio create_udp udp-9510e806-9ac7-41df-9a35-9480f2b5fa57 10008 127.0.0.1 10009 
+Dec 28 19:50:11.496 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 1 udp-9510e806-9ac7-41df-9a35-9480f2b5fa57 
+Dec 28 19:50:11.496 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:53:39.577 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Dec 28 19:53:39.579 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /root/GNS3/projects/Aula07_Ex01/project-files/dynamips/c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Dec 28 19:53:39.580 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:53:39.582 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Dec 28 19:53:39.582 HYPERVISOR: exec_cmd: vm start R3 
+Dec 28 19:54:06.220 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:54:06.221 HYPERVISOR: exec_cmd: vm stop R3 
+Dec 28 19:54:06.299 VM: VM R3 shutdown.
+Dec 28 19:54:06.302 HYPERVISOR: exec_cmd: vm extract_config R3 
+Dec 28 19:55:10.265 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Dec 28 19:55:10.268 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /root/GNS3/projects/Aula07_Ex01/project-files/dynamips/c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Dec 28 19:55:10.269 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:55:10.270 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Dec 28 19:55:10.271 HYPERVISOR: exec_cmd: vm start R3 
+Dec 28 19:56:12.137 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:56:12.174 HYPERVISOR: exec_cmd: vm stop R3 
+Dec 28 19:56:12.229 VM: VM R3 shutdown.
+Dec 28 19:56:12.230 HYPERVISOR: exec_cmd: vm extract_config R3 
+Dec 28 19:56:28.825 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Dec 28 19:56:28.827 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /root/GNS3/projects/Aula07_Ex01/project-files/dynamips/c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Dec 28 19:56:28.828 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 19:56:28.829 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Dec 28 19:56:28.830 HYPERVISOR: exec_cmd: vm start R3 
+Dec 28 19:59:29.087 HYPERVISOR: exec_cmd: vm extract_config R3 
+Dec 28 19:59:29.099 HYPERVISOR: exec_cmd: vm extract_config R3 
+Dec 28 20:01:44.737 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 20:01:44.737 HYPERVISOR: exec_cmd: vm stop R3 
+Dec 28 20:01:44.801 VM: VM R3 shutdown.
+Dec 28 20:01:44.802 HYPERVISOR: exec_cmd: vm extract_config R3 
+Dec 28 20:32:35.580 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+Dec 28 20:32:35.582 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /root/GNS3/projects/Aula07_Ex01/project-files/dynamips/c3725-advipservicesk9-mz.124-21.image-128.ghost 
+Dec 28 20:32:35.583 HYPERVISOR: exec_cmd: vm get_status R3 
+Dec 28 20:32:35.584 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+Dec 28 20:32:35.584 HYPERVISOR: exec_cmd: vm start R3 

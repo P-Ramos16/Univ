@@ -1,4 +1,4 @@
-dclear all;
+clear all;
 n = 8000;
 m = 1000;       % Palavras a inserir
 maxSize = 10000;% Palavras a verificar

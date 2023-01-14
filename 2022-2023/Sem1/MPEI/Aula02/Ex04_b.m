@@ -1,6 +1,6 @@
 N = 1e3;      %  num experiencias
 n = 1:1:100;       %  num keys 
-m = 365     %  tamanho do array
+m = 365;     %  tamanho do array
 res = [];
 
 ProbA = zeros(1, length(m));

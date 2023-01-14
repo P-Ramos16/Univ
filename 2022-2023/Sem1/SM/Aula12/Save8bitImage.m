@@ -1,7 +1,6 @@
 function Save8bitImage(Filename,Image)
-%SAVE8BITIMAGE Summary of this function goes here
-%   Detailed explanation goes here
-    
+    % SAVE8BITIMAGE Abre o ficheiro e coloca o N e o M
+    % Após isto guarda a variavel Image e fecha o ficheiro
     file = fopen(Filename, 'wb');
     [n,m] = size(Image);
     

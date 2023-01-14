@@ -1,0 +1,24 @@
+Dec 13 16:15:48.585 HYPERVISOR: Release 0.2.22-amd64/Linux (tag 2022052400)
+Dec 13 16:15:48.585 HYPERVISOR: Started on IP = localhost, TCP port = 36913.
+Dec 13 16:15:48.591 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 13 16:15:48.591 HYPERVISOR: exec_cmd: hypervisor working_dir /root/GNS3/projects/Aula10_1/project-files/dynamips 
+Dec 13 16:15:48.591 GENERAL: working_dir=/root/GNS3/projects/Aula10_1/project-files/dynamips
+Dec 13 16:15:48.591 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Dec 13 16:15:48.933 HYPERVISOR: exec_cmd: nio create_udp udp-48eb0bf9-ecc9-4872-a387-6e6e807f5b4f 10001 127.0.0.1 10000 
+Dec 13 16:15:48.934 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-48eb0bf9-ecc9-4872-a387-6e6e807f5b4f 
+Dec 13 16:15:48.942 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-48eb0bf9-ecc9-4872-a387-6e6e807f5b4f 1 
+Dec 13 16:15:49.021 HYPERVISOR: exec_cmd: nio create_udp udp-f6bcc003-7644-4581-a648-b823e3a73287 10003 127.0.0.1 10002 
+Dec 13 16:15:49.022 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-f6bcc003-7644-4581-a648-b823e3a73287 
+Dec 13 16:15:49.042 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-f6bcc003-7644-4581-a648-b823e3a73287 1 
+Dec 13 16:15:49.103 HYPERVISOR: exec_cmd: nio create_udp udp-6e26a9d5-b31d-41a9-9601-4daf6c2398b2 10004 127.0.0.1 10005 
+Dec 13 16:15:49.103 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-6e26a9d5-b31d-41a9-9601-4daf6c2398b2 
+Dec 13 16:15:49.122 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-6e26a9d5-b31d-41a9-9601-4daf6c2398b2 1 
+Dec 13 16:18:24.912 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-6e26a9d5-b31d-41a9-9601-4daf6c2398b2 1 
+Dec 13 16:18:24.923 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-48eb0bf9-ecc9-4872-a387-6e6e807f5b4f 1 
+Dec 13 16:18:24.923 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-f6bcc003-7644-4581-a648-b823e3a73287 1 
+Dec 13 16:22:17.995 HYPERVISOR: exec_cmd: nio bind_filter udp-6e26a9d5-b31d-41a9-9601-4daf6c2398b2 2 capture 
+Dec 13 16:22:17.996 HYPERVISOR: exec_cmd: nio setup_filter udp-6e26a9d5-b31d-41a9-9601-4daf6c2398b2 2 en10mb /root/GNS3/projects/Aula10_1/project-files/captures/Switch1_Ethernet0_to_R1_FastEthernet00.pcap 
+Dec 13 16:44:47.845 HYPERVISOR: exec_cmd: ethsw delete Switch1 
+Dec 13 16:44:47.891 HYPERVISOR: exec_cmd: hypervisor stop 
+Dec 13 16:44:48.007 HYPERVISOR: Stopped.
+Dec 13 16:44:48.007 GENERAL: reset done.
