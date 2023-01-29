@@ -4,8 +4,10 @@
 Boas cara pessoa em necessidade de coisas dos outros anos.
 
 Neste repositório estão guardados 99% dos ficheiros e coisas que usa-mos nas aulas de LEI desde 2021-2024.
-Grande parte deste repo são de aulas práticas mas é possível ter coisas das teóricas também.
-Faltam "apenas" a maior parte dos guiões teóricos/práticos mas devem estar quase todos no site do NEI ou outros repositórios tristes como este.
+Grande parte deste repo são de aulas práticas mas é possível ter coisas das teóricas também.\
+
+Faltam "apenas" a maior parte dos guiões teóricos/práticos mas devem estar quase todos no site do NEI ou outros repositórios tristes como este.\
+
 Os trabalhos de ITW, MAS, AED, SO e MPEI (só estes até agora) estão noutro repositório separado que irei colocar depois (talvez mentira idk não me apetece fazer nada hoje).
 
 &nbsp;
