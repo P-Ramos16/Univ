@@ -8,7 +8,9 @@ Grande parte deste repo são de aulas práticas mas é possível ter coisas das 
 
 Faltam "apenas" a maior parte dos guiões teóricos/práticos (os pdfs deles) mas devem estar quase todos no site do NEI ou outros repositórios tristes como este.
 
-Os trabalhos de ITW, MAS, AED, SO e MPEI (só estes até agora) estão noutro repositório separado que irei colocar depois (talvez mentira idk não me apetece fazer nada hoje).
+Os trabalhos de ITW, MAS, AED, SO e MPEI (só estes até agora) estão noutro [repositório separado](https://github.com/P-Ramos16/Projetos_Univ) ligeiramente menos caótico.
+
+Boa sorte a navegar pelas minhas atormentações mentais aqui colocadas para todos se rirem.
 
 &nbsp;
 ![Logo](https://i.imgur.com/hvZODXy.png)
