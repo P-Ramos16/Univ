@@ -46,7 +46,7 @@ Os trabalhos de ITW, MAS, AED, SO e MPEI (só estes até agora) estão noutro re
 - Commits com títulos engraçados
 - Tinite
 - Testes práticos de anos anteriores mais ou menos resolvidos
-- Algumas screenshots de algumas aulas do meu épico terminal todo riced
+- Algumas screenshots de aulas e do meu épico terminal todo riced
 
 
 ![Screenshot of the therminal from my AED project](https://i.imgur.com/k3MN2OF.png)
