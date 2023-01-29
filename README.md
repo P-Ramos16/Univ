@@ -4,19 +4,18 @@
 Boas cara pessoa em necessidade de coisas dos outros anos.
 
 Neste repositório estão guardados 99% dos ficheiros e coisas que usa-mos nas aulas de LEI desde 2021-2024.
-Faltam apenas a maior parte dos guiões teóricos/práticos mas devem estar quase todos no site do NEI ou outros repositórios tristes como este.
+Grande parte deste repo são de aulas práticas mas é possível ter coisas das teóricas também.
+Faltam "apenas" a maior parte dos guiões teóricos/práticos mas devem estar quase todos no site do NEI ou outros repositórios tristes como este.
 Os trabalhos de ITW, MAS, AED, SO e MPEI (só estes até agora) estão noutro repositório separado que irei colocar depois (talvez mentira idk não me apetece fazer nada hoje).
-
-
 
 &nbsp;
 ![Logo](https://i.imgur.com/hvZODXy.png)
-
 &nbsp;
 
 
 ## Organização das pastas
 **Univ**\
+<!---
 &emsp;├── 2021-2022\
 &emsp;│&emsp;├── Sem1\
 &emsp;│&emsp;│&emsp;├── FP\
@@ -34,9 +33,9 @@ Os trabalhos de ITW, MAS, AED, SO e MPEI (só estes até agora) estão noutro re
 &emsp; &emsp;│&emsp;├── SM\
 &emsp; &emsp;│&emsp;└── SO\
 &emsp; &emsp;└── Sem2
-
+-->
+![Tree de Ficheiros](https://i.imgur.com/qebl0dL.png)
 &nbsp;
-
 
 ## Coisas que tenho
 
