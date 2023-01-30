@@ -110,8 +110,7 @@ class sList
     //
     // constructor
     //
-    sList(void)
-    {
+    sList(void) {
       n_nodes = 0;
       head = nullptr;
       tail = nullptr;
@@ -121,12 +120,10 @@ class sList
     //
     // destructor
     //
-    ~sList(void)
-    {
+    ~sList(void) {
       sNode *sn1,*sn2;
 
-      for(sn1 = head;sn1 != nullptr;sn1 = sn2)
-      {
+      for(sn1 = head;sn1 != nullptr;sn1 = sn2) {
         sn2 = sn1->next;
         delete sn1;
       }
@@ -139,8 +136,7 @@ class sList
     //
     // list size
     //
-    int size(void) const
-    {
+    const int size(void) {
       return n_nodes;
     }
     //
