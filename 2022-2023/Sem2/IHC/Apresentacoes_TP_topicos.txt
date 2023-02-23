@@ -1,0 +1,47 @@
+Links com listas para escolher:
+
+https://dl.acm.org/doi/proceedings/10.5555/3523760
+https://mobilehci.acm.org/2020/program/
+https://dl.acm.org/toc/pacmhci/2022/6/MHCI
+https://ieeexplore.ieee.org/xpl/conhome/9756663/proceeding?isnumber=9756727&pageNumber=2
+https://ieeevr.org/2022/program/papers/
+https://www.mum-conf.org/2022/schedule/
+https://sui.acm.org/2022/program
+
+
+
+
+
+
+Possíveis:
+
+
+Robos
+
+1-Debugging robos em 3D => https://dl.acm.org/doi/10.5555/3523760.3523789
+2-Controlar robos com AR e eye tracking => https://dl.acm.org/doi/10.5555/3523760.3523800
+3-Humor em robos em vez de desculpas? => https://dl.acm.org/doi/10.5555/3523760.3523804
+4-Apontar para controlar um robo (com camera só) => https://dl.acm.org/doi/10.5555/3523760.3523819
+5-Detetar frustação e mudar a forma de interagir com thermal imaging => https://dl.acm.org/doi/10.5555/3523760.3523821
+6-Treino em VR de manutenção industrial (meh) => https://ieeexplore.ieee.org/document/9756800
+
+Wearables/Smartphones
+
+7-Portar o UI de uma app para smart watches => https://dl.acm.org/doi/10.1145/3379503.3403564
+8-Explorar o UI de uma app para um foldable smartphone colocado em tent mode (dobrado a ~60º) => https://dl.acm.org/doi/10.1145/3379503.3403566
+9-Criar feedback de Wearables ao estimular body hair??? => https://dl.acm.org/doi/10.1145/3379503.3403545
+
+
+Automação
+
+10-Fazer decisões/sugestões de tráfico entre vários carros e avisar os condutores => https://dl.acm.org/doi/10.1145/3546711
+11-Augumented Reality na condução in real time => https://dl.acm.org/doi/10.1145/3546712
+12-UI 3d de AR num parabrisas => https://ieeexplore.ieee.org/document/9756811
+
+
+Sensos
+
+13-Cheirar merda quando o Bruno fala numa aula online => https://ieeexplore.ieee.org/document/9756819
+14-Depth perception e efeitos de sombras, posição etc... => https://ieeexplore.ieee.org/document/9756824
+15-Pseudo-Peso sentido ao por exemplo, segurar algo em augmented reality => https://ieeexplore.ieee.org/document/9756784
+
