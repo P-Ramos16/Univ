@@ -1,0 +1,131 @@
+﻿A  Survey of Patterns for Adapting Smartphone App UIs to Smart Watches
+
+
+
+
+Apresentação:
+
+
+*  As we all know, wearable devices, be it simple smart bands or even wireless earphones, are growing in popularity more and more every year. In fact, for the last few years it has been one of the fastest growing industries, with a growth of over 11% a year. 
+
+
+*  One of the biggest contributors to this rapid growth are the ever more useful smart watches, which both allow you to become more, and less, connected to the internet[a].
+
+
+*  Smart watches exist mostly to complement your existing smartphone, allowing you to quickly make fast actions without having to pull your phone out and cycle through extensive apps and menus.
+
+
+*  This focus on limited, but concise interaction is the driving force behind this study that we are going to present.
+
+
+Parte aborrecida:
+- Smartphone UI:
+
+
+*  For the basis of this study, there were selected[b] 101 free apps that have both a smartphone and a smartwatch counterpart. These app’s UI layouts and functionalities are then compared on both devices to determine how to implement (or not) a certain type of layout/function on a smartwatch[c].
+
+
+*  This paper starts off by listing and categorizing six types of common navigational UI elements on the analyzed smartphone apps. These types were:
+
+
+        1- Springboard, which is the first screen, where the user chooses what type of action they will be doing.
+        2- List Menu, which is a list of UI destinations in the app, listed uniformelly.
+        3- Dashboard, which is a list of scrollable information for the user to see.
+        4- Gallery, which is a grid of non-abstract images (they are not icons).
+        5- Side Drawer, which is a list of shortcuts for within the app that occupies some of the screen.
+        6- Skeuomorphic[d] Pattern, which is a representation of an intractable object.
+
+
+* The paper then presents two new UI elements that are Content-based, the static content and the interactive content.
+
+
+* 1- Static content is usually presented in the form of a image or plain text without any user interactions. The user has to go back to the previous page in order to use other functions of the app. A good example of this is a “about me” page.
+* 2- Interactive content is an image, text or animation where the user can interact with via buttons on the app, a good example of this is a calculator app.
+  
+
+- Smartwatch:
+*  There was also a need to categorize and divide the UI components found in the study of the examined app’s smartwatch counterparts, which were subdivided in:
+   * 1- List, which is a vertical scrollable list with text, icons or both
+   * 2- Scroll, which is page with content that can be scrolled through
+   * 3- Interactive card, which is a screen with some interactive buttons. A good example is of a music player controller.
+   * 4- Informative card, which is a screen with some information displayed.
+   * 5- Skeuomorphic, which is a UI element that mimics a specific object or tool. A good example is a compass.
+
+
+  
+
+
+
+
+
+
+
+Explorar os UIs de todas as apps e compará-los:
+*  To explore all of the menus in each app, the investigative team created a tool called UICrawler, which maps each screen of a given app into a tree of connected screenshots. This tool also experiments with user events, such as clicking and writing text.
+*  The team behind this paper also used 3 student’s help to verify the authenticity of the UICrawler by simulating and filling gaps in the tool’s output.
+* Each UI element was also manually labeled with the UI elements we talked about before.
+Results:
+* Here are the results of the study:
+
+
+*  The opening SpringBoard, although now falling in desuse[e], was almost always shortened to only a list of most important functions of the app.
+
+
+*  The List Menu was usually mapped to a list of text and stripped of the previews. Sometimes it was mapped to a set of interactive cards.
+
+
+*  The Dashboard couldn't be mapped to just a list, as it would be too “boring” and long, so some of the information was hidden in a list and a Informative card was used for the most important information.
+
+
+*  The Gallery was usually mapped to a list, but the testers found galleries to be too big and cumbersome for the small screen of a smartwatch, therefore most galleries were only implemented as a controller in the smartwatch (can control what is on the phone’s screen).
+
+
+*  Although the Side Drawer is a secondary method of navigation on a normal smartphone app’s UI, in the small screen of a smart watch the functionality was incredibly useful. For example, on some apps the swipe down gesture would bring a set of cards so that the user could easily navigate to other parts of the app.
+
+
+*  The Skeuomorphic screen was much more elaborate. If an object could easily fit on a smartwatch’s form factor, it was mostly a one-to-one translation. If that was not the case, the smartwatch’s UI would just simply consist of some buttons that do the same thing.
+
+
+* Static Content was mostly converted to informative cards and some scrolls.
+
+
+*  Interactive content was usually passed as a set of interactive cards. Google as a template for media/music player controls that nearly every app implemented.
+
+
+* Special components like top and bottom bars were either excluded or implemented on a special swipe top/down gesture.
+
+
+
+
+
+
+Mapping:
+*  Phone to watch mapping was found to be:
+   *  82% of cases were one-to-one, where one screen on the phone was translated to one screen on the watch.
+   *  16% of cases were one-to-many mapping, where one screen on the phone was divided into multiple on the watch.
+   *  On 2% of the analyzed apps there was a many-to-one mapping, in which one UI page on the smartwatch was multiple screens on the phone.
+
+
+Trends:
+*  Most phone apps can and have been translated to smartwatch counterparts.
+*  Cards and more “pretty” alternatives are preferred over long lists.
+*  Previews and larger images are very hard to implement.
+*  Few apps implement a side drawer, even though it was a very important addition to the ones that did.
+* Subsetting some of the smartphone app’s UI was necessary to make it fit on a smartwatch.
+
+
+Limitations:
+*  The context of each app wasn’t tested.
+*  Interactive UI elements like buttons weren’t tested.
+*  It is entirely possible that paid apps provide better data since it’s more likely they are designed better.
+
+
+Conclusion[f]: 
+*  This is the first smartphone-smartwatch UI component comparison dataset ever made.
+* Subsetting is extremely important.
+[a]significado de merda não sei o que meter aqui
+[b]sorry não sei falar ingles aqui
+[c]repetição, soa mal, tive 13 a português
+[d]Boa sorte a ler esta merda para 40 pessoas sem querer pegar numa caneta do quarto e mete-la no rabiosque
+[e]99% certeza esta palavra não existe
+[f]Provavelmente podemos juntar as trends aqui
