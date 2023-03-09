@@ -16,8 +16,8 @@ public class HelloMain {
          // replace error listener:
          //parser.removeErrorListeners(); // remove ConsoleErrorListener
          //parser.addErrorListener(new ErrorHandlingListener());
-         // begin parsing at greetings rule:
-         ParseTree tree = parser.greetings();
+         // begin parsing at command rule:
+         ParseTree tree = parser.command();
          if (parser.getNumberOfSyntaxErrors() == 0) {
             // print LISP-style tree:
             // System.out.println(tree.toStringTree(parser));
